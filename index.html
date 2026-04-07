@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Explorer | The Intelligent Surface</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #f5f6f7;
+      --surface: #f5f6f7;
+      --surface-container-low: #eff1f2;
+      --surface-container: #e6e8ea;
+      --surface-container-high: #e0e3e4;
+      --surface-container-highest: #dadddf;
+      --surface-container-lowest: #ffffff;
+      --on-surface: #2c2f30;
+      --on-surface-variant: #595c5d;
+      --outline-variant: rgba(117, 119, 120, 0.15);
+      --primary: #0058bc;
+      --primary-dim: #004ca5;
+      --primary-container: #6d9fff;
+      --on-primary: #f0f2ff;
+      --on-primary-container: #00214f;
+      --secondary: #006a2b;
+      --secondary-container: #86f898;
+      --on-secondary-container: #005d25;
+      --tertiary: #b41a14;
+      --tertiary-container: #ff9384;
+      --on-tertiary-container: #690002;
+      --inverse-surface: #0c0f10;
+      --radius-sm: 14px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --shadow-soft: 0 12px 40px rgba(44, 47, 48, 0.06);
+      --shadow-ambient: 0 20px 50px rgba(44, 47, 48, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      background: var(--background);
+      color: var(--on-surface);
+      overflow-x: hidden;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.12), transparent 36%),
+        radial-gradient(circle at 85% 18%, rgba(134, 248, 152, 0.12), transparent 26%),
+        linear-gradient(180deg, #f8f9fa 0%, #f1f3f4 100%);
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(89, 92, 93, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(89, 92, 93, 0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 34%, transparent 86%);
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(120px);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .glow-blue {
+      top: 17%;
+      right: -10%;
+      width: 420px;
+      height: 420px;
+      background: rgba(0, 88, 188, 0.10);
+    }
+
+    .glow-green {
+      bottom: 18%;
+      left: -8%;
+      width: 360px;
+      height: 360px;
+      background: rgba(0, 106, 43, 0.10);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(1440px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 36px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 8px 0 24px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 6vw, 4.7rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+    }
+
+    .hero p {
+      width: min(760px, calc(100% - 24px));
+      margin: 16px auto 0;
+      font-size: clamp(1rem, 1.8vw, 1.22rem);
+      line-height: 1.55;
+      color: var(--on-surface-variant);
+    }
+
+    .canvas-wrap {
+      position: relative;
+      padding: 8px 0 0;
+    }
+
+    .canvas {
+      position: relative;
+      min-height: 760px;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-template-rows: repeat(6, minmax(86px, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .card {
+      position: relative;
+      border: 0;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      color: inherit;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .node {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+      isolation: isolate;
+    }
+
+    .node:hover,
+    .node:focus-visible {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: var(--shadow-ambient);
+      outline: none;
+    }
+
+    .node.active {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 22px 48px rgba(0, 88, 188, 0.16);
+    }
+
+    .node-primary.active {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dim) 100%);
+      color: var(--on-primary);
+      box-shadow: 0 24px 52px rgba(0, 88, 188, 0.30);
+    }
+
+    .node.active::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(109, 159, 255, 0.35), rgba(255, 255, 255, 0.1));
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .node-inner {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .node-vertical .node-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .node-center .node-inner {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .node-highlight {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(134, 248, 152, 0.08));
+      box-shadow: 0 20px 54px rgba(0, 106, 43, 0.10);
+    }
+
+    .node-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dim) 100%);
+      color: var(--on-primary);
+      box-shadow: 0 22px 50px rgba(0, 88, 188, 0.26);
+    }
+
+    .node-primary::after {
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .node-plain {
+      background: var(--surface-container-lowest);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .node-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      background: var(--surface-container-high);
+      color: var(--on-surface);
+    }
+
+    .node-icon.round {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+    }
+
+    .accent-primary .node-icon {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    .accent-secondary .node-icon {
+      background: var(--secondary-container);
+      color: var(--on-secondary-container);
+    }
+
+    .accent-tertiary .node-icon {
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+    }
+
+    .accent-neutral .node-icon {
+      background: var(--surface-container-high);
+      color: var(--on-surface);
+    }
+
+    .node-title {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .node-center .node-title {
+      font-size: 1.8rem;
+    }
+
+    .node-label {
+      display: block;
+      margin-top: 4px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--on-surface-variant);
+      font-weight: 700;
+    }
+
+    .node-primary .node-label {
+      color: rgba(240, 242, 255, 0.82);
+    }
+
+    .node-subtitle {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--on-surface-variant);
+      max-width: 24ch;
+    }
+
+    .node-primary .node-subtitle {
+      color: rgba(240, 242, 255, 0.86);
+    }
+
+    .node-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 0 8px;
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      background: var(--surface-container-high);
+      color: var(--on-surface-variant);
+    }
+
+    .node h3,
+    .node h4,
+    .node p {
+      margin: 0;
+    }
+
+    .span-4x2 { grid-column: 5 / span 4; grid-row: 2 / span 2; }
+    .span-3x2-left { grid-column: 2 / span 3; grid-row: 1 / span 2; }
+    .span-3x2-right { grid-column: 9 / span 3; grid-row: 1 / span 2; }
+    .span-2x2-left { grid-column: 2 / span 2; grid-row: 3 / span 2; }
+    .span-3x1-bottom-left { grid-column: 1 / span 3; grid-row: 5 / span 1; }
+    .span-3x2-mid { grid-column: 4 / span 3; grid-row: 4 / span 2; }
+    .span-3x1-mid { grid-column: 7 / span 3; grid-row: 4 / span 1; }
+    .span-2x1-doc { grid-column: 10 / span 2; grid-row: 3 / span 1; }
+    .span-3x1-custom { grid-column: 10 / span 3; grid-row: 4 / span 1; }
+    .span-2x1-eval { grid-column: 7 / span 2; grid-row: 5 / span 1; }
+    .span-2x2-guard { grid-column: 10 / span 2; grid-row: 5 / span 2; }
+    .span-2x1-realtime { grid-column: 5 / span 2; grid-row: 6 / span 1; }
+    .span-2x1-stitch { grid-column: 8 / span 2; grid-row: 6 / span 1; }
+
+    @media (max-width: 1260px) {
+      .canvas {
+        min-height: auto;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        grid-template-rows: repeat(6, minmax(92px, auto));
+      }
+
+      .span-3x2-left { grid-column: 1 / span 3; grid-row: 1 / span 2; }
+      .span-4x2 { grid-column: 3 / span 4; grid-row: 2 / span 2; }
+      .span-3x2-right { grid-column: 6 / span 3; grid-row: 1 / span 2; }
+      .span-2x2-left { grid-column: 1 / span 2; grid-row: 3 / span 2; }
+      .span-3x1-bottom-left { grid-column: 1 / span 3; grid-row: 5 / span 1; }
+      .span-3x2-mid { grid-column: 3 / span 3; grid-row: 4 / span 2; }
+      .span-3x1-mid { grid-column: 5 / span 3; grid-row: 4 / span 1; }
+      .span-2x1-doc { grid-column: 7 / span 2; grid-row: 3 / span 1; }
+      .span-3x1-custom { grid-column: 6 / span 3; grid-row: 4 / span 1; }
+      .span-2x1-eval { grid-column: 5 / span 2; grid-row: 5 / span 1; }
+      .span-2x2-guard { grid-column: 7 / span 2; grid-row: 5 / span 2; }
+      .span-2x1-realtime { grid-column: 3 / span 2; grid-row: 6 / span 1; }
+      .span-2x1-stitch { grid-column: 5 / span 2; grid-row: 6 / span 1; }
+    }
+
+    @media (max-width: 880px) {
+      .shell {
+        width: min(calc(100% - 20px), 1440px);
+        padding-bottom: 32px;
+      }
+
+      .hero {
+        padding-top: 18px;
+      }
+
+      .canvas {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        gap: 16px;
+      }
+
+      .canvas > * {
+        grid-column: auto !important;
+        grid-row: auto !important;
+      }
+
+      .node {
+        min-height: 110px;
+      }
+
+      .node-center .node-title {
+        font-size: 1.4rem;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="glow glow-blue" aria-hidden="true"></div>
+    <div class="glow glow-green" aria-hidden="true"></div>
+
+    <main class="shell">
+      <header class="hero">
+        <span class="eyebrow">Google AI State of the Art</span>
+        <h1>The Intelligent Surface</h1>
+        <p>
+          Explore the comprehensive landscape of Gemini-powered infrastructure,
+          from foundation models to production guardrails.
+        </p>
+      </header>
+
+      <section class="canvas-wrap" aria-label="AI capability explorer">
+        <div class="canvas">
+          <button class="card node accent-primary span-3x2-left" data-node="dev-tools" type="button">
+            <div class="node-inner">
+              <span class="node-icon">
+                <span class="material-symbols-outlined">terminal</span>
+              </span>
+              <div>
+                <h3 class="node-title">Dev Tools</h3>
+                <span class="node-label">Gemini Code Assist</span>
+              </div>
+            </div>
+          </button>
+
+          <button class="card node node-center accent-primary span-4x2 active" data-node="models" type="button">
+            <div class="node-inner">
+              <span class="node-icon round">
+                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;">model_training</span>
+              </span>
+              <div>
+                <h2 class="node-title">Models</h2>
+                <p class="node-subtitle">Gemini Family, Vertex Garden</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="card node accent-secondary span-3x2-right" data-node="assistants" type="button">
+            <div class="node-inner">
+              <span class="node-icon">
+                <span class="material-symbols-outlined">smart_toy</span>
+              </span>
+              <div>
+                <h3 class="node-title">Assistants</h3>
+                <span class="node-label">Workspace &amp; Apps</span>
+              </div>
+            </div>
+          </button>
+
+          <button class="card node node-vertical accent-primary span-2x2-left" data-node="studios" type="button">
+            <div class="node-inner">
+              <span class="node-icon">
+                <span class="material-symbols-outlined">auto_awesome_mosaic</span>
+              </span>
+              <div>
+                <h3 class="node-title">Studios &amp; Builders</h3>
+              </div>
+              <div class="node-chip-row" aria-hidden="true">
+                <span class="chip">Vertex AI</span>
+                <span class="chip">AI Studio</span>
+              </div>
+            </div>
+          </button>
+
+          <button class="card node node-plain accent-neutral span-3x1-bottom-left" data-node="apis" type="button">
+            <div class="node-inner">
+              <div>
+                <h3 class="node-title">APIs &amp; SDKs</h3>
+              </div>
+              <span class="node-icon" style="margin-left:auto;">
+                <span class="material-symbols-outlined">api</span>
+              </span>
+            </div>
+          </button>
+
+          <button class="card node node-highlight accent-secondary node-vertical span-3x2-mid" data-node="agents" type="button">
+            <div class="node-inner">
+              <div style="display:flex; width:100%; align-items:flex-start; gap:12px;">
+                <span class="node-icon" style="background:rgba(134,248,152,0.18); color:var(--secondary);">
+                  <span class="material-symbols-outlined">precision_manufacturing</span>
+                </span>
+              </div>
+              <div>
+                <h3 class="node-title" style="font-size:1.75rem;">Agents &amp; Workflows</h3>
+                <p class="node-subtitle">Build sophisticated autonomous agentic workflows with Vertex Engine.</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="card node accent-primary span-3x1-mid" data-node="data" type="button">
+            <div class="node-inner">
+              <span class="node-icon">
+                <span class="material-symbols-outlined">database</span>
+              </span>
+              <div>
+                <h3 class="node-title">Data &amp; RAG &amp; Connectors</h3>
+              </div>
+            </div>
+          </button>
+
+          <button class="card node accent-tertiary span-2x1-doc" data-node="doc-ai" type="button">
+            <div class="node-inner">
+              <span class="node-icon">
+                <span class="material-symbols-outlined">description</span>
+              </span>
+              <div>
+                <h3 class="node-title">Doc AI &amp; OCR</h3>
+              </div>
+            </div>
+          </button>
+
+          <button class="card node accent-primary span-3x1-custom" data-node="customization" type="button">
+            <div class="node-inner">
+              <span class="node-icon">
+                <span class="material-symbols-outlined">tune</span>
+              </span>
+              <div>
+                <h3 class="node-title">Fine-tuning &amp; Customization</h3>
+              </div>
+            </div>
+          </button>
+
+          <button class="card node accent-neutral span-2x1-eval" data-node="evaluation" type="button">
+            <div class="node-inner">
+              <span class="node-icon">
+                <span class="material-symbols-outlined">analytics</span>
+              </span>
+              <div>
+                <h3 class="node-title">Evaluation &amp; Observability</h3>
+              </div>
+            </div>
+          </button>
+
+          <button class="card node node-vertical accent-tertiary span-2x2-guard" data-node="guardrails" type="button">
+            <div class="node-inner">
+              <span class="node-icon">
+                <span class="material-symbols-outlined">encrypted</span>
+              </span>
+              <div>
+                <h3 class="node-title">Guardrails &amp; Security &amp; Governance</h3>
+                <p class="node-subtitle">Safety settings &amp; VPC-SC</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="card node node-primary span-2x1-realtime" data-node="realtime" type="button">
+            <div class="node-inner">
+              <span class="material-symbols-outlined">waves</span>
+              <div>
+                <h3 class="node-title">Realtime &amp; Multimodal</h3>
+              </div>
+            </div>
+          </button>
+
+          <button class="card node accent-primary span-2x1-stitch" data-node="stitch" type="button">
+            <div class="node-inner">
+              <span class="node-icon">
+                <span class="material-symbols-outlined">draw</span>
+              </span>
+              <div>
+                <h3 class="node-title">Design-to-Code &amp; Prototyping</h3>
+              </div>
+            </div>
+          </button>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const nodes = Array.from(document.querySelectorAll(".node[data-node]"));
+
+    function activateNode(key) {
+      nodes.forEach((node) => {
+        node.classList.toggle("active", node.dataset.node === key);
+      });
+    }
+
+    nodes.forEach((node) => {
+      node.addEventListener("click", () => activateNode(node.dataset.node));
+    });
+  </script>
+</body>
+</html>
