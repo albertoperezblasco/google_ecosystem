@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#ff9384",
+                    "primary-fixed-dim": "#5291ff",
+                    "on-tertiary-fixed-variant": "#7a0003",
+                    "secondary-dim": "#005d24",
+                    "on-primary": "#f0f2ff",
+                    "inverse-surface": "#0c0f10",
+                    "surface-container-low": "#eff1f2",
+                    "secondary-fixed-dim": "#78e98b",
+                    "surface-variant": "#dadddf",
+                    "on-tertiary-container": "#690002",
+                    "on-secondary-fixed-variant": "#00682a",
+                    "surface-container-highest": "#dadddf",
+                    "on-surface": "#2c2f30",
+                    "surface": "#f5f6f7",
+                    "on-secondary": "#cfffcf",
+                    "surface-container": "#e6e8ea",
+                    "secondary": "#006a2b",
+                    "primary-dim": "#004ca5",
+                    "outline": "#757778",
+                    "on-primary-container": "#00214f",
+                    "error": "#b31b25",
+                    "surface-bright": "#f5f6f7",
+                    "error-dim": "#9f0519",
+                    "background": "#f5f6f7",
+                    "surface-container-high": "#e0e3e4",
+                    "on-error-container": "#570008",
+                    "tertiary-dim": "#a30709",
+                    "primary-fixed": "#6d9fff",
+                    "error-container": "#fb5151",
+                    "surface-dim": "#d1d5d7",
+                    "on-primary-fixed-variant": "#002a61",
+                    "primary-container": "#6d9fff",
+                    "tertiary-fixed-dim": "#ff7c6b",
+                    "secondary-container": "#86f898",
+                    "on-background": "#2c2f30",
+                    "inverse-primary": "#4d8efe",
+                    "on-secondary-fixed": "#00481b",
+                    "primary": "#0058bc",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffefed",
+                    "on-surface-variant": "#595c5d",
+                    "on-error": "#ffefee",
+                    "tertiary": "#b41a14",
+                    "surface-tint": "#0058bc",
+                    "outline-variant": "#abadae",
+                    "tertiary-fixed": "#ff9384",
+                    "secondary-fixed": "#86f898",
+                    "inverse-on-surface": "#9b9d9e",
+                    "on-tertiary-fixed": "#3a0001",
+                    "on-primary-fixed": "#000000",
+                    "on-secondary-container": "#005d25"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .node-container {
+            perspective: 1000px;
+        }
+        .floating-node:hover .node-tooltip {
+            opacity: 1;
+            transform: translateY(-10px) scale(1);
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen selection:bg-primary-container selection:text-on-primary-container overflow-hidden">
+<!-- Ambient Layering Background -->
+<div class="fixed inset-0 -z-10 bg-surface">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 rounded-full blur-[120px]"></div>
+</div>
+<!-- Main Workspace Canvas -->
+<main class="relative w-full h-screen overflow-hidden flex flex-col items-center justify-center p-8">
+<!-- Header Branding (Editorial North Star) -->
+<header class="absolute top-12 left-12 z-20">
+<h1 class="text-4xl font-black tracking-tighter text-on-surface leading-none mb-2 uppercase">AI Ecosystem Explorer</h1>
+<p class="text-on-surface-variant font-label tracking-widest text-xs uppercase font-bold opacity-60">Developer API &amp; SDK Directory — Variation 3</p>
+</header>
+<div class="absolute top-12 right-12 z-20">
+<div class="flex items-center gap-4 bg-surface-container-lowest/70 backdrop-blur-xl px-6 py-3 rounded-full shadow-[0_12px_40px_rgba(44,47,48,0.06)]">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-label text-xs font-bold tracking-widest text-on-surface">DEVELOPER_CONSOLE_ACTIVE</span>
+</div>
+</div>
+<!-- The Intelligent Surface: Node Canvas -->
+<div class="relative w-full max-w-6xl aspect-[16/9] flex items-center justify-center">
+<!-- Gemini API Node -->
+<div class="group absolute top-[10%] left-[20%] z-10 floating-node cursor-pointer">
+<div class="w-48 h-48 bg-white/70 backdrop-blur-2xl rounded-full shadow-[0_12px_40px_rgba(44,47,48,0.06)] border border-white/40 flex items-center justify-center flex-col transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined text-4xl mb-2" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-bold text-sm tracking-tight">Gemini API</span>
+</div>
+<!-- Tooltip -->
+<div class="node-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-5 bg-white shadow-2xl rounded-2xl opacity-0 transition-all duration-300 transform scale-95 pointer-events-none z-50">
+<h3 class="text-on-surface font-bold text-sm mb-1">Gemini API</h3>
+<p class="text-on-surface-variant text-xs mb-3 leading-relaxed">Build multimodal applications using Google's most capable AI models.</p>
+<span class="text-[10px] font-mono text-primary break-all">ai.google.dev/gemini-api</span>
+</div>
+</div>
+<!-- Google Cloud Vertex AI Node -->
+<div class="group absolute top-[15%] right-[25%] z-10 floating-node cursor-pointer">
+<div class="w-40 h-40 bg-white/70 backdrop-blur-2xl rounded-full shadow-[0_12px_40px_rgba(44,47,48,0.06)] border border-white/40 flex items-center justify-center flex-col transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined text-3xl mb-2">cloud</span>
+<span class="font-bold text-sm tracking-tight">Google Cloud</span>
+</div>
+<div class="node-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-5 bg-white shadow-2xl rounded-2xl opacity-0 transition-all duration-300 transform scale-95 pointer-events-none z-50">
+<h3 class="text-on-surface font-bold text-sm mb-1">Vertex AI</h3>
+<p class="text-on-surface-variant text-xs mb-3 leading-relaxed">Unified platform for training and deploying machine learning models.</p>
+<span class="text-[10px] font-mono text-primary break-all">cloud.google.com/vertex-ai</span>
+</div>
+</div>
+<!-- Cloud Vision API Node -->
+<div class="group absolute bottom-[30%] left-[5%] z-10 floating-node cursor-pointer">
+<div class="w-36 h-36 bg-white/70 backdrop-blur-2xl rounded-full shadow-[0_12px_40px_rgba(44,47,48,0.06)] border border-white/40 flex items-center justify-center flex-col transition-all duration-500 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white">
+<span class="material-symbols-outlined text-3xl mb-2">visibility</span>
+<span class="font-bold text-sm tracking-tight text-center px-4 leading-tight">Vision API</span>
+</div>
+<div class="node-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-5 bg-white shadow-2xl rounded-2xl opacity-0 transition-all duration-300 transform scale-95 pointer-events-none z-50">
+<h3 class="text-on-surface font-bold text-sm mb-1">Cloud Vision</h3>
+<p class="text-on-surface-variant text-xs mb-3 leading-relaxed">Derived insights from images including labels, faces, and text recognition.</p>
+<span class="text-[10px] font-mono text-secondary break-all">cloud.google.com/vision</span>
+</div>
+</div>
+<!-- Cloud Speech-to-Text Node -->
+<div class="group absolute top-[40%] left-[45%] z-10 floating-node cursor-pointer">
+<div class="w-44 h-44 bg-white/70 backdrop-blur-2xl rounded-full shadow-[0_12px_40px_rgba(44,47,48,0.06)] border border-white/40 flex items-center justify-center flex-col transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined text-3xl mb-2">graphic_eq</span>
+<span class="font-bold text-sm tracking-tight">Speech-to-Text</span>
+</div>
+<div class="node-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-5 bg-white shadow-2xl rounded-2xl opacity-0 transition-all duration-300 transform scale-95 pointer-events-none z-50">
+<h3 class="text-on-surface font-bold text-sm mb-1">Speech AI</h3>
+<p class="text-on-surface-variant text-xs mb-3 leading-relaxed">Convert audio to text using powerful neural network models.</p>
+<span class="text-[10px] font-mono text-primary break-all">cloud.google.com/speech-to-text</span>
+</div>
+</div>
+<!-- Cloud Natural Language API Node -->
+<div class="group absolute bottom-[10%] right-[35%] z-10 floating-node cursor-pointer">
+<div class="w-40 h-40 bg-white/70 backdrop-blur-2xl rounded-full shadow-[0_12px_40px_rgba(44,47,48,0.06)] border border-white/40 flex items-center justify-center flex-col transition-all duration-500 group-hover:scale-110 group-hover:bg-tertiary group-hover:text-white">
+<span class="material-symbols-outlined text-3xl mb-2">description</span>
+<span class="font-bold text-xs tracking-tight text-center px-4 leading-tight">Natural Language</span>
+</div>
+<div class="node-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-5 bg-white shadow-2xl rounded-2xl opacity-0 transition-all duration-300 transform scale-95 pointer-events-none z-50">
+<h3 class="text-on-surface font-bold text-sm mb-1">NLP API</h3>
+<p class="text-on-surface-variant text-xs mb-3 leading-relaxed">Extract meaning from unstructured text through analysis.</p>
+<span class="text-[10px] font-mono text-tertiary break-all">cloud.google.com/natural-language</span>
+</div>
+</div>
+<!-- Cloud Translation API Node -->
+<div class="group absolute top-[5%] right-[5%] z-10 floating-node cursor-pointer">
+<div class="w-32 h-32 bg-white/70 backdrop-blur-2xl rounded-full shadow-[0_12px_40px_rgba(44,47,48,0.06)] border border-white/40 flex items-center justify-center flex-col transition-all duration-500 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white">
+<span class="material-symbols-outlined text-2xl mb-1">translate</span>
+<span class="font-bold text-xs tracking-tight">Translation</span>
+</div>
+<div class="node-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-5 bg-white shadow-2xl rounded-2xl opacity-0 transition-all duration-300 transform scale-95 pointer-events-none z-50">
+<h3 class="text-on-surface font-bold text-sm mb-1">Cloud Translation</h3>
+<p class="text-on-surface-variant text-xs mb-3 leading-relaxed">Dynamically translate between languages with high accuracy.</p>
+<span class="text-[10px] font-mono text-secondary break-all">cloud.google.com/translate</span>
+</div>
+</div>
+<!-- MediaPipe Node -->
+<div class="group absolute bottom-[40%] right-[10%] z-10 floating-node cursor-pointer">
+<div class="w-48 h-48 bg-white/70 backdrop-blur-2xl rounded-full shadow-[0_12px_40px_rgba(44,47,48,0.06)] border border-white/40 flex items-center justify-center flex-col transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined text-4xl mb-2" style="font-variation-settings: 'FILL' 1;">gesture</span>
+<span class="font-bold text-sm tracking-tight">MediaPipe</span>
+</div>
+<div class="node-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-5 bg-white shadow-2xl rounded-2xl opacity-0 transition-all duration-300 transform scale-95 pointer-events-none z-50">
+<h3 class="text-on-surface font-bold text-sm mb-1">MediaPipe</h3>
+<p class="text-on-surface-variant text-xs mb-3 leading-relaxed">Cross-platform ML solutions for live and streaming media.</p>
+<span class="text-[10px] font-mono text-primary break-all">ai.google.dev/edge/mediapipe</span>
+</div>
+</div>
+<!-- LiteRT Node -->
+<div class="group absolute bottom-[5%] left-[30%] z-10 floating-node cursor-pointer">
+<div class="w-36 h-36 bg-white/70 backdrop-blur-2xl rounded-full shadow-[0_12px_40px_rgba(44,47,48,0.06)] border border-white/40 flex items-center justify-center flex-col transition-all duration-500 group-hover:scale-110 group-hover:bg-primary-dim group-hover:text-white">
+<span class="material-symbols-outlined text-2xl mb-1">bolt</span>
+<span class="font-bold text-sm tracking-tight">LiteRT</span>
+</div>
+<div class="node-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-5 bg-white shadow-2xl rounded-2xl opacity-0 transition-all duration-300 transform scale-95 pointer-events-none z-50">
+<h3 class="text-on-surface font-bold text-sm mb-1">LiteRT (TFLite)</h3>
+<p class="text-on-surface-variant text-xs mb-3 leading-relaxed">The high-performance runtime for AI on edge devices.</p>
+<span class="text-[10px] font-mono text-primary break-all">ai.google.dev/edge/litert</span>
+</div>
+</div>
+<!-- TensorFlow Node -->
+<div class="group absolute top-[40%] left-[12%] z-10 floating-node cursor-pointer">
+<div class="w-32 h-32 bg-white/70 backdrop-blur-2xl rounded-full shadow-[0_12px_40px_rgba(44,47,48,0.06)] border border-white/40 flex items-center justify-center flex-col transition-all duration-500 group-hover:scale-110 group-hover:bg-[#FF6F00] group-hover:text-white">
+<span class="material-symbols-outlined text-2xl mb-1">architecture</span>
+<span class="font-bold text-xs tracking-tight">TensorFlow</span>
+</div>
+<div class="node-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-5 bg-white shadow-2xl rounded-2xl opacity-0 transition-all duration-300 transform scale-95 pointer-events-none z-50">
+<h3 class="text-on-surface font-bold text-sm mb-1">TensorFlow</h3>
+<p class="text-on-surface-variant text-xs mb-3 leading-relaxed">An end-to-end open source platform for machine learning.</p>
+<span class="text-[10px] font-mono text-primary break-all">tensorflow.org/api_docs</span>
+</div>
+</div>
+<!-- JAX Node -->
+<div class="group absolute bottom-[15%] right-[10%] z-10 floating-node cursor-pointer">
+<div class="w-36 h-36 bg-white/70 backdrop-blur-2xl rounded-full shadow-[0_12px_40px_rgba(44,47,48,0.06)] border border-white/40 flex items-center justify-center flex-col transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined text-3xl mb-1">functions</span>
+<span class="font-bold text-sm tracking-tight">JAX</span>
+</div>
+<div class="node-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-5 bg-white shadow-2xl rounded-2xl opacity-0 transition-all duration-300 transform scale-95 pointer-events-none z-50">
+<h3 class="text-on-surface font-bold text-sm mb-1">JAX</h3>
+<p class="text-on-surface-variant text-xs mb-3 leading-relaxed">Composable transformations of Python+NumPy programs.</p>
+<span class="text-[10px] font-mono text-primary break-all">docs.jax.dev</span>
+</div>
+</div>
+<!-- SVG Connecting Lines (Decorative) -->
+<svg class="absolute inset-0 w-full h-full -z-0 opacity-20" preserveaspectratio="none">
+<path class="text-outline-variant" d="M 20% 10% Q 30% 25% 45% 40%" fill="none" stroke="currentColor" stroke-width="1"></path>
+<path class="text-outline-variant" d="M 45% 40% Q 60% 40% 75% 15%" fill="none" stroke="currentColor" stroke-width="1"></path>
+<path class="text-outline-variant" d="M 45% 40% Q 30% 60% 5% 70%" fill="none" stroke="currentColor" stroke-width="1"></path>
+<path class="text-outline-variant" d="M 45% 40% Q 50% 65% 65% 90%" fill="none" stroke="currentColor" stroke-width="1"></path>
+<path class="text-outline-variant" d="M 45% 40% Q 70% 50% 90% 60%" fill="none" stroke="currentColor" stroke-width="1"></path>
+</svg>
+</div>
+<!-- Footer Legend / Utility -->
+<footer class="absolute bottom-12 w-full flex justify-between px-12 items-end">
+<div class="max-w-sm">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">
+                    Interact with nodes to explore integration protocols and documentation links for Google's state-of-the-art AI infrastructure.
+                </p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary-container/20 text-primary text-[10px] font-bold tracking-widest rounded-full uppercase">Multimodal</span>
+<span class="px-3 py-1 bg-secondary-container/20 text-secondary text-[10px] font-bold tracking-widest rounded-full uppercase">Edge ML</span>
+<span class="px-3 py-1 bg-tertiary-container/20 text-tertiary text-[10px] font-bold tracking-widest rounded-full uppercase">Enterprise</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<p class="text-on-surface-variant font-label text-[10px] uppercase font-black tracking-widest">Network Status</p>
+<div class="flex items-center gap-2 text-secondary">
+<span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+<span class="text-xs font-bold">ALL SYSTEMS OPERATIONAL</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Floating Background Details for Texture -->
+<div class="fixed top-1/4 left-1/3 w-96 h-96 bg-white/50 rounded-full blur-3xl -z-20 pointer-events-none"></div>
+<div class="fixed bottom-1/4 right-1/4 w-80 h-80 bg-surface-container-high/40 rounded-full blur-3xl -z-20 pointer-events-none"></div>
+</body></html>

@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Explorer | APIs &amp; SDKs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #f5f6f7;
+      --surface: #f5f6f7;
+      --surface-container-low: #eff1f2;
+      --surface-container: #e6e8ea;
+      --surface-container-high: #e0e3e4;
+      --surface-container-lowest: #ffffff;
+      --on-surface: #2c2f30;
+      --on-surface-variant: #595c5d;
+      --outline-variant: rgba(117, 119, 120, 0.15);
+      --primary: #0058bc;
+      --primary-dim: #004ca5;
+      --primary-container: #6d9fff;
+      --on-primary: #f0f2ff;
+      --on-primary-container: #00214f;
+      --secondary: #006a2b;
+      --secondary-container: #86f898;
+      --on-secondary-container: #005d25;
+      --tertiary: #b41a14;
+      --tertiary-container: #ff9384;
+      --on-tertiary-container: #690002;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --shadow-soft: 0 12px 40px rgba(44, 47, 48, 0.06);
+      --shadow-ambient: 0 20px 50px rgba(44, 47, 48, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: "Inter", sans-serif;
+      background: var(--background);
+      color: var(--on-surface);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100dvh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.12), transparent 36%),
+        radial-gradient(circle at 85% 18%, rgba(134, 248, 152, 0.12), transparent 26%),
+        linear-gradient(180deg, #f8f9fa 0%, #f1f3f4 100%);
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(89, 92, 93, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(89, 92, 93, 0.05) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.94) 38%, transparent 86%);
+      pointer-events: none;
+      opacity: 0.65;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(120px);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .glow-blue {
+      top: -5%;
+      right: -8%;
+      width: 420px;
+      height: 420px;
+      background: rgba(0, 88, 188, 0.12);
+    }
+
+    .glow-green {
+      bottom: -8%;
+      left: -6%;
+      width: 340px;
+      height: 340px;
+      background: rgba(0, 106, 43, 0.10);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(1440px, calc(100% - 32px));
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: clamp(18px, 2.2vh, 28px) 0 clamp(20px, 2.6vh, 32px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(12px, 1.8vh, 20px);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-ambient);
+      outline: none;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .hero {
+      display: block;
+      max-width: 640px;
+    }
+
+    .hero-copy h1 {
+      margin: 6px 0 0;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      max-width: 11ch;
+    }
+
+    .stage {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: stretch;
+      overflow: visible;
+    }
+
+    .constellation {
+      position: relative;
+      width: min(1180px, 100%);
+      min-height: 0;
+      height: 100%;
+      margin-top: 0;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      overflow: visible;
+    }
+
+    .constellation::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .constellation {
+      padding: 28px;
+      background:
+        radial-gradient(circle at 48% 40%, rgba(109, 159, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 76% 68%, rgba(134, 248, 152, 0.14), transparent 25%),
+        rgba(255, 255, 255, 0.72);
+    }
+
+    .constellation::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: inherit;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .constellation-map {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 620px;
+      padding-top: 24px;
+      z-index: 1;
+    }
+
+    .group-zone {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(12px);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .group-zone.foundation {
+      inset: 14% 46% 28% 18%;
+      background: radial-gradient(circle at 50% 48%, rgba(109, 159, 255, 0.22), rgba(109, 159, 255, 0.04) 58%, transparent 78%);
+    }
+
+    .group-zone.services {
+      inset: 14% 8% 26% 56%;
+      background:
+        radial-gradient(circle at 28% 34%, rgba(134, 248, 152, 0.14), transparent 18%),
+        radial-gradient(circle at 58% 58%, rgba(134, 248, 152, 0.18), transparent 22%),
+        radial-gradient(circle at 84% 18%, rgba(134, 248, 152, 0.16), transparent 17%);
+    }
+
+    .group-zone.frameworks {
+      inset: 55% 28% 2% 8%;
+      background:
+        radial-gradient(circle at 42% 54%, rgba(255, 170, 156, 0.30), rgba(255, 147, 132, 0.12) 50%, transparent 79%),
+        radial-gradient(circle at 74% 52%, rgba(255, 170, 156, 0.18), transparent 22%);
+    }
+
+    .cluster-field {
+      position: absolute;
+      z-index: 2;
+    }
+
+    .cluster-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .cluster-field.foundation {
+      left: 23%;
+      top: 14%;
+      width: 31%;
+      height: 50%;
+    }
+
+    .cluster-field.foundation .cluster-title {
+      color: var(--primary);
+      background: rgba(109, 159, 255, 0.14);
+    }
+
+    .cluster-field.services {
+      left: 58%;
+      top: 13%;
+      width: 30%;
+      height: 44%;
+    }
+
+    .cluster-field.services .cluster-title {
+      color: var(--secondary);
+      background: rgba(134, 248, 152, 0.16);
+    }
+
+    .cluster-field.frameworks {
+      left: 14%;
+      top: 62%;
+      width: 49%;
+      height: 24%;
+    }
+
+    .cluster-field.frameworks .cluster-title {
+      top: -26px;
+      color: var(--tertiary);
+      background: rgba(255, 170, 156, 0.22);
+    }
+
+    .orbit {
+      position: absolute;
+      inset: 56% auto auto 46%;
+      width: min(31vw, 360px);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(117, 119, 120, 0.12);
+      pointer-events: none;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      inset: 14%;
+      border-radius: 50%;
+      border: 1px solid rgba(117, 119, 120, 0.08);
+    }
+
+    .orbit::after {
+      inset: 28%;
+    }
+
+    .node-link {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      transform: translate(-50%, -50%);
+      width: max-content;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .node-link:hover,
+    .node-link:focus-visible {
+      z-index: 30;
+      outline: none;
+    }
+
+    .node-core {
+      position: relative;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 40px rgba(44, 47, 48, 0.10);
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+      overflow: hidden;
+    }
+
+    .node-core::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--tone), rgba(255, 255, 255, 0.78));
+      opacity: 0.95;
+      z-index: -1;
+    }
+
+    .node-link:hover .node-core,
+    .node-link:focus-visible .node-core {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 24px 48px rgba(44, 47, 48, 0.16);
+    }
+
+    .node-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.56);
+      color: var(--ink);
+    }
+
+    .node-core strong {
+      font-size: clamp(0.82rem, 0.9vw, 0.94rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      max-width: 11ch;
+    }
+
+    .node-core span {
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    .node-tip {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 14px);
+      width: min(280px, 36vw);
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 24px 48px rgba(44, 47, 48, 0.12);
+      text-align: left;
+      transform: translateX(-50%) translateY(8px) scale(0.98);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+      z-index: 40;
+    }
+
+    .node-link:hover .node-tip,
+    .node-link:focus-visible .node-tip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    .node-tip::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 16px;
+      height: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      transform: translateX(-50%) rotate(45deg);
+      border-radius: 4px;
+    }
+
+    .node-tip strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .node-tip p {
+      margin: 8px 0 12px;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--on-surface-variant);
+    }
+
+    .node-tip code {
+      display: inline-block;
+      font-family: inherit;
+      font-size: 0.73rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--ink);
+      background: var(--pill);
+      padding: 6px 10px;
+      border-radius: 999px;
+      word-break: break-all;
+    }
+
+    .node-tip em {
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    @media (max-width: 980px) {
+      body {
+        overflow-y: auto;
+      }
+
+      .page {
+        overflow: visible;
+      }
+
+      .shell {
+        min-height: auto;
+        width: min(100% - 20px, 1440px);
+      }
+
+      .constellation {
+        min-height: 1100px;
+      }
+
+      .constellation-map {
+        min-height: 1020px;
+        padding-top: 40px;
+      }
+
+      .orbit {
+        inset: 54% auto auto 50%;
+        width: min(70vw, 320px);
+      }
+
+      .node-tip {
+        width: min(280px, calc(100vw - 48px));
+      }
+
+      .cluster-field.foundation,
+      .cluster-field.services,
+      .cluster-field.frameworks {
+        left: 6%;
+        width: 88%;
+      }
+
+      .cluster-field.foundation {
+        top: 108px;
+        height: 300px;
+      }
+
+      .cluster-field.services {
+        top: 430px;
+        height: 320px;
+      }
+
+      .cluster-field.frameworks {
+        top: 780px;
+        height: 220px;
+      }
+    }
+
+    @media (min-width: 981px) {
+      body {
+        height: 100dvh;
+        overflow-y: hidden;
+      }
+
+      .page {
+        height: 100dvh;
+      }
+
+      .shell {
+        height: 100dvh;
+        padding-top: 16px;
+        padding-bottom: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="glow glow-blue" aria-hidden="true"></div>
+    <div class="glow glow-green" aria-hidden="true"></div>
+
+    <main class="shell">
+      <div class="topbar">
+        <a class="back-link" href="./index.html">
+          <span class="material-symbols-outlined">arrow_back</span>
+          <span>Back to surface</span>
+        </a>
+        <span class="eyebrow">Google AI State of the Art</span>
+      </div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">API Constellation</span>
+          <h1>APIs &amp; SDKs as an intelligent surface.</h1>
+        </div>
+      </section>
+
+      <section class="stage" aria-label="API and SDK explorer">
+        <div class="constellation">
+          <div class="group-zone foundation" aria-hidden="true"></div>
+          <div class="group-zone services" aria-hidden="true"></div>
+          <div class="group-zone frameworks" aria-hidden="true"></div>
+          <div class="constellation-map">
+            <div class="cluster-field foundation" aria-label="Foundation APIs cluster">
+              <span class="cluster-title">Foundation APIs</span>
+              <div class="orbit" aria-hidden="true"></div>
+              <a
+                class="node-link"
+                href="https://ai.google.dev/gemini-api/docs"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 40%; --y: 60%; --size: 126px; --tone: rgba(109, 159, 255, 0.40); --ink: var(--primary); --pill: rgba(109, 159, 255, 0.16);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">auto_awesome</span></span>
+                  <strong>Gemini API</strong>
+                  <span>Core models</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Gemini API</strong>
+                  <p>Entry point for Gemini models, prompting patterns, tools and production integration guidance.</p>
+                  <code>ai.google.dev/gemini-api/docs</code>
+                  <em>Primary model interface</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/vertex-ai/docs/reference/rest"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 76%; --y: 30%; --size: 108px; --tone: rgba(109, 159, 255, 0.26); --ink: var(--primary); --pill: rgba(109, 159, 255, 0.16);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">cloud</span></span>
+                  <strong>Google Cloud</strong>
+                  <span>Vertex AI REST</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Google Cloud</strong>
+                  <p>REST reference for Vertex AI endpoints and enterprise-grade orchestration across Google Cloud.</p>
+                  <code>docs.cloud.google.com/vertex-ai/docs/reference/rest</code>
+                  <em>Enterprise control plane</em>
+                </span>
+              </a>
+            </div>
+
+            <div class="cluster-field services" aria-label="Applied services cluster">
+              <span class="cluster-title">Applied services</span>
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/vision/docs/request"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 24%; --y: 40%; --size: 96px; --tone: rgba(134, 248, 152, 0.34); --ink: var(--secondary); --pill: rgba(134, 248, 152, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">visibility</span></span>
+                  <strong>Vision API</strong>
+                  <span>Image signals</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Cloud Vision API</strong>
+                  <p>Image analysis, OCR primitives and request patterns for visual intelligence workloads.</p>
+                  <code>docs.cloud.google.com/vision/docs/request</code>
+                  <em>Perception layer</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/speech-to-text/docs/v1?hl=es"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 34%; --y: 81%; --size: 104px; --tone: rgba(134, 248, 152, 0.30); --ink: var(--secondary); --pill: rgba(134, 248, 152, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">graphic_eq</span></span>
+                  <strong>Speech-to-Text</strong>
+                  <span>Audio input</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Cloud Speech-to-Text</strong>
+                  <p>Speech recognition API docs for transcription pipelines and voice-driven interfaces.</p>
+                  <code>docs.cloud.google.com/speech-to-text/docs/v1?hl=es</code>
+                  <em>Speech ingestion</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/natural-language/docs"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 70%; --y: 62%; --size: 100px; --tone: rgba(134, 248, 152, 0.30); --ink: var(--secondary); --pill: rgba(134, 248, 152, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">description</span></span>
+                  <strong>Natural Language</strong>
+                  <span>Text analysis</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Cloud Natural Language API</strong>
+                  <p>Entity extraction, sentiment analysis and classic NLP workflows over text.</p>
+                  <code>docs.cloud.google.com/natural-language/docs</code>
+                  <em>Text enrichment</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/translate/docs/translate-text"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 74%; --y: 18%; --size: 86px; --tone: rgba(134, 248, 152, 0.26); --ink: var(--secondary); --pill: rgba(134, 248, 152, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">translate</span></span>
+                  <strong>Translation</strong>
+                  <span>Language bridge</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Cloud Translation API</strong>
+                  <p>Translate text across languages with programmatic request examples and service patterns.</p>
+                  <code>docs.cloud.google.com/translate/docs/translate-text</code>
+                  <em>Cross-language delivery</em>
+                </span>
+              </a>
+            </div>
+
+            <div class="cluster-field frameworks" aria-label="Framework depth cluster">
+              <span class="cluster-title">Framework depth</span>
+              <a
+                class="node-link"
+                href="https://ai.google.dev/edge/mediapipe/solutions/guide?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 14%; --y: 56%; --size: 122px; --tone: rgba(255, 170, 156, 0.28); --ink: var(--tertiary); --pill: rgba(255, 170, 156, 0.22);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">gesture</span></span>
+                  <strong>MediaPipe</strong>
+                  <span>Edge perception</span>
+                </span>
+                <span class="node-tip">
+                  <strong>MediaPipe</strong>
+                  <p>Cross-platform solutions for live media, landmarks and low-latency edge interaction.</p>
+                  <code>ai.google.dev/edge/mediapipe/solutions/guide</code>
+                  <em>Edge perception stack</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://ai.google.dev/edge/litert?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 38%; --y: 68%; --size: 88px; --tone: rgba(255, 147, 132, 0.22); --ink: var(--tertiary); --pill: rgba(255, 147, 132, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">bolt</span></span>
+                  <strong>LiteRT</strong>
+                  <span>Runtime</span>
+                </span>
+                <span class="node-tip">
+                  <strong>LiteRT</strong>
+                  <p>Edge runtime documentation for efficient on-device inference and deployment.</p>
+                  <code>ai.google.dev/edge/litert?hl=es-419</code>
+                  <em>Inference runtime</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://www.tensorflow.org/api_docs"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 62%; --y: 60%; --size: 108px; --tone: rgba(255, 170, 156, 0.28); --ink: var(--tertiary); --pill: rgba(255, 170, 156, 0.22);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">architecture</span></span>
+                  <strong>TensorFlow</strong>
+                  <span>Framework</span>
+                </span>
+                <span class="node-tip">
+                  <strong>TensorFlow</strong>
+                  <p>Full API reference for building and training machine learning systems at framework level.</p>
+                  <code>tensorflow.org/api_docs</code>
+                  <em>Training ecosystem</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.jax.dev/en/latest/jax-101.html#jax-101"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 84%; --y: 46%; --size: 86px; --tone: rgba(255, 147, 132, 0.22); --ink: var(--tertiary); --pill: rgba(255, 147, 132, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">functions</span></span>
+                  <strong>JAX</strong>
+                  <span>Research stack</span>
+                </span>
+                <span class="node-tip">
+                  <strong>JAX</strong>
+                  <p>Introductory guide to JAX transformations, composability and research-oriented workflows.</p>
+                  <code>docs.jax.dev/en/latest/jax-101.html#jax-101</code>
+                  <em>Composable math engine</em>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
