@@ -399,8 +399,7 @@
     .span-3x1-custom { grid-column: 10 / span 3; grid-row: 4 / span 1; }
     .span-2x1-eval { grid-column: 7 / span 2; grid-row: 5 / span 1; }
     .span-2x2-guard { grid-column: 10 / span 2; grid-row: 5 / span 2; }
-    .span-2x1-realtime { grid-column: 5 / span 2; grid-row: 6 / span 1; }
-    .span-2x1-stitch { grid-column: 8 / span 2; grid-row: 6 / span 1; }
+    .span-2x1-stitch { grid-column: 6 / span 2; grid-row: 6 / span 1; }
 
     @media (max-width: 1260px) {
       .canvas {
@@ -419,8 +418,7 @@
       .span-3x1-custom { grid-column: 6 / span 3; grid-row: 4 / span 1; }
       .span-2x1-eval { grid-column: 5 / span 2; grid-row: 5 / span 1; }
       .span-2x2-guard { grid-column: 7 / span 2; grid-row: 5 / span 2; }
-      .span-2x1-realtime { grid-column: 3 / span 2; grid-row: 6 / span 1; }
-      .span-2x1-stitch { grid-column: 5 / span 2; grid-row: 6 / span 1; }
+      .span-2x1-stitch { grid-column: 4 / span 2; grid-row: 6 / span 1; }
     }
 
     @media (max-width: 880px) {
@@ -519,7 +517,7 @@
                 <span class="material-symbols-outlined">terminal</span>
               </span>
               <div>
-                <h3 class="node-title">Dev Tools</h3>
+                <h3 class="node-title">Dev Tools &amp; Coding Agents</h3>
                 <span class="node-label">Gemini Code Assist</span>
               </div>
             </div>
@@ -543,7 +541,7 @@
                 <span class="material-symbols-outlined">smart_toy</span>
               </span>
               <div>
-                <h3 class="node-title">Assistants</h3>
+                <h3 class="node-title">End-User Assistants</h3>
                 <span class="node-label">Workspace &amp; Apps</span>
               </div>
             </div>
@@ -645,18 +643,9 @@
             </div>
           </button>
 
-          <button class="card node node-primary span-2x1-realtime" data-node="realtime" type="button">
-            <div class="node-inner">
-              <span class="material-symbols-outlined">waves</span>
-              <div>
-                <h3 class="node-title">Realtime &amp; Multimodal</h3>
-              </div>
-            </div>
-          </button>
-
-          <button class="card node accent-primary span-2x1-stitch" data-node="stitch" type="button">
-            <div class="node-inner">
-              <span class="node-icon">
+            <button class="card node accent-primary span-2x1-stitch" data-node="stitch" type="button">
+              <div class="node-inner">
+                <span class="node-icon">
                 <span class="material-symbols-outlined">draw</span>
               </span>
               <div>
