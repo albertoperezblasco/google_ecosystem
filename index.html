@@ -535,7 +535,7 @@
             </div>
           </button>
 
-          <button class="card node accent-secondary span-3x2-right" data-node="assistants" type="button">
+          <button class="card node accent-secondary span-3x2-right" data-node="assistants" data-href="end-user-assistants.html" type="button">
             <div class="node-inner">
               <span class="node-icon">
                 <span class="material-symbols-outlined">smart_toy</span>
@@ -573,7 +573,7 @@
             </div>
           </button>
 
-          <button class="card node node-highlight accent-secondary node-vertical span-3x2-mid" data-node="agents" type="button">
+          <button class="card node node-highlight accent-secondary node-vertical span-3x2-mid" data-node="agents" data-href="agents-workflow-orchestration.html" type="button">
             <div class="node-inner">
               <div style="display:flex; width:100%; align-items:flex-start; gap:12px;">
                 <span class="node-icon" style="background:rgba(134,248,152,0.18); color:var(--secondary);">
@@ -582,12 +582,12 @@
               </div>
               <div>
                 <h3 class="node-title node-title-lg">Agents &amp; Workflows</h3>
-                <p class="node-subtitle">Build sophisticated autonomous agentic workflows with Vertex Engine.</p>
+                <p class="node-subtitle">Build multi-agent workflows with Vertex AI Agent Builder.</p>
               </div>
             </div>
           </button>
 
-          <button class="card node accent-primary span-3x1-mid" data-node="data" type="button">
+          <button class="card node accent-primary span-3x1-mid" data-node="data" data-href="data-grounding-rag-connectors.html" type="button">
             <div class="node-inner">
               <span class="node-icon">
                 <span class="material-symbols-outlined">database</span>
@@ -598,7 +598,7 @@
             </div>
           </button>
 
-          <button class="card node accent-tertiary span-2x1-doc" data-node="doc-ai" type="button">
+          <button class="card node accent-tertiary span-2x1-doc" data-node="doc-ai" data-href="document-ai-ocr.html" type="button">
             <div class="node-inner">
               <span class="node-icon">
                 <span class="material-symbols-outlined">description</span>
@@ -631,7 +631,7 @@
             </div>
           </button>
 
-          <button class="card node node-vertical accent-tertiary span-2x2-guard" data-node="guardrails" type="button">
+          <button class="card node node-vertical accent-tertiary span-2x2-guard" data-node="guardrails" data-href="guardrails-security-governance.html" type="button">
             <div class="node-inner">
               <span class="node-icon">
                 <span class="material-symbols-outlined">encrypted</span>
@@ -643,7 +643,7 @@
             </div>
           </button>
 
-            <button class="card node accent-primary span-2x1-stitch" data-node="stitch" type="button">
+            <button class="card node accent-primary span-2x1-stitch" data-node="stitch" data-href="design-to-code-app-prototyping.html" type="button">
               <div class="node-inner">
                 <span class="node-icon">
                 <span class="material-symbols-outlined">draw</span>
@@ -671,11 +671,11 @@
     nodes.forEach((node) => {
       node.addEventListener("click", () => {
         const href = node.dataset.href;
-        activateNode(node.dataset.node);
-
         if (href) {
           window.location.href = href;
+          return;
         }
+        activateNode(node.dataset.node);
       });
     });
   </script>
