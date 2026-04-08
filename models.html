@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Explorer | Models</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #f5f6f7;
+      --surface: #ffffff;
+      --surface-soft: rgba(255, 255, 255, 0.72);
+      --surface-muted: rgba(255, 255, 255, 0.86);
+      --on-surface: #2c2f30;
+      --on-surface-variant: #595c5d;
+      --primary: #0058bc;
+      --secondary: #006a2b;
+      --tertiary: #7b3fe4;
+      --quaternary: #8a4b00;
+      --radius-md: 20px;
+      --radius-lg: 30px;
+      --shadow-soft: 0 14px 42px rgba(44, 47, 48, 0.08);
+      --shadow-ambient: 0 22px 56px rgba(44, 47, 48, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: "Inter", sans-serif;
+      background: var(--background);
+      color: var(--on-surface);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100dvh;
+      background:
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.12), transparent 32%),
+        radial-gradient(circle at 84% 16%, rgba(134, 248, 152, 0.1), transparent 22%),
+        radial-gradient(circle at 52% 86%, rgba(123, 63, 228, 0.12), transparent 24%),
+        linear-gradient(180deg, #f8f9fa 0%, #f2f3f5 100%);
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(89, 92, 93, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(89, 92, 93, 0.05) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.96) 38%, transparent 88%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(120px);
+      pointer-events: none;
+      opacity: 0.48;
+    }
+
+    .glow-blue {
+      top: -6%;
+      right: -10%;
+      width: 420px;
+      height: 420px;
+      background: rgba(0, 88, 188, 0.14);
+    }
+
+    .glow-green {
+      bottom: 8%;
+      left: -8%;
+      width: 360px;
+      height: 360px;
+      background: rgba(0, 106, 43, 0.1);
+    }
+
+    .glow-violet {
+      top: 38%;
+      left: 44%;
+      width: 300px;
+      height: 300px;
+      background: rgba(123, 63, 228, 0.1);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(1480px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 22px 0 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .back-link,
+    .jump-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible,
+    .jump-link:hover,
+    .jump-link:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-ambient);
+      outline: none;
+      background: rgba(255, 255, 255, 0.94);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: 22px;
+      align-items: end;
+    }
+
+    .hero-copy h1 {
+      margin: 8px 0 0;
+      font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      max-width: 12ch;
+    }
+
+    .hero-copy p {
+      margin: 16px 0 0;
+      max-width: 64ch;
+      line-height: 1.55;
+      color: var(--on-surface-variant);
+    }
+
+    .hero-note,
+    .panel,
+    .group-card,
+    .detail-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: var(--surface-soft);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-note::after,
+    .panel::after,
+    .group-card::after,
+    .detail-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .hero-note {
+      padding: 24px;
+    }
+
+    .hero-note h2 {
+      margin: 0 0 10px;
+      font-size: 1.12rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-note p {
+      margin: 0;
+      color: var(--on-surface-variant);
+      line-height: 1.55;
+    }
+
+    .quick-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .group-chip {
+      border: 0;
+      border-radius: 999px;
+      min-height: 38px;
+      padding: 0 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.84);
+      color: var(--on-surface);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      white-space: nowrap;
+    }
+
+    .group-chip:hover,
+    .group-chip:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(44, 47, 48, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.92);
+      outline: none;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .panel-copy h2 {
+      margin: 6px 0 0;
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      letter-spacing: -0.05em;
+    }
+
+    .panel-copy p,
+    .panel-meta p {
+      margin: 10px 0 0;
+      color: var(--on-surface-variant);
+      line-height: 1.55;
+      max-width: 64ch;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .zoom-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .zoom-button,
+    .focus-button {
+      border: 0;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: inset 0 0 0 1px rgba(222, 226, 230, 0.9);
+      color: var(--on-surface);
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .zoom-button:hover,
+    .zoom-button:focus-visible,
+    .focus-button:hover,
+    .focus-button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+      box-shadow: 0 10px 26px rgba(44, 47, 48, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.92);
+    }
+
+    .zoom-readout {
+      min-width: 74px;
+      text-align: center;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--on-surface-variant);
+    }
+
+    .toolbar-hint {
+      color: var(--on-surface-variant);
+      font-size: 0.9rem;
+    }
+
+    .universe-viewport {
+      position: relative;
+      height: min(76vh, 980px);
+      overflow: auto;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 30% 28%, rgba(109, 159, 255, 0.16), transparent 20%),
+        radial-gradient(circle at 72% 34%, rgba(134, 248, 152, 0.14), transparent 18%),
+        radial-gradient(circle at 52% 76%, rgba(123, 63, 228, 0.14), transparent 22%),
+        rgba(255, 255, 255, 0.56);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .universe-viewport.dragging {
+      cursor: grabbing;
+    }
+
+    .universe-stage {
+      position: relative;
+      transform-origin: top left;
+      will-change: transform;
+    }
+
+    .universe-world {
+      position: relative;
+      width: 6200px;
+      height: 5200px;
+    }
+
+    .universe-cluster {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .cluster-aura,
+    .cluster-ring {
+      position: absolute;
+      border-radius: 999px;
+    }
+
+    .cluster-aura {
+      inset: 8%;
+      filter: blur(60px);
+      opacity: 0.55;
+    }
+
+    .cluster-ring {
+      border: 1px solid rgba(89, 92, 93, 0.08);
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 66%);
+      transition: opacity 220ms ease, transform 220ms ease;
+    }
+
+    .cluster-core {
+      position: absolute;
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+      border: 0;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 18px 44px rgba(44, 47, 48, 0.08);
+      z-index: 4;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .cluster-core:hover,
+    .cluster-core:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(44, 47, 48, 0.12);
+      outline: none;
+    }
+
+    .cluster-core .material-symbols-outlined {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .cluster-core strong {
+      display: block;
+      font-size: 1.02rem;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .cluster-core span {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    .cluster-label {
+      position: absolute;
+      top: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      min-height: 40px;
+      padding: 0 16px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cluster-ink);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 10px 26px rgba(44, 47, 48, 0.06);
+      z-index: 5;
+      pointer-events: auto;
+      white-space: nowrap;
+      cursor: pointer;
+      border: 0;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .cluster-label:hover,
+    .cluster-label:focus-visible {
+      transform: translateX(-50%) translateY(-2px);
+      box-shadow: 0 14px 30px rgba(44, 47, 48, 0.1);
+      outline: none;
+    }
+
+    .cluster-label-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cluster-action-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--cluster-tone) 38%, white);
+      color: var(--cluster-ink);
+    }
+
+    .model-node {
+      position: absolute;
+      width: 104px;
+      height: 104px;
+      margin-left: -52px;
+      margin-top: -52px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      text-align: center;
+      padding: 12px 10px;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 0 14px 34px rgba(44, 47, 48, 0.1);
+      color: var(--on-surface);
+      z-index: 3;
+      pointer-events: auto;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 220ms ease;
+    }
+
+    .model-node:hover,
+    .model-node:focus-visible {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 38px rgba(44, 47, 48, 0.14);
+      outline: none;
+    }
+
+    .model-node-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 0.6rem;
+      font-weight: 900;
+      color: var(--cluster-ink);
+      background: color-mix(in srgb, var(--cluster-tone) 52%, white);
+      flex: none;
+    }
+
+    .model-node-name {
+      max-width: 100%;
+      font-size: 0.73rem;
+      line-height: 1.08;
+      font-weight: 800;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      text-wrap: balance;
+    }
+
+    .model-hover-card {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 20;
+      width: min(460px, calc(100vw - 32px));
+      max-height: min(82vh, 860px);
+      overflow: auto;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 0 24px 70px rgba(44, 47, 48, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .model-hover-card[hidden] {
+      display: none;
+    }
+
+    .hover-card-shell {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hover-head {
+      display: flex;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .hover-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: color-mix(in srgb, var(--tone) 58%, white);
+      color: var(--ink);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      flex: none;
+    }
+
+    .hover-title-wrap {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .hover-title-wrap h3 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .hover-subline {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .hover-kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: color-mix(in srgb, var(--tone) 46%, white);
+    }
+
+    .hover-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      padding: 14px;
+      border-radius: 22px;
+      background: rgba(246, 248, 249, 0.96);
+      box-shadow: inset 0 0 0 1px rgba(222, 226, 230, 0.9);
+    }
+
+    .hover-metric {
+      min-width: 0;
+    }
+
+    .hover-metric-label {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    .hover-metric-value {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .hover-card-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hover-card-copy p {
+      margin: 0;
+      line-height: 1.55;
+      color: var(--on-surface-variant);
+    }
+
+    .hover-sections {
+      display: grid;
+      gap: 14px;
+    }
+
+    .hover-section {
+      border-top: 1px solid rgba(222, 226, 230, 0.9);
+      padding-top: 14px;
+    }
+
+    .hover-section-label {
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+      margin-bottom: 10px;
+    }
+
+    .hover-pill-grid,
+    .url-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .info-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(246, 248, 249, 0.96);
+      box-shadow: inset 0 0 0 1px rgba(222, 226, 230, 0.92);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .hover-url-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .hover-url-item {
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(246, 248, 249, 0.96);
+      box-shadow: inset 0 0 0 1px rgba(222, 226, 230, 0.92);
+    }
+
+    .hover-url-label,
+    .url-label {
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    .hover-url-link,
+    .url-link {
+      display: block;
+      margin-top: 6px;
+      color: var(--primary);
+      font-size: 0.84rem;
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    .groups {
+      display: grid;
+      gap: 16px;
+    }
+
+    .group-card {
+      padding: 22px;
+    }
+
+    .group-card-head {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .group-card-toggle {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .group-card-title {
+      min-width: 0;
+    }
+
+    .group-card-head h2 {
+      margin: 0;
+      font-size: 1.48rem;
+      letter-spacing: -0.04em;
+    }
+
+    .group-card-head p {
+      margin: 8px 0 0;
+      color: var(--on-surface-variant);
+      line-height: 1.55;
+      max-width: 70ch;
+    }
+
+    .group-card-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--group-tone) 42%, white);
+      color: var(--group-ink);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .group-card-meta .material-symbols-outlined {
+      font-size: 18px;
+      transition: transform 220ms ease;
+    }
+
+    .group-card.is-expanded .group-card-meta .material-symbols-outlined {
+      transform: rotate(180deg);
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+      transition: max-height 260ms ease, opacity 220ms ease, margin-top 220ms ease;
+      max-height: 8000px;
+      opacity: 1;
+      overflow: hidden;
+    }
+
+    .group-card.is-collapsed .detail-grid {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
+      pointer-events: none;
+    }
+
+    .detail-card {
+      padding: 20px;
+      background: var(--surface-muted);
+    }
+
+    .detail-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+    }
+
+    .detail-title {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      min-width: 0;
+    }
+
+    .detail-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: color-mix(in srgb, var(--group-tone) 56%, white);
+      color: var(--group-ink);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      flex: none;
+    }
+
+    .detail-title h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .detail-subline {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .detail-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 22px;
+      background: rgba(246, 248, 249, 0.96);
+      box-shadow: inset 0 0 0 1px rgba(222, 226, 230, 0.92);
+    }
+
+    .detail-copy {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .detail-copy p {
+      margin: 0;
+      color: var(--on-surface-variant);
+      line-height: 1.55;
+    }
+
+    .detail-section {
+      margin-top: 14px;
+      border-top: 1px solid rgba(222, 226, 230, 0.92);
+      padding-top: 14px;
+    }
+
+    .section-label {
+      margin: 0 0 10px;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    @media (max-width: 1180px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .model-hover-card {
+        left: 16px;
+        right: 16px;
+        width: auto;
+      }
+    }
+
+    @media (max-width: 880px) {
+      .shell {
+        width: min(100%, calc(100% - 20px));
+        padding-top: 16px;
+      }
+
+      .panel,
+      .group-card,
+      .hero-note {
+        padding: 18px;
+      }
+
+      .hover-metrics,
+      .detail-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .universe-viewport {
+        height: 70vh;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        align-items: stretch;
+      }
+
+      .back-link,
+      .jump-link {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hover-metrics,
+      .detail-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .model-node {
+        width: 98px;
+        height: 98px;
+        margin-left: -49px;
+        margin-top: -49px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="glow glow-blue"></div>
+    <div class="glow glow-green"></div>
+    <div class="glow glow-violet"></div>
+
+    <div class="shell">
+      <header class="topbar">
+        <a class="back-link" href="index.html">
+          <span class="material-symbols-outlined">arrow_back</span>
+          <span>Back to ecosystem</span>
+        </a>
+        <a class="jump-link" href="#group-sections">
+          <span class="material-symbols-outlined">view_list</span>
+          <span>Detailed model cards</span>
+        </a>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Models Atlas</span>
+          <h1>Grouped by the work they are built for.</h1>
+          <p>
+            This page turns the merged model inventory into a navigable map. Every task group lives as its own
+            constellation in the shared universe, and every model keeps its status, family, official description
+            and source URLs visible in hover cards and detailed cards below.
+          </p>
+        </div>
+
+        <aside class="hero-note">
+          <h2>How to use it</h2>
+          <p>
+            Hover a model bubble to read a description sourced from the linked official URL whenever the documentation
+            exposes one clearly. Scroll or drag across the universe, use Ctrl/Cmd plus wheel to zoom, and jump between
+            clusters with the quick navigation chips.
+          </p>
+        </aside>
+      </section>
+
+      <section class="panel" aria-label="Quick task navigation">
+        <div class="panel-head">
+          <div class="panel-copy">
+            <span class="eyebrow">Quick Navigation</span>
+            <h2>Jump straight into a model family.</h2>
+            <p>
+              The map uses the same task groups defined in <code>extracted_data.md</code>. Each chip recenters the
+              universe on that cluster and keeps the detailed sections below aligned with the same grouping.
+            </p>
+          </div>
+          <div class="panel-meta">
+            <span class="meta-pill">Task-first atlas</span>
+            <p>Clusters stay separated so dense families like multimodal, text, embeddings and media are easier to browse.</p>
+          </div>
+        </div>
+        <div class="quick-nav" id="quick-nav"></div>
+      </section>
+
+      <section class="panel" id="model-universe" aria-label="Scrollable grouped model universe">
+        <div class="panel-head">
+          <div class="panel-copy">
+            <span class="eyebrow">Navigable Universe</span>
+            <h2>One shared map, many grouped constellations.</h2>
+            <p>
+              Every task group is rendered as its own cluster inside a single scrollable universe. Click a model to jump
+              to its detailed card, or hover to open the descriptive spec panel with URLs.
+            </p>
+          </div>
+          <div class="panel-meta">
+            <span class="meta-pill">Scroll + drag + zoom</span>
+            <p>Use the mouse wheel or trackpad to move across the map. Drag on empty space to pan and use the zoom controls to inspect dense areas.</p>
+          </div>
+        </div>
+
+        <div class="toolbar" aria-label="Universe controls">
+          <div class="zoom-controls">
+            <button class="zoom-button" id="zoom-out" type="button" aria-label="Zoom out">
+              <span class="material-symbols-outlined">remove</span>
+            </button>
+            <div class="zoom-readout" id="zoom-readout">100%</div>
+            <button class="zoom-button" id="zoom-in" type="button" aria-label="Zoom in">
+              <span class="material-symbols-outlined">add</span>
+            </button>
+            <button class="zoom-button" id="zoom-reset" type="button">Reset</button>
+          </div>
+          <div class="toolbar-hint">Use <strong>Ctrl/Cmd + wheel</strong> to zoom around the cursor.</div>
+        </div>
+
+        <div class="universe-viewport" id="universe-viewport" tabindex="0" aria-label="Scrollable map of grouped models">
+          <div class="universe-stage" id="universe-stage">
+            <div class="universe-world" id="universe-world"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="model-hover-card" id="model-hover-card" hidden aria-live="polite"></aside>
+
+      <section class="groups" id="group-sections" aria-label="Detailed cards by task group"></section>
+    </div>
+  </div>
+
+  <script id="model-groups-data" type="application/json">
+[
+  {
+    "group": "Generacion multimodal",
+    "models": [
+      { "name": "Gemini 3.1 Pro Preview", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models" }] },
+      { "name": "Gemini 3 Pro Preview [deprecated]", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro" }] },
+      { "name": "Gemini 3 Flash Preview", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-flash" }] },
+      { "name": "Gemini 3.1 Flash Lite Preview", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models" }] },
+      { "name": "Gemini 2.5 Pro", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-pro" }] },
+      { "name": "Gemini 2.5 Flash Preview", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash" }] },
+      { "name": "Gemini 2.5 Flash", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash" }] },
+      { "name": "Gemini 2.5 Flash-Lite Preview", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-lite" }] },
+      { "name": "Gemini 2.5 Flash-Lite", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-lite" }] },
+      { "name": "Gemini 2.0 Flash", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash" }] },
+      { "name": "Gemini 2.0 Flash-Lite", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash-lite" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash-lite" }] },
+      { "name": "Gemini 3.1 Flash Live Preview", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview" }] },
+      { "name": "Gemini Live 2.5 Flash Native Audio", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-live-api" }] },
+      { "name": "Gemini Deep Research Preview", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025" }] },
+      { "name": "Gemini Computer Use Preview", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/computer-use" }] },
+      { "name": "Gemini Robotics Preview", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.5-preview" }] },
+      { "name": "Gemma 3n", "sources": [{ "label": "Source", "url": "https://ai.google.dev/gemma/docs/gemma-3n" }] },
+      { "name": "MaMMUT", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Generacion de textos",
+    "models": [
+      { "name": "Gemma 4", "sources": [{ "label": "Source", "url": "https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/" }] },
+      { "name": "Gemma 3", "sources": [{ "label": "Source", "url": "https://ai.google.dev/gemma/docs/core" }] },
+      { "name": "Gemma 2", "sources": [{ "label": "Source", "url": "https://ai.google.dev/gemma/docs/model_card_2" }] },
+      { "name": "Gemma", "sources": [{ "label": "Source", "url": "https://ai.google.dev/gemma/docs/model_card" }] },
+      { "name": "CodeGemma", "sources": [{ "label": "Source", "url": "https://ai.google.dev/gemma/docs/codegemma" }] },
+      { "name": "FunctionGemma", "sources": [{ "label": "Source", "url": "https://ai.google.dev/gemma/docs/functiongemma" }] },
+      { "name": "T5Gemma", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "T5-FLAN", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "T5-1.1", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "BERT", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "BERT (PEFT)", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Bart-large-cnn", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Traduccion",
+    "models": [
+      { "name": "Translation LLM", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/translate/translate-text" }] },
+      { "name": "Text Translation", "sources": [{ "label": "Source 2", "url": "https://cloud.google.com/translate/docs/overview" }] },
+      { "name": "TranslateGemma", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Embeddings de textos",
+    "models": [
+      { "name": "Gemini Embedding 2 (Public Preview)", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2-preview" }] },
+      { "name": "Gemini Embedding 001", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001" }] },
+      { "name": "EmbeddingGemma", "sources": [{ "label": "Source", "url": "https://ai.google.dev/gemma/docs/embeddinggemma" }] },
+      { "name": "Embeddings for Text", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Embeddings multimodales",
+    "models": [
+      { "name": "Embeddings for Multimodal", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "MedSigLIP", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Generacion de imagenes",
+    "models": [
+      { "name": "Nano Banana (alias of Gemini 2.5 Flash Image)", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-image" }] },
+      { "name": "Gemini 2.5 Flash Image", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-image" }] },
+      { "name": "Nano Banana 2 (alias of Gemini 3.1 Flash Image Preview)", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models" }] },
+      { "name": "Gemini 3.1 Flash Image Preview", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models" }] },
+      { "name": "Nano Banana Pro (alias of Gemini 3 Pro Image Preview)", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image" }] },
+      { "name": "Gemini 3 Pro Image Preview", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image" }] },
+      { "name": "Imagen 4 Ultra for Image Generation", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-generate" }] },
+      { "name": "Imagen 4 for Image Generation", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/imagen" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-generate" }] },
+      { "name": "Imagen 4 Fast for Image Generation", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-generate" }] },
+      { "name": "Imagen for Generation", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images" }] },
+      { "name": "Imagen 2 for Generation and Editing", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images" }] },
+      { "name": "Imagen for Editing and Customization", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/edit-images-overview" }] }
+    ]
+  },
+  {
+    "group": "Generacion de videos",
+    "models": [
+      { "name": "Veo 3.1 Lite for Video Generation", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate" }] },
+      { "name": "Veo 3.1 Fast for Video Generation", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate" }] },
+      { "name": "Veo 3.1 for Video Generation", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview" }, { "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate" }] },
+      { "name": "Veo 3 for Video Generation", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-generate-001" }] },
+      { "name": "Veo 3 Fast for Video Generation", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-generate-001" }] },
+      { "name": "Veo 2 for Generation", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/2-0-generate-001" }] }
+    ]
+  },
+  {
+    "group": "Generacion de audios",
+    "models": [
+      { "name": "Gemini 2.5 Flash TTS Preview", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts" }] },
+      { "name": "Gemini 2.5 Pro TTS Preview", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts" }] },
+      { "name": "Lyria 2 for Music Generation", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/lyria/lyria-002" }] },
+      { "name": "Lyria 3 for Song Clips Generation", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview" }] },
+      { "name": "Lyria 3 Pro for Full-Song Generation", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview" }] },
+      { "name": "Lyria RealTime", "sources": [{ "label": "Source 1", "url": "https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp" }] }
+    ]
+  },
+  {
+    "group": "Reconocimiento de voz",
+    "models": [
+      { "name": "Chirp 3", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/speech-to-text/v2/docs/chirp-model" }] },
+      { "name": "Chirp 2", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/speech-to-text/docs/models/chirp-2?hl=es-419" }] },
+      { "name": "MedASR", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Video Speech Transcription", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/video-intelligence/docs/transcription" }] }
+    ]
+  },
+  {
+    "group": "Clasificacion de imagenes",
+    "models": [
+      { "name": "AutoML Vision Image Classification", "sources": [{ "label": "Source 2", "url": "https://cloud.google.com/vision/overview/docs/get-started" }] },
+      { "name": "ResNet (with checkpoint)", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "ViT (JAX)", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Proprietary/MaxViT [Deprecated]", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Proprietary/EfficientNet [Deprecated]", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Proprietary/ViT [Deprecated]", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "tfvision/vit [deprecated]", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "tfhub/EfficientNetV2 [deprecated]", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "ShieldGemma 2", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Content moderation (Vision)", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vision/docs/detecting-safe-search?hl=es-419" }] }
+    ]
+  },
+  {
+    "group": "Deteccion de objetos",
+    "models": [
+      { "name": "AutoML Vision Image Object Detection", "sources": [{ "label": "Source 2", "url": "https://cloud.google.com/vision/overview/docs/get-started" }] },
+      { "name": "YOLOv8 (Keras)", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "tfvision/YOLOv7 [deprecated]", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Proprietary/YOLO", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "tfvision/YOLO [deprecated]", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Object detector", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vision-ai/docs/object-detector-model" }] },
+      { "name": "Person/vehicle detector", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vision-ai/docs/person-vehicle-model" }] },
+      { "name": "PPE detector", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vision-ai/docs/ppe-detector-model" }] },
+      { "name": "Product recognizer", "sources": [{ "label": "Source 2", "url": "https://cloud.google.com/vision-ai/docs/product-recognizer?hl=es" }] },
+      { "name": "Face detector (Vision API)", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vision/docs/detecting-faces" }] }
+    ]
+  },
+  {
+    "group": "Deteccion de vocabulario abierto",
+    "models": [
+      { "name": "OWL-ViT", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "OWL-ViT v2", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "F-VLM [Deprecated]", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Label detector (PaLI zero-shot)", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Segmentacion de imagenes",
+    "models": [
+      { "name": "DeepLabv3+ (with checkpoint)", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Vertex Image Segmentation", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Person blur", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vision-ai/docs/person-blur-model" }] }
+    ]
+  },
+  {
+    "group": "Segmentacion de vocabulario abierto",
+    "models": [
+      { "name": "DITO", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Procesamiento de documentos",
+    "models": [
+      { "name": "Form Parser", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/document-ai/docs/form-parser" }] },
+      { "name": "Document AI OCR processor", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/document-ai/docs/enterprise-document-ocr" }] },
+      { "name": "Text detector (Vision API)", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vision/docs/ocr?hl=es-419" }] },
+      { "name": "Tag recognizer", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vision-ai/docs/tag-recognizer?hl=es" }] },
+      { "name": "Video Text Detection", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/video-intelligence/docs/text-detection" }] }
+    ]
+  },
+  {
+    "group": "Comprension de imagenes",
+    "models": [
+      { "name": "PaliGemma 1", "sources": [{ "label": "Source", "url": "https://ai.google.dev/gemma/docs/paligemma" }] },
+      { "name": "PaliGemma 2", "sources": [{ "label": "Source", "url": "https://ai.google.dev/gemma/docs/paligemma" }] },
+      { "name": "Imagen for Captioning & VQA", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/visual-question-answering" }] },
+      { "name": "Watermark detector", "sources": [{ "label": "Source 2", "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/image/verify-watermark?hl=es-419" }] }
+    ]
+  },
+  {
+    "group": "Recuperacion de imagenes",
+    "models": [
+      { "name": "Pic2Word Composed Image Retrieval", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Clasificacion tabular",
+    "models": [
+      { "name": "TabNet", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "AutoML Tabular Workflow", "sources": [{ "label": "Source 2", "url": "https://cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/e2e-automl?hl=es" }] }
+    ]
+  },
+  {
+    "group": "Clasificacion de textos",
+    "models": [
+      { "name": "Text Moderation", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/natural-language/docs/moderating-text" }] },
+      { "name": "Sentiment analysis", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/natural-language/docs/analyzing-sentiment" }] },
+      { "name": "Content classification", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/natural-language/docs/classifying-text" }] }
+    ]
+  },
+  {
+    "group": "Extraccion de entidades",
+    "models": [
+      { "name": "Entity analysis", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/natural-language/docs/analyzing-entities" }] },
+      { "name": "Entity sentiment analysis", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/natural-language/docs/analyzing-entity-sentiment" }] },
+      { "name": "Syntax analysis", "sources": [{ "label": "Source 2", "url": "https://docs.cloud.google.com/natural-language/docs/analyzing-syntax" }] }
+    ]
+  },
+  {
+    "group": "Clasificacion de videos",
+    "models": [
+      { "name": "MoViNet Video Action Recognition", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "MoViNet Video Clip Classification", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Radiologia",
+    "models": [
+      { "name": "MedGemma", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "CXR Foundation", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Salud y ciencias biologicas",
+    "models": [
+      { "name": "TxGemma", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "HeAR", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "MedSigLIP", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Patologia",
+    "models": [
+      { "name": "Path Foundation", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Dermatologia",
+    "models": [
+      { "name": "Derm Foundation", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Geospatial",
+    "models": [
+      { "name": "WeatherNext 2", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "WeatherNext Demo", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "CloudNeRF", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Pytorch-ZipNeRF", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Imagery - Classification and Retrieval for Remote Sensing", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] },
+      { "name": "Imagery - Object Detection for Remote Sensing", "sources": [{ "label": "Source 2 catalog", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models" }] }
+    ]
+  },
+  {
+    "group": "Otros",
+    "models": [
+      { "name": "Occupancy analytics", "sources": [{ "label": "Source 2", "url": "https://cloud.google.com/vision-ai/docs/occupancy-analytics-model?hl=es" }] }
+    ]
+  }
+]
+  </script>
+
+  <script>
+    window.MODEL_DESCRIPTION_OVERRIDES = {
+      "model-generacion-multimodal-gemini-3-1-pro-preview": "Built to refine the performance and reliability of the Gemini 3 Pro series, Gemini 3.1 Pro Preview provides better thinking, improved token efficiency, and a more grounded, factually consistent experience. It's optimized for software engineering behavior and usability, as well as agentic workflows requiring precise tool usage and reliable multi-step execution across real-world domains.",
+      "model-generacion-multimodal-gemini-3-pro-preview": "Learn about Gemini 3 Pro Preview from Google",
+      "model-generacion-multimodal-gemini-3-flash-preview": "The best model in the world for multimodal understanding, and our most powerful agentic and vibe-coding model yet, delivering richer visuals and deeper interactivity, all built on a foundation of state-of-the-art reasoning.",
+      "model-generacion-multimodal-gemini-3-1-flash-lite-preview": "Our most cost-efficient multimodal model, offering the fastest performance for high-frequency, lightweight tasks. Gemini 3.1 Flash-Lite is best for high-volume agentic tasks, simple data extraction, and extremely low-latency applications where budget and speed are the primary constraints.",
+      "model-generacion-multimodal-gemini-2-5-pro": "Our state-of-the-art thinking model, capable of reasoning over complex problems in code, math, and STEM, as well as analyzing large datasets, codebases, and documents using long context.",
+      "model-generacion-multimodal-gemini-2-5-flash-preview": "Gemini 2.5 Flash is our best model in terms of price and performance, and offers well-rounded capabilities. Gemini 2.5 Flash is our first Flash model that features thinking capabilities , which lets you see the thinking process that the model goes through when generating its response.",
+      "model-generacion-multimodal-gemini-2-5-flash": "Our best model in terms of price-performance, offering well-rounded capabilities. 2.5 Flash is best for large scale processing, low-latency, high volume tasks that require thinking, and agentic use cases.",
+      "model-generacion-multimodal-gemini-2-5-flash-lite-preview": "Gemini 2.5 Flash-Lite is our most balanced Gemini model, optimized for low latency use cases. It comes with the same capabilities that make other Gemini 2.5 models helpful, such as the ability to turn thinking on at different budgets, connecting to tools like Grounding with Google Search and code execution, multimodal input, and a 1 million-token context length.",
+      "model-generacion-multimodal-gemini-2-5-flash-lite": "Our most cost-efficient multimodal model, offering the fastest performance for high-frequency, lightweight tasks. Gemini 2.5 Flash-Lite is best for high-volume classification, simple data extraction, and extremely low-latency applications where budget and speed are the primary constraints.",
+      "model-generacion-multimodal-gemini-2-0-flash": "Learn about Gemini 2.0 Flash from Google",
+      "model-generacion-multimodal-gemini-2-0-flash-lite": "Learn about Gemini 2.0 Flash-Lite from Google",
+      "model-generacion-multimodal-gemini-3-1-flash-live-preview": "Gemini 3.1 Flash Live Preview is our low-latency, audio-to-audio model optimized for real-time dialogue and voice-first AI applications with acoustic nuance detection, numeric precision, and multimodal awareness.",
+      "model-generacion-multimodal-gemini-live-2-5-flash-native-audio": "Gemini 2.5 Flash with Gemini Live API native audio features our cutting-edge native audio functionality for Gemini Live API . In addition to the standard Gemini Live API features, this model includes:",
+      "model-generacion-multimodal-gemini-deep-research-preview": "A powerful agentic researcher designed for autonomous, multi-step investigations that synthesize complex information into comprehensive, cited reports. Powered by Gemini 3.1 Pro, this model is optimized for long-running tasks and accuracy-critical analysis across hundreds of public web sources and private workspace data like Gmail and Drive.",
+      "model-generacion-multimodal-gemini-computer-use-preview": "An agentic capability model designed for direct interface interaction, allowing Gemini to perceive and navigate digital environments. Gemini 2.5 Computer Use is best for browser automation, multi-step software tasks, and UI testing that requires visual reasoning and precise cursor control.",
+      "model-generacion-multimodal-gemini-robotics-preview": "Gemini Robotics-ER 1.5 is a vision-language model (VLM) that brings Gemini's agentic capabilities to robotics. It's designed for advanced reasoning in the physical world, allowing robots to interpret complex visual data, perform spatial reasoning, and plan actions from natural language commands.",
+      "model-generacion-multimodal-mammut": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-generacion-de-textos-gemma-4": "Google DeepMind introduces Gemma 4, a family of state-of-the-art open models designed for on-device agentic workflows. Learn how to leverage multi-step planning, 140+ language support, and LiteRT-LM to build powerful, autonomous AI experiences across mobile, desktop, and IoT.",
+      "model-generacion-de-textos-gemma-2": "Summary description and brief definition of inputs and outputs.",
+      "model-generacion-de-textos-gemma": "Summary description and brief definition of inputs and outputs.",
+      "model-generacion-de-textos-codegemma": "CodeGemma is a collection of powerful, lightweight models that can perform a variety of coding tasks like fill-in-the-middle code completion, code generation, natural language understanding, mathematical reasoning, and instruction following.",
+      "model-generacion-de-textos-t5gemma": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-generacion-de-textos-t5-flan": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-generacion-de-textos-t5-1-1": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-generacion-de-textos-bert": "Model Garden supports third-party models from partners with foundation models.",
+      "model-generacion-de-textos-bart-large-cnn": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-traduccion-translation-llm": "For translation tasks, Generative AI on Vertex AI offers two specialized translation models from the Cloud Translation API:",
+      "model-traduccion-text-translation": "Google Cloud translation offerings enable your websites and applications to translate text with state-of-the-art translation models. Depending on your use case, you can use the Cloud Translation API to apply those models programmatically, or access them through Vertex AI.",
+      "model-traduccion-translategemma": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-embeddings-de-textos-gemini-embedding-2": "Our first multimodal embedding model, providing efficient numerical mapping of text, images, video, audio, and PDFs into a single unified embedding space. The Gemini Embedding 2 model is best for cross-modal semantic search, document retrieval, and recommendation systems that require fast, scalable similarity calculations across large multimodal datasets.",
+      "model-embeddings-de-textos-gemini-embedding-001": "A specialized engine for high-dimensional vector representation, providing efficient numerical mapping of text and images. The Gemini Embedding model is best for semantic search, document retrieval, and recommendation systems that require fast, scalable similarity calculations across large datasets.",
+      "model-embeddings-de-textos-embeddings-for-text": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-embeddings-multimodales-embeddings-for-multimodal": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-embeddings-multimodales-medsiglip": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-generacion-de-imagenes-nano-banana": "Our best engine for high-velocity visual creation, offering state-of-the-art speed and efficiency. Gemini 2.5 Flash Image, also known as Nano Banana, is best for high-volume generation, conversational image editing, and low-latency creative workflows that require native multimodal understanding.",
+      "model-generacion-de-imagenes-gemini-2-5-flash-image": "Our best engine for high-velocity visual creation, offering state-of-the-art speed and efficiency. Gemini 2.5 Flash Image, also known as Nano Banana, is best for high-volume generation, conversational image editing, and low-latency creative workflows that require native multimodal understanding.",
+      "model-generacion-de-imagenes-nano-banana-2": "Visit the Image generation page for full coverage of features and capabilities.",
+      "model-generacion-de-imagenes-gemini-3-1-flash-image-preview": "Nano Banana 2 provides high-quality image generation and conversational editing at a mainstream price point and low latency. It serves as the high-efficiency counterpart to Gemini 3 Pro Image , optimized for speed and high-volume developer use cases.",
+      "model-generacion-de-imagenes-nano-banana-pro": "Visit the Image generation page for full coverage of features and capabilities.",
+      "model-generacion-de-imagenes-gemini-3-pro-image-preview": "Nano Banana Pro is a sophisticated reasoning-driven engine for professional-grade image editing and generation, offering studio-quality precision and advanced creative control. Nano Banana Pro is best for complex graphic design, high-fidelity product mockups, and factual data visualizations that require accurate text rendering and real-world grounding via Google Search.",
+      "model-generacion-de-imagenes-imagen-4-ultra-for-image-generation": "Imagen 4 is our latest line of image generation models. This page documents the capabilities and features of the Imagen 4 models.",
+      "model-generacion-de-imagenes-imagen-4-for-image-generation": "A high-performance engine for advanced visual synthesis, offering sophisticated creative control and photorealistic output. Use Imagen 4 for professional branding, intricate scene composition, and high-fidelity design tasks that require precise text rendering and complex lighting.",
+      "model-generacion-de-imagenes-imagen-4-fast-for-image-generation": "Imagen 4 is our latest line of image generation models. This page documents the capabilities and features of the Imagen 4 models.",
+      "model-generacion-de-imagenes-imagen-for-generation": "You can use Imagen on Vertex AI to generate new images from a text prompt. Supported interfaces include the Google Cloud console and the Vertex AI API.",
+      "model-generacion-de-imagenes-imagen-2-for-generation-and-editing": "You can use Imagen on Vertex AI to generate new images from a text prompt. Supported interfaces include the Google Cloud console and the Vertex AI API.",
+      "model-generacion-de-imagenes-imagen-for-editing-and-customization": "Imagen on Vertex AI lets you edit Imagen-generated or existing images. You can specify part of the image to modify in addition to a text description of the updates (mask-base editing).",
+      "model-generacion-de-videos-veo-3-1-lite-for-video-generation": "Veo 3.1 Lite Preview is a high-efficiency, developer-first video model providing high-fidelity video generation, editing, and cinematic control. It leverages the state-of-the-art Veo 3.1 model to democratize professional-grade video AI by offering a scalable, programmable interface for creators and enterprises.",
+      "model-generacion-de-videos-veo-3-1-fast-for-video-generation": "Veo 3.1 is our latest line of video generation models. This page documents the capabilities and features of Veo 3.1.",
+      "model-generacion-de-videos-veo-3-1-for-video-generation": "A state-of-the-art cinematic engine designed for high-end creative storytelling and experimental video production. Veo 3.1 is best for professional-grade 4K output, natively synchronized audio generation, and complex camera movements that require the highest level of temporal consistency and artistic control.",
+      "model-generacion-de-videos-veo-3-for-video-generation": "Caution: The following table describes image generation endpoints that are deprecated and their replacements. We recommend updating your model endpoints before June 30, 2026, to avoid service disruption. Discontinued endpoints Recommended endpoint migration veo-3.0-generate-001 veo-3.1-generate-001 veo-3.0-fast-generate-001 veo-3.1-fast-generate-001 veo-2.0-generate-001 veo-3.1-generate-001",
+      "model-generacion-de-videos-veo-3-fast-for-video-generation": "Caution: The following table describes image generation endpoints that are deprecated and their replacements. We recommend updating your model endpoints before June 30, 2026, to avoid service disruption. Discontinued endpoints Recommended endpoint migration veo-3.0-generate-001 veo-3.1-generate-001 veo-3.0-fast-generate-001 veo-3.1-fast-generate-001 veo-2.0-generate-001 veo-3.1-generate-001",
+      "model-generacion-de-videos-veo-2-for-generation": "Caution: The following table describes image generation endpoints that are deprecated and their replacements. We recommend updating your model endpoints before June 30, 2026, to avoid service disruption. Discontinued endpoints Recommended endpoint migration veo-3.0-generate-001 veo-3.1-generate-001 veo-3.0-fast-generate-001 veo-3.1-fast-generate-001 veo-2.0-generate-001 veo-3.1-generate-001",
+      "model-generacion-de-audios-gemini-2-5-flash-tts-preview": "Our fastest engine for high-fidelity speech synthesis, offering low-latency and cost-efficient audio generation. Gemini 2.5 Flash TTS is best for real-time assistants, high-volume narration, and conversational use cases that require fine-grained control over voice style and pacing.",
+      "model-generacion-de-audios-gemini-2-5-pro-tts-preview": "Our premium engine for studio-quality speech synthesis, offering high-fidelity and sophisticated audio generation. Gemini 2.5 Pro TTS is best for long-form content, professional narrations, and complex creative workflows that require the highest level of vocal clarity and natural prosody.",
+      "model-generacion-de-audios-lyria-2-for-music-generation": "Lyria is a music generation model from Google. This page documents the capabilities and features of lyria-002 .",
+      "model-generacion-de-audios-lyria-3-for-song-clips-generation": "Lyria 3 Clip Preview is Google's model optimized for generating short musical clips, loops, and previews. It generates 30-second high-quality, 48kHz stereo audio from text prompts or image inputs.",
+      "model-generacion-de-audios-lyria-3-pro-for-full-song-generation": "Lyria 3 Pro Preview is Google's flagship music generation model. It is optimized for generating full-length songs with complex structural coherence, including multiple verses, choruses, and bridges. It generates high-quality, 48kHz stereo audio from text prompts or image inputs.",
+      "model-generacion-de-audios-lyria-realtime": "An experimental engine for high-fidelity musical synthesis, offering innovative capabilities for generating and transforming audio content. Lyria RealTime is best for AI-assisted songwriting, unique instrumental generation, and creative audio workflows that require deep control over melody and rhythm, with no vocals.",
+      "model-reconocimiento-de-voz-chirp-3": "Chirp 3 is the latest generation of Google's multilingual Automatic Speech Recognition (ASR)-specific generative models, designed to meet user needs based on feedback and experience. Chirp 3 provides enhanced accuracy and speed beyond previous Chirp models and provides diarization and automatic language detection.",
+      "model-reconocimiento-de-voz-chirp-2": "Chirp 2 es la última generación de modelos multilingües específicos de ASR de Google, diseñados para satisfacer las necesidades de los usuarios en función de sus comentarios y experiencias. Mejora el modelo original de Chirp en cuanto a exactitud y velocidad, además de expandirse a nuevas funciones clave, como marcas de tiempo a nivel de palabras, adaptación de modelos y traducción de voz.",
+      "model-reconocimiento-de-voz-medasr": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-reconocimiento-de-voz-video-speech-transcription": "The Video Intelligence API transcribes speech to text from supported video files. There are two supported models, \"default\" and \"video.\"",
+      "model-clasificacion-de-imagenes-automl-vision-image-classification": "Still looking? Contact Support? or Contact Sales?",
+      "model-clasificacion-de-imagenes-resnet": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-clasificacion-de-imagenes-vit": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-clasificacion-de-imagenes-proprietary-maxvit": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-clasificacion-de-imagenes-proprietary-efficientnet": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-clasificacion-de-imagenes-proprietary-vit": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-clasificacion-de-imagenes-tfvision-vit": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-clasificacion-de-imagenes-tfhub-efficientnetv2": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-clasificacion-de-imagenes-shieldgemma-2": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-clasificacion-de-imagenes-content-moderation": "La detección de SafeSearch identifica contenido explícito, como contenido para adultos o violento, en una imagen. Esta función usa cinco categorías (adult, spoof, medical, violence y racy) y muestra la probabilidad de que cada una esté presente en una imagen determinada.",
+      "model-deteccion-de-objetos-automl-vision-image-object-detection": "Still looking? Contact Support? or Contact Sales?",
+      "model-deteccion-de-objetos-yolov8": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-deteccion-de-objetos-tfvision-yolov7": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-deteccion-de-objetos-proprietary-yolo": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-deteccion-de-objetos-tfvision-yolo": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-deteccion-de-objetos-object-detector": "The Object detector model can identify and locate more than 500 types of objects in a video. The model accepts a video stream as input and outputs a protocol buffer with the detection results to BigQuery.",
+      "model-deteccion-de-objetos-person-vehicle-detector": "The Person/vehicle detector model lets you detect and count people or vehicles in video frames. The model accepts a video stream as input and outputs a protocol buffer with the count of detected people and vehicles detected in each frame.",
+      "model-deteccion-de-objetos-ppe-detector": "The Personal Protective Equipment (PPE) Detector model helps you verify the presence of equipment that limits exposure to hazards in a workplace or community environment.",
+      "model-deteccion-de-objetos-product-recognizer": "El modelo Reconocedor de productos te ayuda a identificar y entender qué productos hay en la imagen proporcionada o en el estante.",
+      "model-deteccion-de-objetos-face-detector": "Face Detection detects multiple faces within an image along with the associated key facial attributes such as emotional state or wearing headwear.",
+      "model-deteccion-de-vocabulario-abierto-owl-vit": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-deteccion-de-vocabulario-abierto-owl-vit-v2": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-deteccion-de-vocabulario-abierto-f-vlm": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-deteccion-de-vocabulario-abierto-label-detector": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-segmentacion-de-imagenes-deeplabv3": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-segmentacion-de-imagenes-vertex-image-segmentation": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-segmentacion-de-imagenes-person-blur": "The Person blur model lets you protect the privacy of people who appear in input videos through distortion such as masking or blurring people's appearance in output videos.",
+      "model-segmentacion-de-vocabulario-abierto-dito": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-procesamiento-de-documentos-form-parser": "Form Parser extracts key-value pairs (KVPs), tables, selection marks (like checkboxes), generic fields, and text to augment and automate document processing.",
+      "model-procesamiento-de-documentos-document-ai-ocr-processor": "You can use Enterprise Document OCR as part of Document AI to detect and extract text and layout information from various documents. With configurable features, you can tailor the system to meet specific document-processing requirements.",
+      "model-procesamiento-de-documentos-text-detector": "La API de Cloud Vision te permite usar capacidades de reconocimiento óptico de caracteres (OCR) para la detección de texto en imágenes, incluida la extracción de escritura a mano.",
+      "model-procesamiento-de-documentos-tag-recognizer": "El modelo Tag Recognizer te ayuda a reconocer y analizar etiquetas, como etiquetas de precio u otras etiquetas, según un esquema de extracción de entidades definido por el usuario.",
+      "model-procesamiento-de-documentos-video-text-detection": "Text Detection performs Optical Character Recognition (OCR), which detects and extracts text within an input video.",
+      "model-comprension-de-imagenes-paligemma-1": "PaliGemma and PaliGemma 2 are lightweight open vision-language models that take both images and text as input, answer questions about images, and support captioning, object detection, and reading embedded text.",
+      "model-comprension-de-imagenes-paligemma-2": "PaliGemma and PaliGemma 2 are lightweight open vision-language models that take both images and text as input, answer questions about images, and support captioning, object detection, and reading embedded text.",
+      "model-recuperacion-de-imagenes-pic2word-composed-image-retrieval": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-clasificacion-tabular-tabnet": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-clasificacion-tabular-automl-tabular-workflow": "En este documento se ofrece una descripción general del proceso y los componentes de AutoML de extremo a extremo para tareas de clasificación y regresión en datos tabulares.",
+      "model-clasificacion-de-textos-text-moderation": "Text moderation analyzes a document against a list of safety attributes, including harmful categories and sensitive topics.",
+      "model-clasificacion-de-textos-sentiment-analysis": "Sentiment Analysis inspects text and identifies the prevailing emotional opinion within it, especially to determine whether the attitude is positive, negative, or neutral.",
+      "model-clasificacion-de-textos-content-classification": "Content Classification analyzes a document and returns a list of content categories that apply to the text found in the document.",
+      "model-extraccion-de-entidades-entity-analysis": "Entity Analysis inspects text for known entities such as people, organizations, locations, and landmarks, and returns information about those entities.",
+      "model-extraccion-de-entidades-entity-sentiment-analysis": "Entity Sentiment Analysis combines entity analysis and sentiment analysis to determine the sentiment expressed about entities within a text.",
+      "model-extraccion-de-entidades-syntax-analysis": "Syntactic Analysis breaks text into sentences and tokens and provides linguistic information about those tokens.",
+      "model-clasificacion-de-videos-movinet-video-action-recognition": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-clasificacion-de-videos-movinet-video-clip-classification": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-radiologia-medgemma": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-radiologia-cxr-foundation": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-salud-y-ciencias-biologicas-txgemma": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-salud-y-ciencias-biologicas-hear": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-salud-y-ciencias-biologicas-medsiglip": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-patologia-path-foundation": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-dermatologia-derm-foundation": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-geospatial-weathernext-2": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-geospatial-weathernext-demo": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-geospatial-cloudnerf": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-geospatial-pytorch-zipnerf": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-geospatial-imagery-classification-and-retrieval-for-remote-sensing": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-geospatial-imagery-object-detection-for-remote-sensing": "Discover, customize, and deploy AI models from Google & partners using Vertex AI.",
+      "model-otros-occupancy-analytics": "El modelo Analíticas de ocupación te permite contar personas o vehículos a partir de las entradas específicas que añadas en los fotogramas de vídeo. También ofrece recuento de zonas activas, cruces de línea y detección de permanencia."
+    };
+  </script>
+  <script>
+    const MODEL_GROUPS = JSON.parse(document.getElementById("model-groups-data").textContent);
+
+    const GROUP_STYLES = {
+      "Generacion multimodal": { icon: "model_training", tone: "rgba(109, 159, 255, 0.34)", ink: "var(--primary)", wash: "rgba(109, 159, 255, 0.2)" },
+      "Generacion de textos": { icon: "notes", tone: "rgba(109, 159, 255, 0.28)", ink: "var(--primary)", wash: "rgba(109, 159, 255, 0.18)" },
+      "Traduccion": { icon: "translate", tone: "rgba(109, 159, 255, 0.24)", ink: "var(--primary)", wash: "rgba(109, 159, 255, 0.16)" },
+      "Embeddings de textos": { icon: "timeline", tone: "rgba(123, 63, 228, 0.28)", ink: "var(--tertiary)", wash: "rgba(123, 63, 228, 0.18)" },
+      "Embeddings multimodales": { icon: "deployed_code", tone: "rgba(123, 63, 228, 0.28)", ink: "var(--tertiary)", wash: "rgba(123, 63, 228, 0.18)" },
+      "Generacion de imagenes": { icon: "image", tone: "rgba(134, 248, 152, 0.28)", ink: "var(--secondary)", wash: "rgba(134, 248, 152, 0.18)" },
+      "Generacion de videos": { icon: "movie", tone: "rgba(134, 248, 152, 0.3)", ink: "var(--secondary)", wash: "rgba(134, 248, 152, 0.18)" },
+      "Generacion de audios": { icon: "graphic_eq", tone: "rgba(123, 63, 228, 0.24)", ink: "var(--tertiary)", wash: "rgba(123, 63, 228, 0.16)" },
+      "Reconocimiento de voz": { icon: "mic", tone: "rgba(123, 63, 228, 0.24)", ink: "var(--tertiary)", wash: "rgba(123, 63, 228, 0.16)" },
+      "Clasificacion de imagenes": { icon: "gallery_thumbnail", tone: "rgba(134, 248, 152, 0.24)", ink: "var(--secondary)", wash: "rgba(134, 248, 152, 0.16)" },
+      "Deteccion de objetos": { icon: "filter_center_focus", tone: "rgba(134, 248, 152, 0.28)", ink: "var(--secondary)", wash: "rgba(134, 248, 152, 0.18)" },
+      "Deteccion de vocabulario abierto": { icon: "target", tone: "rgba(134, 248, 152, 0.22)", ink: "var(--secondary)", wash: "rgba(134, 248, 152, 0.14)" },
+      "Segmentacion de imagenes": { icon: "select", tone: "rgba(134, 248, 152, 0.2)", ink: "var(--secondary)", wash: "rgba(134, 248, 152, 0.13)" },
+      "Segmentacion de vocabulario abierto": { icon: "crop_free", tone: "rgba(134, 248, 152, 0.18)", ink: "var(--secondary)", wash: "rgba(134, 248, 152, 0.12)" },
+      "Procesamiento de documentos": { icon: "description", tone: "rgba(123, 63, 228, 0.24)", ink: "var(--tertiary)", wash: "rgba(123, 63, 228, 0.16)" },
+      "Comprension de imagenes": { icon: "visibility", tone: "rgba(134, 248, 152, 0.22)", ink: "var(--secondary)", wash: "rgba(134, 248, 152, 0.14)" },
+      "Recuperacion de imagenes": { icon: "photo_library", tone: "rgba(134, 248, 152, 0.22)", ink: "var(--secondary)", wash: "rgba(134, 248, 152, 0.14)" },
+      "Clasificacion tabular": { icon: "table_chart", tone: "rgba(109, 159, 255, 0.22)", ink: "var(--primary)", wash: "rgba(109, 159, 255, 0.14)" },
+      "Clasificacion de textos": { icon: "fact_check", tone: "rgba(109, 159, 255, 0.22)", ink: "var(--primary)", wash: "rgba(109, 159, 255, 0.14)" },
+      "Extraccion de entidades": { icon: "category_search", tone: "rgba(109, 159, 255, 0.2)", ink: "var(--primary)", wash: "rgba(109, 159, 255, 0.13)" },
+      "Clasificacion de videos": { icon: "video_library", tone: "rgba(134, 248, 152, 0.2)", ink: "var(--secondary)", wash: "rgba(134, 248, 152, 0.13)" },
+      "Radiologia": { icon: "diagnosis", tone: "rgba(182, 88, 0, 0.24)", ink: "var(--quaternary)", wash: "rgba(182, 88, 0, 0.12)" },
+      "Salud y ciencias biologicas": { icon: "biotech", tone: "rgba(182, 88, 0, 0.24)", ink: "var(--quaternary)", wash: "rgba(182, 88, 0, 0.12)" },
+      "Patologia": { icon: "labs", tone: "rgba(182, 88, 0, 0.22)", ink: "var(--quaternary)", wash: "rgba(182, 88, 0, 0.12)" },
+      "Dermatologia": { icon: "healing", tone: "rgba(182, 88, 0, 0.22)", ink: "var(--quaternary)", wash: "rgba(182, 88, 0, 0.12)" },
+      "Geospatial": { icon: "public", tone: "rgba(134, 248, 152, 0.22)", ink: "var(--secondary)", wash: "rgba(134, 248, 152, 0.14)" },
+      "Otros": { icon: "auto_awesome_mosaic", tone: "rgba(117, 119, 120, 0.18)", ink: "var(--on-surface-variant)", wash: "rgba(117, 119, 120, 0.1)" }
+    };
+
+    const UNIVERSE_CLUSTER_CENTERS = {
+      "Generacion multimodal": { x: 640, y: 760 },
+      "Generacion de textos": { x: 2050, y: 520 },
+      "Traduccion": { x: 2920, y: 920 },
+      "Embeddings de textos": { x: 620, y: 1920 },
+      "Embeddings multimodales": { x: 2030, y: 1930 },
+      "Clasificacion de textos": { x: 2550, y: 1560 },
+      "Extraccion de entidades": { x: 920, y: 2400 },
+      "Clasificacion tabular": { x: 1930, y: 2350 },
+      "Generacion de imagenes": { x: 3600, y: 680 },
+      "Generacion de videos": { x: 4650, y: 880 },
+      "Generacion de audios": { x: 3550, y: 1640 },
+      "Reconocimiento de voz": { x: 4700, y: 1660 },
+      "Procesamiento de documentos": { x: 3560, y: 2570 },
+      "Comprension de imagenes": { x: 4700, y: 2570 },
+      "Recuperacion de imagenes": { x: 4100, y: 3440 },
+      "Clasificacion de imagenes": { x: 780, y: 3330 },
+      "Deteccion de objetos": { x: 1800, y: 3400 },
+      "Deteccion de vocabulario abierto": { x: 2820, y: 3510 },
+      "Segmentacion de imagenes": { x: 930, y: 4230 },
+      "Segmentacion de vocabulario abierto": { x: 2010, y: 4320 },
+      "Clasificacion de videos": { x: 3030, y: 4380 },
+      "Radiologia": { x: 3570, y: 3510 },
+      "Salud y ciencias biologicas": { x: 4550, y: 3630 },
+      "Patologia": { x: 5420, y: 3720 },
+      "Dermatologia": { x: 3540, y: 4370 },
+      "Geospatial": { x: 4520, y: 4460 },
+      "Otros": { x: 5380, y: 4430 }
+    };
+
+    const expandedGroups = new Set();
+
+    function slugify(value) {
+      return String(value)
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+    }
+
+    function stripDecorators(name) {
+      return String(name).replace(/\[[^\]]+\]/g, "").replace(/\([^)]*\)/g, "").trim();
+    }
+
+    function modelLookupId(group, name) {
+      return `model-${slugify(group)}-${slugify(stripDecorators(name))}`;
+    }
+
+    function modelCardId(group, name, index) {
+      return `${modelLookupId(group, name)}-${index}`;
+    }
+
+    function extractAlias(name) {
+      const match = String(name).match(/\(([^)]*)\)/);
+      return match ? match[1] : "";
+    }
+
+    function detectStatus(name) {
+      const lower = String(name).toLowerCase();
+      return ["preview", "deprecated", "alias"].filter((key) => lower.includes(key));
+    }
+
+    function modelFamily(name) {
+      const cleaned = stripDecorators(name);
+      if (cleaned.includes("/")) return cleaned.split("/")[0];
+      return cleaned.split(" ")[0];
+    }
+
+    function modelBadge(name) {
+      const cleaned = stripDecorators(name);
+      const words = cleaned.split(/\s+/).filter(Boolean);
+      if (words.length >= 2) return `${words[0][0] || ""}${words[1][0] || ""}`.toUpperCase();
+      return cleaned.replace(/[^A-Z0-9]/g, "").slice(0, 4) || cleaned.slice(0, 2).toUpperCase();
+    }
+
+    function sourceCountLabel(model) {
+      if (model.sources.length === 0) return "No refs";
+      if (model.sources.length === 1) return "1 source";
+      return `${model.sources.length} sources`;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function groupDescription(group) {
+      const descriptions = {
+        "Generacion multimodal": "General-purpose and agentic models that mix reasoning, code, multimodality and live interaction surfaces.",
+        "Generacion de textos": "Open and adaptable text-first generators, encoder-decoders and classic language backbones.",
+        "Traduccion": "Translation-specialized models and multilingual transformation paths.",
+        "Embeddings de textos": "Text vector models for retrieval, ranking, semantic matching and downstream classifiers.",
+        "Embeddings multimodales": "Joint spaces for text-image or medical multimodal retrieval and matching.",
+        "Generacion de imagenes": "Image-native creation and editing models, including Gemini image variants and Imagen lanes.",
+        "Generacion de videos": "Video synthesis models, grouped by generation family and speed tier.",
+        "Generacion de audios": "Audio and music generation surfaces, including TTS and music composition models.",
+        "Reconocimiento de voz": "Speech recognition and transcription paths, including video and medical operators.",
+        "Clasificacion de imagenes": "Closed and open image classification lanes, from AutoML to pretrained checkpoints.",
+        "Deteccion de objetos": "Detection operators across vision APIs, Vertex AI Vision and model-garden checkpoints.",
+        "Deteccion de vocabulario abierto": "Open-vocabulary detectors that stay flexible at inference time.",
+        "Segmentacion de imagenes": "Masking, blurring and semantic segmentation models.",
+        "Segmentacion de vocabulario abierto": "Segmentation models that extend beyond fixed label spaces.",
+        "Procesamiento de documentos": "OCR, form understanding and tag extraction pipelines for structured document flows.",
+        "Comprension de imagenes": "Models focused on reading, captioning, question answering and image understanding.",
+        "Recuperacion de imagenes": "Retrieval-first image systems that optimize search and composition queries.",
+        "Clasificacion tabular": "Structured-data models and workflows for end-to-end tabular classification.",
+        "Clasificacion de textos": "Language classifiers for moderation, sentiment and topical categorization.",
+        "Extraccion de entidades": "Entity, syntax and linguistic analysis operators for structured NLP output.",
+        "Clasificacion de videos": "Video understanding models that assign labels to clips or actions.",
+        "Radiologia": "Medical imaging models grouped around radiology-grade understanding.",
+        "Salud y ciencias biologicas": "Specialist health and biomedical model families for therapeutic or multimodal medical work.",
+        "Patologia": "Foundation models tuned for pathology embeddings and downstream classification.",
+        "Dermatologia": "Skin-focused embedding backbones for dermatology workflows.",
+        "Geospatial": "Spatial, remote sensing and weather models for forecasting or 3D scene reasoning.",
+        "Otros": "Specialized models that sit outside the main task taxonomies."
+      };
+
+      return descriptions[group] || "Task-oriented model cluster.";
+    }
+
+    function normalizeSourceDescription(value) {
+      return String(value ?? "").replace(/\s+/g, " ").replace(/\s+([,.;:!?])/g, "$1").trim();
+    }
+
+    function isGenericSourceDescription(value) {
+      const text = normalizeSourceDescription(value).toLowerCase();
+      if (!text) return true;
+
+      return [
+        /^discover, customize, and deploy ai models from google & partners using vertex ai\.?$/,
+        /^learn about .* from google\.?$/,
+        /^summary description and brief definition of inputs and outputs\.?$/,
+        /^still looking\? contact support\? or contact sales\?$/,
+        /^visit the image generation page for full coverage of features and capabilities\.?$/,
+        /^model garden supports third-party models from partners with foundation models\.?$/,
+        /^caution: the following table describes image generation endpoints that are deprecated/
+      ].some((pattern) => pattern.test(text));
+    }
+
+    function modelPurpose(group, model) {
+      const name = stripDecorators(model.name).toLowerCase();
+
+      const keywordPurposes = [
+        { match: ["embedding"], text: "Best for turning content into vectors for retrieval, ranking and semantic matching." },
+        { match: ["translation", "translate"], text: "Best for translating text between languages and multilingual language workflows." },
+        { match: ["tts", "lyria", "chirp", "asr", "speech"], text: "Best for speech, transcription, text-to-speech or audio generation tasks." },
+        { match: ["veo", "video"], text: "Best for video generation, video understanding or video-first media pipelines." },
+        { match: ["imagen", "flash image", "nano banana"], text: "Best for image generation, editing and creative visual workflows." },
+        { match: ["detector", "yolo", "owl-vit", "dito"], text: "Best for locating, labeling or segmenting visual entities in images or video." },
+        { match: ["ocr", "form parser", "document", "tag recognizer", "text detector"], text: "Best for OCR, document parsing and extracting structured information from files." },
+        { match: ["sentiment", "moderation", "classification", "entity", "syntax"], text: "Best for language analysis, moderation and structured NLP classification tasks." },
+        { match: ["weather", "remote sensing", "cloudnerf", "zipnerf", "imagery"], text: "Best for spatial reasoning, geospatial analysis or weather-oriented AI workflows." },
+        { match: ["med", "cxr", "derm", "path", "hear", "txgemma"], text: "Best for healthcare, biomedical or medical-imaging use cases." },
+        { match: ["gemini", "gemma", "t5", "bert", "bart", "mammut"], text: "Best for general language, reasoning or multimodal generation workflows depending on the deployment surface." }
+      ];
+
+      const matched = keywordPurposes.find((entry) => entry.match.some((fragment) => name.includes(fragment)));
+      if (matched) return matched.text;
+
+      return "Best for specialized AI workflows mapped in this catalog.";
+    }
+
+    function modelDescription(group, model) {
+      const key = modelLookupId(group, model.name);
+      const official = normalizeSourceDescription((window.MODEL_DESCRIPTION_OVERRIDES || {})[key] || "");
+      if (official && !isGenericSourceDescription(official)) return official;
+      return modelPurpose(group, model);
+    }
+
+    function orbitDistribution(count) {
+      const capacities = [6, 8, 10, 12];
+      const rings = [];
+      let remaining = count;
+      let index = 0;
+
+      while (remaining > 0) {
+        const capacity = capacities[Math.min(index, capacities.length - 1)];
+        rings.push(Math.min(capacity, remaining));
+        remaining -= capacity;
+        index += 1;
+      }
+
+      return rings;
+    }
+
+    function clusterSize(modelCount) {
+      return Math.min(780, Math.max(460, 360 + modelCount * 26));
+    }
+
+    function orbitPositions(count, size) {
+      const center = { x: size / 2, y: size * 0.56 };
+      const rings = orbitDistribution(count);
+      const positions = [];
+      const baseRadius = Math.max(170, size * 0.3);
+      const ringGap = Math.max(112, size * 0.12);
+
+      rings.forEach((ringCount, ringIndex) => {
+        const radius = baseRadius + ringIndex * ringGap;
+        for (let nodeIndex = 0; nodeIndex < ringCount; nodeIndex += 1) {
+          const step = (Math.PI * 2) / ringCount;
+          const offset = -Math.PI / 2 + (ringIndex % 2 ? step / 2 : 0);
+          const angle = offset + step * nodeIndex;
+          positions.push({
+            left: center.x + Math.cos(angle) * radius,
+            top: center.y + Math.sin(angle) * radius
+          });
+        }
+      });
+
+      return positions;
+    }
+
+    function metricsForModel(group, model) {
+      const statuses = detectStatus(model.name);
+      return {
+        family: modelFamily(model.name),
+        statuses: statuses.length ? statuses.join(", ") : "stable",
+        urls: model.sources.length,
+        groupSize: MODEL_GROUPS.find((entry) => entry.group === group)?.models.length || "-"
+      };
+    }
+
+    function identityItems(group, model) {
+      const alias = extractAlias(model.name);
+      const statuses = detectStatus(model.name);
+      return [
+        { icon: "hub", label: modelFamily(model.name) },
+        { icon: "bookmark", label: group },
+        alias ? { icon: "sell", label: alias } : null,
+        statuses.length ? { icon: "flag", label: statuses.join(", ") } : null
+      ].filter(Boolean);
+    }
+
+    function urlsHtml(model) {
+      if (!model.sources.length) return `<div class="hover-url-item"><div class="hover-url-label">URLs</div><div>No external documentation mapped yet.</div></div>`;
+      return model.sources.map((source) => `
+        <div class="hover-url-item">
+          <div class="hover-url-label">${escapeHtml(source.label)}</div>
+          <a class="hover-url-link" href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.url)}</a>
+        </div>
+      `).join("");
+    }
+
+    function hoverCardHtml(group, model) {
+      const style = GROUP_STYLES[group] || GROUP_STYLES["Otros"];
+      const metrics = metricsForModel(group, model);
+      const description = modelDescription(group, model);
+      const identity = identityItems(group, model).map((item) => `
+        <span class="info-pill">
+          <span class="material-symbols-outlined">${item.icon}</span>
+          <span>${escapeHtml(item.label)}</span>
+        </span>
+      `).join("");
+
+      return `
+        <div class="hover-card-shell" style="--tone:${style.tone}; --ink:${style.ink};">
+          <div class="hover-head">
+            <div class="hover-badge">${escapeHtml(modelBadge(model.name))}</div>
+            <div class="hover-title-wrap">
+              <h3>${escapeHtml(stripDecorators(model.name))}</h3>
+              <div class="hover-subline">
+                <span class="hover-kicker">${escapeHtml(group)}</span>
+                <span class="hover-kicker">${escapeHtml(sourceCountLabel(model))}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hover-metrics">
+            <div class="hover-metric">
+              <span class="hover-metric-label">Family</span>
+              <span class="hover-metric-value">${escapeHtml(metrics.family)}</span>
+            </div>
+            <div class="hover-metric">
+              <span class="hover-metric-label">Signals</span>
+              <span class="hover-metric-value">${escapeHtml(metrics.statuses)}</span>
+            </div>
+            <div class="hover-metric">
+              <span class="hover-metric-label">URLs</span>
+              <span class="hover-metric-value">${metrics.urls}</span>
+            </div>
+            <div class="hover-metric">
+              <span class="hover-metric-label">Group size</span>
+              <span class="hover-metric-value">${metrics.groupSize}</span>
+            </div>
+          </div>
+
+          <div class="hover-card-copy">
+            <p>${escapeHtml(description)}</p>
+          </div>
+
+          <div class="hover-sections">
+            <div class="hover-section">
+              <div class="hover-section-label">Identity</div>
+              <div class="hover-pill-grid">${identity}</div>
+            </div>
+            <div class="hover-section">
+              <div class="hover-section-label">URLs</div>
+              <div class="hover-url-list">${urlsHtml(model)}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function detailCardHtml(group, model, index) {
+      const style = GROUP_STYLES[group] || GROUP_STYLES["Otros"];
+      const metrics = metricsForModel(group, model);
+      const description = modelDescription(group, model);
+      const identity = identityItems(group, model).map((item) => `
+        <span class="info-pill">
+          <span class="material-symbols-outlined">${item.icon}</span>
+          <span>${escapeHtml(item.label)}</span>
+        </span>
+      `).join("");
+
+      return `
+        <article class="detail-card" id="${modelCardId(group, model.name, index)}" style="--group-tone:${style.tone}; --group-ink:${style.ink};">
+          <div class="detail-head">
+            <div class="detail-title">
+              <div class="detail-badge">${escapeHtml(modelBadge(model.name))}</div>
+              <div>
+                <h3>${escapeHtml(stripDecorators(model.name))}</h3>
+                <div class="detail-subline">
+                  <span class="hover-kicker">${escapeHtml(group)}</span>
+                  <span class="hover-kicker">${escapeHtml(sourceCountLabel(model))}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-metrics">
+            <div class="hover-metric">
+              <span class="hover-metric-label">Family</span>
+              <span class="hover-metric-value">${escapeHtml(metrics.family)}</span>
+            </div>
+            <div class="hover-metric">
+              <span class="hover-metric-label">Signals</span>
+              <span class="hover-metric-value">${escapeHtml(metrics.statuses)}</span>
+            </div>
+            <div class="hover-metric">
+              <span class="hover-metric-label">URLs</span>
+              <span class="hover-metric-value">${metrics.urls}</span>
+            </div>
+            <div class="hover-metric">
+              <span class="hover-metric-label">Group size</span>
+              <span class="hover-metric-value">${metrics.groupSize}</span>
+            </div>
+          </div>
+
+          <div class="detail-copy">
+            <p>${escapeHtml(description)}</p>
+          </div>
+
+          <div class="detail-section">
+            <p class="section-label">Identity</p>
+            <div class="hover-pill-grid">${identity}</div>
+          </div>
+
+          <div class="detail-section">
+            <p class="section-label">URLs</p>
+            <div class="hover-url-list">${urlsHtml(model)}</div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderQuickNav() {
+      const nav = document.getElementById("quick-nav");
+      nav.innerHTML = MODEL_GROUPS.map((entry) => {
+        const style = GROUP_STYLES[entry.group] || GROUP_STYLES["Otros"];
+        return `
+          <button class="group-chip focus-button" type="button" data-focus-group="${escapeHtml(entry.group)}" style="--cluster-tone:${style.tone}; --cluster-ink:${style.ink};">
+            <span class="material-symbols-outlined">${style.icon}</span>
+            <span>${escapeHtml(entry.group)}</span>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function renderUniverse() {
+      const world = document.getElementById("universe-world");
+      world.innerHTML = "";
+
+      MODEL_GROUPS.forEach((entry) => {
+        const style = GROUP_STYLES[entry.group] || GROUP_STYLES["Otros"];
+        const center = UNIVERSE_CLUSTER_CENTERS[entry.group] || { x: 1200, y: 1200 };
+        const size = clusterSize(entry.models.length);
+        const positions = orbitPositions(entry.models.length, size);
+        const cluster = document.createElement("section");
+        cluster.className = "universe-cluster";
+        cluster.id = `cluster-${slugify(entry.group)}`;
+        cluster.dataset.group = entry.group;
+        cluster.style.left = `${center.x}px`;
+        cluster.style.top = `${center.y}px`;
+        cluster.style.width = `${size}px`;
+        cluster.style.height = `${size}px`;
+        cluster.style.setProperty("--cluster-tone", style.tone);
+        cluster.style.setProperty("--cluster-ink", style.ink);
+
+        const aura = document.createElement("div");
+        aura.className = "cluster-aura";
+        aura.style.background = style.wash;
+        cluster.appendChild(aura);
+
+        const ringCount = Math.max(2, orbitDistribution(entry.models.length).length + 1);
+        for (let index = 0; index < ringCount; index += 1) {
+          const ring = document.createElement("div");
+          ring.className = "cluster-ring";
+          const inset = 54 + index * 58;
+          ring.style.inset = `${inset}px`;
+          cluster.appendChild(ring);
+        }
+
+        const label = document.createElement("button");
+        label.type = "button";
+        label.className = "cluster-label";
+        label.dataset.openGroup = entry.group;
+        label.innerHTML = `
+          <span class="cluster-label-text">
+            <span class="material-symbols-outlined">${style.icon}</span>
+            <span>${escapeHtml(entry.group)}</span>
+          </span>
+          <span class="cluster-action-icon">
+            <span class="material-symbols-outlined">south</span>
+          </span>
+        `;
+        cluster.appendChild(label);
+
+        const core = document.createElement("button");
+        core.type = "button";
+        core.className = "cluster-core";
+        core.dataset.openGroup = entry.group;
+        core.innerHTML = `
+          <div>
+            <span class="material-symbols-outlined" style="color:${style.ink};">${style.icon}</span>
+            <strong>${escapeHtml(entry.group)}</strong>
+            <span>${entry.models.length} models</span>
+          </div>
+        `;
+        cluster.appendChild(core);
+
+        entry.models.forEach((model, index) => {
+          const position = positions[index] || { left: size / 2, top: size / 2 };
+          const node = document.createElement("a");
+          node.className = "model-node";
+          node.href = `#${modelCardId(entry.group, model.name, index)}`;
+          node.style.left = `${position.left}px`;
+          node.style.top = `${position.top}px`;
+          node.style.setProperty("--cluster-tone", style.tone);
+          node.style.setProperty("--cluster-ink", style.ink);
+          node.dataset.group = entry.group;
+          node.dataset.modelIndex = String(index);
+          node.innerHTML = `
+            <div class="model-node-badge">${escapeHtml(modelBadge(model.name))}</div>
+            <div class="model-node-name">${escapeHtml(stripDecorators(model.name))}</div>
+          `;
+          cluster.appendChild(node);
+        });
+
+        world.appendChild(cluster);
+      });
+    }
+
+    function renderGroups() {
+      const groupsEl = document.getElementById("group-sections");
+      groupsEl.innerHTML = MODEL_GROUPS.map((entry) => {
+        const style = GROUP_STYLES[entry.group] || GROUP_STYLES["Otros"];
+        const cards = entry.models.map((model, index) => detailCardHtml(entry.group, model, index)).join("");
+        return `
+          <section class="group-card is-collapsed" id="group-${slugify(entry.group)}" data-group-section="${escapeHtml(entry.group)}" style="--group-tone:${style.tone}; --group-ink:${style.ink};">
+            <div class="group-card-head">
+              <button class="group-card-toggle" type="button" data-toggle-group="${escapeHtml(entry.group)}" aria-expanded="false">
+                <div class="group-card-title">
+                  <span class="eyebrow">${escapeHtml(entry.group)}</span>
+                  <h2>${escapeHtml(entry.group)}</h2>
+                  <p>${escapeHtml(groupDescription(entry.group))}</p>
+                </div>
+                <div class="group-card-meta">
+                  <span>${entry.models.length} models</span>
+                  <span class="material-symbols-outlined">expand_more</span>
+                </div>
+              </button>
+            </div>
+            <div class="detail-grid">${cards}</div>
+          </section>
+        `;
+      }).join("");
+    }
+
+    function setGroupExpanded(group, expanded) {
+      const section = document.querySelector(`.group-card[data-group-section="${CSS.escape(group)}"]`);
+      const detailToggles = document.querySelectorAll(`.group-card-toggle[data-toggle-group="${CSS.escape(group)}"]`);
+
+      if (expanded) {
+        expandedGroups.add(group);
+      } else {
+        expandedGroups.delete(group);
+      }
+
+      if (section) {
+        section.classList.toggle("is-expanded", expanded);
+        section.classList.toggle("is-collapsed", !expanded);
+      }
+
+      detailToggles.forEach((toggle) => toggle.setAttribute("aria-expanded", expanded ? "true" : "false"));
+    }
+
+    function toggleGroupExpanded(group) {
+      const next = !expandedGroups.has(group);
+      setGroupExpanded(group, next);
+      return next;
+    }
+
+    function setupHoverCard() {
+      const hoverCard = document.getElementById("model-hover-card");
+      const world = document.getElementById("universe-world");
+
+      function getModelFromNode(node) {
+        const group = node.dataset.group;
+        const modelIndex = Number(node.dataset.modelIndex);
+        const entry = MODEL_GROUPS.find((item) => item.group === group);
+        if (!entry || !entry.models[modelIndex]) return null;
+        return { group, model: entry.models[modelIndex] };
+      }
+
+      function show(node) {
+        const data = getModelFromNode(node);
+        if (!data) return;
+        hoverCard.innerHTML = hoverCardHtml(data.group, data.model);
+        hoverCard.hidden = false;
+      }
+
+      function hide() {
+        hoverCard.hidden = true;
+      }
+
+      world.addEventListener("mouseover", (event) => {
+        const node = event.target.closest(".model-node");
+        if (!node) return;
+        show(node);
+      });
+
+      world.addEventListener("focusin", (event) => {
+        const node = event.target.closest(".model-node");
+        if (!node) return;
+        show(node);
+      });
+
+      world.addEventListener("mouseout", (event) => {
+        const node = event.target.closest(".model-node");
+        if (!node) return;
+        if (node.contains(event.relatedTarget)) return;
+        if (hoverCard.matches(":hover")) return;
+        hide();
+      });
+
+      world.addEventListener("focusout", (event) => {
+        const node = event.target.closest(".model-node");
+        if (!node) return;
+        if (event.relatedTarget && hoverCard.contains(event.relatedTarget)) return;
+        hide();
+      });
+
+      hoverCard.addEventListener("mouseleave", hide);
+    }
+
+    function setupUniverseNavigation() {
+      const viewport = document.getElementById("universe-viewport");
+      const stage = document.getElementById("universe-stage");
+      const zoomReadout = document.getElementById("zoom-readout");
+      let scale = 1;
+
+      function updateZoomReadout() {
+        zoomReadout.textContent = `${Math.round(scale * 100)}%`;
+      }
+
+      function setScale(nextScale, anchorX = viewport.clientWidth / 2, anchorY = viewport.clientHeight / 2) {
+        const clamped = Math.min(2.1, Math.max(0.65, nextScale));
+        const ratio = clamped / scale;
+        const worldX = (viewport.scrollLeft + anchorX) / scale;
+        const worldY = (viewport.scrollTop + anchorY) / scale;
+        scale = clamped;
+        stage.style.transform = `scale(${scale})`;
+        viewport.scrollLeft = worldX * scale - anchorX;
+        viewport.scrollTop = worldY * scale - anchorY;
+        updateZoomReadout();
+      }
+
+      document.getElementById("zoom-in").addEventListener("click", () => setScale(scale + 0.15));
+      document.getElementById("zoom-out").addEventListener("click", () => setScale(scale - 0.15));
+      document.getElementById("zoom-reset").addEventListener("click", () => setScale(1));
+
+      viewport.addEventListener("wheel", (event) => {
+        if (!(event.ctrlKey || event.metaKey)) return;
+        event.preventDefault();
+        const rect = viewport.getBoundingClientRect();
+        const anchorX = event.clientX - rect.left;
+        const anchorY = event.clientY - rect.top;
+        const delta = event.deltaY < 0 ? 0.14 : -0.14;
+        setScale(scale + delta, anchorX, anchorY);
+      }, { passive: false });
+
+      let dragging = false;
+      let startX = 0;
+      let startY = 0;
+      let startScrollLeft = 0;
+      let startScrollTop = 0;
+
+      viewport.addEventListener("pointerdown", (event) => {
+        if (event.target.closest(".model-node, .cluster-label, .cluster-core")) return;
+        dragging = true;
+        viewport.classList.add("dragging");
+        startX = event.clientX;
+        startY = event.clientY;
+        startScrollLeft = viewport.scrollLeft;
+        startScrollTop = viewport.scrollTop;
+        viewport.setPointerCapture(event.pointerId);
+      });
+
+      viewport.addEventListener("pointermove", (event) => {
+        if (!dragging) return;
+        viewport.scrollLeft = startScrollLeft - (event.clientX - startX);
+        viewport.scrollTop = startScrollTop - (event.clientY - startY);
+      });
+
+      function stopDragging(event) {
+        if (!dragging) return;
+        dragging = false;
+        viewport.classList.remove("dragging");
+        if (event) viewport.releasePointerCapture(event.pointerId);
+      }
+
+      viewport.addEventListener("pointerup", stopDragging);
+      viewport.addEventListener("pointercancel", stopDragging);
+
+      function focusGroup(group) {
+        const center = UNIVERSE_CLUSTER_CENTERS[group];
+        if (!center) return;
+        viewport.scrollTo({
+          left: Math.max(0, center.x * scale - viewport.clientWidth / 2),
+          top: Math.max(0, center.y * scale - viewport.clientHeight / 2),
+          behavior: "smooth"
+        });
+      }
+
+      document.addEventListener("click", (event) => {
+        const openGroupTrigger = event.target.closest("[data-open-group]");
+        if (openGroupTrigger) {
+          const group = openGroupTrigger.getAttribute("data-open-group");
+          setGroupExpanded(group, true);
+          document.getElementById(`group-${slugify(group)}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+          return;
+        }
+
+        const toggle = event.target.closest("[data-toggle-group]");
+        if (toggle) {
+          const group = toggle.getAttribute("data-toggle-group");
+          const opened = toggleGroupExpanded(group);
+          if (toggle.closest(".group-card") && opened) {
+            document.getElementById(`group-${slugify(group)}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+          return;
+        }
+
+        const button = event.target.closest("[data-focus-group]");
+        if (!button) return;
+        focusGroup(button.getAttribute("data-focus-group"));
+      });
+
+      requestAnimationFrame(() => {
+        viewport.scrollLeft = 240;
+        viewport.scrollTop = 280;
+      });
+
+      updateZoomReadout();
+    }
+
+    renderQuickNav();
+    renderUniverse();
+    renderGroups();
+    setupHoverCard();
+    setupUniverseNavigation();
+  </script>
+</body>
+</html>

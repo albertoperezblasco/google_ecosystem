@@ -1,5 +1,165 @@
 1. Models
- - https://ai.google.dev/gemini-api/docs/models 
+    - Merge basis
+        - Source 1 (Gemini API / Google AI for Developers): https://ai.google.dev/gemini-api/docs/models?hl=es-419
+        - Source 2 (Vertex AI / Model Garden / Google Cloud): https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models
+        - Source 2 catalog (Model Garden): https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Open models additional source (Gemma docs): https://ai.google.dev/gemma/docs
+    - Generacion multimodal
+        - Gemini 3.1 Pro Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models
+        - Gemini 3 Pro Preview [deprecated] | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro
+        - Gemini 3 Flash Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-flash
+        - Gemini 3.1 Flash Lite Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models
+        - Gemini 2.5 Pro | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-pro
+        - Gemini 2.5 Flash Preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash
+        - Gemini 2.5 Flash | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash
+        - Gemini 2.5 Flash-Lite Preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-lite
+        - Gemini 2.5 Flash-Lite | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-lite
+        - Gemini 2.0 Flash | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash
+        - Gemini 2.0 Flash-Lite | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash-lite | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash-lite
+        - Gemini 3.1 Flash Live Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview
+        - Gemini Live 2.5 Flash Native Audio | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-live-api
+        - Gemini Deep Research Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025
+        - Gemini Computer Use Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025 | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/computer-use
+        - Gemini Robotics Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.5-preview
+        - Gemma 3n | Source: https://ai.google.dev/gemma/docs/gemma-3n
+        - MaMMUT | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Generacion de textos
+        - Gemma 4 | Source: https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/
+        - Gemma 3 | Source: https://ai.google.dev/gemma/docs/core
+        - Gemma 2 | Source: https://ai.google.dev/gemma/docs/model_card_2
+        - Gemma | Source: https://ai.google.dev/gemma/docs/model_card
+        - CodeGemma | Source: https://ai.google.dev/gemma/docs/codegemma
+        - FunctionGemma | Source: https://ai.google.dev/gemma/docs/functiongemma
+        - T5Gemma | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - T5-FLAN | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - T5-1.1 | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - BERT | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - BERT (PEFT) | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Bart-large-cnn | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Traduccion
+        - Translation LLM | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/translate/translate-text
+        - Text Translation | Source 2: https://cloud.google.com/translate/docs/overview
+        - TranslateGemma | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Embeddings de textos
+        - Gemini Embedding 2 (Public Preview) | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2-preview
+        - Gemini Embedding 001 | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001
+        - EmbeddingGemma | Source: https://ai.google.dev/gemma/docs/embeddinggemma
+        - Embeddings for Text | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Embeddings multimodales
+        - Embeddings for Multimodal | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - MedSigLIP | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Generacion de imagenes
+        - Nano Banana (alias of Gemini 2.5 Flash Image) | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-image
+        - Gemini 2.5 Flash Image | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-image
+        - Nano Banana 2 (alias of Gemini 3.1 Flash Image Preview) | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models
+        - Gemini 3.1 Flash Image Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models
+        - Nano Banana Pro (alias of Gemini 3 Pro Image Preview) | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image
+        - Gemini 3 Pro Image Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro-image
+        - Imagen 4 Ultra for Image Generation | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-generate
+        - Imagen 4 for Image Generation | Source 1: https://ai.google.dev/gemini-api/docs/models/imagen | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-generate
+        - Imagen 4 Fast for Image Generation | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-generate
+        - Imagen for Generation | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images
+        - Imagen 2 for Generation and Editing | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images
+        - Imagen for Editing and Customization | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/edit-images-overview
+    - Generacion de videos
+        - Veo 3.1 Lite for Video Generation | Source 1: https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate
+        - Veo 3.1 Fast for Video Generation | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate
+        - Veo 3.1 for Video Generation | Source 1: https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate
+        - Veo 3 for Video Generation | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-generate-001
+        - Veo 3 Fast for Video Generation | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-generate-001
+        - Veo 2 for Generation | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/2-0-generate-001
+    - Generacion de audios
+        - Gemini 2.5 Flash TTS Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts
+        - Gemini 2.5 Pro TTS Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts
+        - Lyria 2 for Music Generation | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/lyria/lyria-002
+        - Lyria 3 for Song Clips Generation | Source 1: https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview
+        - Lyria 3 Pro for Full-Song Generation | Source 1: https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview
+        - Lyria RealTime | Source 1: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp
+    - Reconocimiento de voz
+        - Chirp 3 | Source 2: https://docs.cloud.google.com/speech-to-text/v2/docs/chirp-model
+        - Chirp 2 | Source 2: https://docs.cloud.google.com/speech-to-text/docs/models/chirp-2?hl=es-419
+        - MedASR | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Video Speech Transcription | Source 2: https://docs.cloud.google.com/video-intelligence/docs/transcription
+    - Clasificacion de imagenes
+        - AutoML Vision Image Classification | Source 2: https://cloud.google.com/vision/overview/docs/get-started
+        - ResNet (with checkpoint) | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - ViT (JAX) | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Proprietary/MaxViT [Deprecated] | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Proprietary/EfficientNet [Deprecated] | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Proprietary/ViT [Deprecated] | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - tfvision/vit [deprecated] | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - tfhub/EfficientNetV2 [deprecated] | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - ShieldGemma 2 | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Content moderation (Vision) | Source 2: https://docs.cloud.google.com/vision/docs/detecting-safe-search?hl=es-419
+    - Deteccion de objetos
+        - AutoML Vision Image Object Detection | Source 2: https://cloud.google.com/vision/overview/docs/get-started
+        - YOLOv8 (Keras) | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - tfvision/YOLOv7 [deprecated] | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Proprietary/YOLO | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - tfvision/YOLO [deprecated] | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Object detector | Source 2: https://docs.cloud.google.com/vision-ai/docs/object-detector-model
+        - Person/vehicle detector | Source 2: https://docs.cloud.google.com/vision-ai/docs/person-vehicle-model
+        - PPE detector | Source 2: https://docs.cloud.google.com/vision-ai/docs/ppe-detector-model
+        - Product recognizer | Source 2: https://cloud.google.com/vision-ai/docs/product-recognizer?hl=es
+        - Face detector (Vision API) | Source 2: https://docs.cloud.google.com/vision/docs/detecting-faces
+    - Deteccion de vocabulario abierto
+        - OWL-ViT | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - OWL-ViT v2 | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - F-VLM [Deprecated] | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Label detector (PaLI zero-shot) | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Segmentacion de imagenes
+        - DeepLabv3+ (with checkpoint) | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Vertex Image Segmentation | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Person blur | Source 2: https://docs.cloud.google.com/vision-ai/docs/person-blur-model
+    - Segmentacion de vocabulario abierto
+        - DITO | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Procesamiento de documentos
+        - Form Parser | Source 2: https://docs.cloud.google.com/document-ai/docs/form-parser
+        - Document AI OCR processor | Source 2: https://docs.cloud.google.com/document-ai/docs/enterprise-document-ocr
+        - Text detector (Vision API) | Source 2: https://docs.cloud.google.com/vision/docs/ocr?hl=es-419
+        - Tag recognizer | Source 2: https://docs.cloud.google.com/vision-ai/docs/tag-recognizer?hl=es
+        - Video Text Detection | Source 2: https://docs.cloud.google.com/video-intelligence/docs/text-detection
+    - Comprension de imagenes
+        - PaliGemma 1 | Source: https://ai.google.dev/gemma/docs/paligemma
+        - PaliGemma 2 | Source: https://ai.google.dev/gemma/docs/paligemma
+        - Imagen for Captioning & VQA | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/visual-question-answering
+        - Watermark detector | Source 2: https://cloud.google.com/vertex-ai/generative-ai/docs/image/verify-watermark?hl=es-419
+    - Recuperacion de imagenes
+        - Pic2Word Composed Image Retrieval | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Clasificacion tabular
+        - TabNet | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - AutoML Tabular Workflow | Source 2: https://cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/e2e-automl?hl=es
+    - Clasificacion de textos
+        - Text Moderation | Source 2: https://docs.cloud.google.com/natural-language/docs/moderating-text
+        - Sentiment analysis | Source 2: https://docs.cloud.google.com/natural-language/docs/analyzing-sentiment
+        - Content classification | Source 2: https://docs.cloud.google.com/natural-language/docs/classifying-text
+    - Extraccion de entidades
+        - Entity analysis | Source 2: https://docs.cloud.google.com/natural-language/docs/analyzing-entities
+        - Entity sentiment analysis | Source 2: https://docs.cloud.google.com/natural-language/docs/analyzing-entity-sentiment
+        - Syntax analysis | Source 2: https://docs.cloud.google.com/natural-language/docs/analyzing-syntax
+    - Clasificacion de videos
+        - MoViNet Video Action Recognition | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - MoViNet Video Clip Classification | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Radiologia
+        - MedGemma | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - CXR Foundation | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Salud y ciencias biologicas
+        - TxGemma | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - HeAR | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - MedSigLIP | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Patologia
+        - Path Foundation | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Dermatologia
+        - Derm Foundation | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Geospatial
+        - WeatherNext 2 | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - WeatherNext Demo | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - CloudNeRF | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Pytorch-ZipNeRF | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Imagery - Classification and Retrieval for Remote Sensing | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+        - Imagery - Object Detection for Remote Sensing | Source 2 catalog: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
+    - Otros
+        - Occupancy analytics | Source 2: https://cloud.google.com/vision-ai/docs/occupancy-analytics-model?hl=es
 2. Assistants
 3. Dev tools
     - Gemini Code Assist: https://developers.google.com/gemini-code-assist/docs/overview?hl=es-419
