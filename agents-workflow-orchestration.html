@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agents &amp; Workflow Orchestration | Google Ecosystem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f6f7;
+      --panel: rgba(255, 255, 255, 0.84);
+      --ink: #2c2f30;
+      --muted: #676a6c;
+      --line: rgba(93, 96, 98, 0.08);
+      --blue: #0058bc;
+      --blue-soft: #d8e5ff;
+      --green: #006a2b;
+      --green-soft: #d8f7dc;
+      --red: #b41a14;
+      --red-soft: #ffd8d4;
+      --amber: #a56300;
+      --amber-soft: #ffe7bc;
+      --shadow-soft: 0 18px 54px rgba(44, 47, 48, 0.07);
+      --shadow-float: 0 24px 64px rgba(44, 47, 48, 0.12);
+      --radius-xl: 34px;
+      --radius-pill: 999px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      position: relative;
+      width: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(0, 88, 188, 0.14), transparent 26%),
+        radial-gradient(circle at 84% 20%, rgba(0, 106, 43, 0.12), transparent 22%),
+        linear-gradient(180deg, #f8f9fa 0%, #f1f3f4 100%);
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity: 0.75;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(120px);
+      pointer-events: none;
+      opacity: 0.48;
+    }
+
+    .glow.a {
+      width: 420px;
+      height: 420px;
+      left: -6%;
+      top: 18%;
+      background: rgba(0, 88, 188, 0.12);
+    }
+
+    .glow.b {
+      width: 420px;
+      height: 420px;
+      right: -8%;
+      top: 14%;
+      background: rgba(0, 106, 43, 0.12);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(1480px, calc(100% - 28px));
+      height: 100dvh;
+      margin: 0 auto;
+      padding: 16px 0 18px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 16px;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--ink);
+      text-decoration: none;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 14px 32px rgba(44, 47, 48, 0.07);
+      z-index: 8;
+      transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 18px 38px rgba(44, 47, 48, 0.1);
+      outline: none;
+    }
+
+    .back-link .material-symbols-outlined {
+      font-size: 22px;
+      color: inherit;
+    }
+
+    .hero {
+      position: relative;
+      padding-left: 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 432px;
+      align-items: start;
+      column-gap: 22px;
+      z-index: 2;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.2rem, 5.9vw, 5.6rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      max-width: 8.2ch;
+      font-weight: 900;
+    }
+
+    .constellation-card {
+      position: relative;
+      overflow: visible;
+      border-radius: var(--radius-xl);
+      background: var(--panel);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      z-index: 4;
+    }
+
+    .constellation-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(109, 159, 255, 0.2), rgba(255, 255, 255, 0.14));
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .constellation-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 42% 50%, rgba(0, 88, 188, 0.12), transparent 17%),
+        radial-gradient(circle at 68% 58%, rgba(0, 106, 43, 0.12), transparent 16%);
+      pointer-events: none;
+    }
+
+    .viewport {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      border-radius: inherit;
+    }
+
+    .top-notes {
+      position: static;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      justify-self: end;
+      align-self: center;
+      align-items: start;
+      margin-top: 10px;
+    }
+
+    .top-note {
+      padding: 7px 8px;
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 12px 24px rgba(44, 47, 48, 0.045);
+    }
+
+    .top-note.red {
+      background: linear-gradient(180deg, rgba(255, 243, 242, 0.94), rgba(255, 226, 223, 0.88));
+    }
+
+    .top-note.blue {
+      background: linear-gradient(180deg, rgba(242, 247, 255, 0.92), rgba(231, 240, 255, 0.86));
+    }
+
+    .top-note.green {
+      background: linear-gradient(180deg, rgba(241, 251, 242, 0.94), rgba(222, 247, 226, 0.88));
+    }
+
+    .top-note.amber {
+      background: linear-gradient(180deg, rgba(255, 249, 239, 0.94), rgba(255, 240, 207, 0.88));
+    }
+
+    .top-note-label {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 0.42rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-wrap: balance;
+    }
+
+    .top-note-title {
+      margin-top: 4px;
+      font-size: 0.58rem;
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+    }
+
+    .top-note-copy {
+      margin: 3px 0 0;
+      font-size: 0.47rem;
+      line-height: 1.22;
+      color: var(--muted);
+    }
+
+    .top-note-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 5px;
+      padding: 4px 7px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.45rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .top-note-link:hover,
+    .top-note-link:focus-visible {
+      background: rgba(255, 255, 255, 0.92);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .top-note-link .material-symbols-outlined {
+      font-size: 11px;
+      color: inherit;
+    }
+
+    .stage {
+      position: absolute;
+      left: 50%;
+      top: calc(50% + 12px);
+      width: 1100px;
+      height: 570px;
+      transform: translate(-50%, -50%) scale(1);
+      transform-origin: center center;
+    }
+
+    .ring {
+      position: absolute;
+      left: 50%;
+      top: 53%;
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+      border: 1px solid rgba(93, 96, 98, 0.08);
+    }
+
+    .ring-1 { width: 182px; height: 182px; }
+    .ring-2 { width: 286px; height: 286px; }
+    .ring-3 { width: 408px; height: 408px; }
+
+    .core {
+      position: absolute;
+      left: 50%;
+      top: 53%;
+      transform: translate(-50%, -50%);
+      width: 154px;
+      height: 154px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 24%, rgba(255, 255, 255, 0.84), transparent 42%),
+        linear-gradient(180deg, rgba(238, 245, 255, 0.98), rgba(216, 229, 255, 0.96));
+      box-shadow: 0 20px 48px rgba(0, 88, 188, 0.2);
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      text-align: center;
+      z-index: 4;
+    }
+
+    .core .material-symbols-outlined {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .core-title {
+      margin-top: 8px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    .core-sub {
+      margin-top: 8px;
+      font-size: 0.61rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .node {
+      position: absolute;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: default;
+      z-index: 5;
+      isolation: isolate;
+      outline: none;
+    }
+
+    .node-body {
+      width: var(--size, 104px);
+      height: var(--size, 104px);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 24%, rgba(255, 255, 255, 0.92), transparent 42%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(252, 252, 252, 0.96));
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      padding: 12px;
+      text-align: center;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .node:hover .node-body,
+    .node:focus-visible .node-body,
+    .node:focus-within .node-body {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: var(--shadow-float);
+    }
+
+    .node:hover,
+    .node:focus-visible,
+    .node:focus-within {
+      z-index: 16;
+    }
+
+    .node .material-symbols-outlined {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .node-title {
+      margin-top: 8px;
+      font-size: clamp(0.56rem, 0.82vw, 0.72rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    .node-sub {
+      margin-top: 8px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-wrap: balance;
+    }
+
+    .node-blue .node-body { box-shadow: 0 20px 54px rgba(0, 88, 188, 0.12); }
+    .node-green .node-body { box-shadow: 0 20px 54px rgba(0, 106, 43, 0.1); }
+    .node-red .node-body { box-shadow: 0 20px 54px rgba(180, 26, 20, 0.1); }
+    .node-amber .node-body { box-shadow: 0 20px 54px rgba(165, 99, 0, 0.1); }
+
+    .node-pop {
+      position: absolute;
+      left: var(--pop-left, 50%);
+      right: var(--pop-right, auto);
+      bottom: calc(100% + 16px);
+      transform: var(--pop-transform-hidden, translateX(-50%) translateY(8px));
+      width: var(--pop-width, 248px);
+      padding: 14px 14px 12px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: var(--shadow-float);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+      text-align: left;
+      z-index: 24;
+    }
+
+    .node-pop::after {
+      content: "";
+      position: absolute;
+      left: var(--pop-arrow-left, 50%);
+      bottom: -10px;
+      width: 18px;
+      height: 18px;
+      background: rgba(255, 255, 255, 0.97);
+      transform: var(--pop-arrow-transform, translateX(-50%) rotate(45deg));
+      border-radius: 4px;
+    }
+
+    .node-pop::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -18px;
+      height: 24px;
+      background: transparent;
+    }
+
+    .node:hover .node-pop,
+    .node:focus-visible .node-pop,
+    .node:focus-within .node-pop {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: var(--pop-transform-visible, translateX(-50%) translateY(0));
+    }
+
+    .node-edge-left {
+      --pop-left: 0;
+      --pop-right: auto;
+      --pop-transform-hidden: translateY(8px);
+      --pop-transform-visible: translateY(0);
+      --pop-arrow-left: 38px;
+      --pop-arrow-transform: rotate(45deg);
+    }
+
+    .node-edge-right {
+      --pop-left: auto;
+      --pop-right: 0;
+      --pop-transform-hidden: translateY(8px);
+      --pop-transform-visible: translateY(0);
+      --pop-arrow-left: calc(100% - 38px);
+      --pop-arrow-transform: rotate(45deg);
+    }
+
+    .pop-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 100%;
+      padding: 8px 11px;
+      border-radius: var(--radius-pill);
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      white-space: normal;
+      text-wrap: balance;
+    }
+
+    .pop-chip.blue { background: var(--blue-soft); color: var(--blue); }
+    .pop-chip.green { background: var(--green-soft); color: var(--green); }
+    .pop-chip.red { background: var(--red-soft); color: var(--red); }
+    .pop-chip.amber { background: var(--amber-soft); color: var(--amber); }
+
+    .pop-title {
+      display: block;
+      margin: 12px 0 0;
+      font-size: 0.92rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+      text-wrap: balance;
+    }
+
+    .pop-copy {
+      margin: 8px 0 0;
+      font-size: 0.78rem;
+      line-height: 1.44;
+      color: var(--muted);
+    }
+
+    .pop-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pop-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(239, 241, 242, 0.94);
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .pop-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 9px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(239, 241, 242, 0.98);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .pop-link:hover,
+    .pop-link:focus-visible {
+      background: rgba(221, 226, 230, 0.98);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .pop-link .material-symbols-outlined {
+      font-size: 14px;
+      color: inherit;
+    }
+
+    .node-adk { left: 118px; top: 220px; --size: 136px; --pop-width: 338px; }
+    .node-designer { left: 286px; top: 410px; --size: 124px; --pop-width: 338px; }
+    .node-engine { left: 766px; top: 216px; --size: 142px; --pop-width: 354px; }
+    .node-garden { left: 842px; top: 408px; --size: 118px; --pop-width: 330px; }
+
+    @media (max-width: 1280px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr) 388px;
+      }
+
+      .top-notes {
+        gap: 7px;
+      }
+
+      .top-note {
+        padding: 7px 8px;
+        border-radius: 13px;
+      }
+
+      .top-note-label {
+        gap: 4px;
+        font-size: 0.45rem;
+      }
+
+      .top-note-title {
+        margin-top: 4px;
+        font-size: 0.58rem;
+      }
+
+      .top-note-copy {
+        margin-top: 3px;
+        font-size: 0.48rem;
+        line-height: 1.24;
+      }
+
+      .top-note-link {
+        margin-top: 5px;
+        padding: 4px 7px;
+        font-size: 0.45rem;
+      }
+
+      .top-note-link .material-symbols-outlined {
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 1120px) {
+      .shell {
+        width: min(100% - 18px, 100%);
+        padding: 14px 0;
+        gap: 12px;
+      }
+
+      .back-link {
+        top: 8px;
+        left: 0;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr) 236px;
+        column-gap: 16px;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 6vw, 4.8rem);
+      }
+
+      .top-notes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="glow a"></div>
+    <div class="glow b"></div>
+
+    <main class="shell">
+      <a class="back-link" href="index.html" aria-label="Back to overview">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </a>
+
+      <header class="hero">
+        <h1>Agents &amp; Workflow Orchestration</h1>
+        <aside class="top-notes" aria-label="Suite definition">
+          <section class="top-note blue">
+            <div class="top-note-label">
+              <span class="material-symbols-outlined">precision_manufacturing</span>
+              Vertex AI Agent Builder
+            </div>
+            <div class="top-note-title">End-to-end suite for agentic workflows.</div>
+            <p class="top-note-copy">Google Cloud suite for designing, coding, discovering, deploying, and governing agents. Agent Designer and Agent Development Kit cover authoring, Agent Garden handles discovery, and Vertex AI Agent Engine runs managed production workloads.</p>
+            <a class="top-note-link" href="https://docs.cloud.google.com/agent-builder/overview" target="_blank" rel="noreferrer noopener">
+              <span class="material-symbols-outlined">open_in_new</span>
+              Official doc
+            </a>
+          </section>
+        </aside>
+      </header>
+
+      <section class="constellation-card" aria-label="Agents and workflow constellation map">
+        <div class="viewport">
+          <div class="stage">
+            <div class="ring ring-3"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-1"></div>
+
+            <div class="core">
+              <span class="material-symbols-outlined">precision_manufacturing</span>
+              <div class="core-title">Vertex AI Agent Builder</div>
+              <div class="core-sub">4 Product Surfaces</div>
+            </div>
+
+            <div class="node node-red node-edge-left node-adk" tabindex="0">
+              <span class="node-body">
+                <span class="material-symbols-outlined">account_tree</span>
+                <span class="node-title">Agent Development Kit</span>
+                <span class="node-sub">Workflow Code</span>
+              </span>
+              <span class="node-pop">
+                <span class="pop-chip red">Agent Development Kit</span>
+                <strong class="pop-title">Open, modular framework for agent orchestration</strong>
+                <p class="pop-copy">Agent Development Kit is Google's code-first framework for developing and orchestrating agentic architectures. It is optimized for Gemini and Google Cloud, but documented as model-agnostic, deployment-agnostic, and compatible with other frameworks. It is the main build surface before deployment to Vertex AI Agent Engine.</p>
+                <span class="pop-tags">
+                  <span class="pop-tag">multi-agent</span>
+                  <span class="pop-tag">tools</span>
+                  <span class="pop-tag">local dev ui</span>
+                  <span class="pop-tag">orchestration</span>
+                </span>
+                <a class="pop-link" href="https://docs.cloud.google.com/agent-builder/agent-development-kit/overview" target="_blank" rel="noreferrer noopener">
+                  <span class="material-symbols-outlined">open_in_new</span>
+                  Official doc
+                </a>
+              </span>
+            </div>
+
+            <div class="node node-green node-edge-left node-designer" tabindex="0">
+              <span class="node-body">
+                <span class="material-symbols-outlined">schema</span>
+                <span class="node-title">Agent Designer</span>
+                <span class="node-sub">Visual Flow Builder</span>
+              </span>
+              <span class="node-pop">
+                <span class="pop-chip green">Agent Designer</span>
+                <strong class="pop-title">Low-code design and testing canvas for agent workflows</strong>
+                <p class="pop-copy">Agent Designer is a low-code visual designer in the Google Cloud console. It lets you model main agents and subagents, configure tools, preview behavior, and then hand off generated code to Agent Development Kit for deeper development and deployment.</p>
+                <span class="pop-tags">
+                  <span class="pop-tag">flow canvas</span>
+                  <span class="pop-tag">subagents</span>
+                  <span class="pop-tag">preview</span>
+                  <span class="pop-tag">get code</span>
+                </span>
+                <a class="pop-link" href="https://docs.cloud.google.com/agent-builder/agent-designer" target="_blank" rel="noreferrer noopener">
+                  <span class="material-symbols-outlined">open_in_new</span>
+                  Official doc
+                </a>
+              </span>
+            </div>
+
+            <div class="node node-blue node-edge-right node-engine" tabindex="0">
+              <span class="node-body">
+                <span class="material-symbols-outlined">deployed_code</span>
+                <span class="node-title">Vertex AI Agent Engine</span>
+                <span class="node-sub">Managed Runtime</span>
+              </span>
+              <span class="node-pop">
+                <span class="pop-chip blue">Vertex AI Agent Engine</span>
+                <strong class="pop-title">Production runtime for deploying, managing, and scaling agents</strong>
+                <p class="pop-copy">Agent Engine is the managed runtime in the suite. It includes runtime services plus sessions, Memory Bank, Code Execution, Example Store, evaluation, observability, and enterprise governance features. Google also positions Agent Starter Pack as the streamlined template path for running production agent workflows on this runtime.</p>
+                <span class="pop-tags">
+                  <span class="pop-tag">sessions</span>
+                  <span class="pop-tag">memory bank</span>
+                  <span class="pop-tag">code execution</span>
+                  <span class="pop-tag">evaluation</span>
+                  <span class="pop-tag">observability</span>
+                </span>
+                <a class="pop-link" href="https://docs.cloud.google.com/agent-builder/agent-engine/overview" target="_blank" rel="noreferrer noopener">
+                  <span class="material-symbols-outlined">open_in_new</span>
+                  Official doc
+                </a>
+              </span>
+            </div>
+
+            <div class="node node-amber node-edge-right node-garden" tabindex="0">
+              <span class="node-body">
+                <span class="material-symbols-outlined">inventory_2</span>
+                <span class="node-title">Agent Garden</span>
+                <span class="node-sub">Templates &amp; Tools</span>
+              </span>
+              <span class="node-pop">
+                <span class="pop-chip amber">Agent Garden</span>
+                <strong class="pop-title">Preview library of starter agents and reusable tools</strong>
+                <p class="pop-copy">Agent Garden is the discovery layer inside Vertex AI Agent Builder. Google documents it as a preview library where you can browse Google-published end-to-end agents and individual tools, then deploy agents or reuse the tools inside Agent Development Kit-based builds.</p>
+                <span class="pop-tags">
+                  <span class="pop-tag">sample agents</span>
+                  <span class="pop-tag">reusable tools</span>
+                  <span class="pop-tag">preview</span>
+                  <span class="pop-tag">accelerate build</span>
+                </span>
+                <a class="pop-link" href="https://docs.cloud.google.com/agent-builder/overview" target="_blank" rel="noreferrer noopener">
+                  <span class="material-symbols-outlined">open_in_new</span>
+                  Official doc
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const viewport = document.querySelector(".viewport");
+      const stage = document.querySelector(".stage");
+      const baseWidth = 1100;
+      const baseHeight = 570;
+
+      function fitStage() {
+        if (!viewport || !stage) return;
+        const scale = Math.min(
+          viewport.clientWidth / baseWidth,
+          viewport.clientHeight / baseHeight,
+          1
+        );
+        stage.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      }
+
+      window.addEventListener("resize", fitStage, { passive: true });
+      window.addEventListener("load", fitStage);
+      fitStage();
+    })();
+  </script>
+</body>
+</html>
