@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Explorer | Studios & Builders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #f5f6f7;
+      --surface: #f5f6f7;
+      --surface-container-lowest: #ffffff;
+      --on-surface: #2c2f30;
+      --on-surface-variant: #595c5d;
+      --primary: #0058bc;
+      --secondary: #006a2b;
+      --tertiary: #8a4b00;
+      --primary-soft: rgba(109, 159, 255, 0.14);
+      --secondary-soft: rgba(134, 248, 152, 0.16);
+      --tertiary-soft: rgba(255, 196, 120, 0.22);
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --shadow-soft: 0 12px 40px rgba(44, 47, 48, 0.06);
+      --shadow-ambient: 0 20px 50px rgba(44, 47, 48, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: "Inter", sans-serif;
+      background: var(--background);
+      color: var(--on-surface);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100dvh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.12), transparent 36%),
+        radial-gradient(circle at 85% 18%, rgba(134, 248, 152, 0.11), transparent 28%),
+        radial-gradient(circle at 50% 88%, rgba(255, 196, 120, 0.12), transparent 30%),
+        linear-gradient(180deg, #f8f9fa 0%, #f1f3f4 100%);
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(89, 92, 93, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(89, 92, 93, 0.05) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.94) 38%, transparent 86%);
+      pointer-events: none;
+      opacity: 0.65;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(120px);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .glow-blue {
+      top: -6%;
+      right: -8%;
+      width: 420px;
+      height: 420px;
+      background: rgba(0, 88, 188, 0.12);
+    }
+
+    .glow-green {
+      bottom: 18%;
+      left: -7%;
+      width: 340px;
+      height: 340px;
+      background: rgba(0, 106, 43, 0.1);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(1440px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: clamp(18px, 2.2vh, 28px) 0 clamp(22px, 2.6vh, 34px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(14px, 1.8vh, 24px);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-ambient);
+      outline: none;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: clamp(18px, 3vw, 42px);
+      align-items: end;
+    }
+
+    .hero-copy h1 {
+      margin: 8px 0 0;
+      font-size: clamp(2.4rem, 4.8vw, 4.15rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      max-width: 12ch;
+    }
+
+    .hero-copy p {
+      margin: 16px 0 0;
+      max-width: 58ch;
+      color: var(--on-surface-variant);
+      line-height: 1.52;
+      font-size: 1rem;
+    }
+
+    .hero-note {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-note::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .hero-note h2 {
+      margin: 0 0 12px;
+      font-size: 1.18rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-note p {
+      margin: 0;
+      color: var(--on-surface-variant);
+      line-height: 1.5;
+    }
+
+    .hero-note strong {
+      color: var(--on-surface);
+    }
+
+    .surface {
+      position: relative;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 18% 26%, rgba(109, 159, 255, 0.11), transparent 22%),
+        radial-gradient(circle at 50% 24%, rgba(134, 248, 152, 0.1), transparent 18%),
+        radial-gradient(circle at 82% 28%, rgba(255, 196, 120, 0.14), transparent 20%),
+        rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      padding: clamp(22px, 2vw, 32px);
+      overflow: hidden;
+    }
+
+    .surface::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .surface-body {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 18px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.14rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+    }
+
+    .lane-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .lane {
+      position: relative;
+      min-height: 100%;
+      border-radius: 28px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .lane::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.58);
+      pointer-events: none;
+    }
+
+    .lane::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(180deg, var(--tone), rgba(255, 255, 255, 0));
+      pointer-events: none;
+      opacity: 0.95;
+    }
+
+    .lane > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .lane-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .lane-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+    }
+
+    .lane-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--ink);
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+    }
+
+    .lane h3 {
+      margin: 0;
+      font-size: 1.22rem;
+      letter-spacing: -0.04em;
+    }
+
+    .lane-intro {
+      margin: 10px 0 0;
+      color: var(--on-surface-variant);
+      line-height: 1.5;
+      font-size: 0.94rem;
+    }
+
+    .lane-block {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(117, 119, 120, 0.12);
+    }
+
+    .lane-block h4 {
+      margin: 0 0 8px;
+      font-size: 0.83rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .lane-block p {
+      margin: 0;
+      color: var(--on-surface-variant);
+      line-height: 1.48;
+      font-size: 0.9rem;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 220px repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(117, 119, 120, 0.12);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .matrix-cell {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 16px 18px;
+      min-height: 92px;
+    }
+
+    .matrix-head {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    .matrix-title {
+      margin: 0;
+      font-size: 0.98rem;
+      letter-spacing: -0.03em;
+    }
+
+    .matrix-copy {
+      margin: 8px 0 0;
+      color: var(--on-surface-variant);
+      line-height: 1.45;
+      font-size: 0.88rem;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .source-link {
+      display: grid;
+      gap: 4px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .source-link strong {
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+    }
+
+    .source-link span {
+      font-size: 0.84rem;
+      color: var(--on-surface-variant);
+      line-height: 1.42;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1120px) {
+      .hero,
+      .lane-grid,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .matrix {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(calc(100% - 20px), 1440px);
+      }
+
+      .surface {
+        padding: 18px;
+      }
+
+      .hero-copy h1 {
+        max-width: 12ch;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="glow glow-blue" aria-hidden="true"></div>
+    <div class="glow glow-green" aria-hidden="true"></div>
+
+    <main class="shell">
+      <div class="topbar">
+        <a class="back-link" href="./index.html">
+          <span class="material-symbols-outlined">arrow_back</span>
+          <span>Back to surface</span>
+        </a>
+        <span class="eyebrow">Google AI State of the Art</span>
+      </div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Studios & Builders</span>
+          <h1>Three builder lanes, not one product.</h1>
+          <p>
+            Vertex AI, Google AI Studio and Google AI Edge belong to the same ecosystem,
+            but they solve different layers of the workflow: cloud production, browser prototyping,
+            and on-device execution.
+          </p>
+        </div>
+
+        <aside class="hero-note">
+          <h2>Read this page left to right</h2>
+          <p>
+            <strong>Vertex AI</strong> is the cloud platform, <strong>Google AI Studio</strong> is the fast prompt lab,
+            and <strong>Google AI Edge</strong> is the on-device lane. The goal here is to avoid treating them as three names for the same thing.
+          </p>
+        </aside>
+      </section>
+
+      <section class="surface" aria-label="Studios and builders comparison">
+        <div class="surface-body">
+          <div class="section-head">
+            <h2>Same ecosystem, different job to do</h2>
+            <span class="section-pill">Decision surface</span>
+          </div>
+
+          <div class="lane-grid">
+            <article class="lane" style="--tone: var(--primary-soft); --ink: var(--primary);">
+              <div class="lane-top">
+                <span class="lane-badge">Cloud platform</span>
+                <span class="lane-icon">
+                  <span class="material-symbols-outlined">cloud_sync</span>
+                </span>
+              </div>
+              <h3>Vertex AI</h3>
+              <p class="lane-intro">
+                Use this when the work needs a full ML and generative AI platform: training, deployment,
+                shared tooling, model lifecycle and production-oriented operations.
+              </p>
+
+              <div class="lane-block">
+                <h4>What it is</h4>
+                <p>A platform to train and deploy ML models and AI applications, with Model Garden and a shared toolset across data, science and ML engineering.</p>
+              </div>
+
+              <div class="lane-block">
+                <h4>Best for</h4>
+                <p>Production systems, enterprise controls, team collaboration, model tuning and workflows that continue beyond a prompt playground.</p>
+                <div class="chip-row" aria-hidden="true">
+                  <span class="chip">Model Garden</span>
+                  <span class="chip">MLOps</span>
+                  <span class="chip">Deployment</span>
+                  <span class="chip">Training</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="lane" style="--tone: var(--secondary-soft); --ink: var(--secondary);">
+              <div class="lane-top">
+                <span class="lane-badge">Prompt lab</span>
+                <span class="lane-icon">
+                  <span class="material-symbols-outlined">experiment</span>
+                </span>
+              </div>
+              <h3>Google AI Studio</h3>
+              <p class="lane-intro">
+                Use this when you want to try models quickly, iterate on prompts in the browser,
+                tweak run settings and then export code toward the Gemini API once the prototype feels right.
+              </p>
+
+              <div class="lane-block">
+                <h4>What it is</h4>
+                <p>A fast experimentation workspace with multiple prompt interfaces, run settings and a direct “Get code” handoff into Gemini API usage.</p>
+              </div>
+
+              <div class="lane-block">
+                <h4>Best for</h4>
+                <p>Prompt prototyping, chat behavior exploration, quick parameter changes and early-stage interaction design before a heavier production setup.</p>
+                <div class="chip-row" aria-hidden="true">
+                  <span class="chip">Prompt testing</span>
+                  <span class="chip">Run settings</span>
+                  <span class="chip">Get code</span>
+                  <span class="chip">Gemini API</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="lane" style="--tone: var(--tertiary-soft); --ink: var(--tertiary);">
+              <div class="lane-top">
+                <span class="lane-badge">On-device lane</span>
+                <span class="lane-icon">
+                  <span class="material-symbols-outlined">phone_iphone</span>
+                </span>
+              </div>
+              <h3>Google AI Edge</h3>
+              <p class="lane-intro">
+                Use this when the model should run on the device itself: mobile, web, embedded hardware
+                or microcontrollers, with lower latency, offline behavior and more local privacy.
+              </p>
+
+              <div class="lane-block">
+                <h4>What it is</h4>
+                <p>An edge stack for deploying AI across Android, iOS, web and embedded targets, with MediaPipe for task APIs and LiteRT for optimized runtime execution.</p>
+              </div>
+
+              <div class="lane-block">
+                <h4>Best for</h4>
+                <p>Apps that need local execution, hardware acceleration or cross-platform model delivery instead of a cloud builder interface.</p>
+                <div class="chip-row" aria-hidden="true">
+                  <span class="chip">MediaPipe</span>
+                  <span class="chip">LiteRT</span>
+                  <span class="chip">On-device</span>
+                  <span class="chip">Microcontrollers</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="section-head">
+            <h2>How to tell them apart fast</h2>
+            <span class="section-pill">Usage matrix</span>
+          </div>
+
+          <div class="matrix" aria-label="Comparison matrix">
+            <div class="matrix-cell">
+              <div class="matrix-head">Question</div>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-title">Vertex AI</p>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-title">Google AI Studio</p>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-title">Google AI Edge</p>
+            </div>
+
+            <div class="matrix-cell">
+              <div class="matrix-head">Where does it live?</div>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-copy">In Google Cloud as a broader AI/ML platform.</p>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-copy">In the browser as a fast experimentation workspace.</p>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-copy">On the device: mobile, web, embedded, microcontrollers.</p>
+            </div>
+
+            <div class="matrix-cell">
+              <div class="matrix-head">What are you optimizing for?</div>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-copy">Operational depth, deployment, lifecycle and collaboration.</p>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-copy">Speed of iteration on prompts and interaction patterns.</p>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-copy">Latency, offline support, local privacy and hardware acceleration.</p>
+            </div>
+
+            <div class="matrix-cell">
+              <div class="matrix-head">What do you leave with?</div>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-copy">A deployed or managed cloud workflow, tuned models and MLOps assets.</p>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-copy">A validated prompt flow and generated starter code for Gemini API.</p>
+            </div>
+            <div class="matrix-cell">
+              <p class="matrix-copy">A model or pipeline ready to run locally through MediaPipe or LiteRT.</p>
+            </div>
+          </div>
+
+          <div class="section-head">
+            <h2>Official entry points</h2>
+            <span class="section-pill">Docs anchors</span>
+          </div>
+
+          <div class="source-grid">
+            <a class="source-link" href="https://docs.cloud.google.com/vertex-ai/docs?hl=es-419" target="_blank" rel="noreferrer">
+              <strong>Vertex AI</strong>
+              <span>Cloud platform for training, deployment, Model Garden and MLOps capabilities.</span>
+            </a>
+            <a class="source-link" href="https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=es-419" target="_blank" rel="noreferrer">
+              <strong>Google AI Studio</strong>
+              <span>Quick browser-based experimentation with prompts, run settings and code handoff into Gemini API.</span>
+            </a>
+            <a class="source-link" href="https://ai.google.dev/edge?hl=es-419" target="_blank" rel="noreferrer">
+              <strong>Google AI Edge</strong>
+              <span>On-device stack for web, mobile and embedded targets through MediaPipe and LiteRT.</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

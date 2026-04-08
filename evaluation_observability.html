@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Explorer | Evaluation &amp; Observability</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #f5f6f7;
+      --surface: #f5f6f7;
+      --surface-container-lowest: #ffffff;
+      --on-surface: #2c2f30;
+      --on-surface-variant: #595c5d;
+      --primary: #0058bc;
+      --secondary: #006a2b;
+      --tertiary: #7b3fe4;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --shadow-soft: 0 12px 40px rgba(44, 47, 48, 0.06);
+      --shadow-ambient: 0 20px 50px rgba(44, 47, 48, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: "Inter", sans-serif;
+      background: var(--background);
+      color: var(--on-surface);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100dvh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.12), transparent 36%),
+        radial-gradient(circle at 86% 18%, rgba(134, 248, 152, 0.1), transparent 26%),
+        radial-gradient(circle at 50% 86%, rgba(123, 63, 228, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f9fa 0%, #f1f3f4 100%);
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(89, 92, 93, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(89, 92, 93, 0.05) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.94) 38%, transparent 86%);
+      pointer-events: none;
+      opacity: 0.65;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(120px);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .glow-blue {
+      top: -5%;
+      right: -8%;
+      width: 420px;
+      height: 420px;
+      background: rgba(0, 88, 188, 0.12);
+    }
+
+    .glow-green {
+      bottom: 12%;
+      left: -7%;
+      width: 360px;
+      height: 360px;
+      background: rgba(0, 106, 43, 0.1);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(1440px, calc(100% - 32px));
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: clamp(18px, 2.2vh, 28px) 0 clamp(20px, 2.6vh, 32px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(12px, 1.8vh, 20px);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-ambient);
+      outline: none;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
+      gap: clamp(18px, 3vw, 40px);
+      align-items: end;
+    }
+
+    .hero-copy h1 {
+      margin: 8px 0 0;
+      font-size: clamp(2.35rem, 4.7vw, 4rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      max-width: 13ch;
+    }
+
+    .hero-copy p {
+      margin: 16px 0 0;
+      max-width: 64ch;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--on-surface-variant);
+    }
+
+    .hero-note {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-note::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .hero-note h2 {
+      margin: 0 0 10px;
+      font-size: 1.14rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-note p {
+      margin: 0;
+      color: var(--on-surface-variant);
+      line-height: 1.5;
+    }
+
+    .stage {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: stretch;
+      overflow: visible;
+    }
+
+    .constellation {
+      position: relative;
+      width: min(1260px, 100%);
+      height: 100%;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      overflow: visible;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 28% 30%, rgba(109, 159, 255, 0.16), transparent 24%),
+        radial-gradient(circle at 76% 32%, rgba(134, 248, 152, 0.14), transparent 22%),
+        radial-gradient(circle at 52% 78%, rgba(123, 63, 228, 0.14), transparent 26%),
+        rgba(255, 255, 255, 0.72);
+    }
+
+    .constellation::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .constellation-map {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 840px;
+      padding-top: 24px;
+      z-index: 1;
+    }
+
+    .group-zone {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(12px);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .group-zone.evaluation {
+      inset: 12% 56% 46% 10%;
+      background: radial-gradient(circle at 50% 48%, rgba(109, 159, 255, 0.24), rgba(109, 159, 255, 0.06) 56%, transparent 80%);
+    }
+
+    .group-zone.intelligence {
+      inset: 14% 10% 46% 58%;
+      background:
+        radial-gradient(circle at 34% 34%, rgba(134, 248, 152, 0.16), transparent 18%),
+        radial-gradient(circle at 74% 60%, rgba(134, 248, 152, 0.2), transparent 22%);
+    }
+
+    .group-zone.operations {
+      inset: 56% 16% 6% 16%;
+      background:
+        radial-gradient(circle at 32% 50%, rgba(123, 63, 228, 0.18), rgba(123, 63, 228, 0.06) 48%, transparent 74%),
+        radial-gradient(circle at 74% 52%, rgba(123, 63, 228, 0.16), transparent 22%);
+    }
+
+    .cluster-field {
+      position: absolute;
+      z-index: 2;
+    }
+
+    .cluster-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .cluster-field.evaluation {
+      left: 10%;
+      top: 14%;
+      width: 34%;
+      height: 36%;
+    }
+
+    .cluster-field.evaluation .cluster-title {
+      color: var(--primary);
+      background: rgba(109, 159, 255, 0.14);
+    }
+
+    .cluster-field.intelligence {
+      left: 58%;
+      top: 14%;
+      width: 30%;
+      height: 34%;
+    }
+
+    .cluster-field.intelligence .cluster-title {
+      color: var(--secondary);
+      background: rgba(134, 248, 152, 0.16);
+    }
+
+    .cluster-field.operations {
+      left: 18%;
+      top: 56%;
+      width: 64%;
+      height: 24%;
+    }
+
+    .cluster-field.operations .cluster-title {
+      top: -24px;
+      color: var(--tertiary);
+      background: rgba(164, 132, 255, 0.18);
+    }
+
+    .orbit {
+      position: absolute;
+      inset: 48% auto auto 48%;
+      width: min(28vw, 300px);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(117, 119, 120, 0.12);
+      pointer-events: none;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      inset: 14%;
+      border-radius: 50%;
+      border: 1px solid rgba(117, 119, 120, 0.08);
+    }
+
+    .orbit::after {
+      inset: 28%;
+    }
+
+    .node-link {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      transform: translate(-50%, -50%);
+      width: max-content;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .node-link:hover,
+    .node-link:focus-visible {
+      z-index: 30;
+      outline: none;
+    }
+
+    .node-core {
+      position: relative;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 40px rgba(44, 47, 48, 0.1);
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+      overflow: hidden;
+    }
+
+    .node-core::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--tone), rgba(255, 255, 255, 0.8));
+      opacity: 0.95;
+      z-index: -1;
+    }
+
+    .node-link:hover .node-core,
+    .node-link:focus-visible .node-core {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 24px 48px rgba(44, 47, 48, 0.16);
+    }
+
+    .node-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--ink);
+    }
+
+    .node-icon .material-symbols-outlined {
+      font-size: 1.45rem;
+      font-variation-settings: "FILL" 0, "wght" 550, "GRAD" 0, "opsz" 28;
+    }
+
+    .node-core strong {
+      font-size: clamp(0.8rem, 0.88vw, 0.94rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      max-width: 11ch;
+    }
+
+    .node-core span {
+      font-size: 0.54rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+      max-width: 12ch;
+      transition: color 180ms ease, opacity 180ms ease;
+    }
+
+    .node-tip .tip-meta {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--pill);
+      color: var(--ink);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .node-tip {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 14px);
+      width: min(320px, 38vw);
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 24px 48px rgba(44, 47, 48, 0.12);
+      text-align: left;
+      transform: translateX(-50%) translateY(8px) scale(0.98);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+      z-index: 40;
+    }
+
+    .node-link:hover .node-tip,
+    .node-link:focus-visible .node-tip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    .node-tip::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 16px;
+      height: 16px;
+      background: rgba(255, 255, 255, 0.94);
+      transform: translateX(-50%) rotate(45deg);
+      border-radius: 4px;
+    }
+
+    .node-tip strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .node-tip p {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--on-surface-variant);
+    }
+
+    .node-tip code {
+      display: inline-block;
+      font-family: inherit;
+      font-size: 0.73rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--ink);
+      background: var(--pill);
+      padding: 6px 10px;
+      border-radius: 999px;
+      word-break: break-all;
+    }
+
+    .node-tip em {
+      display: block;
+      margin-top: 2px;
+      font-style: normal;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .compare-panel {
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      padding: 24px;
+    }
+
+    .compare-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .compare-body {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.12rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    .matrix-scroll {
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .matrix {
+      width: max-content;
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: 220px repeat(10, minmax(150px, 1fr));
+      gap: 1px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(117, 119, 120, 0.12);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .matrix-cell {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 16px 18px;
+      min-height: 94px;
+    }
+
+    .matrix-head {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    .matrix-title {
+      margin: 0;
+      font-size: 0.92rem;
+      letter-spacing: -0.03em;
+    }
+
+    .matrix-copy {
+      margin: 8px 0 0;
+      color: var(--on-surface-variant);
+      line-height: 1.44;
+      font-size: 0.84rem;
+      max-width: 26ch;
+    }
+
+    @media (max-width: 1080px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 980px) {
+      body {
+        overflow-y: auto;
+      }
+
+      .page {
+        overflow: visible;
+      }
+
+      .shell {
+        min-height: auto;
+        width: min(100% - 20px, 1440px);
+      }
+
+      .constellation {
+        min-height: 1380px;
+      }
+
+      .constellation-map {
+        min-height: 1280px;
+        padding-top: 40px;
+      }
+
+      .cluster-field.evaluation,
+      .cluster-field.intelligence,
+      .cluster-field.operations {
+        left: 6%;
+        width: 88%;
+      }
+
+      .cluster-field.evaluation {
+        top: 88px;
+        height: 360px;
+      }
+
+      .cluster-field.intelligence {
+        top: 500px;
+        height: 300px;
+      }
+
+      .cluster-field.operations {
+        top: 890px;
+        height: 260px;
+      }
+
+      .group-zone.evaluation {
+        inset: 8% 8% 70% 8%;
+      }
+
+      .group-zone.intelligence {
+        inset: 38% 8% 42% 8%;
+      }
+
+      .group-zone.operations {
+        inset: 68% 6% 6% 6%;
+      }
+
+      .orbit {
+        inset: 46% auto auto 50%;
+        width: min(70vw, 320px);
+      }
+
+      .node-tip {
+        width: min(280px, calc(100vw - 48px));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="glow glow-blue" aria-hidden="true"></div>
+    <div class="glow glow-green" aria-hidden="true"></div>
+
+    <main class="shell">
+      <div class="topbar">
+        <a class="back-link" href="./index.html">
+          <span class="material-symbols-outlined">arrow_back</span>
+          <span>Back to surface</span>
+        </a>
+        <span class="eyebrow">Google AI State of the Art</span>
+      </div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Evaluation &amp; Observability</span>
+          <h1>Ten tools, grouped by what they verify.</h1>
+          <p>
+            This view follows the same constellation logic as the developer tools page,
+            but for validation and telemetry. Blue covers evaluation loops, green groups model insight
+            and feature context, and violet tracks what happens once systems are running in production.
+          </p>
+        </div>
+
+        <aside class="hero-note">
+          <h2>How to read the clusters</h2>
+          <p>
+            <strong>Gen AI Evaluation Service</strong>, <strong>Vertex AI Evaluation</strong>,
+            <strong>Agent Evaluation</strong> and <strong>Vertex AI Experiments</strong> score and compare.
+            <strong>Model Monitoring</strong>, <strong>Explainable AI</strong> and <strong>Feature Store</strong>
+            explain behavior and keep feature context aligned. <strong>Cloud Trace</strong>,
+            <strong>Cloud Profiler</strong> and <strong>Cloud Logging</strong> instrument live systems.
+          </p>
+        </aside>
+      </section>
+
+      <section class="stage" aria-label="Evaluation and observability map">
+        <div class="constellation">
+          <div class="group-zone evaluation" aria-hidden="true"></div>
+          <div class="group-zone intelligence" aria-hidden="true"></div>
+          <div class="group-zone operations" aria-hidden="true"></div>
+
+          <div class="constellation-map">
+            <div class="cluster-field evaluation" aria-label="Evaluation loops cluster">
+              <span class="cluster-title">Evaluation loops</span>
+              <div class="orbit" aria-hidden="true"></div>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 28%; --y: 42%; --size: 118px; --tone: rgba(109, 159, 255, 0.30); --ink: var(--primary); --pill: rgba(109, 159, 255, 0.16);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">grading</span></span>
+                  <strong>Gen AI Evaluation Service</strong>
+                  <span>GenAI scoring</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Gen AI Evaluation Service</strong>
+                  <p>Evaluation surface for prompts, responses and model output quality in generative AI workflows on Vertex AI.</p>
+                  <span class="tip-meta">Prompt and response quality</span>
+                  <code>docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview</code>
+                  <em>Generative evaluation lane</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/vertex-ai/docs/evaluation/introduction?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 68%; --y: 34%; --size: 114px; --tone: rgba(109, 159, 255, 0.26); --ink: var(--primary); --pill: rgba(109, 159, 255, 0.16);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">rule</span></span>
+                  <strong>Vertex AI Evaluation</strong>
+                  <span>Model metrics</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Vertex AI Evaluation</strong>
+                  <p>Model evaluation service for predictive workloads, grounded in inference results, truth data and repeatable comparison across runs.</p>
+                  <span class="tip-meta">Predictive model evaluation</span>
+                  <code>docs.cloud.google.com/vertex-ai/docs/evaluation/introduction</code>
+                  <em>Inference and ground-truth checks</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents?hl=es"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 72%; --y: 70%; --size: 108px; --tone: rgba(109, 159, 255, 0.22); --ink: var(--primary); --pill: rgba(109, 159, 255, 0.16);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">smart_toy</span></span>
+                  <strong>Agent Evaluation</strong>
+                  <span>Task success</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Agent Evaluation</strong>
+                  <p>Assessment flow for agent trajectories, multi-turn behavior and whether tools and actions produce the outcome you expected.</p>
+                  <span class="tip-meta">Agent behavior and task quality</span>
+                  <code>docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents</code>
+                  <em>Agent rubric layer</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/vertex-ai/docs/experiments/intro-vertex-ai-experiments?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 40%; --y: 74%; --size: 112px; --tone: rgba(109, 159, 255, 0.24); --ink: var(--primary); --pill: rgba(109, 159, 255, 0.16);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">science</span></span>
+                  <strong>Vertex AI Experiments</strong>
+                  <span>Run tracking</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Vertex AI Experiments</strong>
+                  <p>Track parameters, metrics and artifacts so teams can compare training or evaluation runs and keep iteration history visible.</p>
+                  <span class="tip-meta">Parameters, metrics, artifacts</span>
+                  <code>docs.cloud.google.com/vertex-ai/docs/experiments/intro-vertex-ai-experiments</code>
+                  <em>Experiment lineage</em>
+                </span>
+              </a>
+            </div>
+
+            <div class="cluster-field intelligence" aria-label="Model insight and feature context cluster">
+              <span class="cluster-title">Model insight &amp; feature context</span>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/overview?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 26%; --y: 40%; --size: 124px; --tone: rgba(134, 248, 152, 0.30); --ink: var(--secondary); --pill: rgba(134, 248, 152, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">monitoring</span></span>
+                  <strong>Vertex AI Model Monitoring</strong>
+                  <span>Drift watch</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Vertex AI Model Monitoring</strong>
+                  <p>Production monitoring for model inputs and outputs so teams can catch drift, skew and quality shifts before they become silent failures.</p>
+                  <span class="tip-meta">Production drift and skew</span>
+                  <code>docs.cloud.google.com/vertex-ai/docs/model-monitoring/overview</code>
+                  <em>Deployed model watchtower</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview?hl=es"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 72%; --y: 38%; --size: 116px; --tone: rgba(134, 248, 152, 0.26); --ink: var(--secondary); --pill: rgba(134, 248, 152, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">insights</span></span>
+                  <strong>Vertex Explainable AI</strong>
+                  <span>Attributions</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Vertex Explainable AI</strong>
+                  <p>Interpretability layer that helps inspect why a model predicted something by surfacing feature contribution and explanation signals.</p>
+                  <span class="tip-meta">Prediction explanations</span>
+                  <code>docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview</code>
+                  <em>Why did the model decide this?</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/vertex-ai/docs/featurestore?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 48%; --y: 70%; --size: 112px; --tone: rgba(134, 248, 152, 0.24); --ink: var(--secondary); --pill: rgba(134, 248, 152, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">dataset</span></span>
+                  <strong>Vertex AI Feature Store</strong>
+                  <span>Feature layer</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Vertex AI Feature Store</strong>
+                  <p>Managed feature management layer for sharing, serving and reusing consistent feature data between training and online inference.</p>
+                  <span class="tip-meta">Training and serving consistency</span>
+                  <code>docs.cloud.google.com/vertex-ai/docs/featurestore</code>
+                  <em>Reusable feature backbone</em>
+                </span>
+              </a>
+            </div>
+
+            <div class="cluster-field operations" aria-label="Production observability cluster">
+              <span class="cluster-title">Production observability</span>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/trace/docs?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 18%; --y: 56%; --size: 118px; --tone: rgba(164, 132, 255, 0.24); --ink: var(--tertiary); --pill: rgba(164, 132, 255, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">timeline</span></span>
+                  <strong>Cloud Trace</strong>
+                  <span>Latency paths</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Cloud Trace</strong>
+                  <p>Distributed tracing service that collects latency data across services and helps locate slow hops in request flows almost in real time.</p>
+                  <span class="tip-meta">Distributed tracing</span>
+                  <code>docs.cloud.google.com/trace/docs</code>
+                  <em>Request path telemetry</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/profiler/docs?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 50%; --y: 42%; --size: 122px; --tone: rgba(164, 132, 255, 0.28); --ink: var(--tertiary); --pill: rgba(164, 132, 255, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">speed</span></span>
+                  <strong>Cloud Profiler</strong>
+                  <span>CPU and memory</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Cloud Profiler</strong>
+                  <p>Continuous low-overhead profiler for production services, mapping CPU and memory hotspots back to application source code.</p>
+                  <span class="tip-meta">Runtime resource hotspots</span>
+                  <code>docs.cloud.google.com/profiler/docs</code>
+                  <em>Performance bottleneck finder</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/logging/docs?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 82%; --y: 56%; --size: 120px; --tone: rgba(164, 132, 255, 0.26); --ink: var(--tertiary); --pill: rgba(164, 132, 255, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">receipt_long</span></span>
+                  <strong>Cloud Logging</strong>
+                  <span>Logs and alerts</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Cloud Logging</strong>
+                  <p>Managed logging plane for storing, querying, routing and alerting on logs and event data across Google Cloud workloads.</p>
+                  <span class="tip-meta">Logs, queries and routing</span>
+                  <code>docs.cloud.google.com/logging/docs</code>
+                  <em>Event record layer</em>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="compare-panel" aria-label="Evaluation and observability comparison table">
+        <div class="compare-body">
+          <div class="section-head">
+            <h2>Comparative table</h2>
+            <span class="section-pill">What each layer answers</span>
+          </div>
+
+          <div class="matrix-scroll">
+            <div class="matrix">
+              <div class="matrix-cell">
+                <div class="matrix-head">Question</div>
+              </div>
+              <div class="matrix-cell"><p class="matrix-title">Gen AI Eval</p></div>
+              <div class="matrix-cell"><p class="matrix-title">Vertex Eval</p></div>
+              <div class="matrix-cell"><p class="matrix-title">Agent Eval</p></div>
+              <div class="matrix-cell"><p class="matrix-title">Experiments</p></div>
+              <div class="matrix-cell"><p class="matrix-title">Monitoring</p></div>
+              <div class="matrix-cell"><p class="matrix-title">Explainable AI</p></div>
+              <div class="matrix-cell"><p class="matrix-title">Feature Store</p></div>
+              <div class="matrix-cell"><p class="matrix-title">Trace</p></div>
+              <div class="matrix-cell"><p class="matrix-title">Profiler</p></div>
+              <div class="matrix-cell"><p class="matrix-title">Logging</p></div>
+
+              <div class="matrix-cell">
+                <div class="matrix-head">Primary role</div>
+              </div>
+              <div class="matrix-cell"><p class="matrix-copy">Judge prompt-output quality for generative models.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Measure predictive model performance against known truth.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Score whether agents behave and finish tasks well.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Track runs, metrics and artifacts across experiments.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Watch deployed models for drift or skew.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Explain which features drove a prediction.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Serve and reuse consistent feature values.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Follow latency across distributed request paths.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Find CPU and memory hotspots in production.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Capture and query operational event records.</p></div>
+
+              <div class="matrix-cell">
+                <div class="matrix-head">AI applicability</div>
+              </div>
+              <div class="matrix-cell"><p class="matrix-copy">Directly built for GenAI evaluation loops and prompt quality review.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Directly applicable to classical ML and structured prediction workloads.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Directly built for agentic AI systems, tool use and multi-step tasks.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Broad AI applicability as the experiment ledger across training and eval cycles.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">High AI relevance once models are deployed and need drift detection.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">High AI relevance when teams need interpretable model decisions.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Indirect but foundational for AI systems that depend on reliable features.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Indirect applicability to AI by tracing latency across model-serving paths.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Indirect applicability to AI by exposing inference-time compute bottlenecks.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Indirect but essential for AI operations, audits and production debugging.</p></div>
+
+              <div class="matrix-cell">
+                <div class="matrix-head">Best used when</div>
+              </div>
+              <div class="matrix-cell"><p class="matrix-copy">You need a rubric for GenAI responses, prompts or judges.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">You need formal metrics before promoting a model version.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">You need to verify tool use, trajectories and task completion.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">You are iterating fast and want reproducible run history.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">You have a deployed endpoint and want live quality signals.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Stakeholders ask why the system made a decision.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Training and serving pipelines must share the same features.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">A request is slow and the bottleneck path is unclear.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">The service is expensive or slow and code hotspots matter.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">You need forensics, alerting or audit-friendly system records.</p></div>
+
+              <div class="matrix-cell">
+                <div class="matrix-head">Closest neighbor</div>
+              </div>
+              <div class="matrix-cell"><p class="matrix-copy">Pairs naturally with Agent Eval and Experiments.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Pairs with Experiments and Monitoring.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Pairs with Gen AI Eval for rubric depth.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Connects evaluation outputs into one timeline.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Feeds production signals back into evaluation loops.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Complements Monitoring when you need reasons, not just drift.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Supports Monitoring and Explainable AI with cleaner inputs.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Works with Logging for incident reconstruction.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Works with Trace to connect latency to code cost.</p></div>
+              <div class="matrix-cell"><p class="matrix-copy">Works with Trace and Profiler for full runtime context.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

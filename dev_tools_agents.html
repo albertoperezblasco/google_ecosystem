@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Explorer | Dev Tools & Coding Agents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #f5f6f7;
+      --surface: #f5f6f7;
+      --surface-container-lowest: #ffffff;
+      --on-surface: #2c2f30;
+      --on-surface-variant: #595c5d;
+      --primary: #0058bc;
+      --secondary: #006a2b;
+      --tertiary: #7b3fe4;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --shadow-soft: 0 12px 40px rgba(44, 47, 48, 0.06);
+      --shadow-ambient: 0 20px 50px rgba(44, 47, 48, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: "Inter", sans-serif;
+      background: var(--background);
+      color: var(--on-surface);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100dvh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.12), transparent 36%),
+        radial-gradient(circle at 86% 18%, rgba(134, 248, 152, 0.1), transparent 26%),
+        radial-gradient(circle at 56% 84%, rgba(123, 63, 228, 0.12), transparent 26%),
+        linear-gradient(180deg, #f8f9fa 0%, #f1f3f4 100%);
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(89, 92, 93, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(89, 92, 93, 0.05) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.94) 38%, transparent 86%);
+      pointer-events: none;
+      opacity: 0.65;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(120px);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .glow-blue {
+      top: -6%;
+      right: -8%;
+      width: 420px;
+      height: 420px;
+      background: rgba(0, 88, 188, 0.12);
+    }
+
+    .glow-green {
+      bottom: 14%;
+      left: -7%;
+      width: 340px;
+      height: 340px;
+      background: rgba(0, 106, 43, 0.1);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(1440px, calc(100% - 32px));
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: clamp(18px, 2.2vh, 28px) 0 clamp(20px, 2.6vh, 32px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(12px, 1.8vh, 20px);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-ambient);
+      outline: none;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+      gap: clamp(18px, 3vw, 40px);
+      align-items: end;
+    }
+
+    .hero-copy h1 {
+      margin: 8px 0 0;
+      font-size: clamp(2.45rem, 4.9vw, 4.15rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      max-width: 12ch;
+    }
+
+    .hero-copy p {
+      margin: 16px 0 0;
+      max-width: 62ch;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--on-surface-variant);
+    }
+
+    .hero-note {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-note::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .hero-note h2 {
+      margin: 0 0 10px;
+      font-size: 1.14rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-note p {
+      margin: 0;
+      color: var(--on-surface-variant);
+      line-height: 1.5;
+    }
+
+    .stage {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: stretch;
+      overflow: visible;
+    }
+
+    .constellation {
+      position: relative;
+      width: min(1180px, 100%);
+      height: 100%;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      overflow: visible;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 34% 38%, rgba(109, 159, 255, 0.15), transparent 24%),
+        radial-gradient(circle at 72% 34%, rgba(134, 248, 152, 0.14), transparent 22%),
+        radial-gradient(circle at 48% 76%, rgba(123, 63, 228, 0.12), transparent 22%),
+        rgba(255, 255, 255, 0.72);
+    }
+
+    .constellation::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .constellation-map {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 660px;
+      padding-top: 24px;
+      z-index: 1;
+    }
+
+    .group-zone {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(12px);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .group-zone.assist {
+      inset: 12% 55% 28% 14%;
+      background: radial-gradient(circle at 50% 48%, rgba(109, 159, 255, 0.24), rgba(109, 159, 255, 0.06) 56%, transparent 80%);
+    }
+
+    .group-zone.builders {
+      inset: 14% 10% 26% 56%;
+      background:
+        radial-gradient(circle at 34% 34%, rgba(134, 248, 152, 0.16), transparent 18%),
+        radial-gradient(circle at 74% 60%, rgba(134, 248, 152, 0.2), transparent 22%);
+    }
+
+    .group-zone.agents {
+      inset: 56% 24% 4% 20%;
+      background:
+        radial-gradient(circle at 32% 50%, rgba(123, 63, 228, 0.18), rgba(123, 63, 228, 0.06) 48%, transparent 74%),
+        radial-gradient(circle at 74% 52%, rgba(123, 63, 228, 0.16), transparent 22%);
+    }
+
+    .cluster-field {
+      position: absolute;
+      z-index: 2;
+    }
+
+    .cluster-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .cluster-field.assist {
+      left: 20%;
+      top: 18%;
+      width: 26%;
+      height: 44%;
+    }
+
+    .cluster-field.assist .cluster-title {
+      color: var(--primary);
+      background: rgba(109, 159, 255, 0.14);
+    }
+
+    .cluster-field.builders {
+      left: 58%;
+      top: 16%;
+      width: 28%;
+      height: 42%;
+    }
+
+    .cluster-field.builders .cluster-title {
+      color: var(--secondary);
+      background: rgba(134, 248, 152, 0.16);
+    }
+
+    .cluster-field.agents {
+      left: 25%;
+      top: 62%;
+      width: 42%;
+      height: 22%;
+    }
+
+    .cluster-field.agents .cluster-title {
+      top: -24px;
+      color: var(--tertiary);
+      background: rgba(164, 132, 255, 0.18);
+    }
+
+    .orbit {
+      position: absolute;
+      inset: 56% auto auto 46%;
+      width: min(30vw, 330px);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(117, 119, 120, 0.12);
+      pointer-events: none;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      inset: 14%;
+      border-radius: 50%;
+      border: 1px solid rgba(117, 119, 120, 0.08);
+    }
+
+    .orbit::after {
+      inset: 28%;
+    }
+
+    .node-link {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      transform: translate(-50%, -50%);
+      width: max-content;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .node-link:hover,
+    .node-link:focus-visible {
+      z-index: 30;
+      outline: none;
+    }
+
+    .node-core {
+      position: relative;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 40px rgba(44, 47, 48, 0.1);
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+      overflow: hidden;
+    }
+
+    .node-core::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--tone), rgba(255, 255, 255, 0.8));
+      opacity: 0.95;
+      z-index: -1;
+    }
+
+    .node-link:hover .node-core,
+    .node-link:focus-visible .node-core {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 24px 48px rgba(44, 47, 48, 0.16);
+    }
+
+    .node-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--ink);
+    }
+
+    .node-icon .material-symbols-outlined {
+      font-size: 1.45rem;
+      font-variation-settings: "FILL" 0, "wght" 550, "GRAD" 0, "opsz" 28;
+    }
+
+    .node-core strong {
+      font-size: clamp(0.82rem, 0.9vw, 0.96rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      max-width: 11ch;
+    }
+
+    .node-core span {
+      font-size: 0.54rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+      max-width: 12ch;
+      transition: color 180ms ease, opacity 180ms ease;
+    }
+
+    .node-tip .tip-meta {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--pill);
+      color: var(--ink);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .node-tip {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 14px);
+      width: min(300px, 38vw);
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 24px 48px rgba(44, 47, 48, 0.12);
+      text-align: left;
+      transform: translateX(-50%) translateY(8px) scale(0.98);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+      z-index: 40;
+    }
+
+    .node-link:hover .node-tip,
+    .node-link:focus-visible .node-tip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    .node-tip::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 16px;
+      height: 16px;
+      background: rgba(255, 255, 255, 0.94);
+      transform: translateX(-50%) rotate(45deg);
+      border-radius: 4px;
+    }
+
+    .node-tip strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .node-tip p {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--on-surface-variant);
+    }
+
+    .node-tip code {
+      display: inline-block;
+      font-family: inherit;
+      font-size: 0.73rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--ink);
+      background: var(--pill);
+      padding: 6px 10px;
+      border-radius: 999px;
+      word-break: break-all;
+    }
+
+    .node-tip em {
+      display: block;
+      margin-top: 2px;
+      font-style: normal;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .compare-panel {
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      padding: 24px;
+    }
+
+    .compare-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .compare-body {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.12rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 220px repeat(5, minmax(0, 1fr));
+      gap: 1px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(117, 119, 120, 0.12);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .matrix-cell {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 16px 18px;
+      min-height: 94px;
+    }
+
+    .matrix-head {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    .matrix-title {
+      margin: 0;
+      font-size: 0.96rem;
+      letter-spacing: -0.03em;
+    }
+
+    .matrix-copy {
+      margin: 8px 0 0;
+      color: var(--on-surface-variant);
+      line-height: 1.44;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 1080px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 980px) {
+      body {
+        overflow-y: auto;
+      }
+
+      .page {
+        overflow: visible;
+      }
+
+      .shell {
+        min-height: auto;
+        width: min(100% - 20px, 1440px);
+      }
+
+      .constellation {
+        min-height: 1120px;
+      }
+
+      .constellation-map {
+        min-height: 1040px;
+        padding-top: 40px;
+      }
+
+      .cluster-field.assist,
+      .cluster-field.builders,
+      .cluster-field.agents {
+        left: 6%;
+        width: 88%;
+      }
+
+      .cluster-field.assist {
+        top: 90px;
+        height: 300px;
+      }
+
+      .cluster-field.builders {
+        top: 420px;
+        height: 300px;
+      }
+
+      .cluster-field.agents {
+        top: 780px;
+        height: 200px;
+      }
+
+      .group-zone.assist {
+        inset: 9% 10% 64% 8%;
+      }
+
+      .group-zone.builders {
+        inset: 37% 8% 33% 8%;
+      }
+
+      .group-zone.agents {
+        inset: 69% 6% 5% 6%;
+      }
+
+      .orbit {
+        inset: 54% auto auto 50%;
+        width: min(70vw, 320px);
+      }
+
+      .node-tip {
+        width: min(280px, calc(100vw - 48px));
+      }
+
+      .matrix {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="glow glow-blue" aria-hidden="true"></div>
+    <div class="glow glow-green" aria-hidden="true"></div>
+
+    <main class="shell">
+      <div class="topbar">
+        <a class="back-link" href="./index.html">
+          <span class="material-symbols-outlined">arrow_back</span>
+          <span>Back to surface</span>
+        </a>
+        <span class="eyebrow">Google AI State of the Art</span>
+      </div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Dev Tools & Coding Agents</span>
+          <h1>Five tools, grouped by how you work.</h1>
+          <p>
+            This view uses the same spatial logic as the APIs constellation:
+            the five products are grouped by interaction model so the distinction is visible at a glance.
+            Blue is in-editor assistance, green is active build surfaces, and violet is delegated agents.
+          </p>
+        </div>
+
+        <aside class="hero-note">
+          <h2>How to read the clusters</h2>
+          <p>
+            <strong>Gemini Code Assist</strong> stays where you code.
+            <strong>Firebase Studio</strong> and <strong>Gemini CLI</strong> are hands-on build surfaces.
+            <strong>Jules</strong> and <strong>Antigravity</strong> sit in the delegated agent lane.
+          </p>
+        </aside>
+      </section>
+
+      <section class="stage" aria-label="Developer tools and coding agents map">
+        <div class="constellation">
+          <div class="group-zone assist" aria-hidden="true"></div>
+          <div class="group-zone builders" aria-hidden="true"></div>
+          <div class="group-zone agents" aria-hidden="true"></div>
+
+          <div class="constellation-map">
+            <div class="cluster-field assist" aria-label="In-editor assistance cluster">
+              <span class="cluster-title">In-editor assistance</span>
+              <div class="orbit" aria-hidden="true"></div>
+
+              <a
+                class="node-link"
+                href="https://developers.google.com/gemini-code-assist/docs/overview?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 46%; --y: 56%; --size: 144px; --tone: rgba(109, 159, 255, 0.40); --ink: var(--primary); --pill: rgba(109, 159, 255, 0.16);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">code</span></span>
+                  <strong>Gemini Code Assist</strong>
+                  <span>IDE copilot</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Gemini Code Assist</strong>
+                  <p>Embedded coding assistance for supported IDEs, blending completions, chat and agent-style help directly in the editor.</p>
+                  <span class="tip-meta">VS Code, JetBrains, Android Studio</span>
+                  <code>developers.google.com/gemini-code-assist/docs/overview</code>
+                  <em>Inline coding surface</em>
+                </span>
+              </a>
+            </div>
+
+            <div class="cluster-field builders" aria-label="Active build surfaces cluster">
+              <span class="cluster-title">Active build surfaces</span>
+
+              <a
+                class="node-link"
+                href="https://firebase.google.com/docs/studio?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 28%; --y: 36%; --size: 126px; --tone: rgba(134, 248, 152, 0.32); --ink: var(--secondary); --pill: rgba(134, 248, 152, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">web</span></span>
+                  <strong>Firebase Studio</strong>
+                  <span>Cloud workspace</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Firebase Studio</strong>
+                  <p>Browser-based development workspace for app building, collaborative flows and prototyping with Gemini embedded in the stack.</p>
+                  <span class="tip-meta">Browser IDE with prototyping flow</span>
+                  <code>firebase.google.com/docs/studio</code>
+                  <em>Cloud build environment</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli?hl=es-419"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 68%; --y: 64%; --size: 118px; --tone: rgba(134, 248, 152, 0.28); --ink: var(--secondary); --pill: rgba(134, 248, 152, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">terminal</span></span>
+                  <strong>Gemini CLI</strong>
+                  <span>Terminal agent</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Gemini CLI</strong>
+                  <p>Open-source command-line agent with tool use, ReAct loops and MCP support for terminal-native coding and automation workflows.</p>
+                  <span class="tip-meta">Tools, MCP and ReAct loop</span>
+                  <code>docs.cloud.google.com/gemini/docs/codeassist/gemini-cli</code>
+                  <em>CLI execution surface</em>
+                </span>
+              </a>
+            </div>
+
+            <div class="cluster-field agents" aria-label="Delegated agents cluster">
+              <span class="cluster-title">Delegated agents</span>
+
+              <a
+                class="node-link"
+                href="https://jules.google/docs/"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 30%; --y: 58%; --size: 120px; --tone: rgba(164, 132, 255, 0.26); --ink: var(--tertiary); --pill: rgba(164, 132, 255, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">schedule_send</span></span>
+                  <strong>Jules 2.0</strong>
+                  <span>Async repo agent</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Jules 2.0</strong>
+                  <p>Experimental coding agent that connects to GitHub, clones the repo into a virtual machine and works asynchronously after plan approval.</p>
+                  <span class="tip-meta">GitHub task flow with plan approval</span>
+                  <code>jules.google/docs</code>
+                  <em>Delegated GitHub workflow</em>
+                </span>
+              </a>
+
+              <a
+                class="node-link"
+                href="https://antigravity.google/docs/get-started"
+                target="_blank"
+                rel="noreferrer"
+                style="--x: 72%; --y: 52%; --size: 116px; --tone: rgba(164, 132, 255, 0.24); --ink: var(--tertiary); --pill: rgba(164, 132, 255, 0.18);"
+              >
+                <span class="node-core">
+                  <span class="node-icon"><span class="material-symbols-outlined">hub</span></span>
+                  <strong>Antigravity</strong>
+                  <span>Agent-first IDE</span>
+                </span>
+                <span class="node-tip">
+                  <strong>Antigravity</strong>
+                  <p>Agent-oriented development lane positioned around autonomous workflows and richer orchestration than a classic inline assistant.</p>
+                  <span class="tip-meta">Autonomous multi-agent environment</span>
+                  <code>antigravity.google/docs/get-started</code>
+                  <em>Agent-managed environment</em>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="compare-panel" aria-label="Developer tools comparison table">
+        <div class="compare-body">
+          <div class="section-head">
+            <h2>Comparative table</h2>
+            <span class="section-pill">Explicit differences</span>
+          </div>
+
+          <div class="matrix">
+            <div class="matrix-cell">
+              <div class="matrix-head">Question</div>
+            </div>
+            <div class="matrix-cell"><p class="matrix-title">Code Assist</p></div>
+            <div class="matrix-cell"><p class="matrix-title">Firebase Studio</p></div>
+            <div class="matrix-cell"><p class="matrix-title">Gemini CLI</p></div>
+            <div class="matrix-cell"><p class="matrix-title">Jules</p></div>
+            <div class="matrix-cell"><p class="matrix-title">Antigravity</p></div>
+
+            <div class="matrix-cell">
+              <div class="matrix-head">Primary surface</div>
+            </div>
+            <div class="matrix-cell"><p class="matrix-copy">Inside the IDE you already use.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">Inside a browser-based cloud workspace.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">Inside your terminal session.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">Against a connected GitHub repository.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">Inside an agent-first development environment.</p></div>
+
+            <div class="matrix-cell">
+              <div class="matrix-head">Interaction style</div>
+            </div>
+            <div class="matrix-cell"><p class="matrix-copy">Inline completions, chat and agent help in place.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">Switch between prompting, prototyping and coding in one workspace.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">Prompt the agent from CLI commands and tool integrations.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">Submit a task, review the plan, then let it run asynchronously.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">Orchestrate agents as first-class workers with richer verification.</p></div>
+
+            <div class="matrix-cell">
+              <div class="matrix-head">Reach for it when</div>
+            </div>
+            <div class="matrix-cell"><p class="matrix-copy">You want help while staying in your editor.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">You want a cloud workspace for building and prototyping apps.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">You want terminal-native automation and tool use.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">You want to delegate repo work and come back later.</p></div>
+            <div class="matrix-cell"><p class="matrix-copy">You want a heavier agent-centric environment instead of a simple assistant.</p></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

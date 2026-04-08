@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Explorer | Fine-tuning on Vertex AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #f5f6f7;
+      --surface: #f5f6f7;
+      --surface-container-low: #eff1f2;
+      --surface-container: #e6e8ea;
+      --surface-container-high: #e0e3e4;
+      --surface-container-lowest: #ffffff;
+      --on-surface: #2c2f30;
+      --on-surface-variant: #595c5d;
+      --outline-variant: rgba(117, 119, 120, 0.15);
+      --primary: #0058bc;
+      --primary-container: #6d9fff;
+      --secondary: #006a2b;
+      --secondary-container: #86f898;
+      --tertiary: #b41a14;
+      --tertiary-container: #ffb2a7;
+      --warning: #a23216;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --shadow-soft: 0 12px 40px rgba(44, 47, 48, 0.06);
+      --shadow-ambient: 0 20px 50px rgba(44, 47, 48, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: "Inter", sans-serif;
+      background: var(--background);
+      color: var(--on-surface);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100dvh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.12), transparent 36%),
+        radial-gradient(circle at 86% 20%, rgba(134, 248, 152, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f9fa 0%, #f1f3f4 100%);
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(89, 92, 93, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(89, 92, 93, 0.05) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.94) 38%, transparent 86%);
+      pointer-events: none;
+      opacity: 0.65;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(120px);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .glow-blue {
+      top: -5%;
+      right: -8%;
+      width: 420px;
+      height: 420px;
+      background: rgba(0, 88, 188, 0.12);
+    }
+
+    .glow-green {
+      bottom: -8%;
+      left: -6%;
+      width: 340px;
+      height: 340px;
+      background: rgba(0, 106, 43, 0.10);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(1440px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: clamp(18px, 2.2vh, 28px) 0 clamp(20px, 2.6vh, 32px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(14px, 1.8vh, 24px);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-ambient);
+      outline: none;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .hero {
+      display: block;
+    }
+
+    .hero-copy h1 {
+      margin: 8px 0 0;
+      font-size: clamp(2.5rem, 4.8vw, 4.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      max-width: 11ch;
+    }
+
+    .hero-copy p {
+      margin: 16px 0 0;
+      max-width: 58ch;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--on-surface-variant);
+    }
+
+    .workspace {
+      position: relative;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 22% 24%, rgba(109, 159, 255, 0.12), transparent 24%),
+        radial-gradient(circle at 74% 64%, rgba(134, 248, 152, 0.12), transparent 26%),
+        radial-gradient(circle at 24% 84%, rgba(255, 178, 167, 0.18), transparent 28%),
+        rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow-soft);
+      padding: clamp(22px, 2vw, 32px);
+      overflow: hidden;
+    }
+
+    .workspace::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .workspace-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.9fr);
+      gap: clamp(18px, 2vw, 28px);
+      align-items: start;
+    }
+
+    .panel {
+      position: relative;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow-soft);
+      padding: clamp(18px, 1.8vw, 24px);
+      overflow: hidden;
+    }
+
+    .panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.58);
+      pointer-events: none;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .panel-title {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .panel-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(0, 88, 188, 0.12);
+      color: var(--primary);
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .step-card {
+      position: relative;
+      min-height: 170px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+    }
+
+    .step-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, var(--tone), rgba(255, 255, 255, 0));
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .step-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .step-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--ink);
+    }
+
+    .step-card h3 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .step-card p {
+      margin: 10px 0 0;
+      color: var(--on-surface-variant);
+      line-height: 1.46;
+      font-size: 0.92rem;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+    }
+
+    .warning-panel {
+      display: grid;
+      gap: 16px;
+    }
+
+    .aside-header {
+      padding: 4px 2px 0;
+    }
+
+    .aside-header .panel-pill {
+      background: rgba(180, 26, 20, 0.1);
+      color: var(--warning);
+    }
+
+    .aside-header h3 {
+      margin: 12px 0 8px;
+      font-size: 1.12rem;
+      letter-spacing: -0.03em;
+    }
+
+    .aside-header p {
+      margin: 0;
+      color: var(--on-surface-variant);
+      line-height: 1.5;
+      font-size: 0.92rem;
+    }
+
+    .warning-card {
+      padding: 22px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 178, 167, 0.34), transparent 34%),
+        rgba(255, 248, 246, 0.96);
+      box-shadow: 0 22px 50px rgba(180, 26, 20, 0.08);
+    }
+
+    .warning-card::after {
+      border: 1px solid rgba(180, 26, 20, 0.12);
+    }
+
+    .warning-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .warning-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(180, 26, 20, 0.14);
+      color: var(--warning);
+    }
+
+    .warning-kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(180, 26, 20, 0.1);
+      color: var(--warning);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .warning-card h3 {
+      margin: 6px 0 0;
+      font-size: 1.12rem;
+      letter-spacing: -0.03em;
+    }
+
+    .warning-card p {
+      margin: 10px 0 0;
+      line-height: 1.5;
+      color: rgba(44, 47, 48, 0.86);
+    }
+
+    .warning-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .warning-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 0 0 1px rgba(180, 26, 20, 0.08);
+    }
+
+    .warning-item .material-symbols-outlined {
+      color: var(--warning);
+    }
+
+    .source-card {
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: inset 0 0 0 1px rgba(117, 119, 120, 0.08);
+    }
+
+    .source-card h4 {
+      margin: 0 0 12px;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+    }
+
+    .source-link {
+      display: grid;
+      gap: 4px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(109, 159, 255, 0.08);
+    }
+
+    .source-link + .source-link {
+      margin-top: 10px;
+    }
+
+    .source-link strong {
+      font-size: 0.9rem;
+      letter-spacing: -0.02em;
+    }
+
+    .source-link span {
+      font-size: 0.8rem;
+      color: var(--on-surface-variant);
+      word-break: break-word;
+    }
+
+    .source-link.warning {
+      background: rgba(255, 178, 167, 0.16);
+      box-shadow: inset 0 0 0 1px rgba(180, 26, 20, 0.12);
+    }
+
+    .source-link.warning strong {
+      color: var(--warning);
+    }
+
+    .source-link.warning span {
+      color: rgba(162, 50, 22, 0.82);
+    }
+
+    @media (max-width: 1080px) {
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(calc(100% - 20px), 1440px);
+      }
+
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workspace {
+        padding: 18px;
+      }
+
+      .hero-copy h1 {
+        max-width: 12ch;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="glow glow-blue" aria-hidden="true"></div>
+    <div class="glow glow-green" aria-hidden="true"></div>
+
+    <main class="shell">
+      <div class="topbar">
+        <a class="back-link" href="./index.html">
+          <span class="material-symbols-outlined">arrow_back</span>
+          <span>Back to surface</span>
+        </a>
+        <span class="eyebrow">Google AI State of the Art</span>
+      </div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Tuning Playbook</span>
+          <h1>Fine-tuning through Vertex AI.</h1>
+          <p>
+            A distinct view for model customization: build the tuning job around a base model,
+            JSONL datasets, controlled hyperparameters and a traceable job lifecycle on Vertex AI.
+          </p>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Fine-tuning workflow and warning zone">
+        <div class="workspace-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h2 class="panel-title">Option A: Vertex AI tuning flow</h2>
+              <span class="panel-pill">Supported path</span>
+            </div>
+
+            <div class="stack-grid">
+              <article class="step-card" style="--tone: rgba(109, 159, 255, 0.16); --ink: var(--primary);">
+                <div class="step-top">
+                  <span class="step-number" style="--ink: var(--primary);">1</span>
+                  <span class="step-icon" style="--ink: var(--primary);">
+                    <span class="material-symbols-outlined">token</span>
+                  </span>
+                </div>
+                <h3>Choose the source model</h3>
+                <p>Start from the base model you want to adapt and decide the display name for the tuned artifact that will come out of the job.</p>
+                <div class="chip-row" aria-hidden="true">
+                  <span class="chip">Gemini 2.5 Pro</span>
+                  <span class="chip">Gemini 2.5 Flash</span>
+                  <span class="chip">Gemini 2.5 Flash-Lite</span>
+                  <span class="chip">translation-llm-002</span>
+                </div>
+              </article>
+
+              <article class="step-card" style="--tone: rgba(134, 248, 152, 0.18); --ink: var(--secondary);">
+                <div class="step-top">
+                  <span class="step-number" style="--ink: var(--secondary);">2</span>
+                  <span class="step-icon" style="--ink: var(--secondary);">
+                    <span class="material-symbols-outlined">upload_file</span>
+                  </span>
+                </div>
+                <h3>Prepare JSONL datasets</h3>
+                <p>Point the job at Cloud Storage URIs for training data and, if needed, a validation file that can produce periodic validation metrics during tuning.</p>
+                <div class="chip-row" aria-hidden="true">
+                  <span class="chip">JSONL</span>
+                  <span class="chip">100-500 examples</span>
+                  <span class="chip">validation up to 256</span>
+                </div>
+              </article>
+
+              <article class="step-card" style="--tone: rgba(109, 159, 255, 0.14); --ink: var(--primary);">
+                <div class="step-top">
+                  <span class="step-number" style="--ink: var(--primary);">3</span>
+                  <span class="step-icon" style="--ink: var(--primary);">
+                    <span class="material-symbols-outlined">settings_suggest</span>
+                  </span>
+                </div>
+                <h3>Dial the hyperparameters</h3>
+                <p>Adjust the tuning shape with `epochCount`, `adapterSize` and `learningRateMultiplier`, then decide whether you only want the last checkpoint exported.</p>
+                <div class="chip-row" aria-hidden="true">
+                  <span class="chip">epochCount</span>
+                  <span class="chip">adapterSize</span>
+                  <span class="chip">learningRateMultiplier</span>
+                </div>
+              </article>
+
+              <article class="step-card" style="--tone: rgba(134, 248, 152, 0.14); --ink: var(--secondary);">
+                <div class="step-top">
+                  <span class="step-number" style="--ink: var(--secondary);">4</span>
+                  <span class="step-icon" style="--ink: var(--secondary);">
+                    <span class="material-symbols-outlined">deployed_code</span>
+                  </span>
+                </div>
+                <h3>Launch and monitor the job</h3>
+                <p>Create the `tuningJobs` request, then read back job details to inspect status, tuned model IDs, endpoint references and statistics tied to the run.</p>
+                <div class="chip-row" aria-hidden="true">
+                  <span class="chip">POST tuningJobs</span>
+                  <span class="chip">GET job status</span>
+                  <span class="chip">model + endpoint</span>
+                </div>
+              </article>
+            </div>
+
+          </div>
+
+          <div class="warning-panel">
+            <div class="aside-header">
+              <span class="panel-pill">Gemini side</span>
+              <h3>Option B: direct Gemini fine-tuning</h3>
+              <p>
+                This is the contrasting route on the page: a direct Gemini API / AI Studio path that users might still look for, but that should now be read as a disabled alternative.
+              </p>
+            </div>
+
+            <section class="panel warning-card">
+              <div class="warning-head">
+                <span class="warning-icon">
+                  <span class="material-symbols-outlined">warning</span>
+                </span>
+                <div>
+                  <span class="warning-kicker">Option B · unavailable now</span>
+                  <h3>Gemini API / AI Studio was the alternate path, but not anymore</h3>
+                </div>
+              </div>
+              <p>
+                This right-hand column represents the second possible route teams could expect for fine-tuning. The key point is that this path should now be treated as closed, while Vertex AI remains the supported lane.
+              </p>
+              <div class="warning-list">
+                <div class="warning-item">
+                  <span class="material-symbols-outlined">block</span>
+                  <div>No active model is currently available for fine-tuning in Gemini API or AI Studio.</div>
+                </div>
+                <div class="warning-item">
+                  <span class="material-symbols-outlined">alt_route</span>
+                  <div>Push tuning requests toward Vertex AI jobs, not API-key-only Gemini flows.</div>
+                </div>
+                <div class="warning-item">
+                  <span class="material-symbols-outlined">campaign</span>
+                  <div>Keep this as a visible caution area so teams do not design the wrong entry point.</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="source-card">
+              <h4>Documentation anchors</h4>
+              <a class="source-link" href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning?hl=es-419" target="_blank" rel="noreferrer">
+                <strong>Vertex AI tuning reference</strong>
+                <span>Request shape, datasets, hyperparameters, job lifecycle</span>
+              </a>
+              <a class="source-link warning" href="https://ai.google.dev/gemini-api/docs/model-tuning?hl=es-419" target="_blank" rel="noreferrer">
+                <strong>Gemini API tuning notice</strong>
+                <span>Warning context for unsupported direct fine-tuning in Gemini API / AI Studio</span>
+              </a>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
