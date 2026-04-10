@@ -92,7 +92,10 @@
 ## APIs & SDKs
 
 - [Gemini API](https://ai.google.dev/gemini-api/docs)
-- [Google Cloud / Vertex AI REST](https://docs.cloud.google.com/vertex-ai/docs/reference/rest)
+  - [Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries)
+- [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs?hl=es-419)
+- [Agent Development Kit (Google ADK)](https://docs.cloud.google.com/agent-builder/agent-development-kit/overview)
+- [Genkit](https://firebase.google.com/docs/genkit/overview)
 - [Cloud Vision API](https://docs.cloud.google.com/vision/docs/request)
 - [Cloud Speech-to-Text](https://docs.cloud.google.com/speech-to-text/docs/v1?hl=es)
 - [Cloud Natural Language API](https://docs.cloud.google.com/natural-language/docs)

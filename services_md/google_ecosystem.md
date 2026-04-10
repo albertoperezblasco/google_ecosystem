@@ -24,6 +24,9 @@
 
 - [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs?hl=es-419) (managed ML + GenAI platform)
   - [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
+  - Interfaces and SDKs
+    - [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs?hl=es-419) (platform docs, SDKs, and REST interfaces)
+      - Cookbook / examples: [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
   - Models
     - [Generative AI on Vertex AI models](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models) (foundation model catalog)
     - [Model Garden](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/explore-models) (model catalog)
@@ -42,7 +45,7 @@
   - Agent Builder
     - [Vertex AI Agent Builder](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent-builder/overview) (agent suite)
       - Cookbook / examples: [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
-    - [Agent Development Kit](https://docs.cloud.google.com/agent-builder/agent-development-kit/overview) (agent orchestration framework)
+    - [Agent Development Kit (Google ADK)](https://docs.cloud.google.com/agent-builder/agent-development-kit/overview) (agent orchestration framework)
     - [Agent Designer](https://docs.cloud.google.com/agent-builder/agent-designer) (visual agent builder)
     - [Agent Garden](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent-builder/overview) (agent and tool catalog)
     - [Vertex AI Agent Engine](https://docs.cloud.google.com/agent-builder/agent-engine/overview) (managed agent runtime and observability)
@@ -97,6 +100,9 @@
 
 - [Gemini API](https://ai.google.dev/gemini-api/docs) (developer API for Gemini)
   - [Gemini API Cookbook](https://ai.google.dev/gemini-api/cookbook) (recipes and examples)
+  - SDKs
+    - [Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries) (official SDK for Gemini and Vertex AI backends)
+      - Cookbook / examples: [Gemini API Cookbook](https://ai.google.dev/gemini-api/cookbook) (recipes and examples)
   - Models and families
     - [Gemini API models](https://ai.google.dev/gemini-api/docs/models) (model catalog)
     - [Gemma docs](https://ai.google.dev/gemma/docs) (open model family)
@@ -128,6 +134,7 @@
 - Builders and app prototyping
   - [Stitch](https://stitch.withgoogle.com/) (UI generation and design prototyping)
   - [Opal](https://opal.google/_app/landing/) (mini-app builder)
+  - [Genkit](https://firebase.google.com/docs/genkit/overview) (open-source AI app framework)
   - [Firebase Studio](https://firebase.google.com/docs/studio) (full-stack app builder)
     - [App Prototyping agent](https://firebase.google.com/docs/studio/get-started-ai) (prompt-to-app flow)
 - Developer tools and coding agents

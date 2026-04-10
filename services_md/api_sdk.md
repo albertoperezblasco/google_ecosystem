@@ -7,7 +7,10 @@ This topic covers the programmatic surfaces in Google's AI ecosystem, but they d
 | Service | Layer | What it gives you | Official |
 | --- | --- | --- | --- |
 | Gemini API | Foundation API | Programmatic access to Gemini models, prompting patterns, tools, and app integrations | [Gemini API](https://ai.google.dev/gemini-api/docs) |
-| Google Cloud / Vertex AI REST | Cloud control plane | REST surface for Vertex AI resources, endpoints, and enterprise orchestration | [Vertex AI REST](https://docs.cloud.google.com/vertex-ai/docs/reference/rest) |
+| Google Gen AI SDK | Foundation SDK | Official SDK layer for Gemini and compatible backends from application code | [Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries) |
+| Vertex AI | Cloud platform | Managed AI platform surface covering core docs, REST, SDKs, and enterprise orchestration | [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs?hl=es-419) |
+| Agent Development Kit (Google ADK) | Agent SDK | Framework and SDK for building and orchestrating Google agent workflows | [Google ADK](https://docs.cloud.google.com/agent-builder/agent-development-kit/overview) |
+| Genkit | App framework | Open-source framework for AI app flows, evaluation, and production patterns | [Genkit](https://firebase.google.com/docs/genkit/overview) |
 | Cloud Vision API | Applied service | Image analysis and OCR request patterns | [Cloud Vision API](https://docs.cloud.google.com/vision/docs/request) |
 | Cloud Speech-to-Text | Applied service | Speech recognition for transcription and voice pipelines | [Cloud Speech-to-Text](https://docs.cloud.google.com/speech-to-text/docs/v1?hl=es) |
 | Cloud Natural Language API | Applied service | Classic NLP tasks like entity extraction and sentiment analysis | [Cloud Natural Language API](https://docs.cloud.google.com/natural-language/docs) |
@@ -21,9 +24,9 @@ This topic covers the programmatic surfaces in Google's AI ecosystem, but they d
 
 | Cluster on the page | What belongs there |
 | --- | --- |
-| Foundation APIs | Gemini API and Vertex AI REST |
+| Foundation APIs | Gemini API, Google Gen AI SDK, Vertex AI |
 | Applied services | Vision, Speech-to-Text, Natural Language, Translation |
-| Framework depth | MediaPipe, LiteRT, TensorFlow, JAX |
+| Framework depth | Google ADK, Genkit, MediaPipe, LiteRT, TensorFlow, JAX |
 
 The key idea is that this page is not just a random API list. It separates:
 
@@ -47,21 +50,37 @@ Gemini API is the main foundation API in this topic. It is the direct entry poin
 
 Use it when the main need is model access itself, not a specialized prepackaged API such as OCR or translation.
 
-## Google Cloud / Vertex AI REST
+## Google Gen AI SDK
 
-Official: [Vertex AI REST](https://docs.cloud.google.com/vertex-ai/docs/reference/rest)
+Official: [Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries)
 
-Vertex AI REST is the cloud control plane in this topic. It matters when the work needs enterprise-grade orchestration across Google Cloud rather than a lighter developer-first API entry point.
+Google Gen AI SDK is the developer SDK that sits closest to Gemini API in this topic. It is the code-level layer teams use when they want idiomatic client libraries instead of calling raw HTTP endpoints directly.
+
+### What it is for
+
+| Strength | Why it matters |
+| --- | --- |
+| Official client libraries | Reduces boilerplate in application code |
+| Multi-language entry point | Helps developers adopt Gemini faster |
+| Backend flexibility | Useful when working across Gemini and compatible Google AI backends |
+
+Use it when the main question is "how do I call Gemini cleanly from code?" rather than "which API surface exists?"
+
+## Vertex AI
+
+Official: [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs?hl=es-419)
+
+Vertex AI is the cloud platform layer in this topic. It is the managed Google Cloud AI surface that groups platform docs, resource management, REST interfaces, client libraries, and higher-level enterprise AI workflows.
 
 ### What it is best for
 
 | Use case | Why it fits |
 | --- | --- |
 | Enterprise orchestration | It exposes the broader managed platform surface |
-| Resource and endpoint control | It is the API layer for platform objects and operations |
+| Resource and endpoint control | It covers platform objects, operations, SDKs, and REST interfaces |
 | Cloud-native AI systems | It fits teams already working in Google Cloud operational patterns |
 
-This is less about a single model call and more about managing AI systems as cloud resources.
+Use it when the work is already anchored in Google Cloud and the need is broader than a single model API call.
 
 ## Cloud Vision API
 
@@ -114,6 +133,38 @@ Official: [Cloud Translation API](https://docs.cloud.google.com/translate/docs/t
 Cloud Translation API is the language-bridge service in this topic. It is the applied API for programmatic translation, with request patterns designed around cross-language delivery rather than general prompting.
 
 This is the right surface when translation itself is the product requirement.
+
+## Agent Development Kit (Google ADK)
+
+Official: [Agent Development Kit](https://docs.cloud.google.com/agent-builder/agent-development-kit/overview)
+
+Google ADK is the agent-focused SDK and orchestration framework in this topic. It belongs closer to developer frameworks than to hosted task APIs because the value is in wiring tools, state, and agent behavior together.
+
+### Why it belongs in framework depth
+
+| ADK angle | Why it is different from managed APIs |
+| --- | --- |
+| Agent orchestration | It is about composing agent systems, not just calling a task API |
+| Tool wiring | It helps structure multi-step agent flows |
+| Developer-centric framework | It fits teams building agent logic in code |
+
+Use it when the problem is orchestrating agents and tools rather than calling a single hosted model endpoint.
+
+## Genkit
+
+Official: [Genkit](https://firebase.google.com/docs/genkit/overview)
+
+Genkit is the AI application framework in this topic. It sits above raw SDKs and below full hosted app builders, giving developers a structured way to define flows, evaluation loops, and production app patterns.
+
+### Why it is distinct
+
+| Genkit angle | What it implies |
+| --- | --- |
+| App flow framework | It helps structure end-to-end AI features |
+| Evaluation support | It fits teams that want app-level iteration loops |
+| Open-source developer tooling | It is more application-oriented than a raw SDK |
+
+Use it when you want to build an AI app flow, not just make single API calls.
 
 ## MediaPipe
 
@@ -174,7 +225,7 @@ JAX is the research-oriented stack in this topic. It emphasizes composable trans
 | If the main need is... | Best starting point |
 | --- | --- |
 | Call Gemini models directly in an application | Gemini API |
-| Manage AI resources and endpoints in Google Cloud | Vertex AI REST |
+| Manage AI resources, endpoints, and platform operations in Google Cloud | Vertex AI |
 | Analyze images or run OCR-style requests | Cloud Vision API |
 | Transcribe speech | Cloud Speech-to-Text |
 | Run classic NLP analysis over text | Cloud Natural Language API |
@@ -183,3 +234,7 @@ JAX is the research-oriented stack in this topic. It emphasizes composable trans
 | Run models efficiently on-device | LiteRT |
 | Build and train ML systems at framework level | TensorFlow |
 | Work in a more research-heavy, composable stack | JAX |
+| Call Gemini from code using official libraries | Google Gen AI SDK |
+| Work with Vertex AI services through official SDKs and platform docs | Vertex AI |
+| Build orchestrated agent workflows in code | Google ADK |
+| Structure end-to-end AI application flows | Genkit |
