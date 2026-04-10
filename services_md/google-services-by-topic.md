@@ -2,10 +2,69 @@
 
 ## Models
 
-- [Gemini API Models](https://ai.google.dev/gemini-api/docs/models?hl=es-419)
-- [Vertex AI Models](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models)
-- [Model Garden Available Models](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
-- [Gemma Docs](https://ai.google.dev/gemma/docs)
+- Multimodal generation
+  - [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)
+  - [Gemini 3 Pro Preview (deprecated)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview)
+  - [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview)
+  - [Gemini 3.1 Flash Lite Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview)
+  - [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro)
+  - [Gemini 2.5 Flash Preview](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash)
+  - [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash)
+  - [Gemini 2.5 Flash-Lite Preview](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-lite)
+  - [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite)
+  - [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash)
+  - [Gemini 2.0 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash-lite)
+  - [Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview)
+  - [Gemini Live 2.5 Flash Native Audio](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-live-api)
+  - [Gemini Deep Research Preview](https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025)
+  - [Gemini Computer Use Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025)
+  - [Gemini Robotics Preview](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.5-preview)
+  - [Gemma 3n](https://ai.google.dev/gemma/docs/gemma-3n)
+  - [MaMMUT](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
+- Text generation
+  - [Gemma 4](https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)
+  - [Gemma 3](https://ai.google.dev/gemma/docs/core)
+  - [Gemma 2](https://ai.google.dev/gemma/docs/model_card_2)
+  - [Gemma](https://ai.google.dev/gemma/docs/model_card)
+  - [CodeGemma](https://ai.google.dev/gemma/docs/codegemma)
+  - [FunctionGemma](https://ai.google.dev/gemma/docs/functiongemma)
+  - [T5Gemma](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
+  - [T5-FLAN](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
+  - [T5-1.1](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
+  - [BERT](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
+  - [BERT (PEFT)](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
+  - [Bart-large-cnn](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
+- Translation
+  - [Translation LLM](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/translate/translate-text)
+  - [Text Translation](https://cloud.google.com/translate/docs/overview)
+  - [TranslateGemma](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
+- Image generation
+  - [Nano Banana (alias of Gemini 2.5 Flash Image)](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image)
+  - [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image)
+  - [Nano Banana 2 (alias of Gemini 3.1 Flash Image Preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview)
+  - [Gemini 3.1 Flash Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview)
+  - [Nano Banana Pro (alias of Gemini 3 Pro Image Preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview)
+  - [Gemini 3 Pro Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview)
+  - [Imagen 4 Ultra for Image Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-generate)
+  - [Imagen 4 for Image Generation](https://ai.google.dev/gemini-api/docs/models/imagen)
+  - [Imagen 4 Fast for Image Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-generate)
+  - [Imagen for Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images)
+  - [Imagen 2 for Generation and Editing](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images)
+  - [Imagen for Editing and Customization](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/edit-images-overview)
+- Video generation
+  - [Veo 3.1 Lite for Video Generation](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview)
+  - [Veo 3.1 Fast for Video Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate)
+  - [Veo 3.1 for Video Generation](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview)
+  - [Veo 3 for Video Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-generate-001)
+  - [Veo 3 Fast for Video Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-generate-001)
+  - [Veo 2 for Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/2-0-generate-001)
+- Audio generation
+  - [Gemini 2.5 Flash TTS Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts)
+  - [Gemini 2.5 Pro TTS Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts)
+  - [Lyria 2 for Music Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/lyria/lyria-002)
+  - [Lyria 3 for Song Clips Generation](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview)
+  - [Lyria 3 Pro for Full-Song Generation](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview)
+  - [Lyria RealTime](https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp)
 
 ## End User Assistants
 
@@ -103,17 +162,6 @@
 - [Vertex AI Agent Engine](https://docs.cloud.google.com/agent-builder/agent-engine/overview)
 - [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview)
   - [AI Protection](https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview)
-
-## Realtime Multimodal
-
-- [Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview)
-- [Gemini Live 2.5 Flash Native Audio](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-live-api)
-- [Gemini 2.5 Flash TTS Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts)
-- [Gemini 2.5 Pro TTS Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts)
-- [Lyria RealTime](https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp)
-- [Google AI Edge](https://ai.google.dev/edge?hl=es-419)
-  - [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/guide?hl=es-419)
-  - [LiteRT](https://ai.google.dev/edge/litert?hl=es-419)
 
 ## Agents Workflow Orchestration
 

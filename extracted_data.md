@@ -1,9 +1,4 @@
 1. Models
-    - Merge basis
-        - Source 1 (Gemini API / Google AI for Developers): https://ai.google.dev/gemini-api/docs/models?hl=es-419
-        - Source 2 (Vertex AI / Model Garden / Google Cloud): https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models
-        - Source 2 catalog (Model Garden): https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models
-        - Open models additional source (Gemma docs): https://ai.google.dev/gemma/docs
     - Generacion multimodal
         - Gemini 3.1 Pro Preview | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models
         - Gemini 3 Pro Preview [deprecated] | Source 1: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview | Source 2: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro
@@ -161,6 +156,16 @@
     - Otros
         - Occupancy analytics | Source 2: https://cloud.google.com/vision-ai/docs/occupancy-analytics-model?hl=es
 2. Assistants
+    - Gemini Apps: https://support.google.com/gemini/answer/13275745
+    - Gemini Web App: https://gemini.google/about/
+    - Gemini mobile app: https://support.google.com/gemini/answer/14554984
+    - Gemini in Chrome: https://www.google.com/chrome/ai-innovations/
+    - NotebookLM: https://notebooklm.google/
+    - Gemini in Google Workspace: https://workspace.google.com/resources/ai/
+    - Use Gemini Apps: https://support.google.com/gemini/answer/13275745
+    - NotebookLM Help: https://support.google.com/notebooklm/answer/16164461
+    - Gemini in Chrome Help: https://support.google.com/chrome/answer/16283624
+    - Google Workspace with Gemini Help: https://support.google.com/mail/answer/13952129
 3. Dev tools
     - Gemini Code Assist: https://developers.google.com/gemini-code-assist/docs/overview?hl=es-419
     - Firebase Studio: https://firebase.google.com/docs/studio?hl=es-419
@@ -183,8 +188,30 @@
     - TensorFlow: https://www.tensorflow.org/api_docs
     - JAX: https://docs.jax.dev/en/latest/jax-101.html#jax-101
 6. Agents/Workflows
+    - Vertex AI Agent Builder overview: https://docs.cloud.google.com/agent-builder/overview
+    - Agent Garden: https://docs.cloud.google.com/agent-builder/overview
+    - Agent Development Kit overview: https://docs.cloud.google.com/agent-builder/agent-development-kit/overview
+    - Vertex AI Agent Engine overview: https://docs.cloud.google.com/agent-builder/agent-engine/overview
+    - Agent Designer overview: https://docs.cloud.google.com/agent-builder/agent-designer
 7. Data/RAG/Connectors
+    - Gemini API / AI Studio: https://ai.google.dev/gemini-api/docs/tools
+    - Google Search: https://ai.google.dev/gemini-api/docs/google-search
+    - File Search: https://ai.google.dev/gemini-api/docs/file-search
+    - Vertex AI Search: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/vertex-ai-search
+    - Vertex AI RAG Engine: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview
+    - Grounding with Vertex AI Search: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/grounding/grounding-with-vertex-ai-search
+    - DataConnector reference: https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/DataConnector
+    - Data source access control: https://docs.cloud.google.com/generative-ai-app-builder/docs/data-source-access-control
 8. Document AI/OCR
+    - Document AI overview: https://docs.cloud.google.com/document-ai/docs/overview
+    - Cloud Vision OCR: https://docs.cloud.google.com/vision/docs/ocr
+    - Pretrained Parsers: https://docs.cloud.google.com/document-ai/docs/pretrained-overview
+    - Summarizer: https://docs.cloud.google.com/document-ai/docs/custom-summarizer
+    - Workbench / training overview: https://docs.cloud.google.com/document-ai/docs/training-overview
+    - Enterprise Document OCR: https://docs.cloud.google.com/document-ai/docs/enterprise-document-ocr
+    - Layout Parser: https://docs.cloud.google.com/document-ai/docs/layout-parse-chunk
+    - Extraction overview: https://docs.cloud.google.com/document-ai/docs/extracting-overview
+    - Classification / custom classifier: https://docs.cloud.google.com/document-ai/docs/custom-classifier
 9. Fine-tuning/Customization
     - Vertex AI: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning?hl=es-419
     - Google AI Studio: DEPRECATED: https://ai.google.dev/gemini-api/docs/model-tuning?hl=es-419 
@@ -200,8 +227,21 @@
     - Cloud Profiler: https://docs.cloud.google.com/profiler/docs?hl=es-419
     - Cloud Logging: https://docs.cloud.google.com/logging/docs?hl=es-419
 11. Guardrails/Security/Governance
+    - Gemini API safety settings: https://ai.google.dev/gemini-api/docs/safety-settings
+    - Vertex AI Agent Engine overview: https://docs.cloud.google.com/agent-builder/agent-engine/overview
+    - Model Armor overview: https://docs.cloud.google.com/model-armor/overview
+    - Security Command Center overview: https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview
+    - AI Protection overview: https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview
+    - Sensitive Data Protection overview: https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview
 12. Realtime/Multimodal
 13. Design-to-Code/App Prototyping
+    - Stitch: https://stitch.withgoogle.com/
+    - Firebase Studio: https://firebase.google.com/docs/studio
+    - App Prototyping agent: https://firebase.google.com/docs/studio/get-started-ai
+    - AI Studio Build mode: https://ai.google.dev/gemini-api/docs/aistudio-build-mode
+    - Opal: https://opal.google/_app/landing/
+    - Opal announcement / Google Blog: https://blog.google/technology/google-labs/mini-apps-opal-gemini-app-experiment/
+    - Stitch announcement / Google Blog: https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/
 
 
 hacer scraping de todos los campos de la izquierda de esto:
