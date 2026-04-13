@@ -65,3 +65,10 @@ Stitch acts as the design-first, AI-native canvas for turning prompts into high-
 - General index: `/services_md/google-services-by-topic.md`
 - Related topic: `/services_md/design-to-code-app-prototyping.md`
 - Official documentation: https://stitch.withgoogle.com/
+
+## TechHub Enablement Deliverables
+
+| Tech Enablement Deliverable | Type |
+| --- | --- |
+| 20260115_ui-ux-generator | Report |
+| 20260123_stitch_ai-studio_technical_evaluation | Report |

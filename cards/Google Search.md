@@ -65,3 +65,9 @@ Google Search acts as the lightest grounding tool for live public web informatio
 - General index: `/services_md/google-services-by-topic.md`
 - Related topic: `/services_md/data-grounding-RAG-connectors.md`
 - Official documentation: https://ai.google.dev/gemini-api/docs/google-search
+
+## TechHub Enablement Deliverables
+
+| Tech Enablement Deliverable | Type |
+| --- | --- |
+| Fighting Desinformation Vertex Agent | Prototype |

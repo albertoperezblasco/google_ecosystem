@@ -65,3 +65,10 @@ Antigravity acts as the agent-first development environment for richer autonomou
 - General index: `/services_md/google-services-by-topic.md`
 - Related topic: `/services_md/dev_tools_agents.md`
 - Official documentation: https://antigravity.google/docs/get-started
+
+## TechHub Enablement Deliverables
+
+| Tech Enablement Deliverable | Type |
+| --- | --- |
+| 20260113_antigravity_review | Report |
+| 20251216_IntroToAntigravity | Report |

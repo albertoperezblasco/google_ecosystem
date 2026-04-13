@@ -5,16 +5,21 @@
 - Multimodal generation
   - [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)
   - [Gemini 3 Pro Preview (deprecated)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview)
+<a id="service-gemini-3-flash-preview"></a>
   - [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview)
   - [Gemini 3.1 Flash Lite Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview)
+<a id="service-gemini-2-5-pro"></a>
   - [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro)
   - [Gemini 2.5 Flash Preview](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash)
+<a id="service-gemini-2-5-flash"></a>
   - [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash)
   - [Gemini 2.5 Flash-Lite Preview](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-lite)
+<a id="service-gemini-2-5-flash-lite"></a>
   - [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite)
   - [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash)
   - [Gemini 2.0 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash-lite)
   - [Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview)
+<a id="service-gemini-live-2-5-flash-native-audio"></a>
   - [Gemini Live 2.5 Flash Native Audio](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-live-api)
   - [Gemini Deep Research Preview](https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025)
   - [Gemini Computer Use Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025)
@@ -39,6 +44,7 @@
   - [Text Translation](https://cloud.google.com/translate/docs/overview)
   - [TranslateGemma](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
 - Image generation
+<a id="service-nano-banana"></a>
   - [Nano Banana (alias of Gemini 2.5 Flash Image)](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image)
   - [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image)
   - [Nano Banana 2 (alias of Gemini 3.1 Flash Image Preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview)
@@ -279,20 +285,26 @@ APIs participating in the diagram:
 
 ## Tech Enablement Deliverables
 
-
-
 | Services Used | Tech Enablement Deliverable | Type |
 | --- | --- | --- |
 | [Vertex AI Agent Builder](#service-vertex-ai-agent-builder), [Google Search](#service-google-search), [ADK](#service-agent-development-kit) | Fighting Desinformation Vertex Agent | Prototype |
-| [File Search](#service-file-search) | Gemini File Search | Prototype |
-| [Google Models](#service-google-models) | Entities Anonymizator | Prototype |
-| [Gemini 3 Flash](#service-gemini-3-flash) | Agentic Vision & 20260209_Agentic_Vision_Gemini_3_Flash | Prototype & Report |
-| [Google Models](#service-google-models) | Voice Browser & 20260223_Gemini_Live_API_review | Prototype & Report |
-| [Google Models](#service-google-models) | 20260102_Google-Interactions-API | Report |
+| [File Search](#service-file-search), [Google Gen AI SDK](#service-google-gen-ai-sdk) | Gemini File Search | Prototype |
+| [Gemini 2.5 Pro](#service-gemini-2-5-pro), [Gemini 2.5 Flash-Lite](#service-gemini-2-5-flash-lite), [Gemini 2.5 Flash](#service-gemini-2-5-flash), [Google Gen AI SDK](#service-google-gen-ai-sdk) | Entities Anonymizator | Prototype |
+| [Gemini 3 Flash Preview](#service-gemini-3-flash-preview), [Google Gen AI SDK](#service-google-gen-ai-sdk) | Agentic Vision & 20260209_Agentic_Vision_Gemini_3_Flash | Prototype & Report |
+| [Gemini Live 2.5 Flash Native Audio](#service-gemini-live-2-5-flash-native-audio), [Gemini 2.5 Flash](#service-gemini-2-5-flash), [Gemini 3 Flash Preview](#service-gemini-3-flash-preview), [Google Gen AI SDK](#service-google-gen-ai-sdk) | Voice Browser & 20260223_Gemini_Live_API_review | Prototype & Report |
+| [Google Gen AI SDK](#service-google-gen-ai-sdk) | 20260102_Google-Interactions-API | Report |
 | [Antigravity](#service-antigravity) | 20260113_antigravity_review | Report |
-| | 20260115_ui-ux-generator | Report |
-| TODO | 20260116_Dynamic_Web_Building_with_A2UI | Report |
+| [Stitch](#service-stitch) | 20260115_ui-ux-generator | Report |
+| Google Protocol | 20260116_Dynamic_Web_Building_with_A2UI | Report |
 | [Stitch](#service-stitch) | 20260123_stitch_ai-studio_technical_evaluation | Report |
 | [ADK](#service-adk) | 20260130_Building_GraphRAG_Agents_with_the_Google_ADK | Report |
 | [Firebase](#service-firebase), [Firebase Studio](#service-firebase-studio) | 20260130_firebase_and_firebase_studio | Report |
-| TODO | 20260217_WebMCP-Google | Report |
+| Google Protocol | 20260217_WebMCP-Google | Report |
+| [Vertex AI Agent Builder](#service-vertex-ai-agent-builder) | 20250414_VertexAIAgentBuilder | Report |
+| Google Protocol | 20250506_A2A | Report |
+| [ADK](#service-adk), [Google Gen AI SDK](#service-google-gen-ai-sdk), [Vertex AI Agent Builder](#service-vertex-ai-agent-builder)  | 20250507_VertexAIAgents | Report |
+| Google Protocol | 20250604_A2A_Security-Mitigations | Report |
+| Google Protocol | 20250612_Workshop_A2A_MCP_part1 | Report |
+| Google Protocol | 20250624_Workshop_A2A_MCP_part2 | Report | 
+| [Nano Banana](#service-nano-banana) | 20250828_Google Nano Banana Model | Report |
+| [Antigravity](#service-antigravity) | 20251216_IntroToAntigravity | Report | 

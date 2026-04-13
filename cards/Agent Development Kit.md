@@ -87,3 +87,11 @@ Those two entries describe one product. Read together, they show ADK as both a d
 - General index: `/services_md/google-services-by-topic.md`
 - Related topics: `/services_md/api_sdk.md`, `/services_md/agents-workflow-orchestration.md`
 - Official documentation: https://docs.cloud.google.com/agent-builder/agent-development-kit/overview
+
+## TechHub Enablement Deliverables
+
+| Tech Enablement Deliverable | Type |
+| --- | --- |
+| Fighting Desinformation Vertex Agent | Prototype |
+| 20260130_Building_GraphRAG_Agents_with_the_Google_ADK | Report |
+| 20250507_VertexAIAgents | Report |

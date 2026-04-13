@@ -68,3 +68,11 @@ Vertex AI Agent Builder acts as the umbrella suite for building, scaling, and go
 - General index: `/services_md/google-services-by-topic.md`
 - Related topic: `/services_md/agents-workflow-orchestration.md`
 - Official documentation: https://docs.cloud.google.com/agent-builder/overview
+
+## TechHub Enablement Deliverables
+
+| Tech Enablement Deliverable | Type |
+| --- | --- |
+| Fighting Desinformation Vertex Agent | Prototype |
+| 20250414_VertexAIAgentBuilder | Report |
+| 20250507_VertexAIAgents | Report |

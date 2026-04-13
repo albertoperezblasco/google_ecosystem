@@ -65,3 +65,10 @@ Google Gen AI SDK acts as the official client-library layer for Gemini and compa
 - General index: `/services_md/google-services-by-topic.md`
 - Related topic: `/services_md/api_sdk.md`
 - Official documentation: https://ai.google.dev/gemini-api/docs/libraries
+
+## TechHub Enablement Deliverables
+
+| Tech Enablement Deliverable | Type |
+| --- | --- |
+| 20260102_Google-Interactions-API | Report |
+| 20250507_VertexAIAgents | Report |

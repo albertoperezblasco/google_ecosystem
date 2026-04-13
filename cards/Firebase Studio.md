@@ -87,3 +87,9 @@ Read together, those two views describe the same core value: Firebase Studio is 
 - Related topics: `/services_md/dev_tools_agents.md`, `/services_md/design-to-code-app-prototyping.md`
 - Official documentation: https://firebase.google.com/docs/studio
 - Additional official context: https://firebase.google.com/docs/studio/get-started-ai
+
+## TechHub Enablement Deliverables
+
+| Tech Enablement Deliverable | Type |
+| --- | --- |
+| 20260130_firebase_and_firebase_studio | Report |
