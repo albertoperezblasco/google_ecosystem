@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La biblioteca de descubrimiento de sample agents y herramientas. Encaja cuando quieres acelerar arrancando desde ejemplos y componentes reusables.
+The discovery library for sample agents and reusable tools. It fits when you want to accelerate agent work by starting from examples rather than from scratch.
 
-## Qué es
+## What It Is
 
-Agent Garden funciona como la biblioteca de descubrimiento de sample agents y herramientas dentro de `Vertex AI Agent Builder` en el bloque `Agents Workflow Orchestration`. La suite se entiende mejor como ciclo de vida: diseñar, construir, desplegar, operar y reutilizar piezas de agentes.
+Agent Garden acts as the discovery library for sample agents and reusable tools within `Agents Workflow Orchestration`. The suite is easiest to understand as a lifecycle: design, build, deploy, operate, and reuse agent components.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres acelerar arrancando desde ejemplos y componentes reusables.
-- Cuando el modelo de interacción que buscas se parece a `Discovery library` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Vertex AI Agent Builder` y necesitas su pieza más específica.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want to accelerate agent work by starting from examples rather than from scratch.
+- When the interaction model you need looks more like `Discovery library` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Agents Workflow Orchestration` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres entender o adoptar la suite completa del ciclo de vida de agentes, encaja mejor `Vertex AI Agent Builder`.
-- Si quieres saltar rápido desde el ejemplo a un sistema más desplegable y operable, encaja mejor `Agent Starter Pack`.
-- Si prefieres control directo y arquitectura agentic programada, encaja mejor `Agent Development Kit`.
+- If your use case is closer to `Vertex AI Agent Builder`, start there instead.
+- If your use case is closer to `Agent Starter Pack`, start there instead.
+- If your use case is closer to `Agent Development Kit`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Catálogo reutilizable | Evita empezar cada agente desde cero |
-| Sample agents | Da referencia end-to-end |
-| Discovery dentro de la suite | Acorta tiempo al primer agente funcional |
+| Reusable starting points | Helps shorten time to first working solution. |
+| Discovery value | Makes examples and components easier to browse and adopt. |
+| Accelerated onboarding | Reduces blank-page work for teams new to the space. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Browse the available examples or reusable components.
+2. Pick the sample or building block closest to your use case.
+3. Adapt it to your workflow and validate the result.
+4. Reuse or combine more pieces as the implementation grows.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres acelerar arrancando desde ejemplos y componentes reusables | Agent Garden |
-| Quieres entender o adoptar la suite completa del ciclo de vida de agentes | Vertex AI Agent Builder |
-| Quieres saltar rápido desde el ejemplo a un sistema más desplegable y operable | Agent Starter Pack |
-| Prefieres control directo y arquitectura agentic programada | Agent Development Kit |
+| You want to accelerate agent work by starting from examples rather than from scratch | Agent Garden |
+| A workflow that is better aligned with `Vertex AI Agent Builder` | Vertex AI Agent Builder |
+| A workflow that is better aligned with `Agent Starter Pack` | Agent Starter Pack |
+| A workflow that is better aligned with `Agent Development Kit` | Agent Development Kit |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/agents-workflow-orchestration.md`
-- Documentación oficial: https://docs.cloud.google.com/agent-builder/overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/agents-workflow-orchestration.md`
+- Official documentation: https://docs.cloud.google.com/agent-builder/overview

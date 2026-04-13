@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La api fundacional para acceder a gemini desde aplicaciones. Encaja cuando quieres llamar modelos, prompts y herramientas desde tu propio código.
+The foundation API for calling gemini from your own applications. It fits when you want direct programmatic access to Gemini models, multimodal prompts, and tool patterns.
 
-## Qué es
+## What It Is
 
-Gemini API funciona como la API fundacional para acceder a Gemini desde aplicaciones dentro de `APIs & SDKs` y, en el catálogo, se posiciona además como API fundacional. Es el bloque donde conviven APIs fundacionales, SDKs, servicios gestionados y frameworks más profundos para casos que necesitan más control.
+Gemini API acts as the foundation API for calling Gemini from your own applications within `APIs & SDKs`. This block combines foundation APIs, SDKs, managed services, and deeper frameworks for teams that need more implementation control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres llamar modelos, prompts y herramientas desde tu propio código.
-- Cuando el modelo de interacción que buscas se parece a `HTTP and SDK API` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `APIs & SDKs` y no en otro bloque del ecosistema.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want direct programmatic access to Gemini models, multimodal prompts, and tool patterns.
+- When the interaction model you need looks more like `HTTP and SDK API` than like a generic one-size-fits-all surface.
+- When the main fit is in the `APIs & SDKs` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres trabajar con clientes idiomáticos en vez de montar llamadas HTTP a mano, encaja mejor `Google Gen AI SDK`.
-- Si tu trabajo ya está anclado en Google Cloud y necesitas más que una sola llamada de modelo, encaja mejor `Vertex AI`.
-- Si tu problema es analizar imágenes o texto visual sin montar un pipeline de percepción completo, encaja mejor `Cloud Vision API`.
+- If your use case is closer to `Google Gen AI SDK`, start there instead.
+- If your use case is closer to `Vertex AI`, start there instead.
+- If your use case is closer to `Cloud Vision API`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Acceso a modelos | Es la entrada programática principal a Gemini |
-| Patrones multimodales | Sirve para prompts y flujos con herramientas |
-| Integración de producto | Funciona como superficie real de app, no solo de demo |
+| Direct integration surface | Fits application code and backend workflows directly. |
+| Code-level control | Gives you explicit control over requests, inputs, and app behavior. |
+| Product handoff | Works well when a prototype needs to become a real integration. |
 
-## Flujo típico
+## Typical Flow
 
-1. Eliges el caso de uso y la superficie técnica más adecuada para implementarlo.
-2. Integras la API, SDK o framework con tu modelo, datos y configuración inicial.
-3. Pruebas el flujo con datos reales y ajustas opciones, herramientas o runtime.
-4. Lo conectas con el resto de tu aplicación o pipeline de producción.
+1. Choose the use case and integrate the API into your application flow.
+2. Configure the request, models, tools, or inputs you need.
+3. Test with real data and tune the behavior around the app context.
+4. Connect it to the rest of your production pipeline once it behaves well.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres llamar modelos, prompts y herramientas desde tu propio código | Gemini API |
-| Quieres trabajar con clientes idiomáticos en vez de montar llamadas http a mano | Google Gen AI SDK |
-| Tu trabajo ya está anclado en google cloud y necesitas más que una sola llamada de modelo | Vertex AI |
-| Tu problema es analizar imágenes o texto visual sin montar un pipeline de percepción completo | Cloud Vision API |
+| You want direct programmatic access to Gemini models, multimodal prompts, and tool patterns | Gemini API |
+| A workflow that is better aligned with `Google Gen AI SDK` | Google Gen AI SDK |
+| A workflow that is better aligned with `Vertex AI` | Vertex AI |
+| A workflow that is better aligned with `Cloud Vision API` | Cloud Vision API |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/api_sdk.md`
-- Documentación oficial: https://ai.google.dev/gemini-api/docs
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/api_sdk.md`
+- Official documentation: https://ai.google.dev/gemini-api/docs

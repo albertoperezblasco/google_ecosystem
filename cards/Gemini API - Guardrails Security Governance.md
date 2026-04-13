@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La superficie api donde aplicar seguridad y política a nivel de request. Encaja cuando quieres llevar a código el mismo tipo de control que exploraste en prototipado.
+The API surface for applying safety and policy controls at request time. It fits when you want to move safety settings from prototyping into real application requests.
 
-## Qué es
+## What It Is
 
-Gemini API funciona como la superficie API donde aplicar seguridad y política a nivel de request dentro de `Guardrails Security Governance` y, en el catálogo, se posiciona además como superficie de control en API. No todos los controles viven en la misma capa: algunos filtran respuestas, otros blindan tráfico, otros gobiernan datos y otros miran postura organizacional.
+Gemini API acts as the API surface for applying safety and policy controls at request time within `Guardrails Security Governance`. Not every control lives at the same layer: some tune model filtering, some shield app traffic, some govern data, and some manage organization-wide posture.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres llevar a código el mismo tipo de control que exploraste en prototipado.
-- Cuando el modelo de interacción que buscas se parece a `Request-time safety controls` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Guardrails Security Governance` y no en otro bloque del ecosistema.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want to move safety settings from prototyping into real application requests.
+- When the interaction model you need looks more like `Request-time safety controls` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Guardrails Security Governance` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres ajustar cómo de restrictivo debe ser el modelo por categoría mientras pruebas el comportamiento, encaja mejor `Safety settings`.
-- Si quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo, encaja mejor `Google Cloud Model Armor`.
-- Si ya vas a operar agentes en producción y necesitas perímetro, identidad y gobierno de ejecución, encaja mejor `Vertex AI Agent Engine`.
+- If your use case is closer to `Safety settings`, start there instead.
+- If your use case is closer to `Google Cloud Model Armor`, start there instead.
+- If your use case is closer to `Vertex AI Agent Engine`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Configuración por request | Hace la política ajustable por caso de uso |
-| Cercanía a app | Inserta los controles en el flujo real de producto |
-| Puente a producción | Evita depender solo de una UI de pruebas |
+| Direct integration surface | Fits application code and backend workflows directly. |
+| Code-level control | Gives you explicit control over requests, inputs, and app behavior. |
+| Product handoff | Works well when a prototype needs to become a real integration. |
 
-## Flujo típico
+## Typical Flow
 
-1. Eliges el caso de uso y la superficie técnica más adecuada para implementarlo.
-2. Integras la API, SDK o framework con tu modelo, datos y configuración inicial.
-3. Pruebas el flujo con datos reales y ajustas opciones, herramientas o runtime.
-4. Lo conectas con el resto de tu aplicación o pipeline de producción.
+1. Choose the use case and integrate the API into your application flow.
+2. Configure the request, models, tools, or inputs you need.
+3. Test with real data and tune the behavior around the app context.
+4. Connect it to the rest of your production pipeline once it behaves well.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres llevar a código el mismo tipo de control que exploraste en prototipado | Gemini API |
-| Quieres ajustar cómo de restrictivo debe ser el modelo por categoría mientras pruebas el comportamiento | Safety settings |
-| Quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo | Google Cloud Model Armor |
-| Ya vas a operar agentes en producción y necesitas perímetro, identidad y gobierno de ejecución | Vertex AI Agent Engine |
+| You want to move safety settings from prototyping into real application requests | Gemini API |
+| A workflow that is better aligned with `Safety settings` | Safety settings |
+| A workflow that is better aligned with `Google Cloud Model Armor` | Google Cloud Model Armor |
+| A workflow that is better aligned with `Vertex AI Agent Engine` | Vertex AI Agent Engine |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/guardrails-security-governance.md`
-- Documentación oficial: https://ai.google.dev/docs/gemini_api_overview/
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/guardrails-security-governance.md`
+- Official documentation: https://ai.google.dev/docs/gemini_api_overview/

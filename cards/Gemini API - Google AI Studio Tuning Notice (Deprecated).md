@@ -17,51 +17,51 @@ status: deprecated
 
 ## TL;DR
 
-El aviso que desaconseja el tuning directo por gemini api o google ai studio. Encaja cuando quieres confirmar si una ruta de tuning directa sigue viva antes de diseñar alrededor de ella.
+The deprecation-style notice warning against direct tuning through gemini API or google AI studio. It fits when you want to confirm whether a direct tuning route is still viable before designing around it.
 
-## Qué es
+## What It Is
 
-Gemini API / Google AI Studio Tuning Notice (Deprecated) funciona como el aviso que desaconseja el tuning directo por Gemini API o Google AI Studio dentro de `Fine-Tuning Customization` y, en el catálogo, se posiciona además como alternativa deshabilitada. Aquí la lectura correcta es distinguir la ruta soportada hoy de las rutas que aparecen solo como contraste o aviso. En esta familia conviene leerlo como una señal de deprecación o ruta no recomendada, no como una apuesta activa de producto.
+Gemini API / Google AI Studio Tuning Notice (Deprecated) acts as the deprecation-style notice warning against direct tuning through Gemini API or Google AI Studio within `Fine-Tuning Customization`. The right reading here is to separate the currently supported path from the routes that appear only as contrast or caution. In practice, this should be read as a cautionary product signal rather than as an active implementation path.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres confirmar si una ruta de tuning directa sigue viva antes de diseñar alrededor de ella.
-- Cuando el modelo de interacción que buscas se parece a `Deprecation notice` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Fine-Tuning Customization` y no en otro bloque del ecosistema.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want to confirm whether a direct tuning route is still viable before designing around it.
+- When the interaction model you need looks more like `Deprecation notice` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Fine-Tuning Customization` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas datasets, hiperparámetros y ciclo de vida trazable para personalización, encaja mejor `Vertex AI Tuning`.
-- Si quieres validar comportamiento, prompts y handoff a código antes de ir a una plataforma más pesada, encaja mejor `Google AI Studio`.
-- Si quieres llamar modelos, prompts y herramientas desde tu propio código, encaja mejor `Gemini API`.
+- If your use case is closer to `Vertex AI Tuning`, start there instead.
+- If your use case is closer to `Google AI Studio`, start there instead.
+- If your use case is closer to `Gemini API`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Señal de producto | Evita elegir la entrada equivocada |
-| Contraste explícito | Aparece para marcar lo que ya no debe usarse |
-| Decisión de arquitectura | Te empuja hacia Vertex AI como ruta activa |
+| Product signal | Helps avoid designing around the wrong entry point. |
+| Decision support | Useful when teams are still choosing a path. |
+| Architectural guidance | Frames what is available versus what should be avoided. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Read it as an architectural signal, not as the implementation target itself.
+2. Use it to confirm whether a path is active or unavailable.
+3. Adjust the product decision before deeper implementation work begins.
+4. Move to the supported surface once the decision is clear.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres confirmar si una ruta de tuning directa sigue viva antes de diseñar alrededor de ella | Gemini API / Google AI Studio Tuning Notice (Deprecated) |
-| Necesitas datasets, hiperparámetros y ciclo de vida trazable para personalización | Vertex AI Tuning |
-| Quieres validar comportamiento, prompts y handoff a código antes de ir a una plataforma más pesada | Google AI Studio |
-| Quieres llamar modelos, prompts y herramientas desde tu propio código | Gemini API |
+| You want to confirm whether a direct tuning route is still viable before designing around it | Gemini API / Google AI Studio Tuning Notice (Deprecated) |
+| A workflow that is better aligned with `Vertex AI Tuning` | Vertex AI Tuning |
+| A workflow that is better aligned with `Google AI Studio` | Google AI Studio |
+| A workflow that is better aligned with `Gemini API` | Gemini API |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/fine_tuning.md`
-- Documentación oficial: https://ai.google.dev/gemini-api/docs/model-tuning?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/fine_tuning.md`
+- Official documentation: https://ai.google.dev/gemini-api/docs/model-tuning?hl=es-419

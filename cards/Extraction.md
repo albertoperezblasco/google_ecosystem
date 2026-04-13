@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capacidad de convertir documentos en campos, entidades y tablas. Encaja cuando necesitas datos estructurados que luego se validen, comparen o almacenen.
+The extraction layer that turns documents into fields, entities, and tables. It fits when you need document content in a structured form that downstream systems can act on.
 
-## Qué es
+## What It Is
 
-Extraction funciona como la capacidad de convertir documentos en campos, entidades y tablas dentro de `Document AI` en el bloque `Document AI OCR`. En este bloque la frontera importante es entre OCR genérico y comprensión documental con estructura, entidades y automatización operativa.
+Extraction acts as the extraction layer that turns documents into fields, entities, and tables within `Document AI OCR`. In this block, the important boundary is between generic OCR and document-native understanding with structure, entities, and operational automation.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas datos estructurados que luego se validen, comparen o almacenen.
-- Cuando el modelo de interacción que buscas se parece a `Field extraction pipeline` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Document AI` y necesitas su pieza más específica.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you need document content in a structured form that downstream systems can act on.
+- When the interaction model you need looks more like `Field extraction pipeline` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Document AI OCR` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si primero necesitas enrutar y separar documentos antes de extraer, encaja mejor `Classification`.
-- Si tu documento ya encaja en una categoría que Google trae resuelta, encaja mejor `Pretrained Parsers`.
-- Si tu retrieval depende de conservar encabezados, tablas, figuras y estructura, encaja mejor `Layout Parser`.
+- If your use case is closer to `Classification`, start there instead.
+- If your use case is closer to `Pretrained Parsers`, start there instead.
+- If your use case is closer to `Layout Parser`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Key-values y tablas | Lleva el documento a datos útiles |
-| Varias rutas de extracción | Incluye parser genérico y extractor custom |
-| Centro del flujo | Suele ser la salida operativa más importante |
+| Specialized layer | Targets a narrower part of the workflow than the parent product. |
+| Faster time to value | Helps teams adopt a focused capability without rethinking the whole stack. |
+| Works inside a broader product | Makes the most sense as part of the surrounding platform story. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Identify where this capability sits inside the broader product flow.
+2. Enable or configure the capability with the minimum required inputs.
+3. Run a first test and inspect how it changes the workflow.
+4. Adopt more of the parent product only if this narrower layer is not enough.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas datos estructurados que luego se validen, comparen o almacenen | Extraction |
-| Primero necesitas enrutar y separar documentos antes de extraer | Classification |
-| Tu documento ya encaja en una categoría que google trae resuelta | Pretrained Parsers |
-| Tu retrieval depende de conservar encabezados, tablas, figuras y estructura | Layout Parser |
+| You need document content in a structured form that downstream systems can act on | Extraction |
+| A workflow that is better aligned with `Classification` | Classification |
+| A workflow that is better aligned with `Pretrained Parsers` | Pretrained Parsers |
+| A workflow that is better aligned with `Layout Parser` | Layout Parser |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/document-ai-ocr.md`
-- Documentación oficial: https://docs.cloud.google.com/document-ai/docs/extracting-overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/document-AI-OCR.md`
+- Official documentation: https://docs.cloud.google.com/document-ai/docs/extracting-overview

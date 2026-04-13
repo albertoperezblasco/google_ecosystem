@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El watchtower de modelos desplegados para drift, skew y cambios de calidad. Encaja cuando el modelo ya está en producción y te preocupa degradación silenciosa.
+The monitoring layer for deployed models and production drift or skew. It fits when the model is already live and you need signals before silent failures grow.
 
-## Qué es
+## What It Is
 
-Vertex AI Model Monitoring funciona como el watchtower de modelos desplegados para drift, skew y cambios de calidad dentro de `Evaluation & Observability` y, en el catálogo, se posiciona además como superficie de explicación y contexto de features. Este tema mezcla tres capas distintas: evaluación antes del lanzamiento, comprensión del modelo y observabilidad cuando ya está en producción.
+Vertex AI Model Monitoring acts as the monitoring layer for deployed models and production drift or skew within `Evaluation & Observability`. This topic mixes three layers: evaluation before launch, model insight and feature context, and observability once the system is already running.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando el modelo ya está en producción y te preocupa degradación silenciosa.
-- Cuando el modelo de interacción que buscas se parece a `Production monitoring` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Evaluation & Observability` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When the model is already live and you need signals before silent failures grow.
+- When the interaction model you need looks more like `Production monitoring` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Evaluation & Observability` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas justificar decisiones a negocio, riesgo o compliance, encaja mejor `Vertex Explainable AI`.
-- Si quieres consistencia entre entrenamiento e inferencia y una capa reusable de señales, encaja mejor `Vertex AI Feature Store`.
-- Si necesitas ubicar dónde se pierde tiempo en una cadena de requests, encaja mejor `Cloud Trace`.
+- If your use case is closer to `Vertex Explainable AI`, start there instead.
+- If your use case is closer to `Vertex AI Feature Store`, start there instead.
+- If your use case is closer to `Cloud Trace`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Drift y skew | Detecta cambios en distribución y comportamiento |
-| Señales en vivo | Mira el sistema ya desplegado |
-| Prevención de fallos silenciosos | Ayuda a intervenir antes de que el impacto crezca |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| El modelo ya está en producción y te preocupa degradación silenciosa | Vertex AI Model Monitoring |
-| Necesitas justificar decisiones a negocio, riesgo o compliance | Vertex Explainable AI |
-| Quieres consistencia entre entrenamiento e inferencia y una capa reusable de señales | Vertex AI Feature Store |
-| Necesitas ubicar dónde se pierde tiempo en una cadena de requests | Cloud Trace |
+| The model is already live and you need signals before silent failures grow | Vertex AI Model Monitoring |
+| A workflow that is better aligned with `Vertex Explainable AI` | Vertex Explainable AI |
+| A workflow that is better aligned with `Vertex AI Feature Store` | Vertex AI Feature Store |
+| A workflow that is better aligned with `Cloud Trace` | Cloud Trace |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/evaluation_observability.md`
-- Documentación oficial: https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/overview?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/evaluation_observability.md`
+- Official documentation: https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/overview?hl=es-419

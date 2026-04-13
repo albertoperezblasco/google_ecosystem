@@ -7,10 +7,10 @@ official_url: https://developers.google.com/gemini-code-assist/docs/overview?hl=
 source_index: /services_md/google-services-by-topic.md
 source_topic: /services_md/dev_tools_agents.md
 related_tools:
-  - Firebase Studio
-  - Gemini CLI
-  - Jules 2.0
-  - Antigravity
+- Firebase Studio
+- Gemini CLI
+- Jules 2.0
+- Antigravity
 status: active
 ---
 
@@ -18,52 +18,53 @@ status: active
 
 ## TL;DR
 
-Asistente de programación integrado en el editor. Encaja cuando quieres seguir trabajando dentro del IDE y recibir ayuda con completado, chat y soporte sobre el código sin cambiar de superficie.
+The in-editor coding assistant inside supported IDEs. It fits when you want to stay inside your IDE and get inline help while reading, writing, or refactoring code.
 
-## Qué es
+## What It Is
 
-Gemini Code Assist es la herramienta de asistencia en editor dentro del bloque de `Dev Tools & Coding Agents`. Su valor principal es que la ayuda aparece donde ya vive el código, en lugar de obligarte a moverte a una consola, un workspace web o un flujo asíncrono.
+Gemini Code Assist acts as the in-editor coding assistant inside supported IDEs within `Dev Tools & Coding Agents`. What matters here is not just the model, but where the work happens: inside the editor, in the browser, in the terminal, or through a more delegated agent workflow.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres mantener el contexto dentro del IDE.
-- Cuando necesitas ayuda inline mientras lees, escribes o refactorizas código.
-- Cuando prefieres una interacción rápida y continua, más cercana a "copilot + chat" que a una delegación completa.
+- When you want to stay inside your IDE and get inline help while reading, writing, or refactoring code.
+- When the interaction model you need looks more like `In-editor assistant` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Dev Tools & Coding Agents` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres un workspace de desarrollo completo en el navegador, encaja mejor `Firebase Studio`.
-- Si tu centro de control es la terminal y necesitas tool use u orquestación desde shell, encaja mejor `Gemini CLI`.
-- Si quieres delegar trabajo sobre un repositorio y revisarlo después, encaja mejor `Jules 2.0`.
-- Si buscas un entorno más centrado en agentes y orquestación avanzada, encaja mejor `Antigravity`.
+- If your use case is closer to `Firebase Studio`, start there instead.
+- If your use case is closer to `Gemini CLI`, start there instead.
+- If your use case is closer to `Jules 2.0`, start there instead.
+- If your use case is closer to `Antigravity`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Ayuda embebida en el editor | Reduce el cambio de contexto y mantiene el flujo de trabajo |
-| Flujo nativo de IDE | Encaja bien en equipos que ya trabajan desde VS Code, JetBrains o Android Studio |
-| Asistencia combinada | Reúne completado, chat y soporte de más alto nivel en una sola superficie |
+| Focused workflow surface | Stays close to one practical job to be done. |
+| Fast start | Usually lowers the time to first useful result. |
+| Complements a larger stack | Fits well as one piece inside a broader workflow. |
 
-## Flujo típico
+## Typical Flow
 
-1. Abres tu proyecto en un IDE compatible.
-2. Pides ayuda sobre un archivo, una función o una refactorización concreta.
-3. Iteras sobre el código sin salir del editor.
-4. Usas otras superficies solo si el trabajo ya requiere terminal, cloud workspace o delegación.
+1. Define the focused task this tool should help with.
+2. Set the minimum configuration or context needed to use it well.
+3. Run an initial pass and review the output or behavior.
+4. Adjust the broader workflow around the tool once the fit is clear.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Ayuda dentro del editor | Gemini Code Assist |
-| Prototipado y desarrollo en navegador | Firebase Studio |
-| Agente desde terminal | Gemini CLI |
-| Delegación asíncrona sobre repositorios | Jules 2.0 |
-| Entorno agent-first | Antigravity |
+| You want to stay inside your IDE and get inline help while reading, writing, or refactoring code | Gemini Code Assist |
+| A workflow that is better aligned with `Firebase Studio` | Firebase Studio |
+| A workflow that is better aligned with `Gemini CLI` | Gemini CLI |
+| A workflow that is better aligned with `Jules 2.0` | Jules 2.0 |
+| A workflow that is better aligned with `Antigravity` | Antigravity |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/dev_tools_agents.md`
-- Documentación oficial: https://developers.google.com/gemini-code-assist/docs/overview?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/dev_tools_agents.md`
+- Official documentation: https://developers.google.com/gemini-code-assist/docs/overview?hl=es-419

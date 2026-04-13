@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El agente delegado sobre repositorios conectado a github. Encaja cuando quieres enviar trabajo a un agente y revisarlo después en vez de conducir cada paso.
+The asynchronous repo agent connected to GitHub and delegated execution. It fits when you want to hand off repository work and review it later rather than drive every step interactively.
 
-## Qué es
+## What It Is
 
-Jules 2.0 funciona como el agente delegado sobre repositorios conectado a GitHub dentro de `Dev Tools & Coding Agents` y, en el catálogo, se posiciona además como agente asíncrono sobre repositorios. Aquí lo importante no es solo el modelo, sino dónde ocurre el trabajo: editor, navegador, terminal o un flujo más delegado y autónomo.
+Jules 2.0 acts as the asynchronous repo agent connected to GitHub and delegated execution within `Dev Tools & Coding Agents`. What matters here is not just the model, but where the work happens: inside the editor, in the browser, in the terminal, or through a more delegated agent workflow.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres enviar trabajo a un agente y revisarlo después en vez de conducir cada paso.
-- Cuando el modelo de interacción que buscas se parece a `Async repo agent` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Dev Tools & Coding Agents` y no en otro bloque del ecosistema.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want to hand off repository work and review it later rather than drive every step interactively.
+- When the interaction model you need looks more like `Async repo agent` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Dev Tools & Coding Agents` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si tu centro de control es la shell y quieres un agente que ejecute flujos desde ahí, encaja mejor `Gemini CLI`.
-- Si quieres seguir en tu IDE y recibir ayuda inline mientras lees o escribes código, encaja mejor `Gemini Code Assist`.
-- Si quieres un carril más agent-first que un editor asistido o una CLI clásica, encaja mejor `Antigravity`.
+- If your use case is closer to `Gemini CLI`, start there instead.
+- If your use case is closer to `Gemini Code Assist`, start there instead.
+- If your use case is closer to `Antigravity`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Unidad repo | Trabaja a nivel de repositorio, no solo sobre el archivo abierto |
-| Ejecución asíncrona | Está pensado para delegación con vuelta posterior |
-| Punto de aprobación | Introduce una revisión antes de que el trabajo siga adelante |
+| Delegated workflow | Fits tasks you want to hand off rather than drive step by step. |
+| Repository or task ownership | Usually works at a larger unit than a single prompt or inline edit. |
+| Asynchronous value | Helps when you want progress to continue after you stop interacting. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el objetivo de trabajo.
-2. Configuras la superficie o capacidad.
-3. Pruebas el flujo con datos reales.
-4. Iteras hasta que encaje en el sistema final.
+1. Define the repository or task you want to delegate.
+2. Review the proposed plan, scope, or execution setup.
+3. Let the agent work and come back to inspect the output.
+4. Approve, refine, or redirect once the delegated work is visible.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres enviar trabajo a un agente y revisarlo después en vez de conducir cada paso | Jules 2.0 |
-| Tu centro de control es la shell y quieres un agente que ejecute flujos desde ahí | Gemini CLI |
-| Quieres seguir en tu ide y recibir ayuda inline mientras lees o escribes código | Gemini Code Assist |
-| Quieres un carril más agent-first que un editor asistido o una cli clásica | Antigravity |
+| You want to hand off repository work and review it later rather than drive every step interactively | Jules 2.0 |
+| A workflow that is better aligned with `Gemini CLI` | Gemini CLI |
+| A workflow that is better aligned with `Gemini Code Assist` | Gemini Code Assist |
+| A workflow that is better aligned with `Antigravity` | Antigravity |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/dev_tools_agents.md`
-- Documentación oficial: https://jules.google/docs/
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/dev_tools_agents.md`
+- Official documentation: https://jules.google/docs/

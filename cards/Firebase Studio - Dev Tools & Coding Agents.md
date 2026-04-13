@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El workspace cloud de desarrollo y prototipado con gemini integrado. Encaja cuando quieres construir apps en un entorno alojado y colaborativo desde el navegador.
+The browser-based development workspace with gemini embedded in the environment. It fits when you want to build apps in a hosted, collaborative workspace instead of staying only in a local IDE.
 
-## Qué es
+## What It Is
 
-Firebase Studio funciona como el workspace cloud de desarrollo y prototipado con Gemini integrado dentro de `Dev Tools & Coding Agents` y, en el catálogo, se posiciona además como entorno de construcción en navegador. Aquí lo importante no es solo el modelo, sino dónde ocurre el trabajo: editor, navegador, terminal o un flujo más delegado y autónomo.
+Firebase Studio acts as the browser-based development workspace with Gemini embedded in the environment within `Dev Tools & Coding Agents`. What matters here is not just the model, but where the work happens: inside the editor, in the browser, in the terminal, or through a more delegated agent workflow.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres construir apps en un entorno alojado y colaborativo desde el navegador.
-- Cuando el modelo de interacción que buscas se parece a `Browser development workspace` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Dev Tools & Coding Agents` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you want to build apps in a hosted, collaborative workspace instead of staying only in a local IDE.
+- When the interaction model you need looks more like `Browser development workspace` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Dev Tools & Coding Agents` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres seguir en tu IDE y recibir ayuda inline mientras lees o escribes código, encaja mejor `Gemini Code Assist`.
-- Si tu centro de control es la shell y quieres un agente que ejecute flujos desde ahí, encaja mejor `Gemini CLI`.
-- Si quieres enviar trabajo a un agente y revisarlo después en vez de conducir cada paso, encaja mejor `Jules 2.0`.
+- If your use case is closer to `Gemini Code Assist`, start there instead.
+- If your use case is closer to `Gemini CLI`, start there instead.
+- If your use case is closer to `Jules 2.0`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Workspace en navegador | Agrupa código, preview y servicios en una sola superficie |
-| Construcción de apps | Está pensada para pasar de prototipo a app full-stack |
-| Gemini embebido | La ayuda de IA forma parte del entorno, no un add-on externo |
+| End-to-end environment | Brings together multiple capabilities in one product surface. |
+| Connected tooling | Works well when several pieces of the workflow need to live together. |
+| Operational depth | Better suited to longer-lived or more production-shaped systems. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Pick the part of the platform that matches the current stage of work.
+2. Configure the main resources, services, or connected tools.
+3. Validate the full flow with real data, previews, or execution.
+4. Operate, extend, or scale from the same platform as the system matures.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres construir apps en un entorno alojado y colaborativo desde el navegador | Firebase Studio |
-| Quieres seguir en tu ide y recibir ayuda inline mientras lees o escribes código | Gemini Code Assist |
-| Tu centro de control es la shell y quieres un agente que ejecute flujos desde ahí | Gemini CLI |
-| Quieres enviar trabajo a un agente y revisarlo después en vez de conducir cada paso | Jules 2.0 |
+| You want to build apps in a hosted, collaborative workspace instead of staying only in a local IDE | Firebase Studio |
+| A workflow that is better aligned with `Gemini Code Assist` | Gemini Code Assist |
+| A workflow that is better aligned with `Gemini CLI` | Gemini CLI |
+| A workflow that is better aligned with `Jules 2.0` | Jules 2.0 |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/dev_tools_agents.md`
-- Documentación oficial: https://firebase.google.com/docs/studio?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/dev_tools_agents.md`
+- Official documentation: https://firebase.google.com/docs/studio?hl=es-419

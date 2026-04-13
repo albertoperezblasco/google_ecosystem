@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capa oficial de librerías cliente para gemini y backends compatibles. Encaja cuando quieres trabajar con clientes idiomáticos en vez de montar llamadas HTTP a mano.
+The official client-library layer for gemini and compatible backends. It fits when you want idiomatic client libraries instead of wiring raw HTTP calls by hand.
 
-## Qué es
+## What It Is
 
-Google Gen AI SDK funciona como la capa oficial de librerías cliente para Gemini y backends compatibles dentro de `Gemini API` en el bloque `APIs & SDKs`. Es el bloque donde conviven APIs fundacionales, SDKs, servicios gestionados y frameworks más profundos para casos que necesitan más control.
+Google Gen AI SDK acts as the official client-library layer for Gemini and compatible backends within `APIs & SDKs`. This block combines foundation APIs, SDKs, managed services, and deeper frameworks for teams that need more implementation control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres trabajar con clientes idiomáticos en vez de montar llamadas HTTP a mano.
-- Cuando el modelo de interacción que buscas se parece a `Client library` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Gemini API` y necesitas su pieza más específica.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want idiomatic client libraries instead of wiring raw HTTP calls by hand.
+- When the interaction model you need looks more like `Client library` than like a generic one-size-fits-all surface.
+- When the main fit is in the `APIs & SDKs` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres llamar modelos, prompts y herramientas desde tu propio código, encaja mejor `Gemini API`.
-- Si tu trabajo ya está anclado en Google Cloud y necesitas más que una sola llamada de modelo, encaja mejor `Vertex AI`.
-- Si quieres estructurar una AI app de extremo a extremo y no solo hacer llamadas sueltas, encaja mejor `Genkit`.
+- If your use case is closer to `Gemini API`, start there instead.
+- If your use case is closer to `Vertex AI`, start there instead.
+- If your use case is closer to `Genkit`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Menos boilerplate | Reduce trabajo repetitivo de integración |
-| Entrada multilenguaje | Acelera adopción desde varios stacks |
-| Capa más cercana al código | Es donde suele arrancar la integración de app |
+| Idiomatic client layer | Makes adoption easier from application code. |
+| Less boilerplate | Removes repetitive setup work compared with raw HTTP calls. |
+| Developer-friendly entry point | Usually becomes the fastest clean path from docs to working code. |
 
-## Flujo típico
+## Typical Flow
 
-1. Eliges el caso de uso y la superficie técnica más adecuada para implementarlo.
-2. Integras la API, SDK o framework con tu modelo, datos y configuración inicial.
-3. Pruebas el flujo con datos reales y ajustas opciones, herramientas o runtime.
-4. Lo conectas con el resto de tu aplicación o pipeline de producción.
+1. Choose the client library that matches your language and stack.
+2. Wire the SDK into your application code and configure the basics.
+3. Validate the workflow with real inputs and expected outputs.
+4. Expand the integration once the code path is stable and maintainable.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres trabajar con clientes idiomáticos en vez de montar llamadas http a mano | Google Gen AI SDK |
-| Quieres llamar modelos, prompts y herramientas desde tu propio código | Gemini API |
-| Tu trabajo ya está anclado en google cloud y necesitas más que una sola llamada de modelo | Vertex AI |
-| Quieres estructurar una ai app de extremo a extremo y no solo hacer llamadas sueltas | Genkit |
+| You want idiomatic client libraries instead of wiring raw HTTP calls by hand | Google Gen AI SDK |
+| A workflow that is better aligned with `Gemini API` | Gemini API |
+| A workflow that is better aligned with `Vertex AI` | Vertex AI |
+| A workflow that is better aligned with `Genkit` | Genkit |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/api_sdk.md`
-- Documentación oficial: https://ai.google.dev/gemini-api/docs/libraries
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/api_sdk.md`
+- Official documentation: https://ai.google.dev/gemini-api/docs/libraries

@@ -18,53 +18,53 @@ status: active
 
 ## TL;DR
 
-La plataforma de entendimiento documental nativa de documentos. Encaja cuando quieres pasar de OCR plano a entidades, estructura y automatización operativa.
+The document-native platform for turning business documents into structured outputs. It fits when you need more than plain OCR and want layout, entities, extraction, and automation-ready outputs.
 
-## Qué es
+## What It Is
 
-Document AI funciona como la plataforma de entendimiento documental nativa de documentos dentro de `Document AI OCR` y, en el catálogo, se posiciona además como producto paraguas. En este bloque la frontera importante es entre OCR genérico y comprensión documental con estructura, entidades y automatización operativa.
+Document AI acts as the document-native platform for turning business documents into structured outputs within `Document AI OCR`. In this block, the important boundary is between generic OCR and document-native understanding with structure, entities, and operational automation.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres pasar de OCR plano a entidades, estructura y automatización operativa.
-- Cuando el modelo de interacción que buscas se parece a `Document pipeline platform` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Document AI OCR` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you need more than plain OCR and want layout, entities, extraction, and automation-ready outputs.
+- When the interaction model you need looks more like `Document pipeline platform` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Document AI OCR` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si tu documento ya encaja en una categoría que Google trae resuelta, encaja mejor `Pretrained Parsers`.
-- Si quieres OCR de documentos con layout y calidad superiores a un OCR genérico, encaja mejor `Enterprise Document OCR`.
-- Si necesitas datos estructurados que luego se validen, comparen o almacenen, encaja mejor `Extraction`.
-- Si tu caso es más de imagen general o OCR ligero que de plataforma documental completa, encaja mejor `Cloud Vision API`.
+- If your use case is closer to `Pretrained Parsers`, start there instead.
+- If your use case is closer to `Enterprise Document OCR`, start there instead.
+- If your use case is closer to `Extraction`, start there instead.
+- If your use case is closer to `Cloud Vision API`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Documento con estructura | No se limita a texto plano |
-| Familia de procesadores | Cubre OCR, extracción, clasificación y entrenamiento |
-| Uso downstream | Convierte documentos en datos accionables |
+| End-to-end environment | Brings together multiple capabilities in one product surface. |
+| Connected tooling | Works well when several pieces of the workflow need to live together. |
+| Operational depth | Better suited to longer-lived or more production-shaped systems. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Pick the part of the platform that matches the current stage of work.
+2. Configure the main resources, services, or connected tools.
+3. Validate the full flow with real data, previews, or execution.
+4. Operate, extend, or scale from the same platform as the system matures.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres pasar de ocr plano a entidades, estructura y automatización operativa | Document AI |
-| Tu documento ya encaja en una categoría que google trae resuelta | Pretrained Parsers |
-| Quieres ocr de documentos con layout y calidad superiores a un ocr genérico | Enterprise Document OCR |
-| Necesitas datos estructurados que luego se validen, comparen o almacenen | Extraction |
-| Tu caso es más de imagen general o ocr ligero que de plataforma documental completa | Cloud Vision API |
+| You need more than plain OCR and want layout, entities, extraction, and automation-ready outputs | Document AI |
+| A workflow that is better aligned with `Pretrained Parsers` | Pretrained Parsers |
+| A workflow that is better aligned with `Enterprise Document OCR` | Enterprise Document OCR |
+| A workflow that is better aligned with `Extraction` | Extraction |
+| A workflow that is better aligned with `Cloud Vision API` | Cloud Vision API |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/document-ai-ocr.md`
-- Documentación oficial: https://docs.cloud.google.com/document-ai/docs/overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/document-AI-OCR.md`
+- Official documentation: https://docs.cloud.google.com/document-ai/docs/overview

@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-Los safety settings de gemini api para aplicar filtrado de contenido en llamadas reales. Encaja cuando necesitas que la política de seguridad viaje con cada request y no solo con una configuración manual.
+The request-level safety settings inside gemini API. It fits when you need safety thresholds to travel with real application requests in code.
 
-## Qué es
+## What It Is
 
-Safety settings funciona como los safety settings de Gemini API para aplicar filtrado de contenido en llamadas reales dentro de `Gemini API` en el bloque `Guardrails Security Governance`. No todos los controles viven en la misma capa: algunos filtran respuestas, otros blindan tráfico, otros gobiernan datos y otros miran postura organizacional.
+Safety settings acts as the request-level safety settings inside Gemini API within `Guardrails Security Governance`. Not every control lives at the same layer: some tune model filtering, some shield app traffic, some govern data, and some manage organization-wide posture.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas que la política de seguridad viaje con cada request y no solo con una configuración manual.
-- Cuando el modelo de interacción que buscas se parece a `Request-level safety settings` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Gemini API` y necesitas su pieza más específica.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you need safety thresholds to travel with real application requests in code.
+- When the interaction model you need looks more like `Request-level safety settings` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Guardrails Security Governance` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo, encaja mejor `Google Cloud Model Armor`.
-- Si tu sistema toca datos regulados o de alto riesgo y necesitas gobernarlos antes o después del flujo de IA, encaja mejor `Sensitive Data Protection`.
-- Si quieres calibrar seguridad temprano sin meterte todavía en la capa de infraestructura de seguridad, encaja mejor `Google AI Studio`.
+- If your use case is closer to `Google Cloud Model Armor`, start there instead.
+- If your use case is closer to `Sensitive Data Protection`, start there instead.
+- If your use case is closer to `Google AI Studio`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Aplicación en código | Se integra donde vive la request |
-| Mismas categorías clave | Traslada el control por daños al plano de app |
-| Visibilidad del bloqueo | Ayuda a entender por qué una respuesta se frena |
+| Policy tuning | Lets teams shape behavior around risk, safety, or compliance needs. |
+| Safer defaults | Supports earlier alignment on acceptable model or app behavior. |
+| Layered use | Works best alongside broader product, runtime, or security controls. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Decide which policy or risk boundary you want to influence.
+2. Set the relevant thresholds, toggles, or request-level options.
+3. Test the effect on representative prompts, inputs, or outputs.
+4. Refine the broader product and security posture around what you learn.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas que la política de seguridad viaje con cada request y no solo con una configuración manual | Safety settings |
-| Quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo | Google Cloud Model Armor |
-| Tu sistema toca datos regulados o de alto riesgo y necesitas gobernarlos antes o después del flujo de ia | Sensitive Data Protection |
-| Quieres calibrar seguridad temprano sin meterte todavía en la capa de infraestructura de seguridad | Google AI Studio |
+| You need safety thresholds to travel with real application requests in code | Safety settings |
+| A workflow that is better aligned with `Google Cloud Model Armor` | Google Cloud Model Armor |
+| A workflow that is better aligned with `Sensitive Data Protection` | Sensitive Data Protection |
+| A workflow that is better aligned with `Google AI Studio` | Google AI Studio |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/guardrails-security-governance.md`
-- Documentación oficial: https://ai.google.dev/gemini-api/docs/safety-settings
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/guardrails-security-governance.md`
+- Official documentation: https://ai.google.dev/gemini-api/docs/safety-settings

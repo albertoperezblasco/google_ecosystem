@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capa de runtime y controles enterprise para agentes desplegados. Encaja cuando ya vas a operar agentes en producción y necesitas perímetro, identidad y gobierno de ejecución.
+The managed agent runtime layer with enterprise controls and governance. It fits when you are operating agents in production and need runtime boundaries, identity, and enterprise controls.
 
-## Qué es
+## What It Is
 
-Vertex AI Agent Engine funciona como la capa de runtime y controles enterprise para agentes desplegados dentro de `Guardrails Security Governance` y, en el catálogo, se posiciona además como capa de runtime y operaciones. No todos los controles viven en la misma capa: algunos filtran respuestas, otros blindan tráfico, otros gobiernan datos y otros miran postura organizacional.
+Vertex AI Agent Engine acts as the managed agent runtime layer with enterprise controls and governance within `Guardrails Security Governance`. Not every control lives at the same layer: some tune model filtering, some shield app traffic, some govern data, and some manage organization-wide posture.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando ya vas a operar agentes en producción y necesitas perímetro, identidad y gobierno de ejecución.
-- Cuando el modelo de interacción que buscas se parece a `Managed agent runtime governance` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Guardrails Security Governance` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you are operating agents in production and need runtime boundaries, identity, and enterprise controls.
+- When the interaction model you need looks more like `Managed agent runtime governance` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Guardrails Security Governance` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo, encaja mejor `Google Cloud Model Armor`.
-- Si quieres una vista transversal de riesgos y hallazgos más allá de una sola app de IA, encaja mejor `Security Command Center`.
-- Si quieres inventario, riesgos, amenazas y visibilidad específica sobre activos de IA, encaja mejor `AI Protection`.
+- If your use case is closer to `Google Cloud Model Armor`, start there instead.
+- If your use case is closer to `Security Command Center`, start there instead.
+- If your use case is closer to `AI Protection`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Runtime gestionado | Reduce operar infraestructura a mano |
-| Controles enterprise | Aporta IAM y postura de ejecución |
-| Integración observability/security | Conecta mejor con el stack de operación y seguridad |
+| Managed execution | Turns design or code into a running system. |
+| Production controls | Adds the operational boundaries needed once things go live. |
+| Scaling and visibility | Helps with growth, governance, and runtime inspection. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Decide what needs to run under this runtime or operations layer.
+2. Configure execution, controls, permissions, or attached services.
+3. Validate the runtime behavior under realistic conditions.
+4. Use the same runtime surface to scale, govern, and observe the system.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Ya vas a operar agentes en producción y necesitas perímetro, identidad y gobierno de ejecución | Vertex AI Agent Engine |
-| Quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo | Google Cloud Model Armor |
-| Quieres una vista transversal de riesgos y hallazgos más allá de una sola app de ia | Security Command Center |
-| Quieres inventario, riesgos, amenazas y visibilidad específica sobre activos de ia | AI Protection |
+| You are operating agents in production and need runtime boundaries, identity, and enterprise controls | Vertex AI Agent Engine |
+| A workflow that is better aligned with `Google Cloud Model Armor` | Google Cloud Model Armor |
+| A workflow that is better aligned with `Security Command Center` | Security Command Center |
+| A workflow that is better aligned with `AI Protection` | AI Protection |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/guardrails-security-governance.md`
-- Documentación oficial: https://docs.cloud.google.com/agent-builder/agent-engine/overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/guardrails-security-governance.md`
+- Official documentation: https://docs.cloud.google.com/agent-builder/agent-engine/overview

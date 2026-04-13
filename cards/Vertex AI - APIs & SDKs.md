@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La superficie cloud gestionada para recursos, endpoints y operaciones de ia. Encaja cuando tu trabajo ya está anclado en Google Cloud y necesitas más que una sola llamada de modelo.
+The managed cloud AI platform surface for resources, endpoints, and broader AI operations. It fits when your work already lives in Google Cloud and you need more than a single model API call.
 
-## Qué es
+## What It Is
 
-Vertex AI funciona como la superficie cloud gestionada para recursos, endpoints y operaciones de IA dentro de `APIs & SDKs` y, en el catálogo, se posiciona además como plataforma cloud. Es el bloque donde conviven APIs fundacionales, SDKs, servicios gestionados y frameworks más profundos para casos que necesitan más control.
+Vertex AI acts as the managed cloud AI platform surface for resources, endpoints, and broader AI operations within `APIs & SDKs`. This block combines foundation APIs, SDKs, managed services, and deeper frameworks for teams that need more implementation control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando tu trabajo ya está anclado en Google Cloud y necesitas más que una sola llamada de modelo.
-- Cuando el modelo de interacción que buscas se parece a `Managed cloud API platform` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `APIs & SDKs` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When your work already lives in Google Cloud and you need more than a single model API call.
+- When the interaction model you need looks more like `Managed cloud API platform` than like a generic one-size-fits-all surface.
+- When the main fit is in the `APIs & SDKs` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres llamar modelos, prompts y herramientas desde tu propio código, encaja mejor `Gemini API`.
-- Si quieres trabajar con clientes idiomáticos en vez de montar llamadas HTTP a mano, encaja mejor `Google Gen AI SDK`.
-- Si necesitas orquestar herramientas, estado y arquitectura agentic desde una base de código, encaja mejor `Agent Development Kit (Google ADK)`.
+- If your use case is closer to `Gemini API`, start there instead.
+- If your use case is closer to `Google Gen AI SDK`, start there instead.
+- If your use case is closer to `Agent Development Kit (Google ADK)`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Plataforma gestionada | Agrupa recursos, endpoints y operaciones |
-| Enterprise-ready | Encaja en equipos con patrones cloud-native |
-| Amplitud de servicios | Va más allá de una API única |
+| End-to-end environment | Brings together multiple capabilities in one product surface. |
+| Connected tooling | Works well when several pieces of the workflow need to live together. |
+| Operational depth | Better suited to longer-lived or more production-shaped systems. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Pick the part of the platform that matches the current stage of work.
+2. Configure the main resources, services, or connected tools.
+3. Validate the full flow with real data, previews, or execution.
+4. Operate, extend, or scale from the same platform as the system matures.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Tu trabajo ya está anclado en google cloud y necesitas más que una sola llamada de modelo | Vertex AI |
-| Quieres llamar modelos, prompts y herramientas desde tu propio código | Gemini API |
-| Quieres trabajar con clientes idiomáticos en vez de montar llamadas http a mano | Google Gen AI SDK |
-| Necesitas orquestar herramientas, estado y arquitectura agentic desde una base de código | Agent Development Kit (Google ADK) |
+| Your work already lives in Google Cloud and you need more than a single model API call | Vertex AI |
+| A workflow that is better aligned with `Gemini API` | Gemini API |
+| A workflow that is better aligned with `Google Gen AI SDK` | Google Gen AI SDK |
+| A workflow that is better aligned with `Agent Development Kit (Google ADK)` | Agent Development Kit (Google ADK) |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/api_sdk.md`
-- Documentación oficial: https://docs.cloud.google.com/vertex-ai/docs?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/api_sdk.md`
+- Official documentation: https://docs.cloud.google.com/vertex-ai/docs?hl=es-419

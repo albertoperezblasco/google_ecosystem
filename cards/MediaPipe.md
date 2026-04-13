@@ -7,10 +7,10 @@ official_url: https://ai.google.dev/edge/mediapipe/solutions/guide?hl=es-419
 source_index: /services_md/google-services-by-topic.md
 source_topic: /services_md/api_sdk.md
 related_tools:
-  - LiteRT
-  - Cloud Vision API
-  - TensorFlow
-  - JAX
+- LiteRT
+- Cloud Vision API
+- TensorFlow
+- JAX
 status: active
 ---
 
@@ -18,62 +18,53 @@ status: active
 
 ## TL;DR
 
-Framework y set de task APIs para llevar percepción y ML al dispositivo con foco en tiempo real, multiplataforma y baja latencia. Encaja cuando quieres integrar capacidades ya empaquetadas en Android, Web, Python o iOS sin depender de una llamada cloud para cada inferencia.
+The edge framework and task API family for on-device perception and live media workloads. It fits when you want cross-platform edge perception with low latency and reusable task APIs.
 
-## Qué es
+## What It Is
 
-MediaPipe es la pieza de `APIs & SDKs` orientada a edge AI y live media. Su propuesta principal no es ser una API gestionada al estilo request/response, sino un marco con soluciones prediseñadas, modelos listos para usar y tooling para evaluar o personalizar pipelines de ML dentro de tu aplicación.
+MediaPipe acts as the edge framework and task API family for on-device perception and live media workloads within `APIs & SDKs`. This block combines foundation APIs, SDKs, managed services, and deeper frameworks for teams that need more implementation control. It is also worth noting that parts of the MediaPipe Solutions and Tasks surface are still marked as preview, so the task-specific documentation is worth checking before locking an architecture.
 
-Dentro de esa superficie, la vía más directa suele ser `MediaPipe Tasks`: APIs multiplataforma para visión, texto, audio y algunos flujos de IA generativa. Si necesitas más control, también existe el `MediaPipe Framework`, que baja a conceptos como graphs, calculators y paquetes.
+## When To Use It
 
-Conviene tener presente que parte de la superficie de `MediaPipe Solutions/Tasks` sigue marcada como `Preview`, así que antes de cerrar una decisión de arquitectura merece la pena revisar la guía concreta de la plataforma y la tarea que vas a usar.
+- When you want cross-platform edge perception with low latency and reusable task APIs.
+- When the interaction model you need looks more like `Cross-platform task APIs` than like a generic one-size-fits-all surface.
+- When the main fit is in the `APIs & SDKs` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo usarlo
+## When It Is Not The Best Fit
 
-- Cuando necesitas inferencia local o cercana al dispositivo con menor latencia.
-- Cuando el producto trabaja con cámara, audio, vídeo o interacción en tiempo real.
-- Cuando quieres una misma familia de soluciones sobre Android, Web, Python o iOS.
-- Cuando prefieres arrancar desde tareas ya resueltas como detección, clasificación, embeddings o landmark detection en lugar de construir todo el pipeline desde cero.
-- Cuando quieres probar o ajustar soluciones con `MediaPipe Studio` y personalizar modelos con `Model Maker`.
+- If your use case is closer to `LiteRT`, start there instead.
+- If your use case is closer to `Cloud Vision API`, start there instead.
+- If your use case is closer to `TensorFlow`, start there instead.
+- If your use case is closer to `JAX`, start there instead.
 
-## Cuándo no es la mejor opción
+## Key Capabilities
 
-- Si solo quieres enviar imágenes a un servicio gestionado para análisis u OCR, encaja mejor `Cloud Vision API`.
-- Si el problema principal es el runtime optimizado de inferencia on-device más que las task APIs o el framework, encaja mejor `LiteRT`.
-- Si necesitas control de framework completo para entrenamiento y construcción de modelos, encaja mejor `TensorFlow`.
-- Si estás en un flujo más de investigación, álgebra numérica y transformaciones composables, encaja mejor `JAX`.
-
-## Capacidades clave
-
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Tasks multiplataforma | Permite integrar soluciones sobre Android, Web, Python e iOS con una superficie más directa que el framework de bajo nivel |
-| Enfoque edge y live media | Encaja bien en casos donde latencia, ejecución local o interacción en tiempo real importan |
-| Cobertura por dominios | Reúne tareas de visión, texto, audio y también algunos flujos de IA generativa |
-| Ruta de personalización | Puedes adaptar modelos con `Model Maker` en lugar de empezar entrenando desde cero |
-| Evaluación rápida | `MediaPipe Studio` deja probar soluciones en navegador con datos propios y ajustar configuraciones |
+| Structured building blocks | Provides more architecture control than a task-specific managed API. |
+| Deeper implementation control | Lets teams shape behavior more directly around code and runtime choices. |
+| Good integration depth | Works well when you need something more customizable than a single hosted call. |
 
-## Flujo típico
+## Typical Flow
 
-1. Identificas la tarea concreta que necesitas, por ejemplo detección de objetos, reconocimiento de gestos, clasificación de texto o audio.
-2. Eliges la plataforma objetivo: Android, Web, Python o iOS.
-3. Configuras la librería de Tasks correspondiente y cargas el modelo o bundle necesario.
-4. Ajustas opciones base como modelo, umbrales y, cuando aplica, delegación en CPU o GPU.
-5. Pruebas el comportamiento con datos reales y, si hace falta, iteras con `MediaPipe Studio` o personalizas con `Model Maker`.
-6. Solo bajas al `MediaPipe Framework` cuando las soluciones prediseñadas ya no te dan suficiente control.
+1. Choose the framework lane that best matches the architecture you need.
+2. Set up the main building blocks, configuration, and surrounding runtime choices.
+3. Test the workflow with representative inputs and tune the structure.
+4. Integrate it more deeply once you know the architecture fits.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Percepción on-device y live media multiplataforma | MediaPipe |
-| Análisis visual gestionado desde cloud | Cloud Vision API |
-| Runtime optimizado para inferencia local | LiteRT |
-| Framework general para construir y entrenar modelos | TensorFlow |
-| Stack de investigación y experimentación numérica | JAX |
+| You want cross-platform edge perception with low latency and reusable task APIs | MediaPipe |
+| A workflow that is better aligned with `LiteRT` | LiteRT |
+| A workflow that is better aligned with `Cloud Vision API` | Cloud Vision API |
+| A workflow that is better aligned with `TensorFlow` | TensorFlow |
+| A workflow that is better aligned with `JAX` | JAX |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/api_sdk.md`
-- Documentación oficial: https://ai.google.dev/edge/mediapipe/solutions/guide?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/api_sdk.md`
+- Official documentation: https://ai.google.dev/edge/mediapipe/solutions/guide?hl=es-419

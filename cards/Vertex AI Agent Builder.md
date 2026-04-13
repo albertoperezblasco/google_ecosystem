@@ -18,53 +18,53 @@ status: active
 
 ## TL;DR
 
-La suite paraguas para construir, escalar y gobernar agentes. Encaja cuando quieres entender o adoptar la suite completa del ciclo de vida de agentes.
+The umbrella suite for building, scaling, and governing AI agents. It fits when you want the coordinated product suite across the full agent lifecycle.
 
-## Qué es
+## What It Is
 
-Vertex AI Agent Builder funciona como la suite paraguas para construir, escalar y gobernar agentes dentro de `Agents Workflow Orchestration` y, en el catálogo, se posiciona además como suite paraguas. La suite se entiende mejor como ciclo de vida: diseñar, construir, desplegar, operar y reutilizar piezas de agentes. La documentación oficial actual lo describe como una suite de productos para construir, escalar y gobernar agentes en producción.
+Vertex AI Agent Builder acts as the umbrella suite for building, scaling, and governing AI agents within `Agents Workflow Orchestration`. The suite is easiest to understand as a lifecycle: design, build, deploy, operate, and reuse agent components. Google’s current overview describes it as a suite of products for building, scaling, and governing agents in production.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres entender o adoptar la suite completa del ciclo de vida de agentes.
-- Cuando el modelo de interacción que buscas se parece a `Agent lifecycle suite` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Agents Workflow Orchestration` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you want the coordinated product suite across the full agent lifecycle.
+- When the interaction model you need looks more like `Agent lifecycle suite` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Agents Workflow Orchestration` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si prefieres control directo y arquitectura agentic programada, encaja mejor `Agent Development Kit`.
-- Si quieres modelar la arquitectura del agente visualmente antes o además del código, encaja mejor `Agent Designer`.
-- Si tu problema ya es de ejecución, sesiones, memoria y operación a escala, encaja mejor `Vertex AI Agent Engine`.
-- Si quieres acelerar arrancando desde ejemplos y componentes reusables, encaja mejor `Agent Garden`.
+- If your use case is closer to `Agent Development Kit`, start there instead.
+- If your use case is closer to `Agent Designer`, start there instead.
+- If your use case is closer to `Vertex AI Agent Engine`, start there instead.
+- If your use case is closer to `Agent Garden`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Suite coordinada | Agrupa diseño, código, runtime y descubrimiento |
-| Cobertura de ciclo de vida | Va de build a operación y gobierno |
-| Base segura | Se presenta como foundation de producción |
+| Coordinated product family | Groups several agent lifecycle stages under one umbrella. |
+| Lifecycle coverage | Makes the full story easier to reason about from build to operations. |
+| Shared governance model | Useful when the surrounding platform matters as much as one feature. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Choose the lifecycle stage that matters most right now.
+2. Use the corresponding product surface inside the suite.
+3. Validate how that piece fits into the broader agent workflow.
+4. Expand to the other suite components as the system matures.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres entender o adoptar la suite completa del ciclo de vida de agentes | Vertex AI Agent Builder |
-| Prefieres control directo y arquitectura agentic programada | Agent Development Kit |
-| Quieres modelar la arquitectura del agente visualmente antes o además del código | Agent Designer |
-| Tu problema ya es de ejecución, sesiones, memoria y operación a escala | Vertex AI Agent Engine |
-| Quieres acelerar arrancando desde ejemplos y componentes reusables | Agent Garden |
+| You want the coordinated product suite across the full agent lifecycle | Vertex AI Agent Builder |
+| A workflow that is better aligned with `Agent Development Kit` | Agent Development Kit |
+| A workflow that is better aligned with `Agent Designer` | Agent Designer |
+| A workflow that is better aligned with `Vertex AI Agent Engine` | Vertex AI Agent Engine |
+| A workflow that is better aligned with `Agent Garden` | Agent Garden |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/agents-workflow-orchestration.md`
-- Documentación oficial: https://docs.cloud.google.com/agent-builder/overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/agents-workflow-orchestration.md`
+- Official documentation: https://docs.cloud.google.com/agent-builder/overview

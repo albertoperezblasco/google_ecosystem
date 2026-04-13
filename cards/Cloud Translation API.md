@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La api gestionada para traducción programática. Encaja cuando la traducción es el requisito del producto y quieres una superficie orientada a ese trabajo.
+The managed translation API for programmatic language conversion. It fits when translation itself is the product requirement and you want an API built for that task.
 
-## Qué es
+## What It Is
 
-Cloud Translation API funciona como la API gestionada para traducción programática dentro de `APIs & SDKs` y, en el catálogo, se posiciona además como servicio gestionado de tarea específica. Es el bloque donde conviven APIs fundacionales, SDKs, servicios gestionados y frameworks más profundos para casos que necesitan más control.
+Cloud Translation API acts as the managed translation API for programmatic language conversion within `APIs & SDKs`. This block combines foundation APIs, SDKs, managed services, and deeper frameworks for teams that need more implementation control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando la traducción es el requisito del producto y quieres una superficie orientada a ese trabajo.
-- Cuando el modelo de interacción que buscas se parece a `Managed translation API` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `APIs & SDKs` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When translation itself is the product requirement and you want an API built for that task.
+- When the interaction model you need looks more like `Managed translation API` than like a generic one-size-fits-all surface.
+- When the main fit is in the `APIs & SDKs` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres llamar modelos, prompts y herramientas desde tu propio código, encaja mejor `Gemini API`.
-- Si quieres entidades, sentimiento u otras tareas analíticas sin pedir generación abierta, encaja mejor `Cloud Natural Language API`.
-- Si necesitas transcripción o pipelines donde el audio entra antes que otros componentes, encaja mejor `Cloud Speech-to-Text`.
+- If your use case is closer to `Gemini API`, start there instead.
+- If your use case is closer to `Cloud Natural Language API`, start there instead.
+- If your use case is closer to `Cloud Speech-to-Text`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Traducción directa | Está pensada para puentes entre idiomas |
-| Integración por API | Encaja en flujos de aplicación y backend |
-| Menos prompting | No exige tratarlo como una conversación generativa |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| La traducción es el requisito del producto y quieres una superficie orientada a ese trabajo | Cloud Translation API |
-| Quieres llamar modelos, prompts y herramientas desde tu propio código | Gemini API |
-| Quieres entidades, sentimiento u otras tareas analíticas sin pedir generación abierta | Cloud Natural Language API |
-| Necesitas transcripción o pipelines donde el audio entra antes que otros componentes | Cloud Speech-to-Text |
+| Translation itself is the product requirement and you want an API built for that task | Cloud Translation API |
+| A workflow that is better aligned with `Gemini API` | Gemini API |
+| A workflow that is better aligned with `Cloud Natural Language API` | Cloud Natural Language API |
+| A workflow that is better aligned with `Cloud Speech-to-Text` | Cloud Speech-to-Text |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/api_sdk.md`
-- Documentación oficial: https://docs.cloud.google.com/translate/docs/translate-text
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/api_sdk.md`
+- Official documentation: https://docs.cloud.google.com/translate/docs/translate-text

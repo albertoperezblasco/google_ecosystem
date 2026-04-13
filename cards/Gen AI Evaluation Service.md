@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La superficie de evaluación para calidad generativa en vertex ai. Encaja cuando quieres puntuar prompts y respuestas con criterios repetibles.
+The generative evaluation surface for prompt and response quality on vertex AI. It fits when you need repeatable ways to score and compare generative outputs.
 
-## Qué es
+## What It Is
 
-Gen AI Evaluation Service funciona como la superficie de evaluación para calidad generativa en Vertex AI dentro de `Evaluation & Observability` y, en el catálogo, se posiciona además como superficie de evaluación. Este tema mezcla tres capas distintas: evaluación antes del lanzamiento, comprensión del modelo y observabilidad cuando ya está en producción.
+Gen AI Evaluation Service acts as the generative evaluation surface for prompt and response quality on Vertex AI within `Evaluation & Observability`. This topic mixes three layers: evaluation before launch, model insight and feature context, and observability once the system is already running.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres puntuar prompts y respuestas con criterios repetibles.
-- Cuando el modelo de interacción que buscas se parece a `Evaluation jobs` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Evaluation & Observability` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you need repeatable ways to score and compare generative outputs.
+- When the interaction model you need looks more like `Evaluation jobs` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Evaluation & Observability` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas métricas formales y comparación reproducible sobre modelos no generativos, encaja mejor `Vertex AI Evaluation`.
-- Si quieres saber si el agente usó bien las herramientas y completó el trabajo, encaja mejor `Agent Evaluation`.
-- Si necesitas saber qué ejecución produjo qué resultado y con qué configuración, encaja mejor `Vertex AI Experiments`.
+- If your use case is closer to `Vertex AI Evaluation`, start there instead.
+- If your use case is closer to `Agent Evaluation`, start there instead.
+- If your use case is closer to `Vertex AI Experiments`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Rubricas generativas | Evalúa calidad en tareas de GenAI |
-| Comparación sistemática | Sirve para medir variantes de prompts o respuestas |
-| Ciclo previo a lanzamiento | Aterriza la calidad antes de producción |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres puntuar prompts y respuestas con criterios repetibles | Gen AI Evaluation Service |
-| Necesitas métricas formales y comparación reproducible sobre modelos no generativos | Vertex AI Evaluation |
-| Quieres saber si el agente usó bien las herramientas y completó el trabajo | Agent Evaluation |
-| Necesitas saber qué ejecución produjo qué resultado y con qué configuración | Vertex AI Experiments |
+| You need repeatable ways to score and compare generative outputs | Gen AI Evaluation Service |
+| A workflow that is better aligned with `Vertex AI Evaluation` | Vertex AI Evaluation |
+| A workflow that is better aligned with `Agent Evaluation` | Agent Evaluation |
+| A workflow that is better aligned with `Vertex AI Experiments` | Vertex AI Experiments |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/evaluation_observability.md`
-- Documentación oficial: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/evaluation_observability.md`
+- Official documentation: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview?hl=es-419

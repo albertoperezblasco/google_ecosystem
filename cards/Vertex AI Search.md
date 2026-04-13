@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El producto de búsqueda y rag empresarial sobre webs, documentos y datos estructurados. Encaja cuando necesitas una capa de búsqueda gestionada con conectores, ACLs y respuestas generativas.
+The managed enterprise retrieval product for search and RAG over websites, documents, and structured data. It fits when you need enterprise search behavior, connectors, access control, and generative answers.
 
-## Qué es
+## What It Is
 
-Vertex AI Search funciona como el producto de búsqueda y RAG empresarial sobre webs, documentos y datos estructurados dentro de `Data Grounding RAG Connectors` y, en el catálogo, se posiciona además como capa gestionada de recuperación empresarial. La diferencia clave aquí es cómo añades contexto: web pública en tiempo real, archivos acotados, enterprise search o un pipeline RAG completo.
+Vertex AI Search acts as the managed enterprise retrieval product for search and RAG over websites, documents, and structured data within `Data Grounding RAG Connectors`. The key distinction here is how you add context: live public web data, bounded file collections, enterprise search, or a full managed RAG pipeline.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas una capa de búsqueda gestionada con conectores, ACLs y respuestas generativas.
-- Cuando el modelo de interacción que buscas se parece a `Managed enterprise retrieval` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Data Grounding RAG Connectors` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you need enterprise search behavior, connectors, access control, and generative answers.
+- When the interaction model you need looks more like `Managed enterprise retrieval` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Data Grounding RAG Connectors` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres una infraestructura RAG explícita y dedicada sobre datos privados, encaja mejor `Vertex AI RAG Engine`.
-- Si necesitas respuestas ancladas a información pública y reciente sin montar un stack enterprise, encaja mejor `Google Search`.
-- Si quieres grounding sobre un conjunto de ficheros sin subir de inmediato a un producto search enterprise, encaja mejor `File Search`.
+- If your use case is closer to `Vertex AI RAG Engine`, start there instead.
+- If your use case is closer to `Google Search`, start there instead.
+- If your use case is closer to `File Search`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Múltiples tipos de datos | Cubre websites, documentos y datos estructurados |
-| Controles de retrieval | Permite ranking, filtros y ajustes operativos |
-| Enterprise search | Aporta conectores y permisos en origen |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas una capa de búsqueda gestionada con conectores, acls y respuestas generativas | Vertex AI Search |
-| Quieres una infraestructura rag explícita y dedicada sobre datos privados | Vertex AI RAG Engine |
-| Necesitas respuestas ancladas a información pública y reciente sin montar un stack enterprise | Google Search |
-| Quieres grounding sobre un conjunto de ficheros sin subir de inmediato a un producto search enterprise | File Search |
+| You need enterprise search behavior, connectors, access control, and generative answers | Vertex AI Search |
+| A workflow that is better aligned with `Vertex AI RAG Engine` | Vertex AI RAG Engine |
+| A workflow that is better aligned with `Google Search` | Google Search |
+| A workflow that is better aligned with `File Search` | File Search |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/data-grounding-rag-connectors.md`
-- Documentación oficial: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/vertex-ai-search
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/data-grounding-RAG-connectors.md`
+- Official documentation: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/vertex-ai-search

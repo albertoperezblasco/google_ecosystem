@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capacidad de decidir qué tipo de documento es cada archivo. Encaja cuando primero necesitas enrutar y separar documentos antes de extraer.
+The document classification layer for routing and labeling files before deeper processing. It fits when you need to identify document types before extraction or downstream automation.
 
-## Qué es
+## What It Is
 
-Classification funciona como la capacidad de decidir qué tipo de documento es cada archivo dentro de `Document AI` en el bloque `Document AI OCR`. En este bloque la frontera importante es entre OCR genérico y comprensión documental con estructura, entidades y automatización operativa.
+Classification acts as the document classification layer for routing and labeling files before deeper processing within `Document AI OCR`. In this block, the important boundary is between generic OCR and document-native understanding with structure, entities, and operational automation.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando primero necesitas enrutar y separar documentos antes de extraer.
-- Cuando el modelo de interacción que buscas se parece a `Document routing and labeling` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Document AI` y necesitas su pieza más específica.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you need to identify document types before extraction or downstream automation.
+- When the interaction model you need looks more like `Document routing and labeling` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Document AI OCR` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas datos estructurados que luego se validen, comparen o almacenen, encaja mejor `Extraction`.
-- Si necesitas adaptar o up-train procesadores a tus propios documentos, encaja mejor `Document AI Workbench`.
-- Si tu documento ya encaja en una categoría que Google trae resuelta, encaja mejor `Pretrained Parsers`.
+- If your use case is closer to `Extraction`, start there instead.
+- If your use case is closer to `Document AI Workbench`, start there instead.
+- If your use case is closer to `Pretrained Parsers`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Tipado de documentos | Permite mandar cada archivo al processor correcto |
-| Menos clasificación manual | Reduce trabajo de sorting humano |
-| Taxonomía propia | Soporta clases custom |
+| Specialized layer | Targets a narrower part of the workflow than the parent product. |
+| Faster time to value | Helps teams adopt a focused capability without rethinking the whole stack. |
+| Works inside a broader product | Makes the most sense as part of the surrounding platform story. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Identify where this capability sits inside the broader product flow.
+2. Enable or configure the capability with the minimum required inputs.
+3. Run a first test and inspect how it changes the workflow.
+4. Adopt more of the parent product only if this narrower layer is not enough.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Primero necesitas enrutar y separar documentos antes de extraer | Classification |
-| Necesitas datos estructurados que luego se validen, comparen o almacenen | Extraction |
-| Necesitas adaptar o up-train procesadores a tus propios documentos | Document AI Workbench |
-| Tu documento ya encaja en una categoría que google trae resuelta | Pretrained Parsers |
+| You need to identify document types before extraction or downstream automation | Classification |
+| A workflow that is better aligned with `Extraction` | Extraction |
+| A workflow that is better aligned with `Document AI Workbench` | Document AI Workbench |
+| A workflow that is better aligned with `Pretrained Parsers` | Pretrained Parsers |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/document-ai-ocr.md`
-- Documentación oficial: https://docs.cloud.google.com/document-ai/docs/custom-classifier
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/document-AI-OCR.md`
+- Official documentation: https://docs.cloud.google.com/document-ai/docs/custom-classifier

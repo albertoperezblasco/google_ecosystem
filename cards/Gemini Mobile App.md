@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La entrada móvil de gemini en teléfono y tablet. Encaja cuando quieres voz, cámara o interacción sobre la marcha en un formato de asistente móvil.
+The mobile gemini assistant surface for phones and tablets. It fits when you want voice, camera, and on-the-go assistant workflows in a mobile form factor.
 
-## Qué es
+## What It Is
 
-Gemini Mobile App funciona como la entrada móvil de Gemini en teléfono y tablet dentro de `Gemini Apps` en el bloque `End User Assistants`. Su valor está en la superficie de uso final: chat, navegación, productividad y trabajo con fuentes sin pedirte que montes infraestructura de desarrollo.
+Gemini Mobile App acts as the mobile Gemini assistant surface for phones and tablets within `End User Assistants`. This topic is about end-user surfaces for chat, browsing, productivity, and source-based work rather than developer infrastructure.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres voz, cámara o interacción sobre la marcha en un formato de asistente móvil.
-- Cuando el modelo de interacción que buscas se parece a `Mobile assistant` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Gemini Apps` y necesitas su pieza más específica.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want voice, camera, and on-the-go assistant workflows in a mobile form factor.
+- When the interaction model you need looks more like `Mobile assistant` than like a generic one-size-fits-all surface.
+- When the main fit is in the `End User Assistants` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas trabajar con chat, archivos y funciones del asistente desde el navegador, encaja mejor `Gemini Web App`.
-- Si quieres ayuda sobre pestañas abiertas y tareas de navegación sin salir del navegador, encaja mejor `Gemini in Chrome`.
-- Si quieres la experiencia general de Gemini antes de elegir una superficie concreta, encaja mejor `Gemini Apps`.
+- If your use case is closer to `Gemini Web App`, start there instead.
+- If your use case is closer to `Gemini in Chrome`, start there instead.
+- If your use case is closer to `Gemini Apps`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Entrada multimodal | Combina texto, voz, imagen y cámara |
-| Asistencia móvil | Cambia el estilo de interacción respecto a una workspace web |
-| Acciones conectadas | Se acerca más al comportamiento de un asistente del dispositivo |
+| Dedicated interaction surface | Behaves like a focused app rather than a lower-level API or framework. |
+| End-user ergonomics | Optimized for direct use rather than for infrastructure integration. |
+| Workflow continuity | Keeps the experience inside one visible product surface. |
 
-## Flujo típico
+## Typical Flow
 
-1. Abres la superficie adecuada y defines la tarea o el contexto que quieres resolver.
-2. Iteras con prompts, archivos, navegación o acciones según el tipo de asistente.
-3. Revisas el resultado dentro de la misma superficie y ajustas la conversación o el material de entrada.
-4. Solo saltas a otra capa si ya necesitas integración, automatización o despliegue más serio.
+1. Open the app surface and define the task or context you want to solve.
+2. Use the app-native interaction model, such as chat, files, tabs, or device input.
+3. Iterate in place until the output matches what you need.
+4. Switch surfaces only if the work now requires a different interaction model.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres voz, cámara o interacción sobre la marcha en un formato de asistente móvil | Gemini Mobile App |
-| Necesitas trabajar con chat, archivos y funciones del asistente desde el navegador | Gemini Web App |
-| Quieres ayuda sobre pestañas abiertas y tareas de navegación sin salir del navegador | Gemini in Chrome |
-| Quieres la experiencia general de gemini antes de elegir una superficie concreta | Gemini Apps |
+| You want voice, camera, and on-the-go assistant workflows in a mobile form factor | Gemini Mobile App |
+| A workflow that is better aligned with `Gemini Web App` | Gemini Web App |
+| A workflow that is better aligned with `Gemini in Chrome` | Gemini in Chrome |
+| A workflow that is better aligned with `Gemini Apps` | Gemini Apps |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/end-user-assistants.md`
-- Documentación oficial: https://support.google.com/gemini/answer/14554984
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/end-user-assistants.md`
+- Official documentation: https://support.google.com/gemini/answer/14554984

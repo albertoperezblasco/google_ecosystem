@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El asistente de investigación apoyado en tus propias fuentes. Encaja cuando necesitas síntesis, estudio o briefings con citas basadas en un corpus dado.
+The source-grounded research assistant built around your own materials. It fits when you need synthesis, study, and briefing workflows with citations tied back to provided sources.
 
-## Qué es
+## What It Is
 
-NotebookLM funciona como el asistente de investigación apoyado en tus propias fuentes dentro de `End User Assistants` y, en el catálogo, se posiciona además como asistente de investigación con fuentes. Su valor está en la superficie de uso final: chat, navegación, productividad y trabajo con fuentes sin pedirte que montes infraestructura de desarrollo.
+NotebookLM acts as the source-grounded research assistant built around your own materials within `End User Assistants`. This topic is about end-user surfaces for chat, browsing, productivity, and source-based work rather than developer infrastructure.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas síntesis, estudio o briefings con citas basadas en un corpus dado.
-- Cuando el modelo de interacción que buscas se parece a `Source-grounded notebook` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `End User Assistants` y no en otro bloque del ecosistema.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you need synthesis, study, and briefing workflows with citations tied back to provided sources.
+- When the interaction model you need looks more like `Source-grounded notebook` than like a generic one-size-fits-all surface.
+- When the main fit is in the `End User Assistants` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas trabajar con chat, archivos y funciones del asistente desde el navegador, encaja mejor `Gemini Web App`.
-- Si quieres ayuda pegada a los artefactos de trabajo y no una app de chat separada, encaja mejor `Gemini in Google Workspace`.
-- Si quieres la experiencia general de Gemini antes de elegir una superficie concreta, encaja mejor `Gemini Apps`.
+- If your use case is closer to `Gemini Web App`, start there instead.
+- If your use case is closer to `Gemini in Google Workspace`, start there instead.
+- If your use case is closer to `Gemini Apps`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Grounding por fuentes | Trabaja sobre materiales proporcionados por el usuario |
-| Citas y trazabilidad | Facilita revisar de dónde sale cada afirmación |
-| Formato de investigación | Encaja mejor en estudio, briefing y exploración que en chat generalista |
+| User-facing workflow | Optimized around a human-facing interaction surface. |
+| Low friction | Helps users get value quickly without setting up infrastructure. |
+| Surface-specific strengths | The benefit depends heavily on where and how the assistant appears. |
 
-## Flujo típico
+## Typical Flow
 
-1. Abres la superficie adecuada y defines la tarea o el contexto que quieres resolver.
-2. Iteras con prompts, archivos, navegación o acciones según el tipo de asistente.
-3. Revisas el resultado dentro de la misma superficie y ajustas la conversación o el material de entrada.
-4. Solo saltas a otra capa si ya necesitas integración, automatización o despliegue más serio.
+1. Open the surface and define the task or context you want help with.
+2. Iterate through the conversation, files, or surrounding context available there.
+3. Review the result inside the same surface and refine the request as needed.
+4. Only move to another layer if you now need integration, automation, or deployment.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas síntesis, estudio o briefings con citas basadas en un corpus dado | NotebookLM |
-| Necesitas trabajar con chat, archivos y funciones del asistente desde el navegador | Gemini Web App |
-| Quieres ayuda pegada a los artefactos de trabajo y no una app de chat separada | Gemini in Google Workspace |
-| Quieres la experiencia general de gemini antes de elegir una superficie concreta | Gemini Apps |
+| You need synthesis, study, and briefing workflows with citations tied back to provided sources | NotebookLM |
+| A workflow that is better aligned with `Gemini Web App` | Gemini Web App |
+| A workflow that is better aligned with `Gemini in Google Workspace` | Gemini in Google Workspace |
+| A workflow that is better aligned with `Gemini Apps` | Gemini Apps |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/end-user-assistants.md`
-- Documentación oficial: https://notebooklm.google/
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/end-user-assistants.md`
+- Official documentation: https://notebooklm.google/

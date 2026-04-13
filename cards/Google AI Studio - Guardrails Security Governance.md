@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La superficie de prototipado donde ajustar umbrales de seguridad mientras exploras prompts. Encaja cuando quieres calibrar seguridad temprano sin meterte todavía en la capa de infraestructura de seguridad.
+The prototyping surface for calibrating safety thresholds while exploring prompts. It fits when you want to tune safety behavior early without jumping straight into security infrastructure.
 
-## Qué es
+## What It Is
 
-Google AI Studio funciona como la superficie de prototipado donde ajustar umbrales de seguridad mientras exploras prompts dentro de `Guardrails Security Governance` y, en el catálogo, se posiciona además como superficie de control en prototipado. No todos los controles viven en la misma capa: algunos filtran respuestas, otros blindan tráfico, otros gobiernan datos y otros miran postura organizacional.
+Google AI Studio acts as the prototyping surface for calibrating safety thresholds while exploring prompts within `Guardrails Security Governance`. Not every control lives at the same layer: some tune model filtering, some shield app traffic, some govern data, and some manage organization-wide posture.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres calibrar seguridad temprano sin meterte todavía en la capa de infraestructura de seguridad.
-- Cuando el modelo de interacción que buscas se parece a `Safety prototyping controls` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Guardrails Security Governance` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you want to tune safety behavior early without jumping straight into security infrastructure.
+- When the interaction model you need looks more like `Safety prototyping controls` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Guardrails Security Governance` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres ajustar cómo de restrictivo debe ser el modelo por categoría mientras pruebas el comportamiento, encaja mejor `Safety settings`.
-- Si quieres llevar a código el mismo tipo de control que exploraste en prototipado, encaja mejor `Gemini API`.
-- Si quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo, encaja mejor `Google Cloud Model Armor`.
+- If your use case is closer to `Safety settings`, start there instead.
+- If your use case is closer to `Gemini API`, start there instead.
+- If your use case is closer to `Google Cloud Model Armor`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Control temprano | Permite probar el efecto de thresholds antes de productivizar |
-| Feedback rápido | Facilita comparar respuestas bloqueadas y permitidas |
-| Puerta de entrada | Sirve para fijar intuición antes de codificar políticas |
+| End-to-end environment | Brings together multiple capabilities in one product surface. |
+| Connected tooling | Works well when several pieces of the workflow need to live together. |
+| Operational depth | Better suited to longer-lived or more production-shaped systems. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Pick the part of the platform that matches the current stage of work.
+2. Configure the main resources, services, or connected tools.
+3. Validate the full flow with real data, previews, or execution.
+4. Operate, extend, or scale from the same platform as the system matures.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres calibrar seguridad temprano sin meterte todavía en la capa de infraestructura de seguridad | Google AI Studio |
-| Quieres ajustar cómo de restrictivo debe ser el modelo por categoría mientras pruebas el comportamiento | Safety settings |
-| Quieres llevar a código el mismo tipo de control que exploraste en prototipado | Gemini API |
-| Quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo | Google Cloud Model Armor |
+| You want to tune safety behavior early without jumping straight into security infrastructure | Google AI Studio |
+| A workflow that is better aligned with `Safety settings` | Safety settings |
+| A workflow that is better aligned with `Gemini API` | Gemini API |
+| A workflow that is better aligned with `Google Cloud Model Armor` | Google Cloud Model Armor |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/guardrails-security-governance.md`
-- Documentación oficial: https://ai.google.dev/aistudio/
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/guardrails-security-governance.md`
+- Official documentation: https://ai.google.dev/aistudio/

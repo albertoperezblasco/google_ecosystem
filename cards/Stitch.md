@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La superficie de diseño orientada a prompts y alta fidelidad visual. Encaja cuando quieres cerrar dirección de interfaz y sistema visual antes de entrar en una implementación seria.
+The design-first, AI-native canvas for turning prompts into high-fidelity interface directions. It fits when you want to shape UI direction and design systems before serious implementation begins.
 
-## Qué es
+## What It Is
 
-Stitch funciona como la superficie de diseño orientada a prompts y alta fidelidad visual dentro de `Design to Code App Prototyping` y, en el catálogo, se posiciona además como superficie de diseño. La familia agrupa superficies para pasar de idea a interfaz o de prompt a app funcional con distintos grados de fidelidad y control.
+Stitch acts as the design-first, AI-native canvas for turning prompts into high-fidelity interface directions within `Design to Code App Prototyping`. This family groups surfaces for moving from idea to interface or from prompt to working app with different levels of fidelity and control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres cerrar dirección de interfaz y sistema visual antes de entrar en una implementación seria.
-- Cuando el modelo de interacción que buscas se parece a `AI-native design canvas` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Design to Code App Prototyping` y no en otro bloque del ecosistema.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you want to shape UI direction and design systems before serious implementation begins.
+- When the interaction model you need looks more like `AI-native design canvas` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Design to Code App Prototyping` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres vibe coding rápido con runtime server-side, secrets y paquetes npm sin montar un IDE completo, encaja mejor `AI Studio Build Mode`.
-- Si quieres un browser IDE con previews, integración Firebase y un camino más largo hacia producción, encaja mejor `Firebase Studio`.
-- Si quieres empaquetar comportamiento de IA en applets más pequeños y compartibles, encaja mejor `Opal`.
+- If your use case is closer to `AI Studio Build Mode`, start there instead.
+- If your use case is closer to `Firebase Studio`, start there instead.
+- If your use case is closer to `Opal`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Diseño desde prompts | Arranca más cerca del mockup que del código |
-| Canvas de diseño | Facilita iterar sobre interfaz y dirección |
-| Handoff de diseño | Encaja bien cuando el siguiente paso es implementación |
+| Focused workflow surface | Stays close to one practical job to be done. |
+| Fast start | Usually lowers the time to first useful result. |
+| Complements a larger stack | Fits well as one piece inside a broader workflow. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the focused task this tool should help with.
+2. Set the minimum configuration or context needed to use it well.
+3. Run an initial pass and review the output or behavior.
+4. Adjust the broader workflow around the tool once the fit is clear.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres cerrar dirección de interfaz y sistema visual antes de entrar en una implementación seria | Stitch |
-| Quieres vibe coding rápido con runtime server-side, secrets y paquetes npm sin montar un ide completo | AI Studio Build Mode |
-| Quieres un browser ide con previews, integración firebase y un camino más largo hacia producción | Firebase Studio |
-| Quieres empaquetar comportamiento de ia en applets más pequeños y compartibles | Opal |
+| You want to shape UI direction and design systems before serious implementation begins | Stitch |
+| A workflow that is better aligned with `AI Studio Build Mode` | AI Studio Build Mode |
+| A workflow that is better aligned with `Firebase Studio` | Firebase Studio |
+| A workflow that is better aligned with `Opal` | Opal |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/design-to-code-app-prototyping.md`
-- Documentación oficial: https://stitch.withgoogle.com/
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/design-to-code-app-prototyping.md`
+- Official documentation: https://stitch.withgoogle.com/

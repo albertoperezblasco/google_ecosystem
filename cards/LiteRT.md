@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El runtime optimizado para inferencia local. Encaja cuando la prioridad es ejecutar modelos eficientemente en el dispositivo.
+The optimized runtime for on-device inference. It fits when the main priority is efficient local model execution on device hardware.
 
-## Qué es
+## What It Is
 
-LiteRT funciona como el runtime optimizado para inferencia local dentro de `APIs & SDKs` y, en el catálogo, se posiciona además como runtime edge. Es el bloque donde conviven APIs fundacionales, SDKs, servicios gestionados y frameworks más profundos para casos que necesitan más control.
+LiteRT acts as the optimized runtime for on-device inference within `APIs & SDKs`. This block combines foundation APIs, SDKs, managed services, and deeper frameworks for teams that need more implementation control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando la prioridad es ejecutar modelos eficientemente en el dispositivo.
-- Cuando el modelo de interacción que buscas se parece a `On-device inference runtime` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `APIs & SDKs` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When the main priority is efficient local model execution on device hardware.
+- When the interaction model you need looks more like `On-device inference runtime` than like a generic one-size-fits-all surface.
+- When the main fit is in the `APIs & SDKs` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres percepción on-device o en tiempo real sobre varias plataformas, encaja mejor `MediaPipe`.
-- Si necesitas control de framework completo para entrenamiento o modelado, encaja mejor `TensorFlow`.
-- Si el modelo debe vivir en el dispositivo y te importan latencia, privacidad u offline, encaja mejor `Google AI Edge`.
+- If your use case is closer to `MediaPipe`, start there instead.
+- If your use case is closer to `TensorFlow`, start there instead.
+- If your use case is closer to `Google AI Edge`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Inferencia local | Reduce dependencia de la nube |
-| Optimización hardware | Ayuda con latencia y eficiencia |
-| Carril de despliegue | Se centra más en runtime que en task APIs |
+| Managed execution | Turns design or code into a running system. |
+| Production controls | Adds the operational boundaries needed once things go live. |
+| Scaling and visibility | Helps with growth, governance, and runtime inspection. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Decide what needs to run under this runtime or operations layer.
+2. Configure execution, controls, permissions, or attached services.
+3. Validate the runtime behavior under realistic conditions.
+4. Use the same runtime surface to scale, govern, and observe the system.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| La prioridad es ejecutar modelos eficientemente en el dispositivo | LiteRT |
-| Quieres percepción on-device o en tiempo real sobre varias plataformas | MediaPipe |
-| Necesitas control de framework completo para entrenamiento o modelado | TensorFlow |
-| El modelo debe vivir en el dispositivo y te importan latencia, privacidad u offline | Google AI Edge |
+| The main priority is efficient local model execution on device hardware | LiteRT |
+| A workflow that is better aligned with `MediaPipe` | MediaPipe |
+| A workflow that is better aligned with `TensorFlow` | TensorFlow |
+| A workflow that is better aligned with `Google AI Edge` | Google AI Edge |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/api_sdk.md`
-- Documentación oficial: https://ai.google.dev/edge/litert?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/api_sdk.md`
+- Official documentation: https://ai.google.dev/edge/litert?hl=es-419

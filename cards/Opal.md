@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El constructor de mini apps y experiencias reutilizables cerca del universo de gems. Encaja cuando quieres empaquetar comportamiento de IA en applets más pequeños y compartibles.
+The mini-app builder for creating reusable AI-powered applets and gem-like flows. It fits when you want to package AI behavior into smaller, shareable experiences rather than a full app.
 
-## Qué es
+## What It Is
 
-Opal funciona como el constructor de mini apps y experiencias reutilizables cerca del universo de Gems dentro de `Design to Code App Prototyping` y, en el catálogo, se posiciona además como constructor de mini apps. La familia agrupa superficies para pasar de idea a interfaz o de prompt a app funcional con distintos grados de fidelidad y control.
+Opal acts as the mini-app builder for creating reusable AI-powered applets and Gem-like flows within `Design to Code App Prototyping`. This family groups surfaces for moving from idea to interface or from prompt to working app with different levels of fidelity and control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres empaquetar comportamiento de IA en applets más pequeños y compartibles.
-- Cuando el modelo de interacción que buscas se parece a `Mini-app builder` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Design to Code App Prototyping` y no en otro bloque del ecosistema.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you want to package AI behavior into smaller, shareable experiences rather than a full app.
+- When the interaction model you need looks more like `Mini-app builder` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Design to Code App Prototyping` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres cerrar dirección de interfaz y sistema visual antes de entrar en una implementación seria, encaja mejor `Stitch`.
-- Si quieres vibe coding rápido con runtime server-side, secrets y paquetes npm sin montar un IDE completo, encaja mejor `AI Studio Build Mode`.
-- Si quieres un browser IDE con previews, integración Firebase y un camino más largo hacia producción, encaja mejor `Firebase Studio`.
+- If your use case is closer to `Stitch`, start there instead.
+- If your use case is closer to `AI Studio Build Mode`, start there instead.
+- If your use case is closer to `Firebase Studio`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Mini apps | Apunta a piezas más pequeñas que una app completa |
-| Editor visual | Permite inspeccionar mejor el flujo |
-| Cercanía a Gemini | Se alinea con experiencias tipo Gem y reutilización |
+| Focused workflow surface | Stays close to one practical job to be done. |
+| Fast start | Usually lowers the time to first useful result. |
+| Complements a larger stack | Fits well as one piece inside a broader workflow. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the focused task this tool should help with.
+2. Set the minimum configuration or context needed to use it well.
+3. Run an initial pass and review the output or behavior.
+4. Adjust the broader workflow around the tool once the fit is clear.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres empaquetar comportamiento de ia en applets más pequeños y compartibles | Opal |
-| Quieres cerrar dirección de interfaz y sistema visual antes de entrar en una implementación seria | Stitch |
-| Quieres vibe coding rápido con runtime server-side, secrets y paquetes npm sin montar un ide completo | AI Studio Build Mode |
-| Quieres un browser ide con previews, integración firebase y un camino más largo hacia producción | Firebase Studio |
+| You want to package AI behavior into smaller, shareable experiences rather than a full app | Opal |
+| A workflow that is better aligned with `Stitch` | Stitch |
+| A workflow that is better aligned with `AI Studio Build Mode` | AI Studio Build Mode |
+| A workflow that is better aligned with `Firebase Studio` | Firebase Studio |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/design-to-code-app-prototyping.md`
-- Documentación oficial: https://opal.google/_app/landing/
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/design-to-code-app-prototyping.md`
+- Official documentation: https://opal.google/_app/landing/

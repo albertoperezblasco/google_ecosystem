@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La api clásica de nlp para análisis estructurado de texto. Encaja cuando quieres entidades, sentimiento u otras tareas analíticas sin pedir generación abierta.
+The managed NLP API for structured text analysis tasks. It fits when you want classic language analysis such as entities or sentiment rather than open-ended generation.
 
-## Qué es
+## What It Is
 
-Cloud Natural Language API funciona como la API clásica de NLP para análisis estructurado de texto dentro de `APIs & SDKs` y, en el catálogo, se posiciona además como servicio gestionado de tarea específica. Es el bloque donde conviven APIs fundacionales, SDKs, servicios gestionados y frameworks más profundos para casos que necesitan más control.
+Cloud Natural Language API acts as the managed NLP API for structured text analysis tasks within `APIs & SDKs`. This block combines foundation APIs, SDKs, managed services, and deeper frameworks for teams that need more implementation control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres entidades, sentimiento u otras tareas analíticas sin pedir generación abierta.
-- Cuando el modelo de interacción que buscas se parece a `Managed NLP API` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `APIs & SDKs` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you want classic language analysis such as entities or sentiment rather than open-ended generation.
+- When the interaction model you need looks more like `Managed NLP API` than like a generic one-size-fits-all surface.
+- When the main fit is in the `APIs & SDKs` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres llamar modelos, prompts y herramientas desde tu propio código, encaja mejor `Gemini API`.
-- Si la traducción es el requisito del producto y quieres una superficie orientada a ese trabajo, encaja mejor `Cloud Translation API`.
-- Si necesitas transcripción o pipelines donde el audio entra antes que otros componentes, encaja mejor `Cloud Speech-to-Text`.
+- If your use case is closer to `Gemini API`, start there instead.
+- If your use case is closer to `Cloud Translation API`, start there instead.
+- If your use case is closer to `Cloud Speech-to-Text`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Extracción estructurada | Convierte texto en señales más deterministas |
-| Sentimiento y análisis | Resuelve tareas analíticas clásicas |
-| Menos open-ended | No pretende comportarse como un asistente generativo |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres entidades, sentimiento u otras tareas analíticas sin pedir generación abierta | Cloud Natural Language API |
-| Quieres llamar modelos, prompts y herramientas desde tu propio código | Gemini API |
-| La traducción es el requisito del producto y quieres una superficie orientada a ese trabajo | Cloud Translation API |
-| Necesitas transcripción o pipelines donde el audio entra antes que otros componentes | Cloud Speech-to-Text |
+| You want classic language analysis such as entities or sentiment rather than open-ended generation | Cloud Natural Language API |
+| A workflow that is better aligned with `Gemini API` | Gemini API |
+| A workflow that is better aligned with `Cloud Translation API` | Cloud Translation API |
+| A workflow that is better aligned with `Cloud Speech-to-Text` | Cloud Speech-to-Text |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/api_sdk.md`
-- Documentación oficial: https://docs.cloud.google.com/natural-language/docs
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/api_sdk.md`
+- Official documentation: https://docs.cloud.google.com/natural-language/docs

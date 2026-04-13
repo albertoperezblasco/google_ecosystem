@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capa de gemini dentro de gmail, docs, slides, sheets, meet y chat. Encaja cuando quieres ayuda pegada a los artefactos de trabajo y no una app de chat separada.
+The gemini layer embedded in gmail, docs, slides, sheets, meet, and chat. It fits when you want assistance directly inside productivity artifacts instead of in a separate chat app.
 
-## Qué es
+## What It Is
 
-Gemini in Google Workspace funciona como la capa de Gemini dentro de Gmail, Docs, Slides, Sheets, Meet y Chat dentro de `End User Assistants` y, en el catálogo, se posiciona además como capa integrada de productividad. Su valor está en la superficie de uso final: chat, navegación, productividad y trabajo con fuentes sin pedirte que montes infraestructura de desarrollo.
+Gemini in Google Workspace acts as the Gemini layer embedded in Gmail, Docs, Slides, Sheets, Meet, and Chat within `End User Assistants`. This topic is about end-user surfaces for chat, browsing, productivity, and source-based work rather than developer infrastructure.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres ayuda pegada a los artefactos de trabajo y no una app de chat separada.
-- Cuando el modelo de interacción que buscas se parece a `Embedded productivity assistant` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `End User Assistants` y no en otro bloque del ecosistema.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want assistance directly inside productivity artifacts instead of in a separate chat app.
+- When the interaction model you need looks more like `Embedded productivity assistant` than like a generic one-size-fits-all surface.
+- When the main fit is in the `End User Assistants` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas trabajar con chat, archivos y funciones del asistente desde el navegador, encaja mejor `Gemini Web App`.
-- Si necesitas síntesis, estudio o briefings con citas basadas en un corpus dado, encaja mejor `NotebookLM`.
-- Si quieres ayuda sobre pestañas abiertas y tareas de navegación sin salir del navegador, encaja mejor `Gemini in Chrome`.
+- If your use case is closer to `Gemini Web App`, start there instead.
+- If your use case is closer to `NotebookLM`, start there instead.
+- If your use case is closer to `Gemini in Chrome`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Integración en apps | Se usa dentro de las herramientas donde ya vive el trabajo |
-| Productividad contextual | Ayuda a redactar, resumir, analizar y preparar reuniones |
-| Menos cambio de superficie | Evita sacar al usuario de su flujo habitual |
+| User-facing workflow | Optimized around a human-facing interaction surface. |
+| Low friction | Helps users get value quickly without setting up infrastructure. |
+| Surface-specific strengths | The benefit depends heavily on where and how the assistant appears. |
 
-## Flujo típico
+## Typical Flow
 
-1. Abres la superficie adecuada y defines la tarea o el contexto que quieres resolver.
-2. Iteras con prompts, archivos, navegación o acciones según el tipo de asistente.
-3. Revisas el resultado dentro de la misma superficie y ajustas la conversación o el material de entrada.
-4. Solo saltas a otra capa si ya necesitas integración, automatización o despliegue más serio.
+1. Open the surface and define the task or context you want help with.
+2. Iterate through the conversation, files, or surrounding context available there.
+3. Review the result inside the same surface and refine the request as needed.
+4. Only move to another layer if you now need integration, automation, or deployment.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres ayuda pegada a los artefactos de trabajo y no una app de chat separada | Gemini in Google Workspace |
-| Necesitas trabajar con chat, archivos y funciones del asistente desde el navegador | Gemini Web App |
-| Necesitas síntesis, estudio o briefings con citas basadas en un corpus dado | NotebookLM |
-| Quieres ayuda sobre pestañas abiertas y tareas de navegación sin salir del navegador | Gemini in Chrome |
+| You want assistance directly inside productivity artifacts instead of in a separate chat app | Gemini in Google Workspace |
+| A workflow that is better aligned with `Gemini Web App` | Gemini Web App |
+| A workflow that is better aligned with `NotebookLM` | NotebookLM |
+| A workflow that is better aligned with `Gemini in Chrome` | Gemini in Chrome |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/end-user-assistants.md`
-- Documentación oficial: https://workspace.google.com/resources/ai/
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/end-user-assistants.md`
+- Official documentation: https://workspace.google.com/resources/ai/

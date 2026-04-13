@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El framework amplio de ml para construir y entrenar modelos. Encaja cuando necesitas control de framework completo para entrenamiento o modelado.
+The broad ML framework for building and training models. It fits when you need full framework-level control over training systems or lower-level model construction.
 
-## Qué es
+## What It Is
 
-TensorFlow funciona como el framework amplio de ML para construir y entrenar modelos dentro de `APIs & SDKs` y, en el catálogo, se posiciona además como framework de ML. Es el bloque donde conviven APIs fundacionales, SDKs, servicios gestionados y frameworks más profundos para casos que necesitan más control.
+TensorFlow acts as the broad ML framework for building and training models within `APIs & SDKs`. This block combines foundation APIs, SDKs, managed services, and deeper frameworks for teams that need more implementation control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas control de framework completo para entrenamiento o modelado.
-- Cuando el modelo de interacción que buscas se parece a `ML framework APIs` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `APIs & SDKs` y no en otro bloque del ecosistema.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you need full framework-level control over training systems or lower-level model construction.
+- When the interaction model you need looks more like `ML framework APIs` than like a generic one-size-fits-all surface.
+- When the main fit is in the `APIs & SDKs` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si trabajas en un flujo más de research, transformaciones composables y control matemático, encaja mejor `JAX`.
-- Si la prioridad es ejecutar modelos eficientemente en el dispositivo, encaja mejor `LiteRT`.
-- Si quieres percepción on-device o en tiempo real sobre varias plataformas, encaja mejor `MediaPipe`.
+- If your use case is closer to `JAX`, start there instead.
+- If your use case is closer to `LiteRT`, start there instead.
+- If your use case is closer to `MediaPipe`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| APIs profundas | Da control de framework, no solo de servicio |
-| Construcción y training | Encaja en sistemas de ML de mayor profundidad |
-| Ecosistema amplio | Sirve cuando un runtime o API ya se queda corto |
+| Structured building blocks | Provides more architecture control than a task-specific managed API. |
+| Deeper implementation control | Lets teams shape behavior more directly around code and runtime choices. |
+| Good integration depth | Works well when you need something more customizable than a single hosted call. |
 
-## Flujo típico
+## Typical Flow
 
-1. Eliges el caso de uso y la superficie técnica más adecuada para implementarlo.
-2. Integras la API, SDK o framework con tu modelo, datos y configuración inicial.
-3. Pruebas el flujo con datos reales y ajustas opciones, herramientas o runtime.
-4. Lo conectas con el resto de tu aplicación o pipeline de producción.
+1. Choose the framework lane that best matches the architecture you need.
+2. Set up the main building blocks, configuration, and surrounding runtime choices.
+3. Test the workflow with representative inputs and tune the structure.
+4. Integrate it more deeply once you know the architecture fits.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas control de framework completo para entrenamiento o modelado | TensorFlow |
-| Trabajas en un flujo más de research, transformaciones composables y control matemático | JAX |
-| La prioridad es ejecutar modelos eficientemente en el dispositivo | LiteRT |
-| Quieres percepción on-device o en tiempo real sobre varias plataformas | MediaPipe |
+| You need full framework-level control over training systems or lower-level model construction | TensorFlow |
+| A workflow that is better aligned with `JAX` | JAX |
+| A workflow that is better aligned with `LiteRT` | LiteRT |
+| A workflow that is better aligned with `MediaPipe` | MediaPipe |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/api_sdk.md`
-- Documentación oficial: https://www.tensorflow.org/api_docs
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/api_sdk.md`
+- Official documentation: https://www.tensorflow.org/api_docs

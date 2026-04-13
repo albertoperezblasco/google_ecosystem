@@ -18,53 +18,53 @@ status: active
 
 ## TL;DR
 
-La superficie web principal de gemini. Encaja cuando necesitas trabajar con chat, archivos y funciones del asistente desde el navegador.
+The main web-based gemini workspace. It fits when you want general-purpose assistant chat, files, and Gemini-native features from the browser.
 
-## Qué es
+## What It Is
 
-Gemini Web App funciona como la superficie web principal de Gemini dentro de `Gemini Apps` en el bloque `End User Assistants`. Su valor está en la superficie de uso final: chat, navegación, productividad y trabajo con fuentes sin pedirte que montes infraestructura de desarrollo.
+Gemini Web App acts as the main web-based Gemini workspace within `End User Assistants`. This topic is about end-user surfaces for chat, browsing, productivity, and source-based work rather than developer infrastructure.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas trabajar con chat, archivos y funciones del asistente desde el navegador.
-- Cuando el modelo de interacción que buscas se parece a `Browser chat workspace` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Gemini Apps` y necesitas su pieza más específica.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want general-purpose assistant chat, files, and Gemini-native features from the browser.
+- When the interaction model you need looks more like `Browser chat workspace` than like a generic one-size-fits-all surface.
+- When the main fit is in the `End User Assistants` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres voz, cámara o interacción sobre la marcha en un formato de asistente móvil, encaja mejor `Gemini Mobile App`.
-- Si quieres ayuda sobre pestañas abiertas y tareas de navegación sin salir del navegador, encaja mejor `Gemini in Chrome`.
-- Si necesitas síntesis, estudio o briefings con citas basadas en un corpus dado, encaja mejor `NotebookLM`.
-- Si quieres ayuda pegada a los artefactos de trabajo y no una app de chat separada, encaja mejor `Gemini in Google Workspace`.
+- If your use case is closer to `Gemini Mobile App`, start there instead.
+- If your use case is closer to `Gemini in Chrome`, start there instead.
+- If your use case is closer to `NotebookLM`, start there instead.
+- If your use case is closer to `Gemini in Google Workspace`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Chat generalista | Sirve para preguntas, redacción y síntesis en una sola superficie |
-| Trabajo con contexto | Permite apoyarte en archivos y sesiones de chat más largas |
-| Funciones nativas de Gemini | Es la vía natural para usar capacidades propias del asistente en web |
+| Dedicated interaction surface | Behaves like a focused app rather than a lower-level API or framework. |
+| End-user ergonomics | Optimized for direct use rather than for infrastructure integration. |
+| Workflow continuity | Keeps the experience inside one visible product surface. |
 
-## Flujo típico
+## Typical Flow
 
-1. Abres la superficie adecuada y defines la tarea o el contexto que quieres resolver.
-2. Iteras con prompts, archivos, navegación o acciones según el tipo de asistente.
-3. Revisas el resultado dentro de la misma superficie y ajustas la conversación o el material de entrada.
-4. Solo saltas a otra capa si ya necesitas integración, automatización o despliegue más serio.
+1. Open the app surface and define the task or context you want to solve.
+2. Use the app-native interaction model, such as chat, files, tabs, or device input.
+3. Iterate in place until the output matches what you need.
+4. Switch surfaces only if the work now requires a different interaction model.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas trabajar con chat, archivos y funciones del asistente desde el navegador | Gemini Web App |
-| Quieres voz, cámara o interacción sobre la marcha en un formato de asistente móvil | Gemini Mobile App |
-| Quieres ayuda sobre pestañas abiertas y tareas de navegación sin salir del navegador | Gemini in Chrome |
-| Necesitas síntesis, estudio o briefings con citas basadas en un corpus dado | NotebookLM |
-| Quieres ayuda pegada a los artefactos de trabajo y no una app de chat separada | Gemini in Google Workspace |
+| You want general-purpose assistant chat, files, and Gemini-native features from the browser | Gemini Web App |
+| A workflow that is better aligned with `Gemini Mobile App` | Gemini Mobile App |
+| A workflow that is better aligned with `Gemini in Chrome` | Gemini in Chrome |
+| A workflow that is better aligned with `NotebookLM` | NotebookLM |
+| A workflow that is better aligned with `Gemini in Google Workspace` | Gemini in Google Workspace |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/end-user-assistants.md`
-- Documentación oficial: https://gemini.google/about/
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/end-user-assistants.md`
+- Official documentation: https://gemini.google/about/

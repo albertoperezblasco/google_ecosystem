@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capa de scoring centrada en trayectorias, tool use y task completion de agentes. Encaja cuando quieres saber si el agente usó bien las herramientas y completó el trabajo.
+The evaluation surface for scoring agent trajectories, tool use, and task completion. It fits when you need to know whether an agent actually behaved correctly and finished the job.
 
-## Qué es
+## What It Is
 
-Agent Evaluation funciona como la capa de scoring centrada en trayectorias, tool use y task completion de agentes dentro de `Evaluation & Observability` y, en el catálogo, se posiciona además como superficie de evaluación. Este tema mezcla tres capas distintas: evaluación antes del lanzamiento, comprensión del modelo y observabilidad cuando ya está en producción.
+Agent Evaluation acts as the evaluation surface for scoring agent trajectories, tool use, and task completion within `Evaluation & Observability`. This topic mixes three layers: evaluation before launch, model insight and feature context, and observability once the system is already running.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres saber si el agente usó bien las herramientas y completó el trabajo.
-- Cuando el modelo de interacción que buscas se parece a `Agent scoring workflows` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Evaluation & Observability` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you need to know whether an agent actually behaved correctly and finished the job.
+- When the interaction model you need looks more like `Agent scoring workflows` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Evaluation & Observability` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres puntuar prompts y respuestas con criterios repetibles, encaja mejor `Gen AI Evaluation Service`.
-- Si necesitas saber qué ejecución produjo qué resultado y con qué configuración, encaja mejor `Vertex AI Experiments`.
-- Si ya vas a operar agentes en producción y necesitas perímetro, identidad y gobierno de ejecución, encaja mejor `Vertex AI Agent Engine`.
+- If your use case is closer to `Gen AI Evaluation Service`, start there instead.
+- If your use case is closer to `Vertex AI Experiments`, start there instead.
+- If your use case is closer to `Vertex AI Agent Engine`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Trayectorias | Mira pasos y no solo respuestas finales |
-| Tool use | Evalúa el comportamiento agentic real |
-| Task completion | Ayuda a validar éxito operativo |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres saber si el agente usó bien las herramientas y completó el trabajo | Agent Evaluation |
-| Quieres puntuar prompts y respuestas con criterios repetibles | Gen AI Evaluation Service |
-| Necesitas saber qué ejecución produjo qué resultado y con qué configuración | Vertex AI Experiments |
-| Ya vas a operar agentes en producción y necesitas perímetro, identidad y gobierno de ejecución | Vertex AI Agent Engine |
+| You need to know whether an agent actually behaved correctly and finished the job | Agent Evaluation |
+| A workflow that is better aligned with `Gen AI Evaluation Service` | Gen AI Evaluation Service |
+| A workflow that is better aligned with `Vertex AI Experiments` | Vertex AI Experiments |
+| A workflow that is better aligned with `Vertex AI Agent Engine` | Vertex AI Agent Engine |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/evaluation_observability.md`
-- Documentación oficial: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents?hl=es
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/evaluation_observability.md`
+- Official documentation: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents?hl=es

@@ -18,53 +18,53 @@ status: active
 
 ## TL;DR
 
-El paraguas de gemini para usuarios finales. Encaja cuando quieres la experiencia general de Gemini antes de elegir una superficie concreta.
+The umbrella gemini experience for end users across web and mobile surfaces. It fits when you want the overall Gemini end-user experience before choosing a specific surface.
 
-## Qué es
+## What It Is
 
-Gemini Apps funciona como el paraguas de Gemini para usuarios finales dentro de `End User Assistants` y, en el catálogo, se posiciona además como paraguas de consumo. Su valor está en la superficie de uso final: chat, navegación, productividad y trabajo con fuentes sin pedirte que montes infraestructura de desarrollo.
+Gemini Apps acts as the umbrella Gemini experience for end users across web and mobile surfaces within `End User Assistants`. This topic is about end-user surfaces for chat, browsing, productivity, and source-based work rather than developer infrastructure.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres la experiencia general de Gemini antes de elegir una superficie concreta.
-- Cuando el modelo de interacción que buscas se parece a `Web and mobile chat` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `End User Assistants` y no en otro bloque del ecosistema.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want the overall Gemini end-user experience before choosing a specific surface.
+- When the interaction model you need looks more like `Web and mobile chat` than like a generic one-size-fits-all surface.
+- When the main fit is in the `End User Assistants` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas trabajar con chat, archivos y funciones del asistente desde el navegador, encaja mejor `Gemini Web App`.
-- Si quieres voz, cámara o interacción sobre la marcha en un formato de asistente móvil, encaja mejor `Gemini Mobile App`.
-- Si necesitas síntesis, estudio o briefings con citas basadas en un corpus dado, encaja mejor `NotebookLM`.
-- Si quieres ayuda pegada a los artefactos de trabajo y no una app de chat separada, encaja mejor `Gemini in Google Workspace`.
+- If your use case is closer to `Gemini Web App`, start there instead.
+- If your use case is closer to `Gemini Mobile App`, start there instead.
+- If your use case is closer to `NotebookLM`, start there instead.
+- If your use case is closer to `Gemini in Google Workspace`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Superficie paraguas | Agrupa las experiencias web y móvil bajo la misma familia |
-| Trabajo generalista | Encaja para brainstorming, resúmenes, borradores y preguntas abiertas |
-| Puerta de entrada | Te deja empezar sin pensar todavía en APIs o tooling de desarrollo |
+| Umbrella experience | Groups several end-user surfaces into one family. |
+| Broad entry point | Gives users a simple place to start before choosing a narrower surface. |
+| Shared product identity | Keeps several user experiences tied into one assistant story. |
 
-## Flujo típico
+## Typical Flow
 
-1. Abres la superficie adecuada y defines la tarea o el contexto que quieres resolver.
-2. Iteras con prompts, archivos, navegación o acciones según el tipo de asistente.
-3. Revisas el resultado dentro de la misma superficie y ajustas la conversación o el material de entrada.
-4. Solo saltas a otra capa si ya necesitas integración, automatización o despliegue más serio.
+1. Start from the umbrella experience and decide which end-user surface fits best.
+2. Use the relevant surface for chat, productivity, browsing, or source-grounded work.
+3. Refine the workflow inside that surface until the interaction pattern is clear.
+4. Move to a more specific product only when the current surface stops fitting.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres la experiencia general de gemini antes de elegir una superficie concreta | Gemini Apps |
-| Necesitas trabajar con chat, archivos y funciones del asistente desde el navegador | Gemini Web App |
-| Quieres voz, cámara o interacción sobre la marcha en un formato de asistente móvil | Gemini Mobile App |
-| Necesitas síntesis, estudio o briefings con citas basadas en un corpus dado | NotebookLM |
-| Quieres ayuda pegada a los artefactos de trabajo y no una app de chat separada | Gemini in Google Workspace |
+| You want the overall Gemini end-user experience before choosing a specific surface | Gemini Apps |
+| A workflow that is better aligned with `Gemini Web App` | Gemini Web App |
+| A workflow that is better aligned with `Gemini Mobile App` | Gemini Mobile App |
+| A workflow that is better aligned with `NotebookLM` | NotebookLM |
+| A workflow that is better aligned with `Gemini in Google Workspace` | Gemini in Google Workspace |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/end-user-assistants.md`
-- Documentación oficial: https://support.google.com/gemini/answer/13275745
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/end-user-assistants.md`
+- Official documentation: https://support.google.com/gemini/answer/13275745

@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La familia separada de visión generalista que también aporta ocr. Encaja cuando tu caso es más de imagen general o OCR ligero que de plataforma documental completa.
+The separate cloud vision product family that still matters here for general OCR and image text extraction. It fits when you need lighter-weight OCR or image understanding rather than a full document-native platform.
 
-## Qué es
+## What It Is
 
-Cloud Vision API funciona como la familia separada de visión generalista que también aporta OCR dentro de `Document AI OCR` y, en el catálogo, se posiciona además como familia de producto separada. En este bloque la frontera importante es entre OCR genérico y comprensión documental con estructura, entidades y automatización operativa.
+Cloud Vision API acts as the separate Cloud Vision product family that still matters here for general OCR and image text extraction within `Document AI OCR`. In this block, the important boundary is between generic OCR and document-native understanding with structure, entities, and operational automation.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando tu caso es más de imagen general o OCR ligero que de plataforma documental completa.
-- Cuando el modelo de interacción que buscas se parece a `General image OCR and vision API` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Document AI OCR` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you need lighter-weight OCR or image understanding rather than a full document-native platform.
+- When the interaction model you need looks more like `General image OCR and vision API` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Document AI OCR` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres extraer texto rápido de imágenes sin el resto del stack Document AI, encaja mejor `Vision OCR`.
-- Si quieres pasar de OCR plano a entidades, estructura y automatización operativa, encaja mejor `Document AI`.
-- Si quieres OCR de documentos con layout y calidad superiores a un OCR genérico, encaja mejor `Enterprise Document OCR`.
+- If your use case is closer to `Vision OCR`, start there instead.
+- If your use case is closer to `Document AI`, start there instead.
+- If your use case is closer to `Enterprise Document OCR`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| OCR general | Resuelve texto en imágenes y páginas escaneadas |
-| Visión más amplia | No se limita al caso documental |
-| Entrada ligera | Es menos especializada que Document AI |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Tu caso es más de imagen general o ocr ligero que de plataforma documental completa | Cloud Vision API |
-| Quieres extraer texto rápido de imágenes sin el resto del stack document ai | Vision OCR |
-| Quieres pasar de ocr plano a entidades, estructura y automatización operativa | Document AI |
-| Quieres ocr de documentos con layout y calidad superiores a un ocr genérico | Enterprise Document OCR |
+| You need lighter-weight OCR or image understanding rather than a full document-native platform | Cloud Vision API |
+| A workflow that is better aligned with `Vision OCR` | Vision OCR |
+| A workflow that is better aligned with `Document AI` | Document AI |
+| A workflow that is better aligned with `Enterprise Document OCR` | Enterprise Document OCR |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/document-ai-ocr.md`
-- Documentación oficial: https://docs.cloud.google.com/vision/overview/docs
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/document-AI-OCR.md`
+- Official documentation: https://docs.cloud.google.com/vision/overview/docs

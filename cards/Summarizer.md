@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capacidad de resumir documentos con forma y longitud configurables. Encaja cuando quieres digestos operativos antes o además de extracción más profunda.
+The document summarization processor for configurable document-native digests. It fits when you want concise operational summaries of documents before or alongside deeper extraction.
 
-## Qué es
+## What It Is
 
-Summarizer funciona como la capacidad de resumir documentos con forma y longitud configurables dentro de `Document AI` en el bloque `Document AI OCR`. En este bloque la frontera importante es entre OCR genérico y comprensión documental con estructura, entidades y automatización operativa.
+Summarizer acts as the document summarization processor for configurable document-native digests within `Document AI OCR`. In this block, the important boundary is between generic OCR and document-native understanding with structure, entities, and operational automation.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres digestos operativos antes o además de extracción más profunda.
-- Cuando el modelo de interacción que buscas se parece a `Document summarization processor` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Document AI` y necesitas su pieza más específica.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you want concise operational summaries of documents before or alongside deeper extraction.
+- When the interaction model you need looks more like `Document summarization processor` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Document AI OCR` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas datos estructurados que luego se validen, comparen o almacenen, encaja mejor `Extraction`.
-- Si tu retrieval depende de conservar encabezados, tablas, figuras y estructura, encaja mejor `Layout Parser`.
-- Si quieres pasar de OCR plano a entidades, estructura y automatización operativa, encaja mejor `Document AI`.
+- If your use case is closer to `Extraction`, start there instead.
+- If your use case is closer to `Layout Parser`, start there instead.
+- If your use case is closer to `Document AI`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Resumen document-native | Se sitúa más cerca del documento que del chat genérico |
-| Salida configurable | Permite adaptar formato y tamaño |
-| Triage rápido | Ayuda en revisión y briefing |
+| Specialized layer | Targets a narrower part of the workflow than the parent product. |
+| Faster time to value | Helps teams adopt a focused capability without rethinking the whole stack. |
+| Works inside a broader product | Makes the most sense as part of the surrounding platform story. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Identify where this capability sits inside the broader product flow.
+2. Enable or configure the capability with the minimum required inputs.
+3. Run a first test and inspect how it changes the workflow.
+4. Adopt more of the parent product only if this narrower layer is not enough.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres digestos operativos antes o además de extracción más profunda | Summarizer |
-| Necesitas datos estructurados que luego se validen, comparen o almacenen | Extraction |
-| Tu retrieval depende de conservar encabezados, tablas, figuras y estructura | Layout Parser |
-| Quieres pasar de ocr plano a entidades, estructura y automatización operativa | Document AI |
+| You want concise operational summaries of documents before or alongside deeper extraction | Summarizer |
+| A workflow that is better aligned with `Extraction` | Extraction |
+| A workflow that is better aligned with `Layout Parser` | Layout Parser |
+| A workflow that is better aligned with `Document AI` | Document AI |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/document-ai-ocr.md`
-- Documentación oficial: https://docs.cloud.google.com/document-ai/docs/custom-summarizer
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/document-AI-OCR.md`
+- Official documentation: https://docs.cloud.google.com/document-ai/docs/custom-summarizer

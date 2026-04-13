@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capa de blindaje que criba prompts, respuestas y, en algunos casos, documentos. Encaja cuando quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo.
+The application shielding service for screening prompts, responses, and some supported files. It fits when you want a security layer around the app rather than relying only on model-native filters.
 
-## Qué es
+## What It Is
 
-Google Cloud Model Armor funciona como la capa de blindaje que criba prompts, respuestas y, en algunos casos, documentos dentro de `Guardrails Security Governance` y, en el catálogo, se posiciona además como capa de blindaje de aplicación. No todos los controles viven en la misma capa: algunos filtran respuestas, otros blindan tráfico, otros gobiernan datos y otros miran postura organizacional. La documentación oficial actual enfatiza el cribado proactivo de prompts y responses, junto con detección de prompt injection y otros riesgos.
+Google Cloud Model Armor acts as the application shielding service for screening prompts, responses, and some supported files within `Guardrails Security Governance`. Not every control lives at the same layer: some tune model filtering, some shield app traffic, some govern data, and some manage organization-wide posture. Google’s current overview emphasizes proactive screening of prompts and responses together with prompt-injection and jailbreak protection.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo.
-- Cuando el modelo de interacción que buscas se parece a `App shielding service` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Guardrails Security Governance` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you want a security layer around the app rather than relying only on model-native filters.
+- When the interaction model you need looks more like `App shielding service` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Guardrails Security Governance` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si tu sistema toca datos regulados o de alto riesgo y necesitas gobernarlos antes o después del flujo de IA, encaja mejor `Sensitive Data Protection`.
-- Si quieres una vista transversal de riesgos y hallazgos más allá de una sola app de IA, encaja mejor `Security Command Center`.
-- Si ya vas a operar agentes en producción y necesitas perímetro, identidad y gobierno de ejecución, encaja mejor `Vertex AI Agent Engine`.
+- If your use case is closer to `Sensitive Data Protection`, start there instead.
+- If your use case is closer to `Security Command Center`, start there instead.
+- If your use case is closer to `Vertex AI Agent Engine`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Screening de prompt y response | Protege ambos lados del intercambio |
-| Detección de ataques | Añade cobertura contra prompt injection y jailbreaks |
-| Política alrededor de la app | Funciona como escudo y sanitización externos al modelo |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo | Google Cloud Model Armor |
-| Tu sistema toca datos regulados o de alto riesgo y necesitas gobernarlos antes o después del flujo de ia | Sensitive Data Protection |
-| Quieres una vista transversal de riesgos y hallazgos más allá de una sola app de ia | Security Command Center |
-| Ya vas a operar agentes en producción y necesitas perímetro, identidad y gobierno de ejecución | Vertex AI Agent Engine |
+| You want a security layer around the app rather than relying only on model-native filters | Google Cloud Model Armor |
+| A workflow that is better aligned with `Sensitive Data Protection` | Sensitive Data Protection |
+| A workflow that is better aligned with `Security Command Center` | Security Command Center |
+| A workflow that is better aligned with `Vertex AI Agent Engine` | Vertex AI Agent Engine |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/guardrails-security-governance.md`
-- Documentación oficial: https://docs.cloud.google.com/model-armor/overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/guardrails-security-governance.md`
+- Official documentation: https://docs.cloud.google.com/model-armor/overview

@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La plataforma de postura y findings de seguridad a escala organizacional. Encaja cuando quieres una vista transversal de riesgos y hallazgos más allá de una sola app de IA.
+The organization-wide security posture and findings platform. It fits when you need a cross-environment view of risks and findings beyond a single AI application.
 
-## Qué es
+## What It Is
 
-Security Command Center funciona como la plataforma de postura y findings de seguridad a escala organizacional dentro de `Guardrails Security Governance` y, en el catálogo, se posiciona además como plataforma de seguridad organizacional. No todos los controles viven en la misma capa: algunos filtran respuestas, otros blindan tráfico, otros gobiernan datos y otros miran postura organizacional.
+Security Command Center acts as the organization-wide security posture and findings platform within `Guardrails Security Governance`. Not every control lives at the same layer: some tune model filtering, some shield app traffic, some govern data, and some manage organization-wide posture.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres una vista transversal de riesgos y hallazgos más allá de una sola app de IA.
-- Cuando el modelo de interacción que buscas se parece a `Org-wide security platform` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Guardrails Security Governance` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you need a cross-environment view of risks and findings beyond a single AI application.
+- When the interaction model you need looks more like `Org-wide security platform` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Guardrails Security Governance` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres inventario, riesgos, amenazas y visibilidad específica sobre activos de IA, encaja mejor `AI Protection`.
-- Si quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo, encaja mejor `Google Cloud Model Armor`.
-- Si ya vas a operar agentes en producción y necesitas perímetro, identidad y gobierno de ejecución, encaja mejor `Vertex AI Agent Engine`.
+- If your use case is closer to `AI Protection`, start there instead.
+- If your use case is closer to `Google Cloud Model Armor`, start there instead.
+- If your use case is closer to `Vertex AI Agent Engine`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Vista organizacional | Agrega postura a nivel de estate |
-| Hallazgos centralizados | Ayuda a revisar riesgos desde un solo lugar |
-| Marco de gobierno | Aporta más amplitud que un filtro en línea |
+| End-to-end environment | Brings together multiple capabilities in one product surface. |
+| Connected tooling | Works well when several pieces of the workflow need to live together. |
+| Operational depth | Better suited to longer-lived or more production-shaped systems. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Pick the part of the platform that matches the current stage of work.
+2. Configure the main resources, services, or connected tools.
+3. Validate the full flow with real data, previews, or execution.
+4. Operate, extend, or scale from the same platform as the system matures.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres una vista transversal de riesgos y hallazgos más allá de una sola app de ia | Security Command Center |
-| Quieres inventario, riesgos, amenazas y visibilidad específica sobre activos de ia | AI Protection |
-| Quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo | Google Cloud Model Armor |
-| Ya vas a operar agentes en producción y necesitas perímetro, identidad y gobierno de ejecución | Vertex AI Agent Engine |
+| You need a cross-environment view of risks and findings beyond a single AI application | Security Command Center |
+| A workflow that is better aligned with `AI Protection` | AI Protection |
+| A workflow that is better aligned with `Google Cloud Model Armor` | Google Cloud Model Armor |
+| A workflow that is better aligned with `Vertex AI Agent Engine` | Vertex AI Agent Engine |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/guardrails-security-governance.md`
-- Documentación oficial: https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/guardrails-security-governance.md`
+- Official documentation: https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview

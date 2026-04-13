@@ -18,53 +18,53 @@ status: active
 
 ## TL;DR
 
-El control de categorías y umbrales de seguridad en la experiencia de prototipado. Encaja cuando quieres ajustar cómo de restrictivo debe ser el modelo por categoría mientras pruebas el comportamiento.
+The category-level safety controls inside google AI studio prototyping. It fits when you want to tune how restrictive the model should be while testing behavior interactively.
 
-## Qué es
+## What It Is
 
-Safety settings funciona como el control de categorías y umbrales de seguridad en la experiencia de prototipado dentro de `Google AI Studio` en el bloque `Guardrails Security Governance`. No todos los controles viven en la misma capa: algunos filtran respuestas, otros blindan tráfico, otros gobiernan datos y otros miran postura organizacional.
+Safety settings acts as the category-level safety controls inside Google AI Studio prototyping within `Guardrails Security Governance`. Not every control lives at the same layer: some tune model filtering, some shield app traffic, some govern data, and some manage organization-wide posture.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres ajustar cómo de restrictivo debe ser el modelo por categoría mientras pruebas el comportamiento.
-- Cuando el modelo de interacción que buscas se parece a `Category-level safety controls` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Google AI Studio` y necesitas su pieza más específica.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you want to tune how restrictive the model should be while testing behavior interactively.
+- When the interaction model you need looks more like `Category-level safety controls` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Guardrails Security Governance` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres calibrar la experiencia general de prototipado y no solo tocar thresholds, encaja mejor `Google AI Studio`.
-- Si necesitas llevar este control a código y a requests reales, encaja mejor `Gemini API`.
-- Si quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo, encaja mejor `Google Cloud Model Armor`.
-- Si tu sistema toca datos regulados o de alto riesgo y necesitas gobernarlos antes o después del flujo de IA, encaja mejor `Sensitive Data Protection`.
+- If your use case is closer to `Google AI Studio`, start there instead.
+- If your use case is closer to `Gemini API`, start there instead.
+- If your use case is closer to `Google Cloud Model Armor`, start there instead.
+- If your use case is closer to `Sensitive Data Protection`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Thresholds por categoría | Permiten modular el filtrado por tipo de daño |
-| Comparación interactiva | Ayudan a ver el efecto del cambio durante prototipado |
-| Base de política | Sirven de punto de partida antes de pasar a código |
+| Policy tuning | Lets teams shape behavior around risk, safety, or compliance needs. |
+| Safer defaults | Supports earlier alignment on acceptable model or app behavior. |
+| Layered use | Works best alongside broader product, runtime, or security controls. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Decide which policy or risk boundary you want to influence.
+2. Set the relevant thresholds, toggles, or request-level options.
+3. Test the effect on representative prompts, inputs, or outputs.
+4. Refine the broader product and security posture around what you learn.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres ajustar cómo de restrictivo debe ser el modelo por categoría mientras pruebas el comportamiento | Safety settings |
-| Quieres calibrar la experiencia general de prototipado y no solo tocar thresholds | Google AI Studio |
-| Necesitas llevar este control a código y a requests reales | Gemini API |
-| Quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo | Google Cloud Model Armor |
-| Tu sistema toca datos regulados o de alto riesgo y necesitas gobernarlos antes o después del flujo de ia | Sensitive Data Protection |
+| You want to tune how restrictive the model should be while testing behavior interactively | Safety settings |
+| A workflow that is better aligned with `Google AI Studio` | Google AI Studio |
+| A workflow that is better aligned with `Gemini API` | Gemini API |
+| A workflow that is better aligned with `Google Cloud Model Armor` | Google Cloud Model Armor |
+| A workflow that is better aligned with `Sensitive Data Protection` | Sensitive Data Protection |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/guardrails-security-governance.md`
-- Documentación oficial: https://ai.google.dev/gemini-api/docs/safety-settings
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/guardrails-security-governance.md`
+- Official documentation: https://ai.google.dev/gemini-api/docs/safety-settings

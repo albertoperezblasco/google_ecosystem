@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capa de interpretabilidad para entender por qué un modelo predijo eso. Encaja cuando necesitas justificar decisiones a negocio, riesgo o compliance.
+The interpretability layer for understanding why a model made a prediction. It fits when you need feature-level explanation and defensible model reasoning for stakeholders.
 
-## Qué es
+## What It Is
 
-Vertex Explainable AI funciona como la capa de interpretabilidad para entender por qué un modelo predijo eso dentro de `Evaluation & Observability` y, en el catálogo, se posiciona además como superficie de explicación y contexto de features. Este tema mezcla tres capas distintas: evaluación antes del lanzamiento, comprensión del modelo y observabilidad cuando ya está en producción.
+Vertex Explainable AI acts as the interpretability layer for understanding why a model made a prediction within `Evaluation & Observability`. This topic mixes three layers: evaluation before launch, model insight and feature context, and observability once the system is already running.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas justificar decisiones a negocio, riesgo o compliance.
-- Cuando el modelo de interacción que buscas se parece a `Model explanation service` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Evaluation & Observability` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you need feature-level explanation and defensible model reasoning for stakeholders.
+- When the interaction model you need looks more like `Model explanation service` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Evaluation & Observability` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas métricas formales y comparación reproducible sobre modelos no generativos, encaja mejor `Vertex AI Evaluation`.
-- Si quieres consistencia entre entrenamiento e inferencia y una capa reusable de señales, encaja mejor `Vertex AI Feature Store`.
-- Si quieres un rastro operativo y auditable de lo que ocurrió, encaja mejor `Cloud Logging`.
+- If your use case is closer to `Vertex AI Evaluation`, start there instead.
+- If your use case is closer to `Vertex AI Feature Store`, start there instead.
+- If your use case is closer to `Cloud Logging`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Contribución de features | Explica qué señales importaron |
-| Más trazabilidad | Ayuda a defender decisiones del modelo |
-| Mejor comunicación | Reduce la caja negra ante stakeholders |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas justificar decisiones a negocio, riesgo o compliance | Vertex Explainable AI |
-| Necesitas métricas formales y comparación reproducible sobre modelos no generativos | Vertex AI Evaluation |
-| Quieres consistencia entre entrenamiento e inferencia y una capa reusable de señales | Vertex AI Feature Store |
-| Quieres un rastro operativo y auditable de lo que ocurrió | Cloud Logging |
+| You need feature-level explanation and defensible model reasoning for stakeholders | Vertex Explainable AI |
+| A workflow that is better aligned with `Vertex AI Evaluation` | Vertex AI Evaluation |
+| A workflow that is better aligned with `Vertex AI Feature Store` | Vertex AI Feature Store |
+| A workflow that is better aligned with `Cloud Logging` | Cloud Logging |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/evaluation_observability.md`
-- Documentación oficial: https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview?hl=es
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/evaluation_observability.md`
+- Official documentation: https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview?hl=es

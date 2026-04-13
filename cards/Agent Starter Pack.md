@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El acelerador con plantillas y scaffolding para agent engine. Encaja cuando quieres saltar rápido desde el ejemplo a un sistema más desplegable y operable.
+The accelerator with templates and deployment scaffolding for agent engine. It fits when you want to move faster from example to a more deployable, production-shaped agent system.
 
-## Qué es
+## What It Is
 
-Agent Starter Pack funciona como el acelerador con plantillas y scaffolding para Agent Engine dentro de `Vertex AI Agent Builder` en el bloque `Agents Workflow Orchestration`. La suite se entiende mejor como ciclo de vida: diseñar, construir, desplegar, operar y reutilizar piezas de agentes.
+Agent Starter Pack acts as the accelerator with templates and deployment scaffolding for Agent Engine within `Agents Workflow Orchestration`. The suite is easiest to understand as a lifecycle: design, build, deploy, operate, and reuse agent components.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres saltar rápido desde el ejemplo a un sistema más desplegable y operable.
-- Cuando el modelo de interacción que buscas se parece a `Template accelerator` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Vertex AI Agent Builder` y necesitas su pieza más específica.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want to move faster from example to a more deployable, production-shaped agent system.
+- When the interaction model you need looks more like `Template accelerator` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Agents Workflow Orchestration` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres entender o adoptar la suite completa del ciclo de vida de agentes, encaja mejor `Vertex AI Agent Builder`.
-- Si prefieres control directo y arquitectura agentic programada, encaja mejor `Agent Development Kit`.
-- Si tu problema ya es de ejecución, sesiones, memoria y operación a escala, encaja mejor `Vertex AI Agent Engine`.
+- If your use case is closer to `Vertex AI Agent Builder`, start there instead.
+- If your use case is closer to `Agent Development Kit`, start there instead.
+- If your use case is closer to `Vertex AI Agent Engine`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Plantillas productivas | Incluye puntos de partida útiles como RAG o multi-agent |
-| Infra y CI/CD | Ayuda a no empezar desde un runtime desnudo |
-| Observabilidad desde el inicio | Lleva tracing y logging más cerca del bootstrap |
+| Faster bootstrap | Helps teams move quickly from concept to something deployable. |
+| Opinionated starting point | Adds useful structure so production work starts from a stronger base. |
+| Broader than a template | Usually includes supporting scaffolding, not just a sample. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Choose the starting template or bootstrap path that matches the system you want.
+2. Configure the main scaffolding, infrastructure, or development defaults.
+3. Validate the baseline implementation early.
+4. Iterate from that stronger starting point instead of from a blank slate.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres saltar rápido desde el ejemplo a un sistema más desplegable y operable | Agent Starter Pack |
-| Quieres entender o adoptar la suite completa del ciclo de vida de agentes | Vertex AI Agent Builder |
-| Prefieres control directo y arquitectura agentic programada | Agent Development Kit |
-| Tu problema ya es de ejecución, sesiones, memoria y operación a escala | Vertex AI Agent Engine |
+| You want to move faster from example to a more deployable, production-shaped agent system | Agent Starter Pack |
+| A workflow that is better aligned with `Vertex AI Agent Builder` | Vertex AI Agent Builder |
+| A workflow that is better aligned with `Agent Development Kit` | Agent Development Kit |
+| A workflow that is better aligned with `Vertex AI Agent Engine` | Vertex AI Agent Engine |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/agents-workflow-orchestration.md`
-- Documentación oficial: https://cloud.google.com/agent-builder/agent-engine/quickstart-adk
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/agents-workflow-orchestration.md`
+- Official documentation: https://cloud.google.com/agent-builder/agent-engine/quickstart-adk

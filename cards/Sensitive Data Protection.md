@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capa de descubrimiento, clasificación y de-identificación de datos sensibles. Encaja cuando tu sistema toca datos regulados o de alto riesgo y necesitas gobernarlos antes o después del flujo de IA.
+The discovery, classification, and de-identification layer for sensitive data. It fits when your AI system touches regulated or high-risk data and you need governance around it.
 
-## Qué es
+## What It Is
 
-Sensitive Data Protection funciona como la capa de descubrimiento, clasificación y de-identificación de datos sensibles dentro de `Google Cloud Model Armor` en el bloque `Guardrails Security Governance`. No todos los controles viven en la misma capa: algunos filtran respuestas, otros blindan tráfico, otros gobiernan datos y otros miran postura organizacional.
+Sensitive Data Protection acts as the discovery, classification, and de-identification layer for sensitive data within `Guardrails Security Governance`. Not every control lives at the same layer: some tune model filtering, some shield app traffic, some govern data, and some manage organization-wide posture.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando tu sistema toca datos regulados o de alto riesgo y necesitas gobernarlos antes o después del flujo de IA.
-- Cuando el modelo de interacción que buscas se parece a `Sensitive data governance` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Google Cloud Model Armor` y necesitas su pieza más específica.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When your AI system touches regulated or high-risk data and you need governance around it.
+- When the interaction model you need looks more like `Sensitive data governance` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Guardrails Security Governance` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo, encaja mejor `Google Cloud Model Armor`.
-- Si quieres inventario, riesgos, amenazas y visibilidad específica sobre activos de IA, encaja mejor `AI Protection`.
-- Si quieres una vista transversal de riesgos y hallazgos más allá de una sola app de IA, encaja mejor `Security Command Center`.
+- If your use case is closer to `Google Cloud Model Armor`, start there instead.
+- If your use case is closer to `AI Protection`, start there instead.
+- If your use case is closer to `Security Command Center`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Detección de sensibilidad | Encuentra datos de riesgo en contenido y recursos |
-| De-identificación | Permite redacción, tokenización y transformaciones |
-| Buen complemento | Refuerza la historia de guardrails más allá del filtrado de contenido |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Tu sistema toca datos regulados o de alto riesgo y necesitas gobernarlos antes o después del flujo de ia | Sensitive Data Protection |
-| Quieres una capa de seguridad alrededor de la app y no confiar solo en filtros nativos del modelo | Google Cloud Model Armor |
-| Quieres inventario, riesgos, amenazas y visibilidad específica sobre activos de ia | AI Protection |
-| Quieres una vista transversal de riesgos y hallazgos más allá de una sola app de ia | Security Command Center |
+| Your AI system touches regulated or high-risk data and you need governance around it | Sensitive Data Protection |
+| A workflow that is better aligned with `Google Cloud Model Armor` | Google Cloud Model Armor |
+| A workflow that is better aligned with `AI Protection` | AI Protection |
+| A workflow that is better aligned with `Security Command Center` | Security Command Center |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/guardrails-security-governance.md`
-- Documentación oficial: https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/guardrails-security-governance.md`
+- Official documentation: https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview

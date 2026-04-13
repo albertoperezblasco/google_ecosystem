@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La herramienta rag de gemini api para colecciones acotadas de archivos. Encaja cuando quieres grounding sobre un conjunto de ficheros sin subir de inmediato a un producto search enterprise.
+The gemini API retrieval tool for importing, chunking, indexing, and retrieving from files. It fits when you want grounded answers over a bounded file collection without adopting a broader enterprise search product.
 
-## Qué es
+## What It Is
 
-File Search funciona como la herramienta RAG de Gemini API para colecciones acotadas de archivos dentro de `Gemini API` en el bloque `Data Grounding RAG Connectors`. La diferencia clave aquí es cómo añades contexto: web pública en tiempo real, archivos acotados, enterprise search o un pipeline RAG completo.
+File Search acts as the Gemini API retrieval tool for importing, chunking, indexing, and retrieving from files within `Data Grounding RAG Connectors`. The key distinction here is how you add context: live public web data, bounded file collections, enterprise search, or a full managed RAG pipeline.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres grounding sobre un conjunto de ficheros sin subir de inmediato a un producto search enterprise.
-- Cuando el modelo de interacción que buscas se parece a `File-backed retrieval tool` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Gemini API` y necesitas su pieza más específica.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you want grounded answers over a bounded file collection without adopting a broader enterprise search product.
+- When the interaction model you need looks more like `File-backed retrieval tool` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Data Grounding RAG Connectors` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas respuestas ancladas a información pública y reciente sin montar un stack enterprise, encaja mejor `Google Search`.
-- Si quieres una infraestructura RAG explícita y dedicada sobre datos privados, encaja mejor `Vertex AI RAG Engine`.
-- Si necesitas una capa de búsqueda gestionada con conectores, ACLs y respuestas generativas, encaja mejor `Vertex AI Search`.
+- If your use case is closer to `Google Search`, start there instead.
+- If your use case is closer to `Vertex AI RAG Engine`, start there instead.
+- If your use case is closer to `Vertex AI Search`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Import, chunking e index | Resuelve pasos básicos de retrieval por ti |
-| Recuperación en prompt-time | Aporta contexto relevante durante la generación |
-| Buen escalón intermedio | Es más ligera que una capa empresarial completa |
+| Focused workflow surface | Stays close to one practical job to be done. |
+| Fast start | Usually lowers the time to first useful result. |
+| Complements a larger stack | Fits well as one piece inside a broader workflow. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the focused task this tool should help with.
+2. Set the minimum configuration or context needed to use it well.
+3. Run an initial pass and review the output or behavior.
+4. Adjust the broader workflow around the tool once the fit is clear.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres grounding sobre un conjunto de ficheros sin subir de inmediato a un producto search enterprise | File Search |
-| Necesitas respuestas ancladas a información pública y reciente sin montar un stack enterprise | Google Search |
-| Quieres una infraestructura rag explícita y dedicada sobre datos privados | Vertex AI RAG Engine |
-| Necesitas una capa de búsqueda gestionada con conectores, acls y respuestas generativas | Vertex AI Search |
+| You want grounded answers over a bounded file collection without adopting a broader enterprise search product | File Search |
+| A workflow that is better aligned with `Google Search` | Google Search |
+| A workflow that is better aligned with `Vertex AI RAG Engine` | Vertex AI RAG Engine |
+| A workflow that is better aligned with `Vertex AI Search` | Vertex AI Search |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/data-grounding-rag-connectors.md`
-- Documentación oficial: https://ai.google.dev/gemini-api/docs/file-search
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/data-grounding-RAG-connectors.md`
+- Official documentation: https://ai.google.dev/gemini-api/docs/file-search

@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El runtime gestionado para desplegar, operar y gobernar agentes en producción. Encaja cuando tu problema ya es de ejecución, sesiones, memoria y operación a escala.
+The managed runtime for deploying, operating, and governing agents in production. It fits when your problem is already about runtime execution, sessions, memory, and production operations.
 
-## Qué es
+## What It Is
 
-Vertex AI Agent Engine funciona como el runtime gestionado para desplegar, operar y gobernar agentes en producción dentro de `Vertex AI Agent Builder` en el bloque `Agents Workflow Orchestration`. La suite se entiende mejor como ciclo de vida: diseñar, construir, desplegar, operar y reutilizar piezas de agentes.
+Vertex AI Agent Engine acts as the managed runtime for deploying, operating, and governing agents in production within `Agents Workflow Orchestration`. The suite is easiest to understand as a lifecycle: design, build, deploy, operate, and reuse agent components.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando tu problema ya es de ejecución, sesiones, memoria y operación a escala.
-- Cuando el modelo de interacción que buscas se parece a `Managed agent runtime` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Vertex AI Agent Builder` y necesitas su pieza más específica.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When your problem is already about runtime execution, sessions, memory, and production operations.
+- When the interaction model you need looks more like `Managed agent runtime` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Agents Workflow Orchestration` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si prefieres control directo y arquitectura agentic programada, encaja mejor `Agent Development Kit`.
-- Si quieres modelar la arquitectura del agente visualmente antes o además del código, encaja mejor `Agent Designer`.
-- Si quieres saltar rápido desde el ejemplo a un sistema más desplegable y operable, encaja mejor `Agent Starter Pack`.
+- If your use case is closer to `Agent Development Kit`, start there instead.
+- If your use case is closer to `Agent Designer`, start there instead.
+- If your use case is closer to `Agent Starter Pack`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Runtime y escalado | Convierte el diseño en sistema operando |
-| Sesiones y memoria | Aporta primitivas útiles para agentes reales |
-| Gobierno y observabilidad | Se integra con el resto del stack enterprise |
+| Managed execution | Turns design or code into a running system. |
+| Production controls | Adds the operational boundaries needed once things go live. |
+| Scaling and visibility | Helps with growth, governance, and runtime inspection. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Decide what needs to run under this runtime or operations layer.
+2. Configure execution, controls, permissions, or attached services.
+3. Validate the runtime behavior under realistic conditions.
+4. Use the same runtime surface to scale, govern, and observe the system.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Tu problema ya es de ejecución, sesiones, memoria y operación a escala | Vertex AI Agent Engine |
-| Prefieres control directo y arquitectura agentic programada | Agent Development Kit |
-| Quieres modelar la arquitectura del agente visualmente antes o además del código | Agent Designer |
-| Quieres saltar rápido desde el ejemplo a un sistema más desplegable y operable | Agent Starter Pack |
+| Your problem is already about runtime execution, sessions, memory, and production operations | Vertex AI Agent Engine |
+| A workflow that is better aligned with `Agent Development Kit` | Agent Development Kit |
+| A workflow that is better aligned with `Agent Designer` | Agent Designer |
+| A workflow that is better aligned with `Agent Starter Pack` | Agent Starter Pack |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/agents-workflow-orchestration.md`
-- Documentación oficial: https://docs.cloud.google.com/agent-builder/agent-engine/overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/agents-workflow-orchestration.md`
+- Official documentation: https://docs.cloud.google.com/agent-builder/agent-engine/overview

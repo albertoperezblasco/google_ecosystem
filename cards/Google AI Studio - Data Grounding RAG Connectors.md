@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La superficie más rápida para probar prompts y herramientas de grounding. Encaja cuando quieres validar una UX grounded antes de escribir código o elegir una capa enterprise.
+The fastest browser surface for testing grounded gemini flows before coding. It fits when you want to validate a grounded prompt pattern before moving into an API or enterprise retrieval stack.
 
-## Qué es
+## What It Is
 
-Google AI Studio funciona como la superficie más rápida para probar prompts y herramientas de grounding dentro de `Data Grounding RAG Connectors` y, en el catálogo, se posiciona además como superficie de prototipado. La diferencia clave aquí es cómo añades contexto: web pública en tiempo real, archivos acotados, enterprise search o un pipeline RAG completo.
+Google AI Studio acts as the fastest browser surface for testing grounded Gemini flows before coding within `Data Grounding RAG Connectors`. The key distinction here is how you add context: live public web data, bounded file collections, enterprise search, or a full managed RAG pipeline.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres validar una UX grounded antes de escribir código o elegir una capa enterprise.
-- Cuando el modelo de interacción que buscas se parece a `Browser prototyping surface` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Data Grounding RAG Connectors` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you want to validate a grounded prompt pattern before moving into an API or enterprise retrieval stack.
+- When the interaction model you need looks more like `Browser prototyping surface` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Data Grounding RAG Connectors` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres llamar desde código herramientas de búsqueda o recuperación durante la generación, encaja mejor `Gemini API`.
-- Si necesitas una capa de búsqueda gestionada con conectores, ACLs y respuestas generativas, encaja mejor `Vertex AI Search`.
-- Si quieres una infraestructura RAG explícita y dedicada sobre datos privados, encaja mejor `Vertex AI RAG Engine`.
+- If your use case is closer to `Gemini API`, start there instead.
+- If your use case is closer to `Vertex AI Search`, start there instead.
+- If your use case is closer to `Vertex AI RAG Engine`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Prototipado rápido | Permite comparar respuestas con y sin grounding |
-| Exploración de herramientas | Ayuda a decidir si basta una tool o hace falta una capa más pesada |
-| Menos fricción | Sirve como puerta de entrada al diseño del flujo |
+| End-to-end environment | Brings together multiple capabilities in one product surface. |
+| Connected tooling | Works well when several pieces of the workflow need to live together. |
+| Operational depth | Better suited to longer-lived or more production-shaped systems. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Pick the part of the platform that matches the current stage of work.
+2. Configure the main resources, services, or connected tools.
+3. Validate the full flow with real data, previews, or execution.
+4. Operate, extend, or scale from the same platform as the system matures.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres validar una ux grounded antes de escribir código o elegir una capa enterprise | Google AI Studio |
-| Quieres llamar desde código herramientas de búsqueda o recuperación durante la generación | Gemini API |
-| Necesitas una capa de búsqueda gestionada con conectores, acls y respuestas generativas | Vertex AI Search |
-| Quieres una infraestructura rag explícita y dedicada sobre datos privados | Vertex AI RAG Engine |
+| You want to validate a grounded prompt pattern before moving into an API or enterprise retrieval stack | Google AI Studio |
+| A workflow that is better aligned with `Gemini API` | Gemini API |
+| A workflow that is better aligned with `Vertex AI Search` | Vertex AI Search |
+| A workflow that is better aligned with `Vertex AI RAG Engine` | Vertex AI RAG Engine |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/data-grounding-rag-connectors.md`
-- Documentación oficial: https://ai.google.dev/aistudio/
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/data-grounding-RAG-connectors.md`
+- Official documentation: https://ai.google.dev/aistudio/

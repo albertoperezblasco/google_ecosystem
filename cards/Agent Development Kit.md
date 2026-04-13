@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El framework open source para construir agentes en código. Encaja cuando prefieres control directo y arquitectura agentic programada.
+The open-source framework for building agents in code inside vertex AI agent builder. It fits when you prefer direct programming control over a visual or purely managed build flow.
 
-## Qué es
+## What It Is
 
-Agent Development Kit funciona como el framework open source para construir agentes en código dentro de `Vertex AI Agent Builder` en el bloque `Agents Workflow Orchestration`. La suite se entiende mejor como ciclo de vida: diseñar, construir, desplegar, operar y reutilizar piezas de agentes.
+Agent Development Kit acts as the open-source framework for building agents in code inside Vertex AI Agent Builder within `Agents Workflow Orchestration`. The suite is easiest to understand as a lifecycle: design, build, deploy, operate, and reuse agent components.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando prefieres control directo y arquitectura agentic programada.
-- Cuando el modelo de interacción que buscas se parece a `Code-first agent framework` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Vertex AI Agent Builder` y necesitas su pieza más específica.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you prefer direct programming control over a visual or purely managed build flow.
+- When the interaction model you need looks more like `Code-first agent framework` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Agents Workflow Orchestration` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres modelar la arquitectura del agente visualmente antes o además del código, encaja mejor `Agent Designer`.
-- Si tu problema ya es de ejecución, sesiones, memoria y operación a escala, encaja mejor `Vertex AI Agent Engine`.
-- Si quieres saltar rápido desde el ejemplo a un sistema más desplegable y operable, encaja mejor `Agent Starter Pack`.
+- If your use case is closer to `Agent Designer`, start there instead.
+- If your use case is closer to `Vertex AI Agent Engine`, start there instead.
+- If your use case is closer to `Agent Starter Pack`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Code-first | Da control explícito sobre herramientas y flujos |
-| Modularidad | Sirve para agentes más complejos y multiagente |
-| Buena pareja con runtime gestionado | Se integra bien con despliegue posterior |
+| Structured building blocks | Provides more architecture control than a task-specific managed API. |
+| Deeper implementation control | Lets teams shape behavior more directly around code and runtime choices. |
+| Good integration depth | Works well when you need something more customizable than a single hosted call. |
 
-## Flujo típico
+## Typical Flow
 
-1. Eliges el caso de uso y la superficie técnica más adecuada para implementarlo.
-2. Integras la API, SDK o framework con tu modelo, datos y configuración inicial.
-3. Pruebas el flujo con datos reales y ajustas opciones, herramientas o runtime.
-4. Lo conectas con el resto de tu aplicación o pipeline de producción.
+1. Choose the framework lane that best matches the architecture you need.
+2. Set up the main building blocks, configuration, and surrounding runtime choices.
+3. Test the workflow with representative inputs and tune the structure.
+4. Integrate it more deeply once you know the architecture fits.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Prefieres control directo y arquitectura agentic programada | Agent Development Kit |
-| Quieres modelar la arquitectura del agente visualmente antes o además del código | Agent Designer |
-| Tu problema ya es de ejecución, sesiones, memoria y operación a escala | Vertex AI Agent Engine |
-| Quieres saltar rápido desde el ejemplo a un sistema más desplegable y operable | Agent Starter Pack |
+| You prefer direct programming control over a visual or purely managed build flow | Agent Development Kit |
+| A workflow that is better aligned with `Agent Designer` | Agent Designer |
+| A workflow that is better aligned with `Vertex AI Agent Engine` | Vertex AI Agent Engine |
+| A workflow that is better aligned with `Agent Starter Pack` | Agent Starter Pack |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/agents-workflow-orchestration.md`
-- Documentación oficial: https://docs.cloud.google.com/agent-builder/agent-development-kit/overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/agents-workflow-orchestration.md`
+- Official documentation: https://docs.cloud.google.com/agent-builder/agent-development-kit/overview

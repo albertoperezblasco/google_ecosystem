@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La herramienta más ligera para grounding sobre web pública y actual. Encaja cuando necesitas respuestas ancladas a información pública y reciente sin montar un stack enterprise.
+The lightest grounding tool for live public web information inside gemini API. It fits when you need grounded answers over current public information without building a heavier retrieval stack.
 
-## Qué es
+## What It Is
 
-Google Search funciona como la herramienta más ligera para grounding sobre web pública y actual dentro de `Gemini API` en el bloque `Data Grounding RAG Connectors`. La diferencia clave aquí es cómo añades contexto: web pública en tiempo real, archivos acotados, enterprise search o un pipeline RAG completo. La documentación oficial actual lo presenta como grounding sobre contenido web en tiempo real con citas verificables dentro de Gemini API.
+Google Search acts as the lightest grounding tool for live public web information inside Gemini API within `Data Grounding RAG Connectors`. The key distinction here is how you add context: live public web data, bounded file collections, enterprise search, or a full managed RAG pipeline.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas respuestas ancladas a información pública y reciente sin montar un stack enterprise.
-- Cuando el modelo de interacción que buscas se parece a `Grounding tool` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Gemini API` y necesitas su pieza más específica.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you need grounded answers over current public information without building a heavier retrieval stack.
+- When the interaction model you need looks more like `Grounding tool` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Data Grounding RAG Connectors` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres grounding sobre un conjunto de ficheros sin subir de inmediato a un producto search enterprise, encaja mejor `File Search`.
-- Si necesitas una capa de búsqueda gestionada con conectores, ACLs y respuestas generativas, encaja mejor `Vertex AI Search`.
-- Si quieres llamar desde código herramientas de búsqueda o recuperación durante la generación, encaja mejor `Gemini API`.
+- If your use case is closer to `File Search`, start there instead.
+- If your use case is closer to `Vertex AI Search`, start there instead.
+- If your use case is closer to `Gemini API`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Web en tiempo real | Añade contexto fresco a la respuesta |
-| Citas verificables | Facilita revisar las fuentes devueltas |
-| Tool simple | Se activa como herramienta dentro de Gemini API |
+| Focused workflow surface | Stays close to one practical job to be done. |
+| Fast start | Usually lowers the time to first useful result. |
+| Complements a larger stack | Fits well as one piece inside a broader workflow. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the focused task this tool should help with.
+2. Set the minimum configuration or context needed to use it well.
+3. Run an initial pass and review the output or behavior.
+4. Adjust the broader workflow around the tool once the fit is clear.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas respuestas ancladas a información pública y reciente sin montar un stack enterprise | Google Search |
-| Quieres grounding sobre un conjunto de ficheros sin subir de inmediato a un producto search enterprise | File Search |
-| Necesitas una capa de búsqueda gestionada con conectores, acls y respuestas generativas | Vertex AI Search |
-| Quieres llamar desde código herramientas de búsqueda o recuperación durante la generación | Gemini API |
+| You need grounded answers over current public information without building a heavier retrieval stack | Google Search |
+| A workflow that is better aligned with `File Search` | File Search |
+| A workflow that is better aligned with `Vertex AI Search` | Vertex AI Search |
+| A workflow that is better aligned with `Gemini API` | Gemini API |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/data-grounding-rag-connectors.md`
-- Documentación oficial: https://ai.google.dev/gemini-api/docs/google-search
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/data-grounding-RAG-connectors.md`
+- Official documentation: https://ai.google.dev/gemini-api/docs/google-search

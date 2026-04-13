@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El stack de computación numérica y experimentación orientado a investigación. Encaja cuando trabajas en un flujo más de research, transformaciones composables y control matemático.
+The research-oriented numerical computing and model-building framework. It fits when you are working in a more research-heavy, composable, math-centric workflow.
 
-## Qué es
+## What It Is
 
-JAX funciona como el stack de computación numérica y experimentación orientado a investigación dentro de `APIs & SDKs` y, en el catálogo, se posiciona además como framework de investigación. Es el bloque donde conviven APIs fundacionales, SDKs, servicios gestionados y frameworks más profundos para casos que necesitan más control.
+JAX acts as the research-oriented numerical computing and model-building framework within `APIs & SDKs`. This block combines foundation APIs, SDKs, managed services, and deeper frameworks for teams that need more implementation control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando trabajas en un flujo más de research, transformaciones composables y control matemático.
-- Cuando el modelo de interacción que buscas se parece a `Numerical computing framework` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `APIs & SDKs` y no en otro bloque del ecosistema.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you are working in a more research-heavy, composable, math-centric workflow.
+- When the interaction model you need looks more like `Numerical computing framework` than like a generic one-size-fits-all surface.
+- When the main fit is in the `APIs & SDKs` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas control de framework completo para entrenamiento o modelado, encaja mejor `TensorFlow`.
-- Si quieres llamar modelos, prompts y herramientas desde tu propio código, encaja mejor `Gemini API`.
-- Si tu trabajo ya está anclado en Google Cloud y necesitas más que una sola llamada de modelo, encaja mejor `Vertex AI`.
+- If your use case is closer to `TensorFlow`, start there instead.
+- If your use case is closer to `Gemini API`, start there instead.
+- If your use case is closer to `Vertex AI`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Composabilidad | Es fuerte en workflows experimentales avanzados |
-| Transformaciones | Aporta un modelo de programación distinto al framework clásico |
-| Investigación | Brilla más en contextos research-heavy |
+| Structured building blocks | Provides more architecture control than a task-specific managed API. |
+| Deeper implementation control | Lets teams shape behavior more directly around code and runtime choices. |
+| Good integration depth | Works well when you need something more customizable than a single hosted call. |
 
-## Flujo típico
+## Typical Flow
 
-1. Eliges el caso de uso y la superficie técnica más adecuada para implementarlo.
-2. Integras la API, SDK o framework con tu modelo, datos y configuración inicial.
-3. Pruebas el flujo con datos reales y ajustas opciones, herramientas o runtime.
-4. Lo conectas con el resto de tu aplicación o pipeline de producción.
+1. Choose the framework lane that best matches the architecture you need.
+2. Set up the main building blocks, configuration, and surrounding runtime choices.
+3. Test the workflow with representative inputs and tune the structure.
+4. Integrate it more deeply once you know the architecture fits.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Trabajas en un flujo más de research, transformaciones composables y control matemático | JAX |
-| Necesitas control de framework completo para entrenamiento o modelado | TensorFlow |
-| Quieres llamar modelos, prompts y herramientas desde tu propio código | Gemini API |
-| Tu trabajo ya está anclado en google cloud y necesitas más que una sola llamada de modelo | Vertex AI |
+| You are working in a more research-heavy, composable, math-centric workflow | JAX |
+| A workflow that is better aligned with `TensorFlow` | TensorFlow |
+| A workflow that is better aligned with `Gemini API` | Gemini API |
+| A workflow that is better aligned with `Vertex AI` | Vertex AI |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/api_sdk.md`
-- Documentación oficial: https://docs.jax.dev/en/latest/jax-101.html#jax-101
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/api_sdk.md`
+- Official documentation: https://docs.jax.dev/en/latest/jax-101.html#jax-101

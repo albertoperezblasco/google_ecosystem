@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La superficie de datasets, entrenamiento y evaluación de procesadores custom. Encaja cuando necesitas adaptar o up-train procesadores a tus propios documentos.
+The dataset, training, and evaluation workspace for custom document processors. It fits when you need to train, up-train, or evaluate document processors on your own documents.
 
-## Qué es
+## What It Is
 
-Document AI Workbench funciona como la superficie de datasets, entrenamiento y evaluación de procesadores custom dentro de `Document AI` en el bloque `Document AI OCR`. En este bloque la frontera importante es entre OCR genérico y comprensión documental con estructura, entidades y automatización operativa.
+Document AI Workbench acts as the dataset, training, and evaluation workspace for custom document processors within `Document AI OCR`. In this block, the important boundary is between generic OCR and document-native understanding with structure, entities, and operational automation.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas adaptar o up-train procesadores a tus propios documentos.
-- Cuando el modelo de interacción que buscas se parece a `Training and evaluation workspace` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Document AI` y necesitas su pieza más específica.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you need to train, up-train, or evaluate document processors on your own documents.
+- When the interaction model you need looks more like `Training and evaluation workspace` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Document AI OCR` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si tu documento ya encaja en una categoría que Google trae resuelta, encaja mejor `Pretrained Parsers`.
-- Si necesitas datos estructurados que luego se validen, comparen o almacenen, encaja mejor `Extraction`.
-- Si primero necesitas enrutar y separar documentos antes de extraer, encaja mejor `Classification`.
+- If your use case is closer to `Pretrained Parsers`, start there instead.
+- If your use case is closer to `Extraction`, start there instead.
+- If your use case is closer to `Classification`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Dataset y labeling | Da base supervisada al processor |
-| Train y eval | Permite medir calidad sobre tus documentos |
-| Custom processors | Hace posible extractor y classifier a medida |
+| Focused workflow surface | Stays close to one practical job to be done. |
+| Fast start | Usually lowers the time to first useful result. |
+| Complements a larger stack | Fits well as one piece inside a broader workflow. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the focused task this tool should help with.
+2. Set the minimum configuration or context needed to use it well.
+3. Run an initial pass and review the output or behavior.
+4. Adjust the broader workflow around the tool once the fit is clear.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas adaptar o up-train procesadores a tus propios documentos | Document AI Workbench |
-| Tu documento ya encaja en una categoría que google trae resuelta | Pretrained Parsers |
-| Necesitas datos estructurados que luego se validen, comparen o almacenen | Extraction |
-| Primero necesitas enrutar y separar documentos antes de extraer | Classification |
+| You need to train, up-train, or evaluate document processors on your own documents | Document AI Workbench |
+| A workflow that is better aligned with `Pretrained Parsers` | Pretrained Parsers |
+| A workflow that is better aligned with `Extraction` | Extraction |
+| A workflow that is better aligned with `Classification` | Classification |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/document-ai-ocr.md`
-- Documentación oficial: https://docs.cloud.google.com/document-ai/docs/training-overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/document-AI-OCR.md`
+- Official documentation: https://docs.cloud.google.com/document-ai/docs/training-overview

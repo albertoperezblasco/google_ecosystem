@@ -16,49 +16,49 @@ status: active
 
 ## TL;DR
 
-La ruta soportada para tuning gestionado en vertex ai. Encaja cuando necesitas datasets, hiperparámetros y ciclo de vida trazable para personalización.
+The supported managed tuning path on vertex AI. It fits when you need datasets, hyperparameters, and a traceable lifecycle for model customization.
 
-## Qué es
+## What It Is
 
-Vertex AI Tuning funciona como la ruta soportada para tuning gestionado en Vertex AI dentro de `Fine-Tuning Customization` y, en el catálogo, se posiciona además como ruta soportada. Aquí la lectura correcta es distinguir la ruta soportada hoy de las rutas que aparecen solo como contraste o aviso.
+Vertex AI Tuning acts as the supported managed tuning path on Vertex AI within `Fine-Tuning Customization`. The right reading here is to separate the currently supported path from the routes that appear only as contrast or caution.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas datasets, hiperparámetros y ciclo de vida trazable para personalización.
-- Cuando el modelo de interacción que buscas se parece a `Managed tuning jobs` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Fine-Tuning Customization` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you need datasets, hyperparameters, and a traceable lifecycle for model customization.
+- When the interaction model you need looks more like `Managed tuning jobs` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Fine-Tuning Customization` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres confirmar si una ruta de tuning directa sigue viva antes de diseñar alrededor de ella, encaja mejor `Gemini API / Google AI Studio Tuning Notice (Deprecated)`.
-- Si necesitas un flujo productivo en Google Cloud con despliegue, lifecycle y operaciones, encaja mejor `Vertex AI`.
+- If your use case is closer to `Gemini API / Google AI Studio Tuning Notice (Deprecated)`, start there instead.
+- If your use case is closer to `Vertex AI`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Managed jobs | El tuning se opera como un job reproducible |
-| Datasets estructurados | Trabaja con JSONL y validación opcional |
-| Salidas trazables | Expone artefactos, estados y referencias de despliegue |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas datasets, hiperparámetros y ciclo de vida trazable para personalización | Vertex AI Tuning |
-| Quieres confirmar si una ruta de tuning directa sigue viva antes de diseñar alrededor de ella | Gemini API / Google AI Studio Tuning Notice (Deprecated) |
-| Necesitas un flujo productivo en google cloud con despliegue, lifecycle y operaciones | Vertex AI |
+| You need datasets, hyperparameters, and a traceable lifecycle for model customization | Vertex AI Tuning |
+| A workflow that is better aligned with `Gemini API / Google AI Studio Tuning Notice (Deprecated)` | Gemini API / Google AI Studio Tuning Notice (Deprecated) |
+| A workflow that is better aligned with `Vertex AI` | Vertex AI |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/fine_tuning.md`
-- Documentación oficial: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/fine_tuning.md`
+- Official documentation: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning?hl=es-419

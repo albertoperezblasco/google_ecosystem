@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capa de registro, consulta y ruteo de logs en producción. Encaja cuando quieres un rastro operativo y auditable de lo que ocurrió.
+The logging layer for storing, querying, routing, and alerting on production events. It fits when you need an operational and audit-friendly record of what happened in production.
 
-## Qué es
+## What It Is
 
-Cloud Logging funciona como la capa de registro, consulta y ruteo de logs en producción dentro de `Evaluation & Observability` y, en el catálogo, se posiciona además como superficie de observabilidad de producción. Este tema mezcla tres capas distintas: evaluación antes del lanzamiento, comprensión del modelo y observabilidad cuando ya está en producción.
+Cloud Logging acts as the logging layer for storing, querying, routing, and alerting on production events within `Evaluation & Observability`. This topic mixes three layers: evaluation before launch, model insight and feature context, and observability once the system is already running.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres un rastro operativo y auditable de lo que ocurrió.
-- Cuando el modelo de interacción que buscas se parece a `Log management` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Evaluation & Observability` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you need an operational and audit-friendly record of what happened in production.
+- When the interaction model you need looks more like `Log management` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Evaluation & Observability` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas ubicar dónde se pierde tiempo en una cadena de requests, encaja mejor `Cloud Trace`.
-- Si el sistema funciona pero es caro o lento y quieres saber por qué, encaja mejor `Cloud Profiler`.
-- Si necesitas saber qué ejecución produjo qué resultado y con qué configuración, encaja mejor `Vertex AI Experiments`.
+- If your use case is closer to `Cloud Trace`, start there instead.
+- If your use case is closer to `Cloud Profiler`, start there instead.
+- If your use case is closer to `Vertex AI Experiments`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Consulta de eventos | Centraliza lo que pasó en producción |
-| Auditoría y forensics | Es clave en investigación operativa |
-| Routing y alertas | Sirve como base de observabilidad práctica |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres un rastro operativo y auditable de lo que ocurrió | Cloud Logging |
-| Necesitas ubicar dónde se pierde tiempo en una cadena de requests | Cloud Trace |
-| El sistema funciona pero es caro o lento y quieres saber por qué | Cloud Profiler |
-| Necesitas saber qué ejecución produjo qué resultado y con qué configuración | Vertex AI Experiments |
+| You need an operational and audit-friendly record of what happened in production | Cloud Logging |
+| A workflow that is better aligned with `Cloud Trace` | Cloud Trace |
+| A workflow that is better aligned with `Cloud Profiler` | Cloud Profiler |
+| A workflow that is better aligned with `Vertex AI Experiments` | Vertex AI Experiments |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/evaluation_observability.md`
-- Documentación oficial: https://docs.cloud.google.com/logging/docs?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/evaluation_observability.md`
+- Official documentation: https://docs.cloud.google.com/logging/docs?hl=es-419

@@ -18,53 +18,53 @@ status: active
 
 ## TL;DR
 
-La entrada programática a grounding dentro de tu aplicación. Encaja cuando quieres llamar desde código herramientas de búsqueda o recuperación durante la generación.
+The programmatic entry point for grounding tools inside application flows. It fits when you want to call search or retrieval tools from code during generation.
 
-## Qué es
+## What It Is
 
-Gemini API funciona como la entrada programática a grounding dentro de tu aplicación dentro de `Data Grounding RAG Connectors` y, en el catálogo, se posiciona además como superficie de herramientas para aplicaciones. La diferencia clave aquí es cómo añades contexto: web pública en tiempo real, archivos acotados, enterprise search o un pipeline RAG completo.
+Gemini API acts as the programmatic entry point for grounding tools inside application flows within `Data Grounding RAG Connectors`. The key distinction here is how you add context: live public web data, bounded file collections, enterprise search, or a full managed RAG pipeline.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres llamar desde código herramientas de búsqueda o recuperación durante la generación.
-- Cuando el modelo de interacción que buscas se parece a `Grounding tool API` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Data Grounding RAG Connectors` y no en otro bloque del ecosistema.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want to call search or retrieval tools from code during generation.
+- When the interaction model you need looks more like `Grounding tool API` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Data Grounding RAG Connectors` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas respuestas ancladas a información pública y reciente sin montar un stack enterprise, encaja mejor `Google Search`.
-- Si quieres grounding sobre un conjunto de ficheros sin subir de inmediato a un producto search enterprise, encaja mejor `File Search`.
-- Si necesitas una capa de búsqueda gestionada con conectores, ACLs y respuestas generativas, encaja mejor `Vertex AI Search`.
-- Si quieres una infraestructura RAG explícita y dedicada sobre datos privados, encaja mejor `Vertex AI RAG Engine`.
+- If your use case is closer to `Google Search`, start there instead.
+- If your use case is closer to `File Search`, start there instead.
+- If your use case is closer to `Vertex AI Search`, start there instead.
+- If your use case is closer to `Vertex AI RAG Engine`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Tooling en request | La recuperación vive dentro de la llamada al modelo |
-| App-level grounding | Encaja bien en apps propias con control sobre prompts y herramientas |
-| Puente entre demo y producto | Lleva el experimento a una superficie de app real |
+| Direct integration surface | Fits application code and backend workflows directly. |
+| Code-level control | Gives you explicit control over requests, inputs, and app behavior. |
+| Product handoff | Works well when a prototype needs to become a real integration. |
 
-## Flujo típico
+## Typical Flow
 
-1. Eliges el caso de uso y la superficie técnica más adecuada para implementarlo.
-2. Integras la API, SDK o framework con tu modelo, datos y configuración inicial.
-3. Pruebas el flujo con datos reales y ajustas opciones, herramientas o runtime.
-4. Lo conectas con el resto de tu aplicación o pipeline de producción.
+1. Choose the use case and integrate the API into your application flow.
+2. Configure the request, models, tools, or inputs you need.
+3. Test with real data and tune the behavior around the app context.
+4. Connect it to the rest of your production pipeline once it behaves well.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres llamar desde código herramientas de búsqueda o recuperación durante la generación | Gemini API |
-| Necesitas respuestas ancladas a información pública y reciente sin montar un stack enterprise | Google Search |
-| Quieres grounding sobre un conjunto de ficheros sin subir de inmediato a un producto search enterprise | File Search |
-| Necesitas una capa de búsqueda gestionada con conectores, acls y respuestas generativas | Vertex AI Search |
-| Quieres una infraestructura rag explícita y dedicada sobre datos privados | Vertex AI RAG Engine |
+| You want to call search or retrieval tools from code during generation | Gemini API |
+| A workflow that is better aligned with `Google Search` | Google Search |
+| A workflow that is better aligned with `File Search` | File Search |
+| A workflow that is better aligned with `Vertex AI Search` | Vertex AI Search |
+| A workflow that is better aligned with `Vertex AI RAG Engine` | Vertex AI RAG Engine |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/data-grounding-rag-connectors.md`
-- Documentación oficial: https://ai.google.dev/docs/gemini_api_overview/
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/data-grounding-RAG-connectors.md`
+- Official documentation: https://ai.google.dev/docs/gemini_api_overview/

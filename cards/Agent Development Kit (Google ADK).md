@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El framework y sdk para construir agentes en código. Encaja cuando necesitas orquestar herramientas, estado y arquitectura agentic desde una base de código.
+The agent framework and SDK for building google-oriented agent workflows in code. It fits when you want code-first control over tools, state, and agent orchestration.
 
-## Qué es
+## What It Is
 
-Agent Development Kit (Google ADK) funciona como el framework y SDK para construir agentes en código dentro de `APIs & SDKs` y, en el catálogo, se posiciona además como framework y SDK de agentes. Es el bloque donde conviven APIs fundacionales, SDKs, servicios gestionados y frameworks más profundos para casos que necesitan más control.
+Agent Development Kit (Google ADK) acts as the agent framework and SDK for building Google-oriented agent workflows in code within `APIs & SDKs`. This block combines foundation APIs, SDKs, managed services, and deeper frameworks for teams that need more implementation control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas orquestar herramientas, estado y arquitectura agentic desde una base de código.
-- Cuando el modelo de interacción que buscas se parece a `Code-first agent framework` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `APIs & SDKs` y no en otro bloque del ecosistema.
-- Cuando prefieres una superficie más estructurada que improvisar el flujo desde cero sobre componentes sueltos.
+- When you want code-first control over tools, state, and agent orchestration.
+- When the interaction model you need looks more like `Code-first agent framework` than like a generic one-size-fits-all surface.
+- When the main fit is in the `APIs & SDKs` block rather than in another part of the ecosystem.
+- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres estructurar una AI app de extremo a extremo y no solo hacer llamadas sueltas, encaja mejor `Genkit`.
-- Si tu trabajo ya está anclado en Google Cloud y necesitas más que una sola llamada de modelo, encaja mejor `Vertex AI`.
-- Si quieres llamar modelos, prompts y herramientas desde tu propio código, encaja mejor `Gemini API`.
+- If your use case is closer to `Genkit`, start there instead.
+- If your use case is closer to `Vertex AI`, start there instead.
+- If your use case is closer to `Gemini API`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Orquestación en código | Sirve para agentes más cercanos a software que a prompt wrappers |
-| Modularidad | Permite estructurar herramientas y flujos complejos |
-| Buena pareja con runtimes | Encaja con despliegue gestionado posterior |
+| Idiomatic client layer | Makes adoption easier from application code. |
+| Less boilerplate | Removes repetitive setup work compared with raw HTTP calls. |
+| Developer-friendly entry point | Usually becomes the fastest clean path from docs to working code. |
 
-## Flujo típico
+## Typical Flow
 
-1. Eliges el caso de uso y la superficie técnica más adecuada para implementarlo.
-2. Integras la API, SDK o framework con tu modelo, datos y configuración inicial.
-3. Pruebas el flujo con datos reales y ajustas opciones, herramientas o runtime.
-4. Lo conectas con el resto de tu aplicación o pipeline de producción.
+1. Choose the client library that matches your language and stack.
+2. Wire the SDK into your application code and configure the basics.
+3. Validate the workflow with real inputs and expected outputs.
+4. Expand the integration once the code path is stable and maintainable.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas orquestar herramientas, estado y arquitectura agentic desde una base de código | Agent Development Kit (Google ADK) |
-| Quieres estructurar una ai app de extremo a extremo y no solo hacer llamadas sueltas | Genkit |
-| Tu trabajo ya está anclado en google cloud y necesitas más que una sola llamada de modelo | Vertex AI |
-| Quieres llamar modelos, prompts y herramientas desde tu propio código | Gemini API |
+| You want code-first control over tools, state, and agent orchestration | Agent Development Kit (Google ADK) |
+| A workflow that is better aligned with `Genkit` | Genkit |
+| A workflow that is better aligned with `Vertex AI` | Vertex AI |
+| A workflow that is better aligned with `Gemini API` | Gemini API |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/api_sdk.md`
-- Documentación oficial: https://docs.cloud.google.com/agent-builder/agent-development-kit/overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/api_sdk.md`
+- Official documentation: https://docs.cloud.google.com/agent-builder/agent-development-kit/overview

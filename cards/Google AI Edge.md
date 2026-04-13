@@ -18,53 +18,53 @@ status: active
 
 ## TL;DR
 
-El carril on-device para ejecutar ia localmente. Encaja cuando el modelo debe vivir en el dispositivo y te importan latencia, privacidad u offline.
+The on-device AI lane for local execution across mobile, web, and embedded targets. It fits when the model needs to run on the device and latency, privacy, or offline behavior matters.
 
-## Qué es
+## What It Is
 
-Google AI Edge funciona como el carril on-device para ejecutar IA localmente dentro de `Studios & Builders` y, en el catálogo, se posiciona además como carril on-device. Este bloque separa claramente laboratorio rápido, plataforma cloud y carril on-device para que no se mezclen etapas del flujo.
+Google AI Edge acts as the on-device AI lane for local execution across mobile, web, and embedded targets within `Studios & Builders`. This block separates fast experimentation, full cloud platform work, and on-device execution so the workflow stages do not get mixed together.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando el modelo debe vivir en el dispositivo y te importan latencia, privacidad u offline.
-- Cuando el modelo de interacción que buscas se parece a `On-device stack` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Studios & Builders` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When the model needs to run on the device and latency, privacy, or offline behavior matters.
+- When the interaction model you need looks more like `On-device stack` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Studios & Builders` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas un flujo productivo en Google Cloud con despliegue, lifecycle y operaciones, encaja mejor `Vertex AI`.
-- Si quieres validar comportamiento, prompts y handoff a código antes de ir a una plataforma más pesada, encaja mejor `Google AI Studio`.
-- Si quieres percepción on-device o en tiempo real sobre varias plataformas, encaja mejor `MediaPipe`.
-- Si la prioridad es ejecutar modelos eficientemente en el dispositivo, encaja mejor `LiteRT`.
+- If your use case is closer to `Vertex AI`, start there instead.
+- If your use case is closer to `Google AI Studio`, start there instead.
+- If your use case is closer to `MediaPipe`, start there instead.
+- If your use case is closer to `LiteRT`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Ejecución local | Reduce dependencia de una llamada cloud |
-| Ecosistema edge | Agrupa MediaPipe y LiteRT |
-| Cobertura multiplataforma | Apunta a móvil, web, embebidos y microcontroladores |
+| End-to-end environment | Brings together multiple capabilities in one product surface. |
+| Connected tooling | Works well when several pieces of the workflow need to live together. |
+| Operational depth | Better suited to longer-lived or more production-shaped systems. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Pick the part of the platform that matches the current stage of work.
+2. Configure the main resources, services, or connected tools.
+3. Validate the full flow with real data, previews, or execution.
+4. Operate, extend, or scale from the same platform as the system matures.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| El modelo debe vivir en el dispositivo y te importan latencia, privacidad u offline | Google AI Edge |
-| Necesitas un flujo productivo en google cloud con despliegue, lifecycle y operaciones | Vertex AI |
-| Quieres validar comportamiento, prompts y handoff a código antes de ir a una plataforma más pesada | Google AI Studio |
-| Quieres percepción on-device o en tiempo real sobre varias plataformas | MediaPipe |
-| La prioridad es ejecutar modelos eficientemente en el dispositivo | LiteRT |
+| The model needs to run on the device and latency, privacy, or offline behavior matters | Google AI Edge |
+| A workflow that is better aligned with `Vertex AI` | Vertex AI |
+| A workflow that is better aligned with `Google AI Studio` | Google AI Studio |
+| A workflow that is better aligned with `MediaPipe` | MediaPipe |
+| A workflow that is better aligned with `LiteRT` | LiteRT |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/studios_builders.md`
-- Documentación oficial: https://ai.google.dev/edge?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/studios_builders.md`
+- Official documentation: https://ai.google.dev/edge?hl=es-419

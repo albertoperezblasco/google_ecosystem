@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capacidad de generar apps full-stack por prompt dentro de google ai studio. Encaja cuando quieres vibe coding rápido con runtime server-side, secrets y paquetes npm sin montar un IDE completo.
+The prompt-driven full-stack app building capability inside google AI studio. It fits when you want to turn a prompt into a runnable app quickly with server-side runtime support.
 
-## Qué es
+## What It Is
 
-AI Studio Build Mode funciona como la capacidad de generar apps full-stack por prompt dentro de Google AI Studio dentro de `Google AI Studio` en el bloque `Design to Code App Prototyping`. La familia agrupa superficies para pasar de idea a interfaz o de prompt a app funcional con distintos grados de fidelidad y control. La documentación oficial actual lo presenta como un flujo de construcción y despliegue de apps con runtimes full-stack, soporte server-side, npm y gestión de secretos dentro de Google AI Studio.
+AI Studio Build Mode acts as the prompt-driven full-stack app building capability inside Google AI Studio within `Design to Code App Prototyping`. This family groups surfaces for moving from idea to interface or from prompt to working app with different levels of fidelity and control. The current Google documentation describes it as a build-and-deploy flow with full-stack runtimes, server-side support, npm packages, and secrets management inside Google AI Studio.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres vibe coding rápido con runtime server-side, secrets y paquetes npm sin montar un IDE completo.
-- Cuando el modelo de interacción que buscas se parece a `Prompt-driven full-stack builder` más que a una simple llamada genérica.
-- Cuando ya has decidido trabajar dentro de `Google AI Studio` y necesitas su pieza más específica.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you want to turn a prompt into a runnable app quickly with server-side runtime support.
+- When the interaction model you need looks more like `Prompt-driven full-stack builder` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Design to Code App Prototyping` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres un browser IDE con previews, integración Firebase y un camino más largo hacia producción, encaja mejor `Firebase Studio`.
-- Si quieres describir una app, obtener un primer blueprint y seguir refinándola visualmente, encaja mejor `App Prototyping agent`.
-- Si quieres cerrar dirección de interfaz y sistema visual antes de entrar en una implementación seria, encaja mejor `Stitch`.
+- If your use case is closer to `Firebase Studio`, start there instead.
+- If your use case is closer to `App Prototyping agent`, start there instead.
+- If your use case is closer to `Stitch`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Full-stack por prompt | Genera frontend y backend desde lenguaje natural |
-| Runtime y secretos | Sube el nivel respecto a demos puramente cliente |
-| Iteración conversacional | Permite seguir refinando app y código desde chat |
+| Specialized layer | Targets a narrower part of the workflow than the parent product. |
+| Faster time to value | Helps teams adopt a focused capability without rethinking the whole stack. |
+| Works inside a broader product | Makes the most sense as part of the surrounding platform story. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Identify where this capability sits inside the broader product flow.
+2. Enable or configure the capability with the minimum required inputs.
+3. Run a first test and inspect how it changes the workflow.
+4. Adopt more of the parent product only if this narrower layer is not enough.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres vibe coding rápido con runtime server-side, secrets y paquetes npm sin montar un ide completo | AI Studio Build Mode |
-| Quieres un browser ide con previews, integración firebase y un camino más largo hacia producción | Firebase Studio |
-| Quieres describir una app, obtener un primer blueprint y seguir refinándola visualmente | App Prototyping agent |
-| Quieres cerrar dirección de interfaz y sistema visual antes de entrar en una implementación seria | Stitch |
+| You want to turn a prompt into a runnable app quickly with server-side runtime support | AI Studio Build Mode |
+| A workflow that is better aligned with `Firebase Studio` | Firebase Studio |
+| A workflow that is better aligned with `App Prototyping agent` | App Prototyping agent |
+| A workflow that is better aligned with `Stitch` | Stitch |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/design-to-code-app-prototyping.md`
-- Documentación oficial: https://ai.google.dev/gemini-api/docs/aistudio-build-mode
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/design-to-code-app-prototyping.md`
+- Official documentation: https://ai.google.dev/gemini-api/docs/aistudio-build-mode

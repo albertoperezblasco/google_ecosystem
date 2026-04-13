@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El entorno de desarrollo centrado en agentes y orquestación. Encaja cuando quieres un carril más agent-first que un editor asistido o una CLI clásica.
+The agent-first development environment for richer autonomous workflows. It fits when you want a development lane centered on orchestration and agent-managed work rather than a classic assistant.
 
-## Qué es
+## What It Is
 
-Antigravity funciona como el entorno de desarrollo centrado en agentes y orquestación dentro de `Dev Tools & Coding Agents` y, en el catálogo, se posiciona además como entorno orientado a agentes. Aquí lo importante no es solo el modelo, sino dónde ocurre el trabajo: editor, navegador, terminal o un flujo más delegado y autónomo.
+Antigravity acts as the agent-first development environment for richer autonomous workflows within `Dev Tools & Coding Agents`. What matters here is not just the model, but where the work happens: inside the editor, in the browser, in the terminal, or through a more delegated agent workflow.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres un carril más agent-first que un editor asistido o una CLI clásica.
-- Cuando el modelo de interacción que buscas se parece a `Agent-first environment` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Dev Tools & Coding Agents` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you want a development lane centered on orchestration and agent-managed work rather than a classic assistant.
+- When the interaction model you need looks more like `Agent-first environment` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Dev Tools & Coding Agents` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si tu centro de control es la shell y quieres un agente que ejecute flujos desde ahí, encaja mejor `Gemini CLI`.
-- Si quieres enviar trabajo a un agente y revisarlo después en vez de conducir cada paso, encaja mejor `Jules 2.0`.
-- Si quieres construir apps en un entorno alojado y colaborativo desde el navegador, encaja mejor `Firebase Studio`.
+- If your use case is closer to `Gemini CLI`, start there instead.
+- If your use case is closer to `Jules 2.0`, start there instead.
+- If your use case is closer to `Firebase Studio`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Entorno agent-first | Los agentes son parte central del flujo |
-| Más orquestación | Sirve cuando necesitas estructuras más ricas de ejecución y verificación |
-| Mayor autonomía | Se acerca más a un entorno de trabajo delegado que a un autocomplete |
+| End-to-end environment | Brings together multiple capabilities in one product surface. |
+| Connected tooling | Works well when several pieces of the workflow need to live together. |
+| Operational depth | Better suited to longer-lived or more production-shaped systems. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Pick the part of the platform that matches the current stage of work.
+2. Configure the main resources, services, or connected tools.
+3. Validate the full flow with real data, previews, or execution.
+4. Operate, extend, or scale from the same platform as the system matures.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres un carril más agent-first que un editor asistido o una cli clásica | Antigravity |
-| Tu centro de control es la shell y quieres un agente que ejecute flujos desde ahí | Gemini CLI |
-| Quieres enviar trabajo a un agente y revisarlo después en vez de conducir cada paso | Jules 2.0 |
-| Quieres construir apps en un entorno alojado y colaborativo desde el navegador | Firebase Studio |
+| You want a development lane centered on orchestration and agent-managed work rather than a classic assistant | Antigravity |
+| A workflow that is better aligned with `Gemini CLI` | Gemini CLI |
+| A workflow that is better aligned with `Jules 2.0` | Jules 2.0 |
+| A workflow that is better aligned with `Firebase Studio` | Firebase Studio |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/dev_tools_agents.md`
-- Documentación oficial: https://antigravity.google/docs/get-started
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/dev_tools_agents.md`
+- Official documentation: https://antigravity.google/docs/get-started

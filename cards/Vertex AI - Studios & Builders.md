@@ -16,49 +16,49 @@ status: active
 
 ## TL;DR
 
-La plataforma cloud completa para ai y ml. Encaja cuando necesitas un flujo productivo en Google Cloud con despliegue, lifecycle y operaciones.
+The full cloud AI platform for training, deployment, model lifecycle, and production operations. It fits when you need a managed cloud workflow rather than a lightweight experimentation surface.
 
-## Qué es
+## What It Is
 
-Vertex AI funciona como la plataforma cloud completa para AI y ML dentro de `Studios & Builders` y, en el catálogo, se posiciona además como plataforma cloud. Este bloque separa claramente laboratorio rápido, plataforma cloud y carril on-device para que no se mezclen etapas del flujo.
+Vertex AI acts as the full cloud AI platform for training, deployment, model lifecycle, and production operations within `Studios & Builders`. This block separates fast experimentation, full cloud platform work, and on-device execution so the workflow stages do not get mixed together.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas un flujo productivo en Google Cloud con despliegue, lifecycle y operaciones.
-- Cuando el modelo de interacción que buscas se parece a `Managed cloud platform` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Studios & Builders` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you need a managed cloud workflow rather than a lightweight experimentation surface.
+- When the interaction model you need looks more like `Managed cloud platform` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Studios & Builders` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres validar comportamiento, prompts y handoff a código antes de ir a una plataforma más pesada, encaja mejor `Google AI Studio`.
-- Si el modelo debe vivir en el dispositivo y te importan latencia, privacidad u offline, encaja mejor `Google AI Edge`.
+- If your use case is closer to `Google AI Studio`, start there instead.
+- If your use case is closer to `Google AI Edge`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Plataforma completa | Agrupa entrenamiento, despliegue y operación |
-| Profundidad operativa | Encaja mejor en sistemas de larga vida |
-| Trabajo de plataforma | Es más que una simple superficie de prototipado |
+| End-to-end environment | Brings together multiple capabilities in one product surface. |
+| Connected tooling | Works well when several pieces of the workflow need to live together. |
+| Operational depth | Better suited to longer-lived or more production-shaped systems. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Pick the part of the platform that matches the current stage of work.
+2. Configure the main resources, services, or connected tools.
+3. Validate the full flow with real data, previews, or execution.
+4. Operate, extend, or scale from the same platform as the system matures.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas un flujo productivo en google cloud con despliegue, lifecycle y operaciones | Vertex AI |
-| Quieres validar comportamiento, prompts y handoff a código antes de ir a una plataforma más pesada | Google AI Studio |
-| El modelo debe vivir en el dispositivo y te importan latencia, privacidad u offline | Google AI Edge |
+| You need a managed cloud workflow rather than a lightweight experimentation surface | Vertex AI |
+| A workflow that is better aligned with `Google AI Studio` | Google AI Studio |
+| A workflow that is better aligned with `Google AI Edge` | Google AI Edge |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/studios_builders.md`
-- Documentación oficial: https://docs.cloud.google.com/vertex-ai/docs?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/studios_builders.md`
+- Official documentation: https://docs.cloud.google.com/vertex-ai/docs?hl=es-419

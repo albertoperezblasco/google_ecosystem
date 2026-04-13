@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La superficie rápida para probar y montar una app gemini-powered en navegador. Encaja cuando quieres pasar de idea a algo ejecutable con la menor fricción posible.
+The fast browser surface for building and testing gemini-powered applications. It fits when you want to go from idea to a runnable Gemini-powered app quickly.
 
-## Qué es
+## What It Is
 
-Google AI Studio funciona como la superficie rápida para probar y montar una app Gemini-powered en navegador dentro de `Design to Code App Prototyping` y, en el catálogo, se posiciona además como superficie de prototipado y construcción. La familia agrupa superficies para pasar de idea a interfaz o de prompt a app funcional con distintos grados de fidelidad y control.
+Google AI Studio acts as the fast browser surface for building and testing Gemini-powered applications within `Design to Code App Prototyping`. This family groups surfaces for moving from idea to interface or from prompt to working app with different levels of fidelity and control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres pasar de idea a algo ejecutable con la menor fricción posible.
-- Cuando el modelo de interacción que buscas se parece a `Browser build surface` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Design to Code App Prototyping` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you want to go from idea to a runnable Gemini-powered app quickly.
+- When the interaction model you need looks more like `Browser build surface` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Design to Code App Prototyping` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres vibe coding rápido con runtime server-side, secrets y paquetes npm sin montar un IDE completo, encaja mejor `AI Studio Build Mode`.
-- Si quieres un browser IDE con previews, integración Firebase y un camino más largo hacia producción, encaja mejor `Firebase Studio`.
-- Si quieres cerrar dirección de interfaz y sistema visual antes de entrar en una implementación seria, encaja mejor `Stitch`.
+- If your use case is closer to `AI Studio Build Mode`, start there instead.
+- If your use case is closer to `Firebase Studio`, start there instead.
+- If your use case is closer to `Stitch`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Velocidad de idea a app | Reduce setup inicial |
-| Pruebas con Gemini | Permite tantear una UX funcional |
-| Salida runnable | No se queda solo en prompt experimentation |
+| End-to-end environment | Brings together multiple capabilities in one product surface. |
+| Connected tooling | Works well when several pieces of the workflow need to live together. |
+| Operational depth | Better suited to longer-lived or more production-shaped systems. |
 
-## Flujo típico
+## Typical Flow
 
-1. Seleccionas la parte del producto o suite que mejor encaja con la etapa del trabajo.
-2. Configuras recursos, herramientas, permisos o servicios conectados según el caso.
-3. Validas el flujo completo con datos, previews o ejecución real.
-4. Operas, iteras o escalas desde la misma plataforma cuando el sistema madura.
+1. Pick the part of the platform that matches the current stage of work.
+2. Configure the main resources, services, or connected tools.
+3. Validate the full flow with real data, previews, or execution.
+4. Operate, extend, or scale from the same platform as the system matures.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres pasar de idea a algo ejecutable con la menor fricción posible | Google AI Studio |
-| Quieres vibe coding rápido con runtime server-side, secrets y paquetes npm sin montar un ide completo | AI Studio Build Mode |
-| Quieres un browser ide con previews, integración firebase y un camino más largo hacia producción | Firebase Studio |
-| Quieres cerrar dirección de interfaz y sistema visual antes de entrar en una implementación seria | Stitch |
+| You want to go from idea to a runnable Gemini-powered app quickly | Google AI Studio |
+| A workflow that is better aligned with `AI Studio Build Mode` | AI Studio Build Mode |
+| A workflow that is better aligned with `Firebase Studio` | Firebase Studio |
+| A workflow that is better aligned with `Stitch` | Stitch |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/design-to-code-app-prototyping.md`
-- Documentación oficial: https://ai.google.dev/aistudio/
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/design-to-code-app-prototyping.md`
+- Official documentation: https://ai.google.dev/aistudio/

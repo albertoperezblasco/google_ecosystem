@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El pipeline rag gestionado para ingestión, chunking, indexado y retrieval. Encaja cuando quieres una infraestructura RAG explícita y dedicada sobre datos privados.
+The managed RAG pipeline for ingestion, chunking, indexing, retrieval, and grounded generation. It fits when you want a dedicated managed RAG system over private data rather than just a search product.
 
-## Qué es
+## What It Is
 
-Vertex AI RAG Engine funciona como el pipeline RAG gestionado para ingestión, chunking, indexado y retrieval dentro de `Data Grounding RAG Connectors` y, en el catálogo, se posiciona además como pipeline RAG gestionado. La diferencia clave aquí es cómo añades contexto: web pública en tiempo real, archivos acotados, enterprise search o un pipeline RAG completo.
+Vertex AI RAG Engine acts as the managed RAG pipeline for ingestion, chunking, indexing, retrieval, and grounded generation within `Data Grounding RAG Connectors`. The key distinction here is how you add context: live public web data, bounded file collections, enterprise search, or a full managed RAG pipeline.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando quieres una infraestructura RAG explícita y dedicada sobre datos privados.
-- Cuando el modelo de interacción que buscas se parece a `Managed RAG pipeline` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Data Grounding RAG Connectors` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When you want a dedicated managed RAG system over private data rather than just a search product.
+- When the interaction model you need looks more like `Managed RAG pipeline` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Data Grounding RAG Connectors` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si necesitas una capa de búsqueda gestionada con conectores, ACLs y respuestas generativas, encaja mejor `Vertex AI Search`.
-- Si quieres grounding sobre un conjunto de ficheros sin subir de inmediato a un producto search enterprise, encaja mejor `File Search`.
-- Si necesitas respuestas ancladas a información pública y reciente sin montar un stack enterprise, encaja mejor `Google Search`.
+- If your use case is closer to `Vertex AI Search`, start there instead.
+- If your use case is closer to `File Search`, start there instead.
+- If your use case is closer to `Google Search`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Pipeline completo | Cubre de la ingestión a la generación grounded |
-| Control del corpus | Sirve mejor cuando importa cómo se gestiona el conocimiento |
-| Infraestructura gestionada | Google se ocupa de buena parte del stack RAG |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Quieres una infraestructura rag explícita y dedicada sobre datos privados | Vertex AI RAG Engine |
-| Necesitas una capa de búsqueda gestionada con conectores, acls y respuestas generativas | Vertex AI Search |
-| Quieres grounding sobre un conjunto de ficheros sin subir de inmediato a un producto search enterprise | File Search |
-| Necesitas respuestas ancladas a información pública y reciente sin montar un stack enterprise | Google Search |
+| You want a dedicated managed RAG system over private data rather than just a search product | Vertex AI RAG Engine |
+| A workflow that is better aligned with `Vertex AI Search` | Vertex AI Search |
+| A workflow that is better aligned with `File Search` | File Search |
+| A workflow that is better aligned with `Google Search` | Google Search |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/data-grounding-rag-connectors.md`
-- Documentación oficial: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/data-grounding-RAG-connectors.md`
+- Official documentation: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview

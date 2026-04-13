@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-La capa de tracking de runs, parámetros, métricas y artefactos. Encaja cuando necesitas saber qué ejecución produjo qué resultado y con qué configuración.
+The run-tracking and lineage layer for parameters, metrics, and artifacts. It fits when you need to know which run produced which result and with what configuration.
 
-## Qué es
+## What It Is
 
-Vertex AI Experiments funciona como la capa de tracking de runs, parámetros, métricas y artefactos dentro de `Evaluation & Observability` y, en el catálogo, se posiciona además como superficie de evaluación. Este tema mezcla tres capas distintas: evaluación antes del lanzamiento, comprensión del modelo y observabilidad cuando ya está en producción.
+Vertex AI Experiments acts as the run-tracking and lineage layer for parameters, metrics, and artifacts within `Evaluation & Observability`. This topic mixes three layers: evaluation before launch, model insight and feature context, and observability once the system is already running.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando necesitas saber qué ejecución produjo qué resultado y con qué configuración.
-- Cuando el modelo de interacción que buscas se parece a `Run tracking and lineage` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `Evaluation & Observability` y no en otro bloque del ecosistema.
-- Cuando buscas resolver una parte concreta del flujo sin adoptar una plataforma más amplia de entrada.
+- When you need to know which run produced which result and with what configuration.
+- When the interaction model you need looks more like `Run tracking and lineage` than like a generic one-size-fits-all surface.
+- When the main fit is in the `Evaluation & Observability` block rather than in another part of the ecosystem.
+- When you want to solve one concrete part of the workflow without adopting a broader platform up front.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres puntuar prompts y respuestas con criterios repetibles, encaja mejor `Gen AI Evaluation Service`.
-- Si necesitas métricas formales y comparación reproducible sobre modelos no generativos, encaja mejor `Vertex AI Evaluation`.
-- Si quieres un rastro operativo y auditable de lo que ocurrió, encaja mejor `Cloud Logging`.
+- If your use case is closer to `Gen AI Evaluation Service`, start there instead.
+- If your use case is closer to `Vertex AI Evaluation`, start there instead.
+- If your use case is closer to `Cloud Logging`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Historial de runs | Mantiene visible el ciclo de iteración |
-| Parámetros y artefactos | Facilita reproducibilidad |
-| Comparación de iteraciones | Ayuda a aterrizar cambios con evidencia |
+| Focused workflow surface | Stays close to one practical job to be done. |
+| Fast start | Usually lowers the time to first useful result. |
+| Complements a larger stack | Fits well as one piece inside a broader workflow. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the focused task this tool should help with.
+2. Set the minimum configuration or context needed to use it well.
+3. Run an initial pass and review the output or behavior.
+4. Adjust the broader workflow around the tool once the fit is clear.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Necesitas saber qué ejecución produjo qué resultado y con qué configuración | Vertex AI Experiments |
-| Quieres puntuar prompts y respuestas con criterios repetibles | Gen AI Evaluation Service |
-| Necesitas métricas formales y comparación reproducible sobre modelos no generativos | Vertex AI Evaluation |
-| Quieres un rastro operativo y auditable de lo que ocurrió | Cloud Logging |
+| You need to know which run produced which result and with what configuration | Vertex AI Experiments |
+| A workflow that is better aligned with `Gen AI Evaluation Service` | Gen AI Evaluation Service |
+| A workflow that is better aligned with `Vertex AI Evaluation` | Vertex AI Evaluation |
+| A workflow that is better aligned with `Cloud Logging` | Cloud Logging |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/evaluation_observability.md`
-- Documentación oficial: https://docs.cloud.google.com/vertex-ai/docs/experiments/intro-vertex-ai-experiments?hl=es-419
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/evaluation_observability.md`
+- Official documentation: https://docs.cloud.google.com/vertex-ai/docs/experiments/intro-vertex-ai-experiments?hl=es-419

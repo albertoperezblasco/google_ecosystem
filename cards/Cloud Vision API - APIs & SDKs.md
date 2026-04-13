@@ -17,51 +17,51 @@ status: active
 
 ## TL;DR
 
-El servicio gestionado para análisis de imagen y ocr generalista. Encaja cuando tu problema es analizar imágenes o texto visual sin montar un pipeline de percepción completo.
+The managed vision API for image analysis and lightweight OCR. It fits when your problem is to analyze images or extract text visually without building a full perception stack.
 
-## Qué es
+## What It Is
 
-Cloud Vision API funciona como el servicio gestionado para análisis de imagen y OCR generalista dentro de `APIs & SDKs` y, en el catálogo, se posiciona además como servicio gestionado de tarea específica. Es el bloque donde conviven APIs fundacionales, SDKs, servicios gestionados y frameworks más profundos para casos que necesitan más control.
+Cloud Vision API acts as the managed vision API for image analysis and lightweight OCR within `APIs & SDKs`. This block combines foundation APIs, SDKs, managed services, and deeper frameworks for teams that need more implementation control.
 
-## Cuándo usarlo
+## When To Use It
 
-- Cuando tu problema es analizar imágenes o texto visual sin montar un pipeline de percepción completo.
-- Cuando el modelo de interacción que buscas se parece a `Managed vision API` más que a una simple llamada genérica.
-- Cuando el encaje principal está en el tema `APIs & SDKs` y no en otro bloque del ecosistema.
-- Cuando necesitas una superficie con responsabilidades operativas claras y no solo una capability aislada.
+- When your problem is to analyze images or extract text visually without building a full perception stack.
+- When the interaction model you need looks more like `Managed vision API` than like a generic one-size-fits-all surface.
+- When the main fit is in the `APIs & SDKs` block rather than in another part of the ecosystem.
+- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
 
-## Cuándo no es la mejor opción
+## When It Is Not The Best Fit
 
-- Si quieres pasar de OCR plano a entidades, estructura y automatización operativa, encaja mejor `Document AI`.
-- Si quieres extraer texto rápido de imágenes sin el resto del stack Document AI, encaja mejor `Vision OCR`.
-- Si quieres percepción on-device o en tiempo real sobre varias plataformas, encaja mejor `MediaPipe`.
+- If your use case is closer to `Document AI`, start there instead.
+- If your use case is closer to `Vision OCR`, start there instead.
+- If your use case is closer to `MediaPipe`, start there instead.
 
-## Capacidades clave
+## Key Capabilities
 
-| Capacidad | Por qué importa |
+| Capability | Why It Matters |
 | --- | --- |
-| Análisis visual | Sirve para reconocimiento y señales sobre imágenes |
-| OCR ligero | Resuelve extracción de texto en imágenes |
-| API enfocada a tarea | Da una interfaz más simple que un framework |
+| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
+| Task-specific value | Makes it easier to solve one concrete problem well. |
+| Operational convenience | Lets teams move faster without building every layer themselves. |
 
-## Flujo típico
+## Typical Flow
 
-1. Defines el problema concreto que esta superficie debe resolver dentro del flujo.
-2. Configuras la capacidad, servicio o control con la entrada y opciones mínimas necesarias.
-3. Ejecutas una primera pasada y revisas la salida, métricas o comportamiento.
-4. Ajustas el resto del stack alrededor de esa pieza según lo que hayas aprendido.
+1. Define the concrete problem this managed service should solve.
+2. Configure the minimum inputs and options needed for a first pass.
+3. Run the service on representative data and inspect the output.
+4. Tune the surrounding workflow around what the service gives you.
 
-## Comparativa rápida
+## Quick Comparison
 
-| Necesidad principal | Mejor encaje |
+| Main Need | Best Fit |
 | --- | --- |
-| Tu problema es analizar imágenes o texto visual sin montar un pipeline de percepción completo | Cloud Vision API |
-| Quieres pasar de ocr plano a entidades, estructura y automatización operativa | Document AI |
-| Quieres extraer texto rápido de imágenes sin el resto del stack document ai | Vision OCR |
-| Quieres percepción on-device o en tiempo real sobre varias plataformas | MediaPipe |
+| Your problem is to analyze images or extract text visually without building a full perception stack | Cloud Vision API |
+| A workflow that is better aligned with `Document AI` | Document AI |
+| A workflow that is better aligned with `Vision OCR` | Vision OCR |
+| A workflow that is better aligned with `MediaPipe` | MediaPipe |
 
-## Enlaces
+## Links
 
-- Índice general: `/services_md/google-services-by-topic.md`
-- Tema relacionado: `/services_md/api_sdk.md`
-- Documentación oficial: https://docs.cloud.google.com/vision/docs/request
+- General index: `/services_md/google-services-by-topic.md`
+- Related topic: `/services_md/api_sdk.md`
+- Official documentation: https://docs.cloud.google.com/vision/docs/request
