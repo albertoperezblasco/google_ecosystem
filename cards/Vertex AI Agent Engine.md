@@ -10,11 +10,11 @@ source_topic:
 - /services_md/agents-workflow-orchestration.md
 - /services_md/guardrails-security-governance.md
 related_tools:
+- Vertex AI Agent Builder
 - Agent Development Kit
 - Agent Designer
 - Agent Starter Pack
 - Google Cloud Model Armor
-- Security Command Center
 - AI Protection
 status: active
 ---
@@ -23,66 +23,62 @@ status: active
 
 ## TL;DR
 
-The managed runtime for deploying, operating, and governing agents in production. It fits when agent work has moved beyond design into runtime execution, sessions, memory, scale, and enterprise control.
+The managed runtime for deploying, operating, and governing agents in production. It fits when agent logic has to become a real system with sessions, memory, identity, operations, and controls.
 
 ## What It Is
 
-Vertex AI Agent Engine appears in two different catalog views because it matters both as a runtime product and as a governance layer.
+Agent Engine is the runtime half of Google's agent story.
 
-- In `Agents Workflow Orchestration`, it is the managed runtime inside the broader agent-building suite.
-- In `Guardrails Security Governance`, it is the runtime layer where agent operations meet enterprise controls, identity, and security posture concerns.
+- In `Agents Workflow Orchestration`, it is where designed or coded agents get deployed.
+- In `Guardrails Security Governance`, it is where agent runtime behavior meets enterprise controls.
 
-Put together, that means Agent Engine is not just where agents run. It is where the design becomes a production system with operational boundaries, scaling behavior, and governance attached.
+That combination makes it the operational layer, not the authoring layer.
 
 ## Where It Appears
 
-- `Agents Workflow Orchestration`: as the runtime and operations surface for deployed agents.
-- `Guardrails Security Governance`: as the runtime layer where governance becomes operational.
+- `Agents Workflow Orchestration`: managed deployment and runtime operations.
+- `Guardrails Security Governance`: runtime boundary where security and governance attach.
 
 ## When To Use It
 
-- When you need a managed runtime for deployed agents rather than only a build surface.
-- When sessions, memory, scaling, and operational control now matter.
-- When the system needs enterprise-shaped boundaries, permissions, and runtime governance.
-- When agent work is moving from architecture and prototyping into production behavior.
+- When the agent has moved beyond design into runtime execution.
+- When sessions, memory, scaling, identity, and governance matter.
+- When you want a managed runtime instead of assembling agent operations yourself.
 
 ## When It Is Not The Best Fit
 
-- If you are still building the workflow in code, start with `Agent Development Kit`.
-- If you want to design the workflow visually first, `Agent Designer` is the better fit.
-- If you want a faster bootstrap into deployable agent patterns, `Agent Starter Pack` is the better starting point.
-- If the main concern is app shielding around prompts and responses, `Google Cloud Model Armor` is the narrower security layer.
-- If the goal is organization-wide AI posture and findings, start with `Security Command Center` or `AI Protection`.
+- If you are still authoring the agent in code, use `Agent Development Kit`.
+- If you are still shaping the workflow visually, use `Agent Designer`.
+- If the main concern is request shielding rather than runtime operations, use `Google Cloud Model Armor`.
 
 ## Key Capabilities
 
 | Capability | Why It Matters |
 | --- | --- |
-| Managed agent runtime | Turns agent logic into a running production system |
-| Operational controls | Adds the boundaries and governance needed once agents are live |
-| Runtime primitives | Supports sessions, memory, and other pieces that matter in real agent systems |
-| Security and observability fit | Connects runtime behavior with broader enterprise controls |
+| Managed runtime | Turns agent logic into an operated service |
+| Operational primitives | Supports the pieces that matter once agents are live |
+| Governance fit | Connects running agents to enterprise controls and security layers |
 
 ## Typical Flow
 
-1. Build or design the agent workflow in the surrounding agent stack.
-2. Deploy it into Agent Engine as the managed runtime layer.
-3. Configure the runtime controls, permissions, and connected operational services you need.
-4. Observe, govern, and scale the running agent system from there.
+1. Build or design the agent in the surrounding stack.
+2. Deploy it into Agent Engine.
+3. Configure runtime controls and connected services.
+4. Observe and govern the system over time.
 
 ## Quick Comparison
 
 | Main Need | Best Fit |
 | --- | --- |
-| Managed runtime and governance for deployed agents | Vertex AI Agent Engine |
-| Code-first agent construction | Agent Development Kit |
-| Visual workflow design | Agent Designer |
-| Faster bootstrap templates for production agent delivery | Agent Starter Pack |
-| App-layer shielding around prompts and responses | Google Cloud Model Armor |
-| Organization-wide AI risk and posture management | Security Command Center / AI Protection |
+| Managed runtime for deployed agents | Vertex AI Agent Engine |
+| Code-first agent authoring | Agent Development Kit |
+| Visual agent authoring | Agent Designer |
+| App-layer shielding | Google Cloud Model Armor |
+| Org-wide AI security posture | AI Protection |
 
 ## Links
 
 - General index: `/services_md/google-services-by-topic.md`
 - Related topics: `/services_md/agents-workflow-orchestration.md`, `/services_md/guardrails-security-governance.md`
 - Official documentation: https://docs.cloud.google.com/agent-builder/agent-engine/overview
+

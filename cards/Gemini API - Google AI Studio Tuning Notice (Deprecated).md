@@ -3,7 +3,7 @@ title: Gemini API / Google AI Studio Tuning Notice (Deprecated)
 topic: Fine-Tuning Customization
 type: notice
 interaction_model: Deprecation notice
-official_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=es-419
+official_url: https://ai.google.dev/gemini-api/docs/model-tuning
 source_index: /services_md/google-services-by-topic.md
 source_topic: /services_md/fine_tuning.md
 related_tools:
@@ -17,51 +17,53 @@ status: deprecated
 
 ## TL;DR
 
-The deprecation-style notice warning against direct tuning through gemini API or google AI studio. It fits when you want to confirm whether a direct tuning route is still viable before designing around it.
+The official deprecation notice for direct tuning in Gemini API and Google AI Studio. It fits when you need to confirm whether that route is still available before designing around it.
 
 ## What It Is
 
-Gemini API / Google AI Studio Tuning Notice (Deprecated) acts as the deprecation-style notice warning against direct tuning through Gemini API or Google AI Studio within `Fine-Tuning Customization`. The right reading here is to separate the currently supported path from the routes that appear only as contrast or caution. In practice, this should be read as a cautionary product signal rather than as an active implementation path.
+This is not an active builder surface.
+
+The current page states that, after the deprecation of Gemini 1.5 Flash-001, Google no longer has a model available that supports fine-tuning in Gemini API or AI Studio, while tuning remains supported in `Vertex AI`.
+
+In repo terms, this card exists to prevent architectural mistakes.
 
 ## When To Use It
 
-- When you want to confirm whether a direct tuning route is still viable before designing around it.
-- When the interaction model you need looks more like `Deprecation notice` than like a generic one-size-fits-all surface.
-- When the main fit is in the `Fine-Tuning Customization` block rather than in another part of the ecosystem.
-- When you want a more structured surface than assembling the entire workflow from loose parts yourself.
+- When you need to verify whether direct tuning in Gemini API or AI Studio is still supported.
+- When you are migrating documentation away from an older tuning assumption.
+- When you need the official explanation for why `Vertex AI Tuning` is now the supported route.
 
 ## When It Is Not The Best Fit
 
-- If your use case is closer to `Vertex AI Tuning`, start there instead.
-- If your use case is closer to `Google AI Studio`, start there instead.
-- If your use case is closer to `Gemini API`, start there instead.
+- If you want to implement tuning, use `Vertex AI Tuning`.
+- If you want prompt, tool, or safety experimentation, use `Google AI Studio`.
+- If you want general API integration, use `Gemini API`.
 
 ## Key Capabilities
 
 | Capability | Why It Matters |
 | --- | --- |
-| Product signal | Helps avoid designing around the wrong entry point. |
-| Decision support | Useful when teams are still choosing a path. |
-| Architectural guidance | Frames what is available versus what should be avoided. |
+| Deprecation signal | Stops teams from designing around an unavailable path |
+| Replacement pointer | Directs builders toward `Vertex AI Tuning` |
+| Historical context | Explains older repo references that no longer represent the current platform |
 
 ## Typical Flow
 
-1. Read it as an architectural signal, not as the implementation target itself.
-2. Use it to confirm whether a path is active or unavailable.
-3. Adjust the product decision before deeper implementation work begins.
-4. Move to the supported surface once the decision is clear.
+1. Confirm that the direct-tuning route is deprecated.
+2. Remove it from active recommendations.
+3. Redirect the implementation plan to `Vertex AI Tuning`.
 
 ## Quick Comparison
 
 | Main Need | Best Fit |
 | --- | --- |
-| You want to confirm whether a direct tuning route is still viable before designing around it | Gemini API / Google AI Studio Tuning Notice (Deprecated) |
-| A workflow that is better aligned with `Vertex AI Tuning` | Vertex AI Tuning |
-| A workflow that is better aligned with `Google AI Studio` | Google AI Studio |
-| A workflow that is better aligned with `Gemini API` | Gemini API |
+| Confirm that direct tuning in Gemini API / AI Studio is deprecated | Gemini API / Google AI Studio Tuning Notice (Deprecated) |
+| Implement supported tuning on Google Cloud | Vertex AI Tuning |
+| Continue with prompt and tool experimentation | Google AI Studio |
 
 ## Links
 
 - General index: `/services_md/google-services-by-topic.md`
 - Related topic: `/services_md/fine_tuning.md`
-- Official documentation: https://ai.google.dev/gemini-api/docs/model-tuning?hl=es-419
+- Official documentation: https://ai.google.dev/gemini-api/docs/model-tuning
+

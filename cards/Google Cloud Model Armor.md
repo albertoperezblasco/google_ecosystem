@@ -2,13 +2,15 @@
 title: Google Cloud Model Armor
 topic: Guardrails Security Governance
 type: service
-interaction_model: App shielding service
+interaction_model: App traffic shielding service
 official_url: https://docs.cloud.google.com/model-armor/overview
 source_index: /services_md/google-services-by-topic.md
 source_topic: /services_md/guardrails-security-governance.md
 related_tools:
+- Safety settings
 - Sensitive Data Protection
 - Security Command Center
+- AI Protection
 - Vertex AI Agent Engine
 status: active
 ---
@@ -17,51 +19,53 @@ status: active
 
 ## TL;DR
 
-The application shielding service for screening prompts, responses, and some supported files. It fits when you want a security layer around the app rather than relying only on model-native filters.
+The app-layer shielding service for prompts, responses, and agent interactions. It fits when you want security controls around application traffic, not only model-native safety filters.
 
 ## What It Is
 
-Google Cloud Model Armor acts as the application shielding service for screening prompts, responses, and some supported files within `Guardrails Security Governance`. Not every control lives at the same layer: some tune model filtering, some shield app traffic, some govern data, and some manage organization-wide posture. Google’s current overview emphasizes proactive screening of prompts and responses together with prompt-injection and jailbreak protection.
+Officially documented as Model Armor, this service protects AI prompts, responses, and agent interactions against issues such as prompt injection, data leakage, and harmful content.
+
+The important ecosystem distinction is that `Google Cloud Model Armor` sits at the application traffic layer, while `AI Protection` sits at the organizational posture layer inside Security Command Center.
 
 ## When To Use It
 
-- When you want a security layer around the app rather than relying only on model-native filters.
-- When the interaction model you need looks more like `App shielding service` than like a generic one-size-fits-all surface.
-- When the main fit is in the `Guardrails Security Governance` block rather than in another part of the ecosystem.
-- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
+- When you need a defensive layer around model or agent traffic.
+- When prompt injection, jailbreaks, or sensitive-data leakage are explicit risks.
+- When model-native controls alone are not enough for the application boundary.
 
 ## When It Is Not The Best Fit
 
-- If your use case is closer to `Sensitive Data Protection`, start there instead.
-- If your use case is closer to `Security Command Center`, start there instead.
-- If your use case is closer to `Vertex AI Agent Engine`, start there instead.
+- If you only need request-time content controls inside Gemini, use `Safety settings`.
+- If you need DLP-style discovery and redaction, use `Sensitive Data Protection`.
+- If you need organization-wide AI risk management, use `AI Protection`.
 
 ## Key Capabilities
 
 | Capability | Why It Matters |
 | --- | --- |
-| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
-| Task-specific value | Makes it easier to solve one concrete problem well. |
-| Operational convenience | Lets teams move faster without building every layer themselves. |
+| Prompt and response screening | Helps catch risky traffic before it reaches users or models |
+| Prompt-injection protection | Addresses a common failure mode in agentic systems |
+| Sensitive-data controls | Adds app-boundary protection for leakage risks |
 
 ## Typical Flow
 
-1. Define the concrete problem this managed service should solve.
-2. Configure the minimum inputs and options needed for a first pass.
-3. Run the service on representative data and inspect the output.
-4. Tune the surrounding workflow around what the service gives you.
+1. Identify the prompt and response boundary that needs protection.
+2. Configure Model Armor policies for the relevant traffic.
+3. Connect it to the model or agent runtime.
+4. Combine it with broader governance layers where required.
 
 ## Quick Comparison
 
 | Main Need | Best Fit |
 | --- | --- |
-| You want a security layer around the app rather than relying only on model-native filters | Google Cloud Model Armor |
-| A workflow that is better aligned with `Sensitive Data Protection` | Sensitive Data Protection |
-| A workflow that is better aligned with `Security Command Center` | Security Command Center |
-| A workflow that is better aligned with `Vertex AI Agent Engine` | Vertex AI Agent Engine |
+| App-layer shielding around prompts and responses | Google Cloud Model Armor |
+| Model-native request controls | Safety settings |
+| DLP and sensitive-data programs | Sensitive Data Protection |
+| Organization-wide AI posture | AI Protection |
 
 ## Links
 
 - General index: `/services_md/google-services-by-topic.md`
 - Related topic: `/services_md/guardrails-security-governance.md`
 - Official documentation: https://docs.cloud.google.com/model-armor/overview
+

@@ -10,6 +10,7 @@ related_tools:
 - Security Command Center
 - Google Cloud Model Armor
 - Sensitive Data Protection
+- Vertex AI Agent Engine
 status: active
 ---
 
@@ -17,51 +18,57 @@ status: active
 
 ## TL;DR
 
-The AI-specific security capability inside security command center. It fits when you need inventory, risks, threats, and AI-specific visibility across organizational assets.
+The AI-specific security layer inside Security Command Center. It fits when you need inventory, posture, findings, and governance for AI assets across the organization.
 
 ## What It Is
 
-AI Protection acts as the AI-specific security capability inside Security Command Center within `Guardrails Security Governance`. Not every control lives at the same layer: some tune model filtering, some shield app traffic, some govern data, and some manage organization-wide posture.
+AI Protection is not an app traffic filter.
+It is the Security Command Center layer for understanding and governing AI risk across your environment.
+
+That makes it complementary to `Google Cloud Model Armor`:
+
+- Model Armor shields prompts and responses in the request path.
+- AI Protection helps security teams see, assess, and govern AI posture across assets and findings.
 
 ## When To Use It
 
-- When you need inventory, risks, threats, and AI-specific visibility across organizational assets.
-- When the interaction model you need looks more like `AI security posture capability` than like a generic one-size-fits-all surface.
-- When the main fit is in the `Guardrails Security Governance` block rather than in another part of the ecosystem.
-- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
+- When the security question is organizational rather than request-local.
+- When you need AI asset visibility, risk findings, and posture management.
+- When AI workloads must fit into a broader cloud security program.
 
 ## When It Is Not The Best Fit
 
-- If your use case is closer to `Security Command Center`, start there instead.
-- If your use case is closer to `Google Cloud Model Armor`, start there instead.
-- If your use case is closer to `Sensitive Data Protection`, start there instead.
+- If you need app-boundary prompt and response filtering, use `Google Cloud Model Armor`.
+- If you need DLP controls and data discovery, use `Sensitive Data Protection`.
+- If you just need product-local safety controls inside Gemini, use `Safety settings`.
 
 ## Key Capabilities
 
 | Capability | Why It Matters |
 | --- | --- |
-| Managed operation | Keeps the surface focused on the task instead of on infrastructure assembly. |
-| Task-specific value | Makes it easier to solve one concrete problem well. |
-| Operational convenience | Lets teams move faster without building every layer themselves. |
+| AI asset visibility | Helps security teams see where AI workloads exist |
+| Findings and posture | Brings AI risk into the broader cloud security model |
+| SCC integration | Makes AI governance part of an existing security operations workflow |
 
 ## Typical Flow
 
-1. Define the concrete problem this managed service should solve.
-2. Configure the minimum inputs and options needed for a first pass.
-3. Run the service on representative data and inspect the output.
-4. Tune the surrounding workflow around what the service gives you.
+1. Discover AI assets and findings inside Security Command Center.
+2. Review posture and risk signals for AI workloads.
+3. Remediate or harden the relevant services and runtimes.
+4. Pair with request-path protections where needed.
 
 ## Quick Comparison
 
 | Main Need | Best Fit |
 | --- | --- |
-| You need inventory, risks, threats, and AI-specific visibility across organizational assets | AI Protection |
-| A workflow that is better aligned with `Security Command Center` | Security Command Center |
-| A workflow that is better aligned with `Google Cloud Model Armor` | Google Cloud Model Armor |
-| A workflow that is better aligned with `Sensitive Data Protection` | Sensitive Data Protection |
+| Organization-wide AI risk and posture management | AI Protection |
+| General cloud security posture | Security Command Center |
+| Prompt and response shielding | Google Cloud Model Armor |
+| Sensitive-data discovery and redaction | Sensitive Data Protection |
 
 ## Links
 
 - General index: `/services_md/google-services-by-topic.md`
 - Related topic: `/services_md/guardrails-security-governance.md`
 - Official documentation: https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview
+

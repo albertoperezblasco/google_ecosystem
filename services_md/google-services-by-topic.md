@@ -1,76 +1,51 @@
 # Google Services by Topic
 
+Last refreshed: 2026-04-14
+
 ## Models
 
-- Multimodal generation
-  - [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)
-  - [Gemini 3 Pro Preview (deprecated)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview)
-<a id="service-gemini-3-flash-preview"></a>
-  - [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview)
-  - [Gemini 3.1 Flash Lite Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview)
-<a id="service-gemini-2-5-pro"></a>
-  - [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro)
-  - [Gemini 2.5 Flash Preview](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash)
-<a id="service-gemini-2-5-flash"></a>
-  - [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash)
-  - [Gemini 2.5 Flash-Lite Preview](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-lite)
-<a id="service-gemini-2-5-flash-lite"></a>
-  - [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite)
-  - [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash)
-  - [Gemini 2.0 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash-lite)
-  - [Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview)
-<a id="service-gemini-live-2-5-flash-native-audio"></a>
-  - [Gemini Live 2.5 Flash Native Audio](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-live-api)
-  - [Gemini Deep Research Preview](https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025)
-  - [Gemini Computer Use Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025)
-  - [Gemini Robotics Preview](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.5-preview)
-  - [Gemma 3n](https://ai.google.dev/gemma/docs/gemma-3n)
-  - [MaMMUT](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
-- Text generation
+- Frontier multimodal and reasoning models
+  - [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Gemini 3.1 Flash-Lite Preview](https://ai.google.dev/gemini-api/docs/models)
+- Still current, but with announced retirement windows
+  - [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models) - scheduled for retirement on 2026-06-17
+  - [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models) - scheduled for retirement on 2026-06-17
+  - [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models) - scheduled for retirement on 2026-07-22
+  - [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/deprecations) - scheduled for retirement on 2026-06-01
+  - [Gemini 2.0 Flash-Lite](https://ai.google.dev/gemini-api/docs/deprecations) - scheduled for retirement on 2026-06-01
+- Live and speech models
+  - [Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Gemini 2.5 Flash TTS Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Gemini 2.5 Pro TTS Preview](https://ai.google.dev/gemini-api/docs/models)
+- Image, video, and music generation
+  - [Nano Banana](https://ai.google.dev/gemini-api/docs/models) (Gemini 2.5 Flash Image)
+<a id="service-nano-banana"></a>
+  - [Nano Banana 2 Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Nano Banana Pro Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Imagen 4](https://ai.google.dev/gemini-api/docs/models/imagen)
+  - [Veo 3.1 Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Veo 3.1 Lite Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Lyria 3 Pro Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Lyria 3 Clip Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Lyria RealTime Experimental](https://ai.google.dev/gemini-api/docs/models)
+- Specialized task and agent models
+  - [Computer Use Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Gemini Deep Research Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Gemini Embedding](https://ai.google.dev/gemini-api/docs/embeddings)
+  - [Gemini Embedding 2 Preview](https://ai.google.dev/gemini-api/docs/embeddings)
+  - [Gemini Robotics Preview](https://ai.google.dev/gemini-api/docs/models)
+- Open model families
   - [Gemma 4](https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)
+  - [Gemma 3n](https://ai.google.dev/gemma/docs/gemma-3n)
   - [Gemma 3](https://ai.google.dev/gemma/docs/core)
   - [Gemma 2](https://ai.google.dev/gemma/docs/model_card_2)
-  - [Gemma](https://ai.google.dev/gemma/docs/model_card)
   - [CodeGemma](https://ai.google.dev/gemma/docs/codegemma)
   - [FunctionGemma](https://ai.google.dev/gemma/docs/functiongemma)
-  - [T5Gemma](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
-  - [T5-FLAN](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
-  - [T5-1.1](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
-  - [BERT](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
-  - [BERT (PEFT)](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
-  - [Bart-large-cnn](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
-- Translation
-  - [Translation LLM](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/translate/translate-text)
-  - [Text Translation](https://cloud.google.com/translate/docs/overview)
-  - [TranslateGemma](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models)
-- Image generation
-<a id="service-nano-banana"></a>
-  - [Nano Banana (alias of Gemini 2.5 Flash Image)](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image)
-  - [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image)
-  - [Nano Banana 2 (alias of Gemini 3.1 Flash Image Preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview)
-  - [Gemini 3.1 Flash Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview)
-  - [Nano Banana Pro (alias of Gemini 3 Pro Image Preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview)
-  - [Gemini 3 Pro Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview)
-  - [Imagen 4 Ultra for Image Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-generate)
-  - [Imagen 4 for Image Generation](https://ai.google.dev/gemini-api/docs/models/imagen)
-  - [Imagen 4 Fast for Image Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/imagen/4-0-generate)
-  - [Imagen for Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images)
-  - [Imagen 2 for Generation and Editing](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images)
-  - [Imagen for Editing and Customization](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/edit-images-overview)
-- Video generation
-  - [Veo 3.1 Lite for Video Generation](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview)
-  - [Veo 3.1 Fast for Video Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate)
-  - [Veo 3.1 for Video Generation](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview)
-  - [Veo 3 for Video Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-generate-001)
-  - [Veo 3 Fast for Video Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-0-generate-001)
-  - [Veo 2 for Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/veo/2-0-generate-001)
-- Audio generation
-  - [Gemini 2.5 Flash TTS Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts)
-  - [Gemini 2.5 Pro TTS Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts)
-  - [Lyria 2 for Music Generation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/lyria/lyria-002)
-  - [Lyria 3 for Song Clips Generation](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview)
-  - [Lyria 3 Pro for Full-Song Generation](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview)
-  - [Lyria RealTime](https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp)
+- Deprecated or shut down model notes
+  - [Gemini 3 Pro Preview](https://ai.google.dev/gemini-api/docs/deprecations) - shut down on 2026-03-09
+  - [Imagen 4 GA model IDs](https://ai.google.dev/gemini-api/docs/deprecations) - retirement window announced for 2026-06-24
+  - [gemini-embedding-001](https://ai.google.dev/gemini-api/docs/deprecations) - retirement window announced for 2026-07-14
 
 ## End User Assistants
 
@@ -90,94 +65,111 @@
 ## Dev Tools & Coding Agents
 
 <a id="service-gemini-code-assist"></a>
-- [Gemini Code Assist](https://developers.google.com/gemini-code-assist/docs/overview?hl=es-419)
+- [Gemini Code Assist](https://developers.google.com/gemini-code-assist/docs/overview)
 <a id="service-firebase-studio"></a>
-- [Firebase Studio](https://firebase.google.com/docs/studio?hl=es-419)
+- [Firebase Studio](https://firebase.google.com/docs/studio)
 <a id="service-gemini-cli"></a>
-- [Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli?hl=es-419)
+- [Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli)
 <a id="service-jules-2-0"></a>
-- [Jules 2.0](https://jules.google/docs/)
+- [Jules 2.0](https://jules.google/docs/) - current docs brand the product simply as Jules; treat it as experimental
 <a id="service-antigravity"></a>
 - [Antigravity](https://antigravity.google/docs/get-started)
 
 ## Studios & Builders
 
 <a id="service-vertex-ai"></a>
-- [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs?hl=es-419)
-  - [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
+- [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs)
+  - [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook)
 <a id="service-google-ai-studio"></a>
-- [Google AI Studio](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=es-419)
-  - [Prompt Gallery](https://ai.google.dev/prompt-gallery) (prompt examples)
+- [Google AI Studio](https://ai.google.dev/aistudio/)
+  - [Google AI Studio quickstart](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart)
 <a id="service-google-ai-edge"></a>
-- [Google AI Edge](https://ai.google.dev/edge?hl=es-419)
+- [Google AI Edge](https://ai.google.dev/edge)
+  - [MediaPipe Tasks](https://ai.google.dev/edge/mediapipe/solutions/guide)
+  - [LiteRT](https://ai.google.dev/edge/litert)
+<a id="service-stitch"></a>
+- [Stitch](https://stitch.withgoogle.com/)
+<a id="service-opal"></a>
+- [Opal](https://opal.google/_app/landing/)
 
 ## APIs & SDKs
 
 <a id="service-gemini-api"></a>
 - [Gemini API](https://ai.google.dev/gemini-api/docs)
-  - [Gemini API Cookbook](https://ai.google.dev/gemini-api/cookbook) (recipes and examples)
+  - [Model catalog](https://ai.google.dev/gemini-api/docs/models)
+  - [Deprecations](https://ai.google.dev/gemini-api/docs/deprecations)
+<a id="service-interactions-api"></a>
+- [Interactions API](https://ai.google.dev/api/interactions-api)
+<a id="service-batch-api"></a>
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api)
+<a id="service-function-calling"></a>
+- [Function calling](https://ai.google.dev/gemini-api/docs/function-calling)
+<a id="service-structured-outputs"></a>
+- [Structured outputs](https://ai.google.dev/gemini-api/docs/structured-output)
+<a id="service-context-caching"></a>
+- [Context caching](https://ai.google.dev/gemini-api/docs/caching/)
 <a id="service-google-gen-ai-sdk"></a>
-  - [Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries)
-    - [Gemini API Cookbook](https://ai.google.dev/gemini-api/cookbook) (recipes and examples)
-- [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs?hl=es-419)
-  - [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
+- [Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries)
+<a id="service-gemini-live-api"></a>
+- [Gemini Live API](https://ai.google.dev/gemini-api/docs/live-api)
+<a id="service-gemini-embeddings"></a>
+- [Gemini Embeddings](https://ai.google.dev/gemini-api/docs/embeddings)
+- [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs)
 <a id="service-agent-development-kit"></a>
 - [Agent Development Kit (Google ADK)](https://docs.cloud.google.com/agent-builder/agent-development-kit/overview)
-  - [ADK quickstart](https://cloud.google.com/agent-builder/agent-engine/quickstart-adk) (quickstart)
 <a id="service-genkit"></a>
-- [Genkit](https://firebase.google.com/docs/genkit/overview)
+- [Genkit](https://genkit.dev/docs/js/overview/)
 <a id="service-cloud-vision-api"></a>
 - [Cloud Vision API](https://docs.cloud.google.com/vision/docs/request)
 <a id="service-cloud-speech-to-text"></a>
-- [Cloud Speech-to-Text](https://docs.cloud.google.com/speech-to-text/docs/v1?hl=es)
+- [Cloud Speech-to-Text](https://docs.cloud.google.com/speech-to-text/docs/v1)
 <a id="service-cloud-natural-language-api"></a>
 - [Cloud Natural Language API](https://docs.cloud.google.com/natural-language/docs)
 <a id="service-cloud-translation-api"></a>
 - [Cloud Translation API](https://docs.cloud.google.com/translate/docs/translate-text)
 <a id="service-mediapipe"></a>
-- [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/guide?hl=es-419)
+- [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/guide)
 <a id="service-litert"></a>
-- [LiteRT](https://ai.google.dev/edge/litert?hl=es-419)
-  - [LiteRT for Microcontrollers get started](https://ai.google.dev/edge/litert/microcontrollers/get_started?hl=es-419) (getting started guide)
+- [LiteRT](https://ai.google.dev/edge/litert)
 <a id="service-tensorflow"></a>
 - [TensorFlow](https://www.tensorflow.org/api_docs)
 <a id="service-jax"></a>
 - [JAX](https://docs.jax.dev/en/latest/jax-101.html#jax-101)
-
 
 ![Model source surfaces](./models_sources.png)
 
 APIs participating in the diagram:
 
 - [Gemini API](https://ai.google.dev/gemini-api/docs)
-- [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs?hl=es-419)
-- [Genkit](https://firebase.google.com/docs/genkit/overview)
-- [Agent Development Kit (Google ADK)](https://docs.cloud.google.com/agent-builder/agent-development-kit/overview)
+- [Interactions API](https://ai.google.dev/api/interactions-api)
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api)
+- [Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries)
+- [Gemini Live API](https://ai.google.dev/gemini-api/docs/live-api)
+- [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs)
+- [Genkit](https://genkit.dev/docs/js/overview/)
+- [Agent Development Kit](https://docs.cloud.google.com/agent-builder/agent-development-kit/overview)
 
 ## Data Grounding RAG Connectors
 
 - [Google AI Studio](https://ai.google.dev/aistudio/)
-  - [Prompt Gallery](https://ai.google.dev/prompt-gallery) (prompt examples)
-- [Gemini API](https://ai.google.dev/docs/gemini_api_overview/)
-  - [Gemini API Cookbook](https://ai.google.dev/gemini-api/cookbook) (recipes and examples)
+- [Gemini API](https://ai.google.dev/gemini-api/docs)
 <a id="service-google-search"></a>
   - [Google Search](https://ai.google.dev/gemini-api/docs/google-search)
-    - [Gemini API Cookbook](https://ai.google.dev/gemini-api/cookbook) (recipes and examples)
+<a id="service-google-maps-grounding"></a>
+  - [Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding)
+<a id="service-url-context"></a>
+  - [URL Context](https://ai.google.dev/gemini-api/docs/url-context)
 <a id="service-file-search"></a>
   - [File Search](https://ai.google.dev/gemini-api/docs/file-search)
-    - [Gemini API Cookbook](https://ai.google.dev/gemini-api/cookbook) (recipes and examples)
 <a id="service-vertex-ai-search"></a>
 - [Vertex AI Search](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/vertex-ai-search)
-  - [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
 <a id="service-vertex-ai-rag-engine"></a>
 - [Vertex AI RAG Engine](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview)
-  - [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
 
 ## Document AI OCR
 
 <a id="service-document-ai"></a>
 - [Document AI](https://docs.cloud.google.com/document-ai/docs/overview)
-  - [Document AI code samples](https://cloud.google.com/document-ai/docs/samples) (samples)
 <a id="service-pretrained-parsers"></a>
   - [Pretrained Parsers](https://docs.cloud.google.com/document-ai/docs/pretrained-overview)
 <a id="service-summarizer"></a>
@@ -199,69 +191,57 @@ APIs participating in the diagram:
 ## Fine-Tuning Customization
 
 <a id="service-vertex-ai-tuning"></a>
-- [Vertex AI Tuning](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning?hl=es-419)
-  - [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
+- [Vertex AI Tuning](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning)
+- Deprecated route notice
 <a id="service-gemini-api-google-ai-studio-tuning-notice"></a>
-- [Gemini API / Google AI Studio Tuning Notice (Deprecated)](https://ai.google.dev/gemini-api/docs/model-tuning?hl=es-419)
-  - [Gemini API Cookbook](https://ai.google.dev/gemini-api/cookbook) (recipes and examples)
+  - [Gemini API / Google AI Studio Tuning Notice (Deprecated)](https://ai.google.dev/gemini-api/docs/model-tuning)
 
 ## Evaluation & Observability
 
 <a id="service-gen-ai-evaluation-service"></a>
-- [Gen AI Evaluation Service](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview?hl=es-419)
-  - [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
+- [Gen AI Evaluation Service](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview)
 <a id="service-vertex-ai-evaluation"></a>
-- [Vertex AI Evaluation](https://docs.cloud.google.com/vertex-ai/docs/evaluation/introduction?hl=es-419)
+- [Vertex AI Evaluation](https://docs.cloud.google.com/vertex-ai/docs/evaluation/introduction)
 <a id="service-agent-evaluation"></a>
-- [Agent Evaluation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents?hl=es)
+- [Agent Evaluation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-agents)
 <a id="service-vertex-ai-experiments"></a>
-- [Vertex AI Experiments](https://docs.cloud.google.com/vertex-ai/docs/experiments/intro-vertex-ai-experiments?hl=es-419)
-  - [Vertex AI Experiments getting started](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-get-started-vertex-ai-experiments?utm_source=openai&hl=es-419) (getting started guide)
+- [Vertex AI Experiments](https://docs.cloud.google.com/vertex-ai/docs/experiments/intro-vertex-ai-experiments)
 <a id="service-vertex-ai-model-monitoring"></a>
-- [Vertex AI Model Monitoring](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/overview?hl=es-419)
+- [Vertex AI Model Monitoring](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/overview)
 <a id="service-vertex-explainable-ai"></a>
-- [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview?hl=es)
+- [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview)
 <a id="service-vertex-ai-feature-store"></a>
-- [Vertex AI Feature Store](https://docs.cloud.google.com/vertex-ai/docs/featurestore?hl=es-419)
+- [Vertex AI Feature Store](https://docs.cloud.google.com/vertex-ai/docs/featurestore)
 <a id="service-cloud-trace"></a>
-- [Cloud Trace](https://docs.cloud.google.com/trace/docs?hl=es-419)
+- [Cloud Trace](https://docs.cloud.google.com/trace/docs)
 <a id="service-cloud-profiler"></a>
-- [Cloud Profiler](https://docs.cloud.google.com/profiler/docs?hl=es-419)
+- [Cloud Profiler](https://docs.cloud.google.com/profiler/docs)
 <a id="service-cloud-logging"></a>
-- [Cloud Logging](https://docs.cloud.google.com/logging/docs?hl=es-419)
+- [Cloud Logging](https://docs.cloud.google.com/logging/docs)
 
 ## Design to Code App Prototyping
 
-<a id="service-stitch"></a>
 - [Stitch](https://stitch.withgoogle.com/)
 - [Google AI Studio](https://ai.google.dev/aistudio/)
-  - [Prompt Gallery](https://ai.google.dev/prompt-gallery) (prompt examples)
 <a id="service-ai-studio-build-mode"></a>
   - [AI Studio Build Mode](https://ai.google.dev/gemini-api/docs/aistudio-build-mode)
 - [Firebase Studio](https://firebase.google.com/docs/studio)
 <a id="service-app-prototyping-agent"></a>
   - [App Prototyping agent](https://firebase.google.com/docs/studio/get-started-ai)
-<a id="service-opal"></a>
 - [Opal](https://opal.google/_app/landing/)
 
 ## Guardrails Security Governance
 
 - [Google AI Studio](https://ai.google.dev/aistudio/)
-  - [Prompt Gallery](https://ai.google.dev/prompt-gallery) (prompt examples)
 <a id="service-safety-settings"></a>
   - [Safety settings](https://ai.google.dev/gemini-api/docs/safety-settings)
-    - [Gemini API Cookbook](https://ai.google.dev/gemini-api/cookbook) (recipes and examples)
-- [Gemini API](https://ai.google.dev/docs/gemini_api_overview/)
-  - [Gemini API Cookbook](https://ai.google.dev/gemini-api/cookbook) (recipes and examples)
-  - [Safety settings](https://ai.google.dev/gemini-api/docs/safety-settings)
-    - [Gemini API Cookbook](https://ai.google.dev/gemini-api/cookbook) (recipes and examples)
+- [Gemini API](https://ai.google.dev/gemini-api/docs)
 <a id="service-google-cloud-model-armor"></a>
 - [Google Cloud Model Armor](https://docs.cloud.google.com/model-armor/overview)
 <a id="service-sensitive-data-protection"></a>
-  - [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview)
+- [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview)
 <a id="service-vertex-ai-agent-engine"></a>
 - [Vertex AI Agent Engine](https://docs.cloud.google.com/agent-builder/agent-engine/overview)
-  - [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
 <a id="service-security-command-center"></a>
 - [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview)
 <a id="service-ai-protection"></a>
@@ -271,40 +251,41 @@ APIs participating in the diagram:
 
 <a id="service-vertex-ai-agent-builder"></a>
 - [Vertex AI Agent Builder](https://docs.cloud.google.com/agent-builder/overview)
-  - [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
   - [Agent Development Kit](https://docs.cloud.google.com/agent-builder/agent-development-kit/overview)
-    - [ADK quickstart](https://cloud.google.com/agent-builder/agent-engine/quickstart-adk) (quickstart)
 <a id="service-agent-designer"></a>
   - [Agent Designer](https://docs.cloud.google.com/agent-builder/agent-designer)
   - [Vertex AI Agent Engine](https://docs.cloud.google.com/agent-builder/agent-engine/overview)
-    - [Generative AI on Vertex AI Cookbook](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/cookbook) (recipes and examples)
 <a id="service-agent-garden"></a>
   - [Agent Garden](https://docs.cloud.google.com/agent-builder/overview)
 <a id="service-agent-starter-pack"></a>
   - [Agent Starter Pack](https://cloud.google.com/agent-builder/agent-engine/quickstart-adk)
+- Agentic Gemini tool surfaces
+<a id="service-computer-use"></a>
+  - [Computer Use](https://ai.google.dev/gemini-api/docs/computer-use)
+<a id="service-gemini-deep-research"></a>
+  - [Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research)
+  - [Function calling](https://ai.google.dev/gemini-api/docs/function-calling)
+  - [Interactions API](https://ai.google.dev/api/interactions-api)
 
 ## Tech Enablement Deliverables
 
 | Services Used | Tech Enablement Deliverable | Type |
 | --- | --- | --- |
-| [Vertex AI Agent Builder](#service-vertex-ai-agent-builder), [Google Search](#service-google-search), [ADK](#service-agent-development-kit) | Fighting Desinformation Vertex Agent | Prototype |
+| [Vertex AI Agent Builder](#service-vertex-ai-agent-builder), [Google Search](#service-google-search), [Agent Development Kit](#service-agent-development-kit) | Fighting Desinformation Vertex Agent | Prototype |
 | [File Search](#service-file-search), [Google Gen AI SDK](#service-google-gen-ai-sdk) | Gemini File Search | Prototype |
-| [Gemini 2.5 Pro](#service-gemini-2-5-pro), [Gemini 2.5 Flash-Lite](#service-gemini-2-5-flash-lite), [Gemini 2.5 Flash](#service-gemini-2-5-flash), [Google Gen AI SDK](#service-google-gen-ai-sdk) | Entities Anonymizator | Prototype |
-| [Gemini 3 Flash Preview](#service-gemini-3-flash-preview), [Google Gen AI SDK](#service-google-gen-ai-sdk) | Agentic Vision & 20260209_Agentic_Vision_Gemini_3_Flash | Prototype & Report |
-| [Gemini Live 2.5 Flash Native Audio](#service-gemini-live-2-5-flash-native-audio), [Gemini 2.5 Flash](#service-gemini-2-5-flash), [Gemini 3 Flash Preview](#service-gemini-3-flash-preview), [Google Gen AI SDK](#service-google-gen-ai-sdk) | Voice Browser & 20260223_Gemini_Live_API_review | Prototype & Report |
 | [Google Gen AI SDK](#service-google-gen-ai-sdk) | 20260102_Google-Interactions-API | Report |
 | [Antigravity](#service-antigravity) | 20260113_antigravity_review | Report |
 | [Stitch](#service-stitch) | 20260115_ui-ux-generator | Report |
 | Google Protocol | 20260116_Dynamic_Web_Building_with_A2UI | Report |
 | [Stitch](#service-stitch) | 20260123_stitch_ai-studio_technical_evaluation | Report |
-| [ADK](#service-adk) | 20260130_Building_GraphRAG_Agents_with_the_Google_ADK | Report |
-| [Firebase](#service-firebase), [Firebase Studio](#service-firebase-studio) | 20260130_firebase_and_firebase_studio | Report |
+| [Agent Development Kit](#service-agent-development-kit) | 20260130_Building_GraphRAG_Agents_with_the_Google_ADK | Report |
+| [Firebase Studio](#service-firebase-studio) | 20260130_firebase_and_firebase_studio | Report |
 | Google Protocol | 20260217_WebMCP-Google | Report |
 | [Vertex AI Agent Builder](#service-vertex-ai-agent-builder) | 20250414_VertexAIAgentBuilder | Report |
 | Google Protocol | 20250506_A2A | Report |
-| [ADK](#service-adk), [Google Gen AI SDK](#service-google-gen-ai-sdk), [Vertex AI Agent Builder](#service-vertex-ai-agent-builder)  | 20250507_VertexAIAgents | Report |
+| [Agent Development Kit](#service-agent-development-kit), [Google Gen AI SDK](#service-google-gen-ai-sdk), [Vertex AI Agent Builder](#service-vertex-ai-agent-builder) | 20250507_VertexAIAgents | Report |
 | Google Protocol | 20250604_A2A_Security-Mitigations | Report |
 | Google Protocol | 20250612_Workshop_A2A_MCP_part1 | Report |
-| Google Protocol | 20250624_Workshop_A2A_MCP_part2 | Report | 
+| Google Protocol | 20250624_Workshop_A2A_MCP_part2 | Report |
 | [Nano Banana](#service-nano-banana) | 20250828_Google Nano Banana Model | Report |
-| [Antigravity](#service-antigravity) | 20251216_IntroToAntigravity | Report | 
+| [Antigravity](#service-antigravity) | 20251216_IntroToAntigravity | Report |

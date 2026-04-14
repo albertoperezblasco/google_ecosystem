@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>google-genai refresh map</title>
+  <style>
+    :root {
+      --bg: #f2efe8;
+      --paper: #fffaf2;
+      --ink: #1b1a17;
+      --muted: #61584f;
+      --line: #d6c6ad;
+      --accent: #0f766e;
+      --accent-soft: #d7efe9;
+      --accent-2: #8c2f39;
+      --accent-2-soft: #f2d6da;
+      --shadow: 0 18px 40px rgba(27, 26, 23, 0.08);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(140, 47, 57, 0.14), transparent 26%),
+        linear-gradient(180deg, #faf6ee 0%, #efe7d8 100%);
+      line-height: 1.5;
+    }
+
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .hero,
+    .panel {
+      background: var(--paper);
+      border: 1px solid rgba(27, 26, 23, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(15, 118, 110, 0.18), rgba(140, 47, 57, 0.10));
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: clamp(2.1rem, 5vw, 4.1rem);
+      max-width: 12ch;
+    }
+
+    .hero p {
+      max-width: 58rem;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero code,
+    .node code,
+    .chip,
+    .formula {
+      font-family: "Courier New", monospace;
+    }
+
+    .section-grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .panel { padding: 28px; }
+
+    .panel h2 {
+      font-size: 1.55rem;
+      margin-bottom: 10px;
+    }
+
+    .panel-intro {
+      color: var(--muted);
+      margin: 0 0 22px;
+    }
+
+    .map {
+      display: grid;
+      gap: 18px;
+    }
+
+    .root {
+      display: flex;
+      justify-content: center;
+    }
+
+    .arrow-down,
+    .arrow {
+      text-align: center;
+      line-height: 1;
+    }
+
+    .arrow-down {
+      color: var(--accent);
+      font-size: 1.8rem;
+    }
+
+    .arrow {
+      color: var(--line);
+      font-size: 1.2rem;
+    }
+
+    .branches {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .lane {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .node {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: #fffdf8;
+      min-height: 92px;
+    }
+
+    .node strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .node p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .node.root-node {
+      max-width: 460px;
+      border-color: rgba(15, 118, 110, 0.32);
+      background: linear-gradient(180deg, #f0fbf8 0%, #fffaf5 100%);
+    }
+
+    .node.process {
+      border-color: rgba(140, 47, 57, 0.25);
+      background: linear-gradient(180deg, #fff5f6 0%, #fffdf8 100%);
+    }
+
+    .node.highlight {
+      border-color: rgba(15, 118, 110, 0.30);
+      background: linear-gradient(180deg, #f4fcfa 0%, #fffdf8 100%);
+    }
+
+    .branch-title {
+      padding: 10px 12px;
+      border-radius: 16px;
+      font-size: 0.88rem;
+      background: var(--accent-2-soft);
+      color: var(--accent-2);
+      text-align: center;
+      min-height: 64px;
+      display: grid;
+      place-items: center;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #fffdf8;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li + li { margin-top: 10px; }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .scenario {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: #fffdf8;
+    }
+
+    .scenario h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .scenario p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .formula {
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #f4efe5;
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+
+    .footer-note {
+      border-left: 4px solid var(--accent);
+      padding-left: 14px;
+      color: var(--muted);
+    }
+
+    .mermaid-wrap {
+      display: grid;
+      gap: 16px;
+    }
+
+    .mermaid-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      background: #fffdf8;
+      overflow-x: auto;
+    }
+
+    .mermaid { min-width: 860px; }
+
+    .mermaid-fallback {
+      margin: 0;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #f4efe5;
+      color: var(--muted);
+      font-family: "Courier New", monospace;
+      font-size: 0.88rem;
+      white-space: pre-wrap;
+    }
+
+    @media (max-width: 980px) {
+      .branches,
+      .two-col,
+      .scenario-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .branch-title { min-height: auto; }
+      .lane { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <span class="eyebrow">Skill map</span>
+      <h1><code>google-genai</code> como flujo de refresh</h1>
+      <p>
+        Este mapa adapta el patron de <code>using-superpowers</code> a un trabajo concreto:
+        descubrir cambios oficiales en el ecosistema GenAI de Google, resolver lifecycle y
+        propagar la actualizacion a <code>cards/</code>, <code>services_md/</code> y al propio mapa.
+      </p>
+      <div class="chips">
+        <span class="chip">Entrada: <code>using-google-genai-refresh</code></span>
+        <span class="chip">Fuente base: <code>sourceEcosystemGoogle/</code></span>
+        <span class="chip">Salida: <code>cards</code> + <code>services_md</code> + <code>html</code></span>
+      </div>
+    </section>
+
+    <div class="section-grid">
+      <section class="panel">
+        <h2>Mapa visual</h2>
+        <p class="panel-intro">
+          Flujo operativo para refrescar el catalogo del repo sin mezclar investigacion, lifecycle y escritura.
+        </p>
+
+        <div class="map" aria-label="Mapa de decision del refresh Google GenAI">
+          <div class="root">
+            <div class="node root-node">
+              <strong><code>using-google-genai-refresh</code></strong>
+              <p>Router del proceso. Obliga a pasar por discovery, lifecycle, actualizacion y verificacion.</p>
+            </div>
+          </div>
+
+          <div class="arrow-down">&darr;</div>
+
+          <div class="branches">
+            <div class="lane">
+              <div class="branch-title">&iquest;Necesitas saber qu&eacute; hay nuevo o qu&eacute; ha cambiado?</div>
+              <div class="arrow">&darr;</div>
+              <div class="node process">
+                <strong><code>researching-google-genai-surfaces</code></strong>
+                <p>Busca solo en fuentes oficiales de Google y decide qu&eacute; entra en catalogo.</p>
+              </div>
+            </div>
+
+            <div class="lane">
+              <div class="branch-title">&iquest;La duda es si algo sigue activo, est&aacute; en preview o est&aacute; deprecado?</div>
+              <div class="arrow">&darr;</div>
+              <div class="node process">
+                <strong><code>tracking-google-genai-lifecycle</code></strong>
+                <p>Convierte las senales oficiales en estados del repo: active, preview, deprecated, shut_down.</p>
+              </div>
+            </div>
+
+            <div class="lane">
+              <div class="branch-title">&iquest;Toca actualizar cards, indices o el mapa?</div>
+              <div class="arrow">&darr;</div>
+              <div class="node highlight">
+                <strong><code>updating-google-genai-catalog</code></strong>
+                <p>Propaga el cambio a <code>cards/</code>, <code>google-services-by-topic.md</code>, <code>google_ecosystem.md</code> y <code>skills-map.html</code>.</p>
+              </div>
+            </div>
+
+            <div class="lane">
+              <div class="branch-title">&iquest;Vas a cerrar el refresh?</div>
+              <div class="arrow">&darr;</div>
+              <div class="node">
+                <strong><code>verifying-google-genai-refresh</code></strong>
+                <p>Comprueba coherencia entre nombres, lifecycle, cards nuevas y listas activas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Diagrama Mermaid</h2>
+        <p class="panel-intro">
+          Vista tecnica del mismo flujo con una secuencia que evita editar desde memoria o mezclar activos con deprecados.
+        </p>
+
+        <div class="mermaid-wrap">
+          <div class="mermaid-card">
+            <pre class="mermaid" aria-label="Diagrama Mermaid del flujo Google GenAI">flowchart TD
+    A["using-google-genai-refresh&lt;br/&gt;router del proceso"] --&gt; B["Leer sourceEcosystemGoogle/google-genai-refresh-source.md"]
+    B --&gt; C["researching-google-genai-surfaces&lt;br/&gt;discovery oficial"]
+    C --&gt; D["tracking-google-genai-lifecycle&lt;br/&gt;active / preview / deprecated / shut_down"]
+    D --&gt; E["updating-google-genai-catalog&lt;br/&gt;cards + services_md + html"]
+    E --&gt; F["verifying-google-genai-refresh&lt;br/&gt;consistencia cruzada"]
+
+    D --&gt;|si algo est&aacute; deprecado| G["sacarlo de listas activas y dejar nota historica"]
+    G --&gt; E
+
+    C --&gt;|si aparece una surface nueva| H["crear o actualizar card"]
+    H --&gt; E</pre>
+          </div>
+
+          <pre class="mermaid-fallback">flowchart TD
+A["using-google-genai-refresh"] --&gt; B["researching-google-genai-surfaces"]
+B --&gt; C["tracking-google-genai-lifecycle"]
+C --&gt; D["updating-google-genai-catalog"]
+D --&gt; E["verifying-google-genai-refresh"]</pre>
+        </div>
+      </section>
+
+      <section class="panel two-col">
+        <div>
+          <h2>Lectura rapida</h2>
+          <ul>
+            <li><code>using-google-genai-refresh</code> no edita contenido: fuerza a empezar por el proceso correcto.</li>
+            <li>La fuente local obligatoria es <code>sourceEcosystemGoogle/google-genai-refresh-source.md</code>.</li>
+            <li>Discovery va primero: antes de editar hay que confirmar si la surface existe y cual es su URL oficial.</li>
+            <li>Lifecycle va despues: primero se decide si algo esta activo, en preview o deprecado; luego se reescribe.</li>
+            <li>La actualizacion toca cuatro destinos: <code>cards/</code>, <code>google-services-by-topic.md</code>, <code>google_ecosystem.md</code> y este HTML.</li>
+            <li>La verificacion final no es opcional: evita cards huerfanas, listas activas con deprecados y nombres incoherentes.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Regla base</h2>
+          <p class="panel-intro">
+            Este flujo no persigue "novedad por novedad". Persigue catalogo util, verificable y mantenible.
+          </p>
+          <div class="footer-note">
+            <strong>No se edita desde memoria.</strong>
+            <br>
+            Primero fuente oficial, despues lifecycle, despues propagacion al repo.
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Atajos por escenario</h2>
+        <p class="panel-intro">
+          Secuencias cortas para los escenarios mas habituales del repo.
+        </p>
+
+        <div class="scenario-grid">
+          <article class="scenario">
+            <h3>Nueva surface oficial</h3>
+            <p>Cuando Google documenta un producto, framework o tool nuevo y hay que incorporarlo al catalogo.</p>
+            <div class="formula"><code>using-google-genai-refresh</code> -&gt; <code>researching-google-genai-surfaces</code> -&gt; <code>tracking-google-genai-lifecycle</code> -&gt; <code>updating-google-genai-catalog</code> -&gt; <code>verifying-google-genai-refresh</code></div>
+          </article>
+
+          <article class="scenario">
+            <h3>Deprecation o shutdown</h3>
+            <p>Cuando algo que ya estaba en el repo deja de ser ruta recomendada o tiene fecha de retirada.</p>
+            <div class="formula"><code>using-google-genai-refresh</code> -&gt; <code>tracking-google-genai-lifecycle</code> -&gt; <code>updating-google-genai-catalog</code> -&gt; <code>verifying-google-genai-refresh</code></div>
+          </article>
+
+          <article class="scenario">
+            <h3>Refresh completo del repo</h3>
+            <p>Cuando hay que sincronizar cards, indices y mapa a la vez.</p>
+            <div class="formula"><code>using-google-genai-refresh</code> -&gt; <code>researching-google-genai-surfaces</code> -&gt; <code>tracking-google-genai-lifecycle</code> -&gt; <code>updating-google-genai-catalog</code> -&gt; <code>verifying-google-genai-refresh</code></div>
+          </article>
+
+          <article class="scenario">
+            <h3>Solo comprobacion final</h3>
+            <p>Cuando ya hubo cambios y solo queda garantizar coherencia interna.</p>
+            <div class="formula"><code>using-google-genai-refresh</code> -&gt; <code>verifying-google-genai-refresh</code></div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      window.mermaid.initialize({
+        startOnLoad: true,
+        theme: "base",
+        securityLevel: "loose",
+        themeVariables: {
+          primaryColor: "#f0fbf8",
+          primaryTextColor: "#1b1a17",
+          primaryBorderColor: "#0f766e",
+          lineColor: "#8b7c6c",
+          secondaryColor: "#fff5f6",
+          tertiaryColor: "#fffdf8",
+          fontFamily: "Georgia, Times New Roman, serif"
+        }
+      });
+    }
+  </script>
+</body>
+</html>

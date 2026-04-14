@@ -11,6 +11,7 @@ related_tools:
 - Agent Designer
 - Vertex AI Agent Engine
 - Agent Garden
+- Agent Starter Pack
 status: active
 ---
 
@@ -18,50 +19,57 @@ status: active
 
 ## TL;DR
 
-The umbrella suite for building, scaling, and governing AI agents. It fits when you want the coordinated product suite across the full agent lifecycle.
+The umbrella suite for building, scaling, and governing AI agents on Google Cloud. It fits when you want to reason about the full agent lifecycle rather than a single isolated tool.
 
 ## What It Is
 
-Vertex AI Agent Builder acts as the umbrella suite for building, scaling, and governing AI agents within `Agents Workflow Orchestration`. The suite is easiest to understand as a lifecycle: design, build, deploy, operate, and reuse agent components. Google’s current overview describes it as a suite of products for building, scaling, and governing agents in production.
+Vertex AI Agent Builder is the suite-level view of Google's production agent stack.
+
+The current overview frames it as a full-stack foundation for the agent lifecycle:
+
+- build with frameworks such as `Agent Development Kit`
+- design visually with `Agent Designer`
+- deploy and operate with `Vertex AI Agent Engine`
+- reuse assets through `Agent Garden` and starter assets
+
+That makes Agent Builder the right "map of the territory" card whenever the repo needs to explain how Google's agent products fit together.
 
 ## When To Use It
 
-- When you want the coordinated product suite across the full agent lifecycle.
-- When the interaction model you need looks more like `Agent lifecycle suite` than like a generic one-size-fits-all surface.
-- When the main fit is in the `Agents Workflow Orchestration` block rather than in another part of the ecosystem.
-- When you need a surface with clear operational responsibilities rather than a narrow isolated feature.
+- When you want the coordinated view of Google's agent stack.
+- When the task spans build, deploy, operate, and govern rather than one isolated capability.
+- When you need to explain how ADK, Agent Designer, Agent Engine, and related assets connect.
 
 ## When It Is Not The Best Fit
 
-- If your use case is closer to `Agent Development Kit`, start there instead.
-- If your use case is closer to `Agent Designer`, start there instead.
-- If your use case is closer to `Vertex AI Agent Engine`, start there instead.
-- If your use case is closer to `Agent Garden`, start there instead.
+- If you are writing the agent in code, start with `Agent Development Kit`.
+- If you are designing visually, start with `Agent Designer`.
+- If the main problem is runtime deployment and operations, start with `Vertex AI Agent Engine`.
 
 ## Key Capabilities
 
 | Capability | Why It Matters |
 | --- | --- |
-| Coordinated product family | Groups several agent lifecycle stages under one umbrella. |
-| Lifecycle coverage | Makes the full story easier to reason about from build to operations. |
-| Shared governance model | Useful when the surrounding platform matters as much as one feature. |
+| Lifecycle coverage | Gives a coherent mental model for the full agent stack |
+| Suite composition | Clarifies how code-first, visual, runtime, and asset surfaces relate |
+| Production framing | Keeps the conversation grounded in deployment and governance, not only demos |
 
 ## Typical Flow
 
-1. Choose the lifecycle stage that matters most right now.
-2. Use the corresponding product surface inside the suite.
-3. Validate how that piece fits into the broader agent workflow.
-4. Expand to the other suite components as the system matures.
+1. Pick the lifecycle stage that matters most right now.
+2. Use the corresponding product inside the suite.
+3. Expand into neighboring suite components as the system matures.
+4. Govern and operate the deployed agent through the broader platform view.
 
 ## Quick Comparison
 
 | Main Need | Best Fit |
 | --- | --- |
-| You want the coordinated product suite across the full agent lifecycle | Vertex AI Agent Builder |
-| A workflow that is better aligned with `Agent Development Kit` | Agent Development Kit |
-| A workflow that is better aligned with `Agent Designer` | Agent Designer |
-| A workflow that is better aligned with `Vertex AI Agent Engine` | Vertex AI Agent Engine |
-| A workflow that is better aligned with `Agent Garden` | Agent Garden |
+| Understand or adopt the full Google agent suite | Vertex AI Agent Builder |
+| Code-first agent implementation | Agent Development Kit |
+| Visual agent design | Agent Designer |
+| Managed runtime and operations | Vertex AI Agent Engine |
+| Reusable assets and examples | Agent Garden / Agent Starter Pack |
 
 ## Links
 
@@ -76,3 +84,4 @@ Vertex AI Agent Builder acts as the umbrella suite for building, scaling, and go
 | Fighting Desinformation Vertex Agent | Prototype |
 | 20250414_VertexAIAgentBuilder | Report |
 | 20250507_VertexAIAgents | Report |
+

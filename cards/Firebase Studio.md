@@ -2,7 +2,7 @@
 title: Firebase Studio
 topic: Multi-topic
 type: platform
-interaction_model: Browser development workspace
+interaction_model: Agentic cloud development environment
 official_url: https://firebase.google.com/docs/studio
 source_index:
 - /services_md/google-services-by-topic.md
@@ -23,73 +23,70 @@ status: active
 
 ## TL;DR
 
-A browser-based development workspace for building, prototyping, and shipping full-stack AI apps. It fits when you want a hosted environment that combines IDE-style work, previews, AI assistance, and Firebase-connected app delivery in one place.
+The browser workspace for building and shipping full-stack apps with Gemini assistance, prototyping, coding, previews, and Firebase integration in one surface.
 
 ## What It Is
 
-Firebase Studio is one product that shows up in two different parts of the catalog for good reason.
+Firebase Studio now occupies a clearer role than older repo wording suggested.
 
-- In `Dev Tools & Coding Agents`, it appears as a browser development workspace with Gemini embedded into the environment.
-- In `Design to Code App Prototyping`, it appears as the richer browser IDE for moving from prompt and prototype toward a more complete full-stack app flow.
+- In `Dev Tools & Coding Agents`, it is an agentic cloud development environment.
+- In `Design to Code App Prototyping`, it is the richer browser workspace that takes over when prompt-only generation is not enough.
 
-Read together, those two views describe the same core value: Firebase Studio is not just a coding assistant and not just a prompt-to-app toy. It is the hosted workspace where prompting, prototyping, coding, previewing, and Firebase-backed app work can live in one browser surface.
+The current docs explicitly foreground the `App Prototyping agent`, Gemini assistance in the workspace, and the ability to move between prompting and code inside the same environment.
 
 ## Where It Appears
 
-- `Dev Tools & Coding Agents`: as an active browser-based build surface.
-- `Design to Code App Prototyping`: as the fuller cloud IDE and app-building environment behind prompt-to-app workflows.
+- `Dev Tools & Coding Agents`: browser-based build surface with Gemini in the workspace.
+- `Design to Code App Prototyping`: fuller hosted workspace for turning prototypes into working applications.
 
 ## When To Use It
 
-- When you want a hosted, collaborative development environment instead of staying only in a local IDE.
-- When you need a browser workspace that can cover prototyping, code editing, preview, and app delivery together.
-- When you want Firebase and Google Cloud-adjacent app workflows close to the place where you build.
-- When a lightweight prompt-only builder is no longer enough, but you still want a browser-first workflow.
+- When you want a browser-based environment that can cover prototyping, coding, previewing, and delivery.
+- When you want to move between prompt-driven generation and direct code editing.
+- When the app needs Firebase-backed services such as auth or data in the same flow.
+- When `AI Studio Build Mode` is too lightweight but a full local setup is unnecessary.
 
 ## When It Is Not The Best Fit
 
-- If you want to stay fully inside your existing IDE, `Gemini Code Assist` is a better starting point.
-- If your center of control is the terminal and shell automation, `Gemini CLI` is a better fit.
-- If you only need the narrower prompt-to-app feature inside Studio, `App Prototyping agent` is the more specific surface.
-- If you want the fastest prompt-first build loop in Google AI Studio, `AI Studio Build Mode` is the more direct fit.
-- If the work is still primarily interface ideation, `Stitch` is the better design-first lane.
+- If you want the fastest prompt-only experimentation, stay in `Google AI Studio`.
+- If you want terminal-native agent work, use `Gemini CLI`.
+- If you mainly want async repo delegation, use `Jules 2.0`.
 
 ## Key Capabilities
 
 | Capability | Why It Matters |
 | --- | --- |
-| Hosted browser workspace | Lets teams build without depending on a local machine setup as the primary surface |
-| Full-stack app flow | Covers more than prompting by supporting broader application work and iteration |
-| Gemini integrated into the environment | Keeps AI help close to the code, preview, and build flow |
-| Natural bridge from prototype to app | Fits the moment when an idea needs to become a more complete working product |
+| Agentic browser workspace | Puts prompting, coding, previews, and assistance in one hosted environment |
+| App Prototyping agent | Accelerates prompt-to-full-stack app creation from inside the workspace |
+| Firebase-connected workflow | Makes it easier to attach auth, data, and hosting to the app as it matures |
 
 ## Typical Flow
 
-1. Start from a blank workspace, template, or existing project inside Firebase Studio.
-2. Prototype or scaffold the app with AI help, templates, or prompt-driven flows.
-3. Edit the code, inspect previews, and refine the product in the same browser environment.
-4. Connect the surrounding Firebase pieces you need and continue iterating toward something more production-shaped.
+1. Start from a prompt, template, or existing repository in Firebase Studio.
+2. Use the `App Prototyping agent` or Gemini assistance to build the first version.
+3. Refine the code, preview the app, and connect Firebase services as needed.
+4. Continue in the same browser workspace until local or enterprise tooling becomes necessary.
 
 ## Quick Comparison
 
 | Main Need | Best Fit |
 | --- | --- |
-| Hosted browser workspace for building and iterating on full-stack AI apps | Firebase Studio |
-| In-editor assistance inside your existing IDE | Gemini Code Assist |
-| Terminal-native agent workflows | Gemini CLI |
-| Prompt-first app generation inside Studio | App Prototyping agent |
-| Faster prompt-to-app flow in Google AI Studio | AI Studio Build Mode |
-| Design-first UI exploration | Stitch |
+| Browser workspace for building and iterating on full-stack AI apps | Firebase Studio |
+| Fast prompt experimentation | Google AI Studio |
+| Prompt-to-app flow inside AI Studio | AI Studio Build Mode |
+| Terminal-native agent workflow | Gemini CLI |
+| Async repo delegation | Jules 2.0 |
 
 ## Links
 
 - General index: `/services_md/google-services-by-topic.md`
 - Related topics: `/services_md/dev_tools_agents.md`, `/services_md/design-to-code-app-prototyping.md`
 - Official documentation: https://firebase.google.com/docs/studio
-- Additional official context: https://firebase.google.com/docs/studio/get-started-ai
+- App Prototyping agent: https://firebase.google.com/docs/studio/get-started-ai
 
 ## TechHub Enablement Deliverables
 
 | Tech Enablement Deliverable | Type |
 | --- | --- |
 | 20260130_firebase_and_firebase_studio | Report |
+
