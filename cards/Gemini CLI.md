@@ -9,7 +9,7 @@ source_topic: /services_md/dev_tools_agents.md
 related_tools:
 - Gemini Code Assist
 - Firebase Studio
-- Jules 2.0
+- Jules
 - Antigravity
 status: active
 ---
@@ -30,7 +30,7 @@ That makes it distinct from:
 
 - `Gemini Code Assist`, which centers on editor integration
 - `Firebase Studio`, which centers on a browser workspace
-- `Jules 2.0`, which centers on delegated async repository work
+- `Jules`, which centers on delegated async repository work
 
 ## When To Use It
 
@@ -43,7 +43,7 @@ That makes it distinct from:
 
 - If your main surface is the editor, use `Gemini Code Assist`.
 - If you want a hosted browser workspace, use `Firebase Studio`.
-- If you want repo tasks to run asynchronously after you step away, use `Jules 2.0`.
+- If you want repo tasks to run asynchronously after you step away, use `Jules`.
 
 ## Key Capabilities
 
@@ -67,7 +67,7 @@ That makes it distinct from:
 | Terminal-native agent workflow | Gemini CLI |
 | In-editor AI coding help | Gemini Code Assist |
 | Hosted browser workspace | Firebase Studio |
-| Delegated async repo agent | Jules 2.0 |
+| Delegated async repo agent | Jules |
 | Agent-first environment | Antigravity |
 
 ## Links
@@ -75,4 +75,3 @@ That makes it distinct from:
 - General index: `/services_md/google-services-by-topic.md`
 - Related topic: `/services_md/dev_tools_agents.md`
 - Official documentation: https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli
-

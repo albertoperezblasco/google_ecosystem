@@ -1,0 +1,72 @@
+{
+    "source":  "services_md/google-services-by-topic.md",
+    "generated_at":  "2026-04-15",
+    "topics":  [
+                   {
+                       "topic":  "Models",
+                       "section_line":  5,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   },
+                   {
+                       "topic":  "End User Assistants",
+                       "section_line":  54,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   },
+                   {
+                       "topic":  "Dev Tools \u0026 Coding Agents",
+                       "section_line":  75,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   },
+                   {
+                       "topic":  "Studios \u0026 Builders",
+                       "section_line":  90,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   },
+                   {
+                       "topic":  "APIs \u0026 SDKs",
+                       "section_line":  107,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   },
+                   {
+                       "topic":  "Data Grounding RAG Connectors",
+                       "section_line":  168,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   },
+                   {
+                       "topic":  "Document AI OCR",
+                       "section_line":  185,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   },
+                   {
+                       "topic":  "Fine-Tuning Customization",
+                       "section_line":  207,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   },
+                   {
+                       "topic":  "Evaluation \u0026 Observability",
+                       "section_line":  215,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   },
+                   {
+                       "topic":  "Design to Code App Prototyping",
+                       "section_line":  238,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   },
+                   {
+                       "topic":  "Guardrails Security Governance",
+                       "section_line":  249,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   },
+                   {
+                       "topic":  "Agents Workflow Orchestration",
+                       "section_line":  266,
+                       "source_doc":  "services_md/google-services-by-topic.md"
+                   }
+               ],
+    "summary":  {
+                    "topics_detected":  12,
+                    "excluded_sections":  [
+                                              "Tech Enablement Deliverables"
+                                          ]
+                }
+}

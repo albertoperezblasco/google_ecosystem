@@ -1,5 +1,5 @@
 ---
-title: Jules 2.0
+title: Jules
 topic: Dev Tools & Coding Agents
 type: agent
 interaction_model: Experimental async coding agent
@@ -13,7 +13,7 @@ related_tools:
 status: experimental
 ---
 
-# Jules 2.0
+# Jules
 
 ## TL;DR
 
@@ -58,7 +58,7 @@ That makes it meaningfully different from interactive surfaces such as `Gemini C
 
 | Main Need | Best Fit |
 | --- | --- |
-| Delegated async repository work | Jules 2.0 |
+| Delegated async repository work | Jules |
 | Interactive terminal agent | Gemini CLI |
 | In-editor coding help | Gemini Code Assist |
 | Browser workspace for building apps | Firebase Studio |
@@ -68,4 +68,3 @@ That makes it meaningfully different from interactive surfaces such as `Gemini C
 - General index: `/services_md/google-services-by-topic.md`
 - Related topic: `/services_md/dev_tools_agents.md`
 - Official documentation: https://jules.google/docs/
-

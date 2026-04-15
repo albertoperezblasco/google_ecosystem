@@ -3,7 +3,7 @@ title: Interactions API
 topic: Multi-topic
 type: api
 interaction_model: Stored and background interaction API
-official_url: https://ai.google.dev/api/interactions-api
+official_url: https://ai.google.dev/gemini-api/docs/interactions
 source_index:
 - /services_md/google-services-by-topic.md
 source_topic:
@@ -11,7 +11,7 @@ source_topic:
 - /services_md/agents-workflow-orchestration.md
 related_tools:
 - Gemini API
-- Gemini Deep Research
+- Gemini Deep Research Agent
 - Function calling
 - Structured outputs
 - Batch API
@@ -58,5 +58,4 @@ It is useful when an application needs an interaction to be tracked, retrieved, 
 
 - General index: `/services_md/google-services-by-topic.md`
 - Related topics: `/services_md/api_sdk.md`, `/services_md/agents-workflow-orchestration.md`
-- Official documentation: https://ai.google.dev/api/interactions-api
-
+- Official documentation: https://ai.google.dev/gemini-api/docs/interactions

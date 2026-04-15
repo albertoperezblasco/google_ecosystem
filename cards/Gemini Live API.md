@@ -37,7 +37,7 @@ It handles continuous streams of audio, images, and text and returns immediate s
 ## When It Is Not The Best Fit
 
 - If normal request-response interaction is enough, use the standard `Gemini API`.
-- If the workload is mainly asynchronous research, use `Gemini Deep Research`.
+- If the workload is mainly asynchronous research, use `Gemini Deep Research Agent`.
 
 ## Key Capabilities
 
@@ -52,4 +52,3 @@ It handles continuous streams of audio, images, and text and returns immediate s
 - General index: `/services_md/google-services-by-topic.md`
 - Related topics: `/services_md/api_sdk.md`, `/services_md/end-user-assistants.md`
 - Official documentation: https://ai.google.dev/gemini-api/docs/live-api
-

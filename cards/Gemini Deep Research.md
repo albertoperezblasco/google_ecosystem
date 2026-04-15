@@ -1,5 +1,5 @@
 ---
-title: Gemini Deep Research
+title: Gemini Deep Research Agent
 topic: Agents Workflow Orchestration
 type: agent
 interaction_model: Background research agent
@@ -17,7 +17,7 @@ related_tools:
 status: preview
 ---
 
-# Gemini Deep Research
+# Gemini Deep Research Agent
 
 ## TL;DR
 
@@ -25,7 +25,7 @@ The preview Gemini agent for multi-step background research that returns cited r
 
 ## What It Is
 
-Gemini Deep Research is an agentic research surface in the Gemini API stack.
+Gemini Deep Research Agent is an agentic research surface in the Gemini API stack.
 
 The current docs describe it as an agent that autonomously plans, executes, and synthesizes multi-step research tasks, runs in the background, and is available through the `Interactions API` rather than regular `generate_content`.
 
@@ -53,4 +53,3 @@ The current docs describe it as an agent that autonomously plans, executes, and 
 - General index: `/services_md/google-services-by-topic.md`
 - Related topics: `/services_md/agents-workflow-orchestration.md`, `/services_md/data-grounding-rag-connectors.md`
 - Official documentation: https://ai.google.dev/gemini-api/docs/deep-research
-

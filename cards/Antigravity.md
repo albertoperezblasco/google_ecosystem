@@ -8,7 +8,7 @@ source_index: /services_md/google-services-by-topic.md
 source_topic: /services_md/dev_tools_agents.md
 related_tools:
 - Gemini CLI
-- Jules 2.0
+- Jules
 - Firebase Studio
 status: active
 ---
@@ -33,7 +33,7 @@ Antigravity acts as the agent-first development environment for richer autonomou
 ## When It Is Not The Best Fit
 
 - If your use case is closer to `Gemini CLI`, start there instead.
-- If your use case is closer to `Jules 2.0`, start there instead.
+- If your use case is closer to `Jules`, start there instead.
 - If your use case is closer to `Firebase Studio`, start there instead.
 
 ## Key Capabilities
@@ -57,7 +57,7 @@ Antigravity acts as the agent-first development environment for richer autonomou
 | --- | --- |
 | You want a development lane centered on orchestration and agent-managed work rather than a classic assistant | Antigravity |
 | A workflow that is better aligned with `Gemini CLI` | Gemini CLI |
-| A workflow that is better aligned with `Jules 2.0` | Jules 2.0 |
+| A workflow that is better aligned with `Jules` | Jules |
 | A workflow that is better aligned with `Firebase Studio` | Firebase Studio |
 
 ## Links

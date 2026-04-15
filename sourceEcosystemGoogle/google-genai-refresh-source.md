@@ -21,6 +21,7 @@ When the repo is refreshed:
 3. Update lifecycle before editing descriptive prose.
 4. Keep active and deprecated surfaces separated.
 5. Remove shut down items from active indexes, but preserve a deprecated record when historically useful.
+6. Treat any request to "run the full flow" as including the Topic Gap Discovery subagent before lifecycle and repo updates.
 
 ## Canonical Official Sources
 
@@ -104,4 +105,3 @@ For each card:
 - Update `official_url` if the official landing page has changed.
 - Explain where the product fits in the ecosystem now, not where it fit in an older launch moment.
 - If a surface is deprecated, keep the card but make the deprecation explicit in `TL;DR`, `What It Is`, and `Links`.
-

@@ -15,7 +15,7 @@ related_tools:
 - App Prototyping agent
 - AI Studio Build Mode
 - Stitch
-- Jules 2.0
+- Jules
 status: active
 ---
 
@@ -50,7 +50,7 @@ The current docs explicitly foreground the `App Prototyping agent`, Gemini assis
 
 - If you want the fastest prompt-only experimentation, stay in `Google AI Studio`.
 - If you want terminal-native agent work, use `Gemini CLI`.
-- If you mainly want async repo delegation, use `Jules 2.0`.
+- If you mainly want async repo delegation, use `Jules`.
 
 ## Key Capabilities
 
@@ -75,7 +75,7 @@ The current docs explicitly foreground the `App Prototyping agent`, Gemini assis
 | Fast prompt experimentation | Google AI Studio |
 | Prompt-to-app flow inside AI Studio | AI Studio Build Mode |
 | Terminal-native agent workflow | Gemini CLI |
-| Async repo delegation | Jules 2.0 |
+| Async repo delegation | Jules |
 
 ## Links
 
@@ -89,4 +89,3 @@ The current docs explicitly foreground the `App Prototyping agent`, Gemini assis
 | Tech Enablement Deliverable | Type |
 | --- | --- |
 | 20260130_firebase_and_firebase_studio | Report |
-

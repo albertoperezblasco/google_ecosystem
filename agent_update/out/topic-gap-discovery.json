@@ -1,0 +1,545 @@
+{
+    "source":  "local-recovery-after-subagent-output-loss",
+    "generated_at":  "2026-04-15",
+    "artifact_mode":  "recovery_subset",
+    "recovery_basis":  [
+                           "services_md/google-genai-refresh-2026-04-15-rerun.md",
+                           "services_md/google-genai-refresh-2026-04-15-full-rerun-with-subagent.md",
+                           "services_md/google-services-by-topic.md",
+                           "agent_update/out/catalog-analysis.json"
+                       ],
+    "topics":  [
+                   {
+                       "topic":  "Models",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/models.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "ai.google.dev",
+                                                                                "deepmind.google",
+                                                                                "docs.cloud.google.com"
+                                                                            ]
+                                        },
+                       "candidates":  [
+                                          {
+                                              "name":  "PaliGemma 2",
+                                              "official_url":  "https://deepmind.google/models/gemma/paligemma-2/",
+                                              "host":  "deepmind.google",
+                                              "candidate_kind":  "model_family",
+                                              "confidence":  "high",
+                                              "why_it_belongs":  "Standalone Google vision-language model family absent from the current Models section.",
+                                              "matched_against_existing":  "No equal normalized name or URL found in the current Models inventory.",
+                                              "fit_assessment":  "Strong fit for the open-model branch already present in the catalog.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "name":  "ShieldGemma 2",
+                                              "official_url":  "https://deepmind.google/models/gemma/shieldgemma-2/",
+                                              "host":  "deepmind.google",
+                                              "candidate_kind":  "model_family",
+                                              "confidence":  "medium",
+                                              "why_it_belongs":  "Official safety-oriented Gemma family treated as its own unit.",
+                                              "matched_against_existing":  "No ShieldGemma-family entry exists in the current Models section.",
+                                              "fit_assessment":  "Good fit, with some overlap with Guardrails.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+                                                            "Cross-topic overlap with Guardrails Security Governance."
+                                                        ]
+                                          },
+                                          {
+                                              "name":  "EmbeddingGemma",
+                                              "official_url":  "https://deepmind.google/models/gemma/embeddinggemma/",
+                                              "host":  "deepmind.google",
+                                              "candidate_kind":  "model_family",
+                                              "confidence":  "high",
+                                              "why_it_belongs":  "Official open embedding model family distinct from Gemini Embedding.",
+                                              "matched_against_existing":  "Current page has Gemini Embedding entries but no EmbeddingGemma entry.",
+                                              "fit_assessment":  "Strong fit for the embeddings branch of the model atlas.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "name":  "MedGemma",
+                                              "official_url":  "https://deepmind.google/models/gemma/medgemma/",
+                                              "host":  "deepmind.google",
+                                              "candidate_kind":  "model_family",
+                                              "confidence":  "high",
+                                              "why_it_belongs":  "Official domain-specific Gemma family currently missing from the topic page.",
+                                              "matched_against_existing":  "No MedGemma or equivalent healthcare Gemma entry found.",
+                                              "fit_assessment":  "Strong fit because the local models doc accepts domain-specific model families.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "name":  "TxGemma",
+                                              "official_url":  "https://deepmind.google/models/gemma/txgemma/",
+                                              "host":  "deepmind.google",
+                                              "candidate_kind":  "model_family",
+                                              "confidence":  "medium",
+                                              "why_it_belongs":  "Official therapeutic/drug-discovery Gemma family not represented in the current inventory.",
+                                              "matched_against_existing":  "No equal normalized name or URL found.",
+                                              "fit_assessment":  "Good fit for the domain-model lane described in the local models doc.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "name":  "T5Gemma",
+                                              "official_url":  "https://deepmind.google/models/gemma/t5gemma/",
+                                              "host":  "deepmind.google",
+                                              "candidate_kind":  "model_family",
+                                              "confidence":  "medium",
+                                              "why_it_belongs":  "Official Gemma-adjacent text-to-text family with its own canonical page.",
+                                              "matched_against_existing":  "Not present by exact name, alias, or URL in the Models section.",
+                                              "fit_assessment":  "Reasonable fit for the text-and-language lane of the topic.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "name":  "DataGemma",
+                                              "official_url":  "https://deepmind.google/models/gemma/datagemma/",
+                                              "host":  "deepmind.google",
+                                              "candidate_kind":  "model_family",
+                                              "confidence":  "medium",
+                                              "why_it_belongs":  "Official Gemma family for data-grounded reasoning, absent from the topic page.",
+                                              "matched_against_existing":  "No equal normalized name or URL found.",
+                                              "fit_assessment":  "Good thematic fit for the task-specific model lane.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "name":  "RecurrentGemma",
+                                              "official_url":  "https://ai.google.dev/gemma/docs/recurrentgemma/model_card",
+                                              "host":  "ai.google.dev",
+                                              "candidate_kind":  "model_family",
+                                              "confidence":  "medium",
+                                              "why_it_belongs":  "Official model family with its own Gemma documentation track and model card.",
+                                              "matched_against_existing":  "No RecurrentGemma-family entry currently appears in the Models section.",
+                                              "fit_assessment":  "Useful broad-pool candidate for the open-model branch.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "name":  "VaultGemma",
+                                              "official_url":  "https://deepmind.google/models/gemma/vaultgemma/",
+                                              "host":  "deepmind.google",
+                                              "candidate_kind":  "model_family",
+                                              "confidence":  "low",
+                                              "why_it_belongs":  "Official Gemma-family page suggests a recognized unit not yet represented locally.",
+                                              "matched_against_existing":  "No equal normalized name, alias, or URL found.",
+                                              "fit_assessment":  "Possible fit, though likely too specialized for the current page.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+
+                                                        ]
+                                          }
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output.",
+                                              "Recovered from previously observed candidate pool during the 2026-04-15 rerun."
+                                          ]
+                   },
+                   {
+                       "topic":  "End User Assistants",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/end-user-assistants.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "gemini.google",
+                                                                                "support.google.com",
+                                                                                "notebooklm.google"
+                                                                            ]
+                                        },
+                       "candidates":  [
+                                          {
+                                              "name":  "Gemini Live",
+                                              "official_url":  "https://gemini.google/overview/gemini-live/",
+                                              "host":  "gemini.google",
+                                              "candidate_kind":  "end_user_surface",
+                                              "confidence":  "high",
+                                              "why_it_belongs":  "Dedicated official product page for a consumer-facing Gemini surface.",
+                                              "matched_against_existing":  "Was absent before the 2026-04-15 refresh.",
+                                              "fit_assessment":  "Strong fit under Gemini Apps.",
+                                              "promotion_decision":  "promoted",
+                                              "notes":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "name":  "Gemini Canvas",
+                                              "official_url":  "https://gemini.google/overview/canvas/",
+                                              "host":  "gemini.google",
+                                              "candidate_kind":  "end_user_surface",
+                                              "confidence":  "high",
+                                              "why_it_belongs":  "Dedicated official product page for a consumer-facing Gemini creation surface.",
+                                              "matched_against_existing":  "Was absent before the 2026-04-15 refresh.",
+                                              "fit_assessment":  "Strong fit under Gemini Apps.",
+                                              "promotion_decision":  "promoted",
+                                              "notes":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "name":  "Gemini Deep Research",
+                                              "official_url":  "https://gemini.google/overview/deep-research/",
+                                              "host":  "gemini.google",
+                                              "candidate_kind":  "end_user_surface",
+                                              "confidence":  "high",
+                                              "why_it_belongs":  "Dedicated official product page for the end-user Deep Research surface.",
+                                              "matched_against_existing":  "Was absent before the 2026-04-15 refresh.",
+                                              "fit_assessment":  "Strong fit under Gemini Apps, distinct from the developer-facing agent docs.",
+                                              "promotion_decision":  "promoted",
+                                              "notes":  [
+
+                                                        ]
+                                          }
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output."
+                                          ]
+                   },
+                   {
+                       "topic":  "Dev Tools \u0026 Coding Agents",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/dev_tools_agents.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "developers.google.com",
+                                                                                "firebase.google.com",
+                                                                                "docs.cloud.google.com",
+                                                                                "jules.google"
+                                                                            ]
+                                        },
+                       "candidates":  [
+                                          {
+                                              "name":  "Firebase MCP server",
+                                              "official_url":  "https://firebase.google.com/docs/ai-assistance/mcp-server",
+                                              "host":  "firebase.google.com",
+                                              "candidate_kind":  "tool",
+                                              "confidence":  "high",
+                                              "why_it_belongs":  "Official Firebase AI assistance surface with dedicated MCP documentation.",
+                                              "matched_against_existing":  "Not present in the old Dev Tools topic inventory.",
+                                              "fit_assessment":  "Strong fit among coding-agent and tool integration surfaces.",
+                                              "promotion_decision":  "promoted",
+                                              "notes":  [
+
+                                                        ]
+                                          }
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output.",
+                                              "Naming normalization observed: current docs brand the async coding agent simply as Jules."
+                                          ]
+                   },
+                   {
+                       "topic":  "Studios \u0026 Builders",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/studios_builders.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "cloud.google.com",
+                                                                                "ai.google.dev",
+                                                                                "firebase.google.com",
+                                                                                "stitch.withgoogle.com",
+                                                                                "opal.google"
+                                                                            ]
+                                        },
+                       "candidates":  [
+                                          {
+                                              "name":  "Model Garden",
+                                              "official_url":  "https://cloud.google.com/model-garden",
+                                              "host":  "cloud.google.com",
+                                              "candidate_kind":  "builder_surface",
+                                              "confidence":  "medium",
+                                              "why_it_belongs":  "Official builder-facing catalog surface adjacent to Vertex AI model exploration workflows.",
+                                              "matched_against_existing":  "No exact entry currently appears in Studios \u0026 Builders.",
+                                              "fit_assessment":  "Plausible fit, but broader Google Cloud platform granularity may be too aggressive for the current topic.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+
+                                                        ]
+                                          }
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output."
+                                          ]
+                   },
+                   {
+                       "topic":  "APIs \u0026 SDKs",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/api_sdk.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "ai.google.dev",
+                                                                                "firebase.google.com",
+                                                                                "docs.cloud.google.com",
+                                                                                "genkit.dev"
+                                                                            ]
+                                        },
+                       "candidates":  [
+                                          {
+                                              "name":  "Code execution",
+                                              "official_url":  "https://ai.google.dev/gemini-api/docs/code-execution",
+                                              "host":  "ai.google.dev",
+                                              "candidate_kind":  "api_tool_surface",
+                                              "confidence":  "high",
+                                              "why_it_belongs":  "Dedicated Gemini API docs page for a first-class tool surface.",
+                                              "matched_against_existing":  "Already represented elsewhere in the repo but missing from the topic index before the 2026-04-15 refresh.",
+                                              "fit_assessment":  "Strong fit for APIs \u0026 SDKs.",
+                                              "promotion_decision":  "promoted",
+                                              "notes":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "name":  "Firebase AI Logic",
+                                              "official_url":  "https://firebase.google.com/docs/ai-logic",
+                                              "host":  "firebase.google.com",
+                                              "candidate_kind":  "sdk_surface",
+                                              "confidence":  "high",
+                                              "why_it_belongs":  "Dedicated Firebase SDK surface for app-side AI features with Gemini and Imagen.",
+                                              "matched_against_existing":  "Was not represented as a standalone API/SDK surface before the 2026-04-15 refresh.",
+                                              "fit_assessment":  "Strong fit for APIs \u0026 SDKs.",
+                                              "promotion_decision":  "promoted",
+                                              "notes":  [
+
+                                                        ]
+                                          }
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output."
+                                          ]
+                   },
+                   {
+                       "topic":  "Data Grounding RAG Connectors",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/data-grounding-rag-connectors.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "ai.google.dev",
+                                                                                "docs.cloud.google.com"
+                                                                            ]
+                                        },
+                       "candidates":  [
+                                          {
+                                              "name":  "Grounding with Vertex AI Search",
+                                              "official_url":  "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/vertex-ai-search",
+                                              "host":  "docs.cloud.google.com",
+                                              "candidate_kind":  "grounding_surface",
+                                              "confidence":  "medium",
+                                              "why_it_belongs":  "Grounding/retrieval behavior tied to a documented enterprise retrieval surface.",
+                                              "matched_against_existing":  "Related Vertex AI Search surface exists, but this narrower grounding surface is not cataloged separately.",
+                                              "fit_assessment":  "Borderline candidate that may be too granular for the current topic.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+                                                            "Kept as a named candidate from the 2026-04-15 rerun notes."
+                                                        ]
+                                          }
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output."
+                                          ]
+                   },
+                   {
+                       "topic":  "Document AI OCR",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/document-ai-ocr.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "docs.cloud.google.com"
+                                                                            ]
+                                        },
+                       "candidates":  [
+
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output.",
+                                              "No stable additional candidate was reconstructed during local recovery."
+                                          ]
+                   },
+                   {
+                       "topic":  "Fine-Tuning Customization",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/fine_tuning.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "ai.google.dev",
+                                                                                "docs.cloud.google.com"
+                                                                            ]
+                                        },
+                       "candidates":  [
+                                          {
+                                              "name":  "Tune text embeddings",
+                                              "official_url":  "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/tune-embeddings",
+                                              "host":  "docs.cloud.google.com",
+                                              "candidate_kind":  "tuning_capability",
+                                              "confidence":  "low",
+                                              "why_it_belongs":  "Named tuning capability noted during the 2026-04-15 rerun.",
+                                              "matched_against_existing":  "No dedicated entry currently appears in Fine-Tuning Customization.",
+                                              "fit_assessment":  "Needs editorial decision on whether capability-level tuning deserves its own slot.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+                                                            "Recovered from rerun notes; kept as low-confidence."
+                                                        ]
+                                          }
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output."
+                                          ]
+                   },
+                   {
+                       "topic":  "Evaluation \u0026 Observability",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/evaluation_observability.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "cloud.google.com",
+                                                                                "docs.cloud.google.com"
+                                                                            ]
+                                        },
+                       "candidates":  [
+                                          {
+                                              "name":  "Cloud Monitoring",
+                                              "official_url":  "https://cloud.google.com/monitoring",
+                                              "host":  "cloud.google.com",
+                                              "candidate_kind":  "observability_surface",
+                                              "confidence":  "medium",
+                                              "why_it_belongs":  "Official Google Cloud observability surface adjacent to monitoring workflows.",
+                                              "matched_against_existing":  "Cloud Logging, Trace, and Profiler are listed, but Cloud Monitoring is not.",
+                                              "fit_assessment":  "Plausible fit, pending editorial choice on whether to widen the current observability scope.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+
+                                                        ]
+                                          }
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output."
+                                          ]
+                   },
+                   {
+                       "topic":  "Design to Code App Prototyping",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/design-to-code-app-prototyping.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "ai.google.dev",
+                                                                                "firebase.google.com",
+                                                                                "stitch.withgoogle.com",
+                                                                                "opal.google"
+                                                                            ]
+                                        },
+                       "candidates":  [
+
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output.",
+                                              "No extra stable candidate beyond the already-promoted surfaces was reconstructed during local recovery."
+                                          ]
+                   },
+                   {
+                       "topic":  "Guardrails Security Governance",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/guardrails-security-governance.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "ai.google.dev",
+                                                                                "docs.cloud.google.com"
+                                                                            ]
+                                        },
+                       "candidates":  [
+
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output.",
+                                              "ShieldGemma 2 overlaps conceptually with this topic but is retained under Models in the recovery artifact."
+                                          ]
+                   },
+                   {
+                       "topic":  "Agents Workflow Orchestration",
+                       "search_scope":  {
+                                            "local_baseline":  [
+                                                                   "services_md/agents-workflow-orchestration.md",
+                                                                   "services_md/google-services-by-topic.md"
+                                                               ],
+                                            "official_domains_considered":  [
+                                                                                "docs.cloud.google.com",
+                                                                                "developers.googleblog.com"
+                                                                            ]
+                                        },
+                       "candidates":  [
+                                          {
+                                              "name":  "Agent2Agent (A2A)",
+                                              "official_url":  "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+                                              "host":  "developers.googleblog.com",
+                                              "candidate_kind":  "agent_protocol_surface",
+                                              "confidence":  "medium",
+                                              "why_it_belongs":  "Named interoperability surface repeatedly referenced in the rerun notes and adjacent to orchestrated agent workflows.",
+                                              "matched_against_existing":  "No exact A2A entry currently exists in the topic inventory.",
+                                              "fit_assessment":  "Interesting candidate, but may belong better as protocol coverage than as a durable product card.",
+                                              "promotion_decision":  "deferred",
+                                              "notes":  [
+                                                            "Recovered from rerun notes; kept as a protocol-adjacent candidate."
+                                                        ]
+                                          }
+                                      ],
+                       "research_notes":  [
+                                              "Recovery artifact rebuilt locally after the previous subagent deleted the JSON output."
+                                          ]
+                   }
+               ],
+    "summary":  {
+                    "topics_checked":  12,
+                    "topics_with_recovered_candidates":  9,
+                    "candidates_included":  20,
+                    "promoted_candidates_included":  6,
+                    "deferred_candidates_included":  14,
+                    "notes":  [
+                                  "This file was rebuilt locally after a subagent run deleted the previous JSON artifact.",
+                                  "It preserves the currently documented promoted surfaces and a subset of deferred candidates that were recoverable from repo-local rerun notes.",
+                                  "The broader 64-candidate pool mentioned in rerun notes was not fully reconstructible from local artifacts alone."
+                              ],
+                    "previous_rerun_recorded_summary":  {
+                                                            "topics_checked":  12,
+                                                            "candidates_found":  64,
+                                                            "unclear_candidates":  18,
+                                                            "rename_redirect_observations":  4
+                                                        }
+                }
+}

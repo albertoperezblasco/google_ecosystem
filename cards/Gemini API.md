@@ -44,7 +44,7 @@ Gemini API is no longer just "call a text model from code."
 - In `APIs & SDKs`, it also fans out into specialized surfaces such as `Interactions API`, `Batch API`, `Function calling`, `Structured outputs`, and `Context caching`.
 - In `Data Grounding RAG Connectors`, it exposes lightweight grounding tools such as `Google Search`, `Grounding with Google Maps`, `URL Context`, and `File Search`.
 - In `Guardrails Security Governance`, it exposes request-time controls such as `Safety settings`.
-- In `Agents Workflow Orchestration`, it now includes agentic surfaces such as `Computer Use` and `Gemini Deep Research`.
+- In `Agents Workflow Orchestration`, it now includes agentic surfaces such as `Computer Use` and `Gemini Deep Research Agent`.
 
 That combination makes Gemini API the thin waist of the builder ecosystem: the place where models, tools, safety, live interactions, and agent capabilities meet.
 

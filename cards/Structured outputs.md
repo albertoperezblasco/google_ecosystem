@@ -9,7 +9,7 @@ source_topic: /services_md/api_sdk.md
 related_tools:
 - Gemini API
 - Function calling
-- Gemini Deep Research
+- Gemini Deep Research Agent
 - Document AI
 status: active
 ---
@@ -50,4 +50,3 @@ That makes it useful for extraction, classification, agent pipelines, and other 
 - General index: `/services_md/google-services-by-topic.md`
 - Related topic: `/services_md/api_sdk.md`
 - Official documentation: https://ai.google.dev/gemini-api/docs/structured-output
-

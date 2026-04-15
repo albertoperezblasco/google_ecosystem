@@ -11,7 +11,7 @@ source_topic:
 - /services_md/dev_tools_agents.md
 related_tools:
 - Gemini API
-- Gemini Deep Research
+- Gemini Deep Research Agent
 - Gemini CLI
 status: preview
 ---
@@ -52,4 +52,3 @@ The current docs describe it as a preview feature that can analyze screenshots a
 - General index: `/services_md/google-services-by-topic.md`
 - Related topics: `/services_md/agents-workflow-orchestration.md`, `/services_md/dev_tools_agents.md`
 - Official documentation: https://ai.google.dev/gemini-api/docs/computer-use
-

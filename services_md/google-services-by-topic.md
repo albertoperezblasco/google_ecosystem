@@ -1,6 +1,6 @@
 # Google Services by Topic
 
-Last refreshed: 2026-04-14
+Last refreshed: 2026-04-15
 
 ## Models
 
@@ -12,10 +12,12 @@ Last refreshed: 2026-04-14
   - [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models) - scheduled for retirement on 2026-06-17
   - [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models) - scheduled for retirement on 2026-06-17
   - [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models) - scheduled for retirement on 2026-07-22
-  - [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/deprecations) - scheduled for retirement on 2026-06-01
-  - [Gemini 2.0 Flash-Lite](https://ai.google.dev/gemini-api/docs/deprecations) - scheduled for retirement on 2026-06-01
+- Previous models now marked deprecated
+  - [Gemini 2.0 Flash Deprecated](https://ai.google.dev/gemini-api/docs/deprecations) - scheduled for retirement on 2026-06-01
+  - [Gemini 2.0 Flash-Lite Deprecated](https://ai.google.dev/gemini-api/docs/deprecations) - scheduled for retirement on 2026-06-01
 - Live and speech models
   - [Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Gemini 2.5 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models)
   - [Gemini 2.5 Flash TTS Preview](https://ai.google.dev/gemini-api/docs/models)
   - [Gemini 2.5 Pro TTS Preview](https://ai.google.dev/gemini-api/docs/models)
 - Image, video, and music generation
@@ -34,7 +36,8 @@ Last refreshed: 2026-04-14
   - [Gemini Deep Research Preview](https://ai.google.dev/gemini-api/docs/models)
   - [Gemini Embedding](https://ai.google.dev/gemini-api/docs/embeddings)
   - [Gemini Embedding 2 Preview](https://ai.google.dev/gemini-api/docs/embeddings)
-  - [Gemini Robotics Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Gemini Robotics-ER 1.6 Preview](https://ai.google.dev/gemini-api/docs/models)
+  - [Gemini Robotics-ER 1.5 Preview](https://ai.google.dev/gemini-api/docs/models)
 - Open model families
   - [Gemma 4](https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)
   - [Gemma 3n](https://ai.google.dev/gemma/docs/gemma-3n)
@@ -44,6 +47,7 @@ Last refreshed: 2026-04-14
   - [FunctionGemma](https://ai.google.dev/gemma/docs/functiongemma)
 - Deprecated or shut down model notes
   - [Gemini 3 Pro Preview](https://ai.google.dev/gemini-api/docs/deprecations) - shut down on 2026-03-09
+  - [text-embedding-004](https://ai.google.dev/gemini-api/docs/deprecations) - shut down on 2026-01-14
   - [Imagen 4 GA model IDs](https://ai.google.dev/gemini-api/docs/deprecations) - retirement window announced for 2026-06-24
   - [gemini-embedding-001](https://ai.google.dev/gemini-api/docs/deprecations) - retirement window announced for 2026-07-14
 
@@ -55,6 +59,12 @@ Last refreshed: 2026-04-14
   - [Gemini Web App](https://gemini.google/about/)
 <a id="service-gemini-mobile-app"></a>
   - [Gemini Mobile App](https://support.google.com/gemini/answer/14554984)
+<a id="service-gemini-live"></a>
+  - [Gemini Live](https://gemini.google/overview/gemini-live/)
+<a id="service-gemini-canvas"></a>
+  - [Gemini Canvas](https://gemini.google/overview/canvas/)
+<a id="service-gemini-deep-research-apps"></a>
+  - [Gemini Deep Research](https://gemini.google/overview/deep-research/)
 <a id="service-gemini-in-chrome"></a>
   - [Gemini in Chrome](https://www.google.com/chrome/ai-innovations/)
 <a id="service-gemini-in-google-workspace"></a>
@@ -67,11 +77,13 @@ Last refreshed: 2026-04-14
 <a id="service-gemini-code-assist"></a>
 - [Gemini Code Assist](https://developers.google.com/gemini-code-assist/docs/overview)
 <a id="service-firebase-studio"></a>
-- [Firebase Studio](https://firebase.google.com/docs/studio)
+- [Firebase Studio](https://firebase.google.com/docs/studio) - sunset announced on 2026-03-19; new workspace creation ends 2026-06-22 and shutdown is scheduled for 2027-03-22
 <a id="service-gemini-cli"></a>
 - [Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli)
+<a id="service-firebase-mcp-server"></a>
+- [Firebase MCP server](https://firebase.google.com/docs/ai-assistance/mcp-server)
 <a id="service-jules-2-0"></a>
-- [Jules 2.0](https://jules.google/docs/) - current docs brand the product simply as Jules; treat it as experimental
+- [Jules](https://jules.google/docs/) - experimental coding agent
 <a id="service-antigravity"></a>
 - [Antigravity](https://antigravity.google/docs/get-started)
 
@@ -99,11 +111,13 @@ Last refreshed: 2026-04-14
   - [Model catalog](https://ai.google.dev/gemini-api/docs/models)
   - [Deprecations](https://ai.google.dev/gemini-api/docs/deprecations)
 <a id="service-interactions-api"></a>
-- [Interactions API](https://ai.google.dev/api/interactions-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions)
 <a id="service-batch-api"></a>
 - [Batch API](https://ai.google.dev/gemini-api/docs/batch-api)
 <a id="service-function-calling"></a>
 - [Function calling](https://ai.google.dev/gemini-api/docs/function-calling)
+<a id="service-code-execution"></a>
+- [Code execution](https://ai.google.dev/gemini-api/docs/code-execution)
 <a id="service-structured-outputs"></a>
 - [Structured outputs](https://ai.google.dev/gemini-api/docs/structured-output)
 <a id="service-context-caching"></a>
@@ -114,6 +128,8 @@ Last refreshed: 2026-04-14
 - [Gemini Live API](https://ai.google.dev/gemini-api/docs/live-api)
 <a id="service-gemini-embeddings"></a>
 - [Gemini Embeddings](https://ai.google.dev/gemini-api/docs/embeddings)
+<a id="service-firebase-ai-logic"></a>
+- [Firebase AI Logic](https://firebase.google.com/docs/ai-logic)
 - [Vertex AI](https://docs.cloud.google.com/vertex-ai/docs)
 <a id="service-agent-development-kit"></a>
 - [Agent Development Kit (Google ADK)](https://docs.cloud.google.com/agent-builder/agent-development-kit/overview)
@@ -141,7 +157,7 @@ Last refreshed: 2026-04-14
 APIs participating in the diagram:
 
 - [Gemini API](https://ai.google.dev/gemini-api/docs)
-- [Interactions API](https://ai.google.dev/api/interactions-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions)
 - [Batch API](https://ai.google.dev/gemini-api/docs/batch-api)
 - [Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries)
 - [Gemini Live API](https://ai.google.dev/gemini-api/docs/live-api)
@@ -225,7 +241,7 @@ APIs participating in the diagram:
 - [Google AI Studio](https://ai.google.dev/aistudio/)
 <a id="service-ai-studio-build-mode"></a>
   - [AI Studio Build Mode](https://ai.google.dev/gemini-api/docs/aistudio-build-mode)
-- [Firebase Studio](https://firebase.google.com/docs/studio)
+- [Firebase Studio](https://firebase.google.com/docs/studio) - sunset announced on 2026-03-19; new workspace creation ends 2026-06-22 and shutdown is scheduled for 2027-03-22
 <a id="service-app-prototyping-agent"></a>
   - [App Prototyping agent](https://firebase.google.com/docs/studio/get-started-ai)
 - [Opal](https://opal.google/_app/landing/)
@@ -263,9 +279,9 @@ APIs participating in the diagram:
 <a id="service-computer-use"></a>
   - [Computer Use](https://ai.google.dev/gemini-api/docs/computer-use)
 <a id="service-gemini-deep-research"></a>
-  - [Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research)
+  - [Gemini Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research)
   - [Function calling](https://ai.google.dev/gemini-api/docs/function-calling)
-  - [Interactions API](https://ai.google.dev/api/interactions-api)
+  - [Interactions API](https://ai.google.dev/gemini-api/docs/interactions)
 
 ## Tech Enablement Deliverables
 
@@ -280,6 +296,7 @@ APIs participating in the diagram:
 | [Stitch](#service-stitch) | 20260123_stitch_ai-studio_technical_evaluation | Report |
 | [Agent Development Kit](#service-agent-development-kit) | 20260130_Building_GraphRAG_Agents_with_the_Google_ADK | Report |
 | [Firebase Studio](#service-firebase-studio) | 20260130_firebase_and_firebase_studio | Report |
+| [Gemini Canvas](#service-gemini-canvas) | 20260116_Dynamic_Web_Building_with_A2UI | Report |
 | Google Protocol | 20260217_WebMCP-Google | Report |
 | [Vertex AI Agent Builder](#service-vertex-ai-agent-builder) | 20250414_VertexAIAgentBuilder | Report |
 | Google Protocol | 20250506_A2A | Report |

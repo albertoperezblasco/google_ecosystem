@@ -9,7 +9,7 @@ This topic covers Google's coding surfaces grouped by interaction model rather t
 | Gemini Code Assist | In-editor assistant | Embedded coding help inside supported IDEs | [Gemini Code Assist](https://developers.google.com/gemini-code-assist/docs/overview?hl=es-419) |
 | Firebase Studio | Browser build surface | Cloud workspace for app building, prototyping, and collaboration with Gemini embedded | [Firebase Studio](https://firebase.google.com/docs/studio?hl=es-419) |
 | Gemini CLI | Terminal agent | Open-source CLI agent with tool use, ReAct loops, and MCP support | [Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli?hl=es-419) |
-| Jules 2.0 | Async repo agent | Delegated coding agent connected to GitHub and a hosted execution environment | [Jules](https://jules.google/docs/) |
+| Jules | Async repo agent | Delegated coding agent connected to GitHub and a hosted execution environment | [Jules](https://jules.google/docs/) |
 | Antigravity | Agent-first environment | Development lane centered on autonomous and richer agent orchestration | [Antigravity](https://antigravity.google/docs/get-started) |
 
 ## Interaction model view
@@ -18,7 +18,7 @@ This topic covers Google's coding surfaces grouped by interaction model rather t
 | --- | --- |
 | In-editor assistance | Gemini Code Assist |
 | Active build surfaces | Firebase Studio, Gemini CLI |
-| Delegated agents | Jules 2.0, Antigravity |
+| Delegated agents | Jules, Antigravity |
 
 This is the cleanest way to read the page:
 
@@ -74,11 +74,11 @@ Gemini CLI is the terminal-native agent in this topic. It is positioned as an op
 
 Use it when the terminal is already your control center and you want agentic behavior there.
 
-## Jules 2.0
+## Jules
 
 Official: [Jules](https://jules.google/docs/)
 
-Jules 2.0 is the async repo agent in this topic. It is designed around a delegated GitHub workflow where the agent connects to a repository, clones it into a virtual machine, proposes a plan, and then works after approval.
+Jules is the async repo agent in this topic. It is designed around a delegated GitHub workflow where the agent connects to a repository, clones it into a virtual machine, proposes a plan, and then works after approval.
 
 ### Why it matters
 
@@ -113,5 +113,5 @@ Use it when a simple copilot or terminal agent is not enough and you want a deve
 | Stay inside the editor and get coding help in place | Gemini Code Assist |
 | Build and prototype apps in a browser workspace | Firebase Studio |
 | Run agentic coding workflows from the terminal | Gemini CLI |
-| Delegate repo work asynchronously | Jules 2.0 |
+| Delegate repo work asynchronously | Jules |
 | Work in a more agent-first development environment | Antigravity |

@@ -325,6 +325,7 @@
       <div class="chips">
         <span class="chip">Entrada: <code>using-google-genai-refresh</code></span>
         <span class="chip">Fuente base: <code>sourceEcosystemGoogle/</code></span>
+        <span class="chip">Discovery: <code>Topic Gap Discovery subagent</code></span>
         <span class="chip">Salida: <code>cards</code> + <code>services_md</code> + <code>html</code></span>
       </div>
     </section>
@@ -351,8 +352,8 @@
               <div class="branch-title">&iquest;Necesitas saber qu&eacute; hay nuevo o qu&eacute; ha cambiado?</div>
               <div class="arrow">&darr;</div>
               <div class="node process">
-                <strong><code>researching-google-genai-surfaces</code></strong>
-                <p>Busca solo en fuentes oficiales de Google y decide qu&eacute; entra en catalogo.</p>
+                <strong><code>Topic Gap Discovery subagent</code></strong>
+                <p>Recorre todos los topics, investiga en propiedades oficiales y devuelve un pool amplio de candidatos plausibles.</p>
               </div>
             </div>
 
@@ -396,7 +397,7 @@
           <div class="mermaid-card">
             <pre class="mermaid" aria-label="Diagrama Mermaid del flujo Google GenAI">flowchart TD
     A["using-google-genai-refresh&lt;br/&gt;router del proceso"] --&gt; B["Leer sourceEcosystemGoogle/google-genai-refresh-source.md"]
-    B --&gt; C["researching-google-genai-surfaces&lt;br/&gt;discovery oficial"]
+    B --&gt; C["Topic Gap Discovery subagent&lt;br/&gt;discovery por topic"]
     C --&gt; D["tracking-google-genai-lifecycle&lt;br/&gt;active / preview / deprecated / shut_down"]
     D --&gt; E["updating-google-genai-catalog&lt;br/&gt;cards + services_md + html"]
     E --&gt; F["verifying-google-genai-refresh&lt;br/&gt;consistencia cruzada"]
@@ -409,7 +410,7 @@
           </div>
 
           <pre class="mermaid-fallback">flowchart TD
-A["using-google-genai-refresh"] --&gt; B["researching-google-genai-surfaces"]
+A["using-google-genai-refresh"] --&gt; B["Topic Gap Discovery subagent"]
 B --&gt; C["tracking-google-genai-lifecycle"]
 C --&gt; D["updating-google-genai-catalog"]
 D --&gt; E["verifying-google-genai-refresh"]</pre>
@@ -422,7 +423,8 @@ D --&gt; E["verifying-google-genai-refresh"]</pre>
           <ul>
             <li><code>using-google-genai-refresh</code> no edita contenido: fuerza a empezar por el proceso correcto.</li>
             <li>La fuente local obligatoria es <code>sourceEcosystemGoogle/google-genai-refresh-source.md</code>.</li>
-            <li>Discovery va primero: antes de editar hay que confirmar si la surface existe y cual es su URL oficial.</li>
+            <li>Discovery va primero y ahora corre via subagente: antes de editar hay que confirmar si la surface existe y cual es su URL oficial.</li>
+            <li>Si el usuario pide ejecutar todo el flujo o rehacer el refresh completo, eso implica siempre lanzar el <code>Topic Gap Discovery subagent</code>.</li>
             <li>Lifecycle va despues: primero se decide si algo esta activo, en preview o deprecado; luego se reescribe.</li>
             <li>La actualizacion toca cuatro destinos: <code>cards/</code>, <code>google-services-by-topic.md</code>, <code>google_ecosystem.md</code> y este HTML.</li>
             <li>La verificacion final no es opcional: evita cards huerfanas, listas activas con deprecados y nombres incoherentes.</li>
@@ -452,7 +454,7 @@ D --&gt; E["verifying-google-genai-refresh"]</pre>
           <article class="scenario">
             <h3>Nueva surface oficial</h3>
             <p>Cuando Google documenta un producto, framework o tool nuevo y hay que incorporarlo al catalogo.</p>
-            <div class="formula"><code>using-google-genai-refresh</code> -&gt; <code>researching-google-genai-surfaces</code> -&gt; <code>tracking-google-genai-lifecycle</code> -&gt; <code>updating-google-genai-catalog</code> -&gt; <code>verifying-google-genai-refresh</code></div>
+            <div class="formula"><code>using-google-genai-refresh</code> -&gt; <code>Topic Gap Discovery subagent</code> -&gt; <code>tracking-google-genai-lifecycle</code> -&gt; <code>updating-google-genai-catalog</code> -&gt; <code>verifying-google-genai-refresh</code></div>
           </article>
 
           <article class="scenario">
@@ -463,8 +465,8 @@ D --&gt; E["verifying-google-genai-refresh"]</pre>
 
           <article class="scenario">
             <h3>Refresh completo del repo</h3>
-            <p>Cuando hay que sincronizar cards, indices y mapa a la vez.</p>
-            <div class="formula"><code>using-google-genai-refresh</code> -&gt; <code>researching-google-genai-surfaces</code> -&gt; <code>tracking-google-genai-lifecycle</code> -&gt; <code>updating-google-genai-catalog</code> -&gt; <code>verifying-google-genai-refresh</code></div>
+            <p>Cuando hay que sincronizar cards, indices y mapa a la vez. Esta ruta siempre incluye el <code>Topic Gap Discovery subagent</code>.</p>
+            <div class="formula"><code>using-google-genai-refresh</code> -&gt; <code>Topic Gap Discovery subagent</code> -&gt; <code>tracking-google-genai-lifecycle</code> -&gt; <code>updating-google-genai-catalog</code> -&gt; <code>verifying-google-genai-refresh</code></div>
           </article>
 
           <article class="scenario">

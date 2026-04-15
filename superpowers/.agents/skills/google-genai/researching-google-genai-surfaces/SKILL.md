@@ -1,9 +1,19 @@
 ---
 name: researching-google-genai-surfaces
-description: Use when checking official Google sources for new GenAI products, frameworks, tool surfaces, topic gaps, or notable positioning changes before editing this catalog
+description: Legacy fallback for manual Google GenAI discovery outside the primary refresh flow. Use only when the Topic Gap Discovery subagent cannot be launched and a human-directed research pass is still needed
 ---
 
 # Researching Google GenAI Surfaces
+
+## Status
+
+This skill is no longer the primary discovery step of the Google GenAI refresh flow.
+
+The standard flow now launches the Topic Gap Discovery subagent defined by:
+
+- `superpowers/.agents/skills/google-genai/using-google-genai-refresh/references/topic-gap-discovery-subagent.md`
+
+Use this skill only as a manual fallback when the subagent path cannot be used.
 
 ## Mission
 

@@ -1,6 +1,6 @@
 # Google Ecosystem
 
-Last refreshed: 2026-04-14
+Last refreshed: 2026-04-15
 
 ## Complete Google Map
 
@@ -8,7 +8,7 @@ Last refreshed: 2026-04-14
 | --- | --- | --- |
 | Google Cloud | Managed platform, governance, enterprise operations | Vertex AI, Agent Builder, Vertex AI Search, Model Armor |
 | Google AI for Developers | Fast builder entry points and direct APIs | Gemini API, Google AI Studio, Google Gen AI SDK, Live API |
-| Firebase | Browser workspace and app delivery | Firebase Studio, App Prototyping agent, Genkit |
+| Firebase | Browser workspace, app delivery, and app-side AI integration | Firebase Studio, App Prototyping agent, Firebase AI Logic, Genkit |
 | Consumer / productivity | End-user AI experiences | Gemini Apps, NotebookLM, Gemini in Workspace |
 | Edge / open models | On-device and portable model stack | Google AI Edge, Gemma, MediaPipe, LiteRT |
 
@@ -21,6 +21,7 @@ Last refreshed: 2026-04-14
 | Google Gen AI SDK | Google AI for Developers | Developers who want official client libraries |
 | Vertex AI | Google Cloud | Teams that need enterprise platform depth, governance, and managed infrastructure |
 | Firebase Studio | Firebase | Teams that want a browser-based workspace for prototyping and shipping apps |
+| Firebase AI Logic | Firebase | Teams that want Firebase-native client SDKs for AI features in apps |
 
 ## Google Cloud
 
@@ -64,7 +65,7 @@ Last refreshed: 2026-04-14
 
 - [Gemini API](https://ai.google.dev/gemini-api/docs) is the main programmable entry point for models, built-in tools, embeddings, and live interactions.
 - Current high-signal surfaces around it:
-  - [Interactions API](https://ai.google.dev/api/interactions-api)
+  - [Interactions API](https://ai.google.dev/gemini-api/docs/interactions)
   - [Batch API](https://ai.google.dev/gemini-api/docs/batch-api)
   - [Function calling](https://ai.google.dev/gemini-api/docs/function-calling)
   - [Structured outputs](https://ai.google.dev/gemini-api/docs/structured-output)
@@ -79,7 +80,7 @@ Last refreshed: 2026-04-14
   - [Safety settings](https://ai.google.dev/gemini-api/docs/safety-settings)
   - [Gemini Embeddings](https://ai.google.dev/gemini-api/docs/embeddings)
   - [Computer Use](https://ai.google.dev/gemini-api/docs/computer-use)
-  - [Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research)
+  - [Gemini Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research)
 
 ### Google AI Studio
 
@@ -102,6 +103,8 @@ Last refreshed: 2026-04-14
 
 - [Firebase Studio](https://firebase.google.com/docs/studio) is the browser workspace for building, prototyping, and shipping full-stack apps with Gemini assistance.
 - [App Prototyping agent](https://firebase.google.com/docs/studio/get-started-ai) is the prompt-first app creation lane inside Firebase Studio.
+- [Firebase AI Logic](https://firebase.google.com/docs/ai-logic) is the Firebase-native client SDK surface for building AI-powered app features with Gemini and Imagen.
+- [Firebase MCP server](https://firebase.google.com/docs/ai-assistance/mcp-server) connects MCP-capable coding agents and tools to Firebase workflows.
 - [Genkit](https://genkit.dev/docs/js/overview/) is the open-source framework for building AI-powered applications.
 - Design-first and mini-app surfaces:
   - [Stitch](https://stitch.withgoogle.com/)
@@ -112,6 +115,9 @@ Last refreshed: 2026-04-14
 - [Gemini Apps](https://support.google.com/gemini/answer/13275745)
   - [Gemini Web App](https://gemini.google/about/)
   - [Gemini Mobile App](https://support.google.com/gemini/answer/14554984)
+  - [Gemini Live](https://gemini.google/overview/gemini-live/)
+  - [Gemini Canvas](https://gemini.google/overview/canvas/)
+  - [Gemini Deep Research](https://gemini.google/overview/deep-research/)
   - [Gemini in Chrome](https://www.google.com/chrome/ai-innovations/)
 - [Gemini in Google Workspace](https://workspace.google.com/resources/ai/)
 - [NotebookLM](https://notebooklm.google/)

@@ -9,7 +9,7 @@ source_topic: /services_md/dev_tools_agents.md
 related_tools:
 - Firebase Studio
 - Gemini CLI
-- Jules 2.0
+- Jules
 - Antigravity
 status: active
 ---
@@ -35,7 +35,7 @@ Gemini Code Assist acts as the in-editor coding assistant inside supported IDEs 
 
 - If your use case is closer to `Firebase Studio`, start there instead.
 - If your use case is closer to `Gemini CLI`, start there instead.
-- If your use case is closer to `Jules 2.0`, start there instead.
+- If your use case is closer to `Jules`, start there instead.
 - If your use case is closer to `Antigravity`, start there instead.
 
 ## Key Capabilities
@@ -60,7 +60,7 @@ Gemini Code Assist acts as the in-editor coding assistant inside supported IDEs 
 | You want to stay inside your IDE and get inline help while reading, writing, or refactoring code | Gemini Code Assist |
 | A workflow that is better aligned with `Firebase Studio` | Firebase Studio |
 | A workflow that is better aligned with `Gemini CLI` | Gemini CLI |
-| A workflow that is better aligned with `Jules 2.0` | Jules 2.0 |
+| A workflow that is better aligned with `Jules` | Jules |
 | A workflow that is better aligned with `Antigravity` | Antigravity |
 
 ## Links
